@@ -1,0 +1,2693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veteran Professionals Job Leads and Newsletter</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #262329;
+      --soft-ink: #56515f;
+      --paper: #f5f7fb;
+      --panel: #ffffff;
+      --line: #d9e0ea;
+      --purple: #5d6f8f;
+      --purple-dark: #263a5c;
+      --green: #0f7865;
+      --orange: #d65b36;
+      --blue: #2c6897;
+      --yellow: #f3c85b;
+      --shadow: 0 18px 48px rgba(38, 35, 41, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Aptos, "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 14px clamp(16px, 4vw, 46px);
+      border-bottom: 1px solid rgba(222, 217, 234, 0.9);
+      background: rgba(247, 246, 251, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--purple), var(--green));
+      flex: 0 0 auto;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+      min-width: 0;
+      overflow-x: auto;
+    }
+
+    .tab-button {
+      min-height: 38px;
+      padding: 0 13px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--soft-ink);
+      background: transparent;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .tab-button.active {
+      color: #fff;
+      border-color: var(--purple-dark);
+      background: var(--purple-dark);
+    }
+
+    .top-action {
+      min-height: 32px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--soft-ink);
+      background: rgba(255, 255, 255, 0.64);
+      font-size: 0.78rem;
+      font-weight: 800;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .top-action:hover,
+    .top-action:focus {
+      color: var(--purple-dark);
+      border-color: var(--purple);
+      background: #fff;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 390px;
+      align-items: end;
+      padding: clamp(36px, 7vw, 80px) clamp(16px, 4vw, 46px);
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(29, 25, 38, 0.88), rgba(29, 25, 38, 0.48)),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80") center / cover;
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      color: #eadfff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-size: clamp(2.6rem, 7vw, 5.7rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
+
+    .hero p:last-child {
+      max-width: 710px;
+      margin: 20px 0 0;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: clamp(1rem, 2vw, 1.24rem);
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.65rem, 3vw, 2.45rem);
+      line-height: 1.1;
+    }
+
+    .section-head p,
+    .muted {
+      color: var(--soft-ink);
+      line-height: 1.55;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) 170px 170px;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 8px 22px rgba(38, 35, 41, 0.06);
+    }
+
+    .input,
+    .select,
+    textarea {
+      width: 100%;
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0 12px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 96px;
+      padding-top: 10px;
+      resize: vertical;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 330px;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 10px 24px rgba(38, 35, 41, 0.06);
+    }
+
+    .job-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+    }
+
+    .industry-groups {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-items: start;
+    }
+
+    .industry-group {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .industry-group .job-section-title {
+      margin: 0;
+    }
+
+    .industry-card-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .job-section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 22px 0 10px;
+      color: var(--soft-ink);
+      font-size: 0.88rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .job-section-title:first-child {
+      margin-top: 0;
+    }
+
+    .job-section-title span {
+      color: var(--purple-dark);
+      text-transform: none;
+    }
+
+    .lead-section {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .lead-section > summary {
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+      list-style: none;
+      box-shadow: 0 8px 20px rgba(38, 35, 41, 0.05);
+    }
+
+    .lead-section > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .lead-section > summary::after {
+      content: "Show leads";
+      color: var(--purple-dark);
+      font-size: 0.78rem;
+      text-transform: none;
+    }
+
+    .lead-section[open] > summary::after {
+      content: "Hide leads";
+    }
+
+    .lead-section > .job-section-title {
+      margin: 0;
+    }
+
+    .job-title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.28;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 0 9px;
+      border-radius: 999px;
+      color: var(--purple-dark);
+      background: #eee8fa;
+      font-size: 0.77rem;
+      font-weight: 900;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      color: var(--soft-ink);
+      font-size: 0.92rem;
+    }
+
+    .link-button,
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 7px;
+      font-weight: 850;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .link-button {
+      align-self: center;
+      color: #fff;
+      background: var(--purple-dark);
+    }
+
+    .primary-button {
+      border: 0;
+      color: #fff;
+      background: var(--green);
+    }
+
+    .secondary-button {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .quiet-button {
+      min-height: 30px;
+      padding: 0 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--soft-ink);
+      background: transparent;
+      font-size: 0.76rem;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+    .quiet-button:hover,
+    .quiet-button:focus {
+      color: var(--purple-dark);
+      background: #fff;
+    }
+
+    .side-card {
+      padding: 18px;
+    }
+
+    .side-card + .side-card {
+      margin-top: 12px;
+    }
+
+    .quick-links {
+      display: grid;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .quick-links a {
+      display: block;
+      color: var(--blue);
+      font-weight: 850;
+    }
+
+    .flyer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .flyer-section-group,
+    .flyer-tools-card {
+      grid-column: 1 / -1;
+    }
+
+    .flyer-section-group {
+      display: grid;
+      gap: 12px;
+    }
+
+    .flyer-section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 14px;
+      margin-top: 4px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.78rem;
+      color: var(--purple);
+    }
+
+    .flyer-section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .flyer-card {
+      overflow: hidden;
+    }
+
+    .reference-section {
+      margin-top: 30px;
+    }
+
+    .reference-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .reference-card {
+      display: grid;
+      gap: 12px;
+      padding: 18px;
+    }
+
+    .reference-preview {
+      display: grid;
+      gap: 8px;
+    }
+
+    .reference-preview img {
+      display: block;
+      width: 100%;
+      max-height: 260px;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .caption {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .flyer-preview {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      color: var(--soft-ink);
+      background: #eceaf2;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    .flyer-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flyer-preview iframe,
+    .flyer-preview object {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    .flyer-body,
+    .video-body {
+      padding: 16px;
+    }
+
+    .flyer-details {
+      display: grid;
+      gap: 7px;
+      margin: 12px 0;
+      color: var(--soft-ink);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .flyer-details strong {
+      color: var(--ink);
+    }
+
+    .date {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--orange);
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .training-video-section {
+      margin-top: 28px;
+    }
+
+    .snapshot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .snapshot-card {
+      overflow: hidden;
+    }
+
+    .snapshot-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .snapshot-body {
+      display: grid;
+      gap: 8px;
+      padding: 16px;
+    }
+
+    .resource-section {
+      margin-top: 30px;
+    }
+
+    .workshop-calendar-section {
+      margin: 0 0 30px;
+    }
+
+    .calendar-feature {
+      display: grid;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(260px, 1fr);
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+    }
+
+    .calendar-feature img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .calendar-details {
+      display: grid;
+      gap: 12px;
+    }
+
+    .calendar-detail-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--soft-ink);
+      line-height: 1.45;
+    }
+
+    .calendar-detail-list strong {
+      color: var(--ink);
+    }
+
+    .video-frame {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      background: #111;
+    }
+
+    .upload-shell {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .lock-card,
+    .form-card {
+      padding: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .form-grid .wide {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--soft-ink);
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .notice {
+      min-height: 22px;
+      color: var(--green);
+      font-weight: 850;
+    }
+
+    .loading-status {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 10px 12px;
+      border: 1px solid #c9dcd6;
+      border-radius: 8px;
+      color: var(--green);
+      background: #edf8f4;
+      font-weight: 850;
+    }
+
+    .loading-status.active {
+      display: flex;
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(15, 120, 101, 0.2);
+      border-top-color: var(--green);
+      border-radius: 999px;
+      animation: spin 0.8s linear infinite;
+      flex: 0 0 auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .source-note {
+      display: block;
+      margin-top: 8px;
+      color: var(--soft-ink);
+      font-size: 0.84rem;
+    }
+
+    .empty {
+      padding: 20px;
+      color: var(--soft-ink);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px clamp(16px, 4vw, 46px);
+      color: var(--soft-ink);
+      border-top: 1px solid var(--line);
+      background: #fff;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 920px) {
+      .topbar {
+        grid-template-columns: 1fr auto;
+      }
+
+      .tabs {
+        grid-column: 1 / -1;
+        justify-content: start;
+        order: 3;
+      }
+
+      .toolbar,
+      .grid,
+      .calendar-feature,
+      .upload-shell,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flyer-grid,
+      .flyer-section-grid,
+      .reference-grid,
+      .snapshot-grid,
+      .industry-groups,
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .job-card,
+      .section-head,
+      footer {
+        grid-template-columns: 1fr;
+        display: grid;
+      }
+
+      .link-button {
+        width: 100%;
+      }
+
+      .job-card {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home">
+      <span class="brand-mark">VC</span>
+      <span>Veteran Professionals</span>
+    </a>
+
+    <nav class="tabs" aria-label="Main sections">
+      <button class="tab-button active" type="button" data-tab="vetJobs">Veteran Job Board</button>
+      <button class="tab-button" type="button" data-tab="vetNewsletter">Veteran Professionals Newsletter</button>
+      <button class="tab-button" type="button" data-tab="training">Training</button>
+      <button class="tab-button" type="button" data-tab="uploads">Upload</button>
+    </nav>
+
+    <button class="top-action" type="button" data-tab-shortcut="uploads">Vetted Upload</button>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <p class="eyebrow">Organized job leads, flyers, and training resources</p>
+      <h1>Welcome to the Veteran Professionals Job Lead Board</h1>
+      <p>Keep job links, newsletter flyers, training dates, and how-to videos in one clean flow. Uploads are passcode protected so new material can be checked before it is added.</p>
+    </div>
+  </section>
+
+  <main>
+    <section class="tab-panel active" id="vetJobs">
+      <div class="section-head">
+        <div>
+          <h2>Veteran Job Board</h2>
+          <p class="muted">Active job leads with original source links preserved from email lists and approved veteran employment postings.</p>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <input class="input" id="jobSearch" type="search" placeholder="Search title, company, category, or city">
+        <select class="select" id="jobCategory">
+          <option value="">All categories</option>
+          <option>Transportation / CDL</option>
+          <option>Healthcare</option>
+          <option>Skilled Trades</option>
+          <option>Retail / Customer Service</option>
+          <option>Corporate / Professional</option>
+          <option>Government</option>
+        </select>
+        <select class="select" id="jobSort">
+          <option value="industry">Industry</option>
+          <option value="newest">Newest first</option>
+          <option value="oldest">Oldest first</option>
+        </select>
+      </div>
+
+      <div class="grid">
+        <div class="stack" id="jobList" aria-live="polite"></div>
+        <aside>
+          <div class="card side-card">
+            <h3>Quick Tip</h3>
+            <p class="muted">These positions can fill quickly. Apply as soon as possible and follow up with resume updates after submission.</p>
+          </div>
+          <div class="card side-card">
+            <h3>Local City and State Government Job Sites</h3>
+            <ul class="quick-links">
+              <li><a href="https://www.mcgtn.org/human-resources/employment" target="_blank" rel="noopener">Jobs in Montgomery County, Tennessee</a></li>
+              <li><a href="https://www.tn.gov/careers.html" target="_blank" rel="noopener">Jobs in Tennessee State Government</a></li>
+              <li><a href="https://www.usajobs.gov/" target="_blank" rel="noopener">Federal Jobs</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+      <div class="resource-section" id="justiceResources">
+        <div class="section-head">
+          <div>
+            <h2>2nd Chance & Justice-Impacted Resources</h2>
+            <p class="muted">Vetted leads, reentry resources, and referral information for justice-impacted job seekers.</p>
+          </div>
+          <button class="quiet-button" id="editJusticeResources" type="button">Edit</button>
+        </div>
+        <div class="snapshot-grid" id="justiceResourceList" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="vetNewsletter">
+      <div class="section-head">
+        <div>
+          <h2>Veteran Professionals Newsletter</h2>
+          <p class="muted">Flyers, bulletins, and resource notices arranged by date in one area. Use chronological order from the vetted section when you need to review the sequence.</p>
+        </div>
+        <button class="quiet-button" id="editFlyers" type="button">Edit</button>
+      </div>
+      <div class="flyer-grid" id="flyerList" aria-live="polite"></div>
+      <div class="reference-section">
+        <div class="section-head">
+          <div>
+            <h2>References</h2>
+            <p class="muted">Supporting documents and approved reference materials for newsletter use.</p>
+          </div>
+          <button class="quiet-button" id="editReferences" type="button">Edit</button>
+        </div>
+        <div class="reference-grid" id="referenceList" aria-live="polite"></div>
+    </div>
+  </section>
+
+    <section class="tab-panel" id="training">
+      <div class="section-head">
+        <div>
+          <h2>Training</h2>
+          <p class="muted">Classes, certification reminders, resume workshops, job-readiness sessions, and how-to videos.</p>
+        </div>
+        <button class="quiet-button" id="editTrainingItems" type="button">Edit</button>
+      </div>
+
+      <div class="workshop-calendar-section">
+        <div class="section-head">
+          <div>
+            <h2>Workshop Calendar</h2>
+            <p class="muted">American Job Center Tennessee workshop schedule for May 2026.</p>
+          </div>
+        </div>
+        <article class="card calendar-feature">
+          <img src="training-workshop-calendar-may-2026.png" alt="American Job Center Tennessee Workshop Calendar May 2026">
+          <div class="calendar-details">
+            <h3>American Job Center Workshop Calendar</h3>
+            <ul class="calendar-detail-list">
+              <li><strong>Month:</strong> May 2026</li>
+              <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
+              <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
+              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
+              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Wilson AJC, Martha O'Bryan Center, Houston AJC.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="resource-section">
+        <div class="section-head">
+          <div>
+            <h2>Resources</h2>
+            <p class="muted">Professional snapshots for websites and tools that support job preparation.</p>
+          </div>
+          <button class="quiet-button" id="editResources" type="button">Edit</button>
+        </div>
+        <div class="snapshot-grid" id="resourceList" aria-live="polite"></div>
+      </div>
+
+      <div class="stack" id="trainingList" aria-live="polite"></div>
+      <div class="training-video-section">
+        <div class="section-head">
+          <div>
+            <h2>Training Videos</h2>
+            <p class="muted">YouTube guidance for applications, resumes, interviews, job searches, and account setup.</p>
+          </div>
+          <button class="quiet-button" id="editTrainingVideos" type="button">Edit</button>
+        </div>
+        <div class="video-grid" id="trainingVideoList" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="tab-panel" id="uploads">
+      <div class="section-head">
+        <div>
+          <h2>Vetted Upload Area</h2>
+          <p class="muted">Use this tab to add approved job links, newsletter flyers, training items, and YouTube videos.</p>
+        </div>
+      </div>
+
+      <div class="upload-shell">
+        <aside class="card lock-card" id="lockCard">
+          <h3>Passcode Required</h3>
+          <p class="muted">Only approved users can add material to the public sections.</p>
+          <label>
+            Passcode
+            <input class="input" id="passcode" type="password" placeholder="Enter passcode">
+          </label>
+          <button class="primary-button" id="unlockButton" type="button">Unlock Uploads</button>
+          <p class="notice" id="lockNotice"></p>
+        </aside>
+
+        <div class="card form-card hidden" id="uploadForms">
+          <div class="section-head">
+            <div>
+              <h3>Upload Approved Content</h3>
+              <p class="muted">Current demo passcode is <strong>vetcentral2026</strong>. You can change it in the script.</p>
+            </div>
+            <button class="secondary-button" id="lockAgain" type="button">Lock</button>
+          </div>
+          <div class="loading-status" id="uploadLoading" role="status" aria-live="polite">
+            <span class="spinner" aria-hidden="true"></span>
+            <span id="uploadLoadingText">Processing...</span>
+          </div>
+
+          <form class="form-grid" id="jobForm">
+            <h3 class="wide">Add Job Lead</h3>
+            <label>
+              Job title
+              <input class="input" name="title" required placeholder="CDL A Driver">
+            </label>
+            <label>
+              Company
+              <input class="input" name="company" required placeholder="Employer name">
+            </label>
+            <label>
+              Category
+              <select class="select" name="category" required>
+                <option>Transportation / CDL</option>
+                <option>Healthcare</option>
+                <option>Skilled Trades</option>
+                <option>Retail / Customer Service</option>
+                <option>Corporate / Professional</option>
+                <option>Government</option>
+              </select>
+            </label>
+            <label>
+              Location
+              <input class="input" name="location" placeholder="Clarksville, TN">
+            </label>
+            <label>
+              Posted date
+              <input class="input" name="date" type="date" required>
+            </label>
+            <label>
+              Requisition number
+              <input class="input" name="requisition" placeholder="R-66028">
+            </label>
+            <label>
+              Original active link
+              <input class="input" name="url" type="url" required placeholder="https://...">
+            </label>
+            <label class="wide">
+              Notes
+              <textarea name="notes" placeholder="Short notes from the email job lead"></textarea>
+            </label>
+            <button class="primary-button wide" type="submit">Add Job to Vet Board</button>
+          </form>
+
+          <hr>
+
+          <form class="form-grid" id="emlForm">
+            <h3 class="wide">Import Veteran Job Email</h3>
+            <label class="wide">
+              Upload .eml job email
+              <input class="input" name="eml" type="file" accept=".eml,message/rfc822" required>
+            </label>
+            <p class="muted wide">The importer reads the VEVRAA email, pulls title, requisition number, company, location, posted date, and keeps the original active application links.</p>
+            <button class="primary-button wide" type="submit">Import VEVRAA Jobs</button>
+          </form>
+
+          <hr>
+
+          <form class="form-grid" id="jsonForm">
+            <h3 class="wide">Import JSON Data</h3>
+            <label class="wide">
+              Upload .json file
+              <input class="input" name="json" type="file" accept=".json,application/json" required>
+            </label>
+            <p class="muted wide">Accepted keys: jobs, flyers, trainings, videos, resources, and justiceResources. Justice resources can include title, image, caption, url, date, time, location, and details.</p>
+            <button class="primary-button wide" type="submit">Import JSON Data</button>
+          </form>
+
+          <form class="form-grid" id="rawJsonForm">
+            <h3 class="wide">Paste Raw JSON Code</h3>
+            <label class="wide">
+              JSON code
+              <textarea name="rawJson" required placeholder='{"justiceResources":[{"title":"2nd Chance Resource","image":"https://...","caption":"Short summary","url":"https://..."}]}'></textarea>
+            </label>
+            <button class="primary-button wide" type="submit">Import Pasted JSON</button>
+          </form>
+
+          <hr>
+
+          <form class="form-grid" id="flyerForm">
+            <h3 class="wide">Add Newsletter Flyer</h3>
+            <label>
+              Flyer title
+              <input class="input" name="title" required placeholder="April 28-29 Hiring Flyer">
+            </label>
+            <label>
+              Flyer date
+              <input class="input" name="date" type="date" required>
+            </label>
+            <label>
+              Flyer section
+              <select class="select" name="category">
+                <option>Job Fair</option>
+                <option>Training Workshop</option>
+                <option>Resource</option>
+                <option>Community Notice</option>
+              </select>
+            </label>
+            <label>
+              Time
+              <input class="input" name="time" placeholder="1:30pm-4pm">
+            </label>
+            <label>
+              Location
+              <input class="input" name="location" placeholder="523 Madison St. Suite B">
+            </label>
+            <label class="wide">
+              Employers attending
+              <input class="input" name="employers" placeholder="CMCSS, Exchange, Project 2231">
+            </label>
+            <label class="wide">
+              Things to bring
+              <input class="input" name="thingsToBring" placeholder="Resume, ID, questions for employers">
+            </label>
+            <label class="wide">
+              Workshop details
+              <textarea name="workshops" placeholder="Resume assistance, cover letters, and more"></textarea>
+            </label>
+            <label class="wide">
+              Upload flyer image or PDF
+              <input class="input" name="file" type="file" accept="image/*,.pdf" required>
+            </label>
+            <button class="primary-button wide" type="submit">Add Flyer to Newsletter</button>
+          </form>
+
+          <div class="form-grid">
+            <h3 class="wide">Manage Newsletter Flyers</h3>
+            <p class="muted wide">Sort, review, and adjust flyer records from the vetted area. Flyer removal requires code 1124.</p>
+            <label>
+              Flyer order
+              <select class="select" id="flyerOrder">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Chronological order</option>
+              </select>
+            </label>
+            <label>
+              Flyer view
+              <select class="select" id="flyerVisibility">
+                <option value="all">Show all flyers</option>
+                <option value="current">Current and upcoming</option>
+                <option value="past">Past flyers only</option>
+              </select>
+            </label>
+            <label>
+              Flyer code
+              <input class="input" id="flyerDeleteCode" type="password" placeholder="Enter code">
+            </label>
+            <button class="quiet-button" id="deletePastFlyers" type="button">Delete</button>
+          </div>
+
+          <hr>
+
+          <div class="form-grid">
+            <h3 class="wide">Manage References</h3>
+            <p class="muted wide">Reference deletion is discreet and requires the reference delete code.</p>
+            <label>
+              Delete code
+              <input class="input" id="referenceDeleteCode" type="password" placeholder="Enter code">
+            </label>
+            <button class="quiet-button" id="deleteAllReferences" type="button">Delete</button>
+          </div>
+
+          <hr>
+
+          <form class="form-grid" id="trainingForm">
+            <h3 class="wide">Add Training</h3>
+            <label>
+              Training title
+              <input class="input" name="title" required placeholder="Resume Workshop">
+            </label>
+            <label>
+              Date
+              <input class="input" name="date" type="date" required>
+            </label>
+            <label>
+              Location or link
+              <input class="input" name="where" placeholder="Room, address, or URL">
+            </label>
+            <label>
+              Type
+              <input class="input" name="type" placeholder="Workshop, certification, webinar">
+            </label>
+            <label class="wide">
+              Details
+              <textarea name="details" placeholder="What attendees should know"></textarea>
+            </label>
+            <button class="primary-button wide" type="submit">Add Training</button>
+          </form>
+
+          <hr>
+
+          <form class="form-grid" id="videoForm">
+            <h3 class="wide">Add How-To YouTube Video</h3>
+            <label>
+              Video title
+              <input class="input" name="title" required placeholder="How to Apply on USAJobs">
+            </label>
+            <label>
+              Category
+              <input class="input" name="category" placeholder="Applications, resume, interview">
+            </label>
+            <label class="wide">
+              YouTube link
+              <input class="input" name="url" type="url" required placeholder="https://www.youtube.com/watch?v=...">
+            </label>
+            <button class="primary-button wide" type="submit">Add Video</button>
+          </form>
+
+          <div class="form-grid">
+            <h3 class="wide">Manage Training Videos</h3>
+            <p class="muted wide">Video deletion requires the separate video delete code.</p>
+            <label>
+              Delete code
+              <input class="input" id="videoDeleteCode" type="password" placeholder="Enter code">
+            </label>
+            <button class="quiet-button" id="deleteAllVideos" type="button">Remove all videos</button>
+          </div>
+
+          <p class="notice" id="uploadNotice"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Veteran Professionals Job Lead Board</span>
+    <span>Veteran Professionals newsletter, training, and resource videos</span>
+  </footer>
+
+  <script src="vevraa-jobs.js"></script>
+  <script>
+    const PASSCODE = "vetcentral2026";
+    const FLYER_DELETE_CODE = "1124";
+    const VIDEO_DELETE_CODE = "1124";
+    const REFERENCE_DELETE_CODE = "1124";
+    const storageKey = "vetcentral-portal-content";
+    const dataVersion = 10;
+    let uploadsUnlocked = false;
+    let referencesEditMode = false;
+    let videosEditMode = false;
+    let justiceEditMode = false;
+    let flyersEditMode = false;
+    let trainingsEditMode = false;
+    let resourcesEditMode = false;
+
+    const starterData = {
+      version: dataVersion,
+      jobs: window.VEVRAA_JOBS || [],
+      justiceResources: [
+        {
+          title: "2nd Chance Construction Employment Lead",
+          type: "2nd Chance Job Lead",
+          dateLabel: "Active lead",
+          image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=80",
+          caption: "FYI - Construction company looking for 2nd chance employees. If you have interested clients, please send Roosevelt their contact info/resume and he will forward it to the hiring manager.",
+          url: "",
+          details: "Use this as a referral-style lead. Collect interested client contact information and resume before forwarding through the approved contact process."
+        },
+        {
+          title: "Laborer Job Description - TN Approved 2025",
+          type: "2nd Chance Job Description",
+          image: "laborer-tn-jd-approved-2025.docx.png",
+          caption: "Approved Tennessee laborer job description for construction or reentry employment conversations.",
+          url: "laborer-tn-jd-approved-2025.html",
+          details: "Use as a role reference for interested justice-impacted candidates."
+        },
+        {
+          title: "Carpenter Job Description - TN Approved 2025",
+          type: "2nd Chance Job Description",
+          image: "carpenter-tn-jd-approved-2025.docx.png",
+          caption: "Approved Tennessee carpenter job description for construction career pathways.",
+          url: "carpenter-tn-jd-approved-2025.html",
+          details: "Use as a role reference for skilled-trades referrals."
+        },
+        {
+          title: "Cement Mason Job Description - TN Approved 2025",
+          type: "2nd Chance Job Description",
+          image: "cement-mason-tn-jd-approved-2025.docx.png",
+          caption: "Approved Tennessee cement mason job description for construction career referrals.",
+          url: "cement-mason-tn-jd-approved-2025.html",
+          details: "Use as a role reference for construction and masonry opportunities."
+        },
+        {
+          title: "MSE 2026 Resource Job Fair",
+          type: "Resource Job Fair",
+          image: "mse-2026-resource-job-fair.pdf.png",
+          caption: "Resource job fair flyer for job seekers and community partners.",
+          url: "document-viewer.html?file=mse-2026-resource-job-fair.pdf&title=MSE%202026%20Resource%20Job%20Fair",
+          details: "Open the flyer for full event details."
+        },
+        {
+          title: "Nashville Hiring Trifold",
+          type: "Hiring Flyer",
+          image: "nash-trifold-hiring-english.pdf.png",
+          caption: "Hiring trifold resource for Nashville-area employment opportunities.",
+          url: "document-viewer.html?file=nash-trifold-hiring-english.pdf&title=Nashville%20Hiring%20Trifold",
+          details: "Open the flyer for the complete hiring information."
+        },
+        {
+          title: "Nashville We Are Hiring Scan Flyer",
+          type: "Hiring Flyer",
+          image: "nash-we-are-hiring-scan-english.pdf.png",
+          caption: "Scan-friendly hiring flyer for Nashville-area job opportunities.",
+          url: "document-viewer.html?file=nash-we-are-hiring-scan-english.pdf&title=Nashville%20We%20Are%20Hiring",
+          details: "Open the flyer for the full scan and application details."
+        },
+        {
+          title: "May 2026 Workshop Schedule",
+          type: "Workshop Schedule",
+          image: "may-2026-workshop-schedule.docx.png",
+          caption: "May 2026 workshop schedule reference for job preparation and reentry support.",
+          url: "may-2026-workshop-schedule.html",
+          details: "Open the document for the full workshop schedule."
+        }
+      ],
+      flyers: [
+        {
+          title: "April 28-29 Job Lead Flyer",
+          category: "Job Fair",
+          date: "2026-04-29",
+          fileName: "Sample flyer placeholder",
+          fileType: "placeholder",
+          dataUrl: ""
+        }
+      ],
+      references: [
+        {
+          title: "VETS DVOP Flyer",
+          type: "PowerPoint Reference",
+          image: "vets-dvop-flyer.pptx.png",
+          caption: "Preview of the DVOP flyer reference document used for veteran service and employment-support messaging.",
+          details: "Reference document for DVOP-related newsletter and resource content.",
+          url: "vets-dvop-flyer-reference.html"
+        },
+        {
+          title: "Pathways to Prosperity",
+          type: "Resource Reference",
+          image: "catholic-charities-pathways.jpeg",
+          caption: "Career resource flyer for training, coaching, budgeting help, and public-sector job referrals.",
+          details: "Catholic Charities resource for job seekers looking for meaningful career support.",
+          url: ""
+        },
+        {
+          title: "VA Clarksville Expo 2026",
+          type: "Event Reference",
+          image: "va-clarksville-expo-2026.jpeg",
+          caption: "Resource expo notice for veterans, service members, families, and community partners.",
+          details: "May 20, 2026 from 4-6pm at VA Clarksville, 782 Weatherly Dr.",
+          url: ""
+        }
+      ],
+      trainings: [
+        {
+          title: "Resume Refresh and Follow-Up Workshop",
+          date: "2026-05-08",
+          where: "Veteran Professionals Resource Room",
+          type: "Workshop",
+          details: "Bring your latest resume and two job links you want to apply for."
+        },
+        {
+          title: "Pathways to Prosperity",
+          dateLabel: "Ongoing",
+          where: "Coffee, Bedford, Maury, Marshall, Montgomery, Robertson, Putnam, and Smith Counties",
+          type: "Career Resource",
+          details: "Catholic Charities Diocese of Nashville resource offering basic needs assistance, financial education, one-on-one case management, and referrals to certified public sector training programs and job opportunities. Hours: Monday-Friday, 8:00 AM-4:30 PM."
+        },
+        {
+          title: "American Job Center Workshop Calendar",
+          date: "2026-05-01",
+          where: "American Job Center / https://bit.ly/ajc353",
+          type: "Workshop Calendar",
+          details: "May 2026 workshops include interviewing, resume building, labor market information, virtual hiring event, networking, career specialist assistance, and Memorial Day closure notes."
+        },
+        {
+          title: "VA Clarksville Expo 2026",
+          date: "2026-05-20",
+          where: "VA Clarksville, 782 Weatherly Dr, Clarksville, TN",
+          type: "Expo",
+          details: "4:00 PM-6:00 PM. VA and community resource expo for veterans, service members, military families, and community partners."
+        },
+        {
+          title: "One Tennessee Virtual Career Fair",
+          date: "2026-05-20",
+          where: "Online statewide opportunity",
+          type: "Virtual Career Fair",
+          details: "1:00 PM-2:30 PM. Virtual hiring event with Tennessee State Government agencies including Correction, Children's Services, Health, Human Resources, Human Services, Mental Health and Substance Abuse Services, Revenue, Safety and Homeland Security, and Tennessee Department of Military."
+        }
+      ],
+      resources: [],
+      videos: [
+        {
+          title: "How to Search and Apply on USAJobs",
+          category: "Federal applications",
+          url: "https://www.youtube.com/watch?v=HY5Z_pfFUK4"
+        },
+        {
+          title: "How to Answer: Tell Me About Yourself",
+          category: "Interview preparation",
+          url: "https://youtu.be/MmFuWmzeiDs"
+        },
+        {
+          title: "Tailor Your Resume in Under 3 Minutes Using ChatGPT",
+          category: "Resume tailoring with AI support",
+          url: "https://youtu.be/DU5BGSS4Ugg"
+        },
+        {
+          title: "New Government Job Resume Requirements 2025",
+          category: "Federal and government resume guidance",
+          url: "https://youtu.be/Gy2Ph7qSeao"
+        }
+      ]
+    };
+
+    let data = loadData();
+
+    function loadData() {
+      const saved = localStorage.getItem(storageKey);
+      if (!saved) return cleanupRemovedContent(starterData);
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.version !== dataVersion) {
+          return cleanupRemovedContent({
+            ...starterData,
+            ...parsed,
+            version: dataVersion,
+            jobs: mergeJobs(starterData.jobs, parsed.jobs || []),
+            justiceResources: mergeByKey(starterData.justiceResources || [], parsed.justiceResources || [], "title", "url"),
+            flyers: mergeByKey(starterData.flyers || [], parsed.flyers || [], "title", "date"),
+            references: mergeByKey(starterData.references || [], parsed.references || [], "title", "url"),
+            trainings: mergeByKey(starterData.trainings || [], parsed.trainings || [], "title", "date"),
+            resources: mergeByKey(starterData.resources || [], parsed.resources || [], "title", "url"),
+            videos: mergeByKey(starterData.videos || [], parsed.videos || [], "title", "url")
+          });
+        }
+        return cleanupRemovedContent(parsed);
+      } catch {
+        return cleanupRemovedContent(starterData);
+      }
+    }
+
+    function cleanupRemovedContent(currentData) {
+      const migrated = {
+        "laborer-tn-jd-approved-2025.docx": "laborer-tn-jd-approved-2025.html",
+        "carpenter-tn-jd-approved-2025.docx": "carpenter-tn-jd-approved-2025.html",
+        "cement-mason-tn-jd-approved-2025.docx": "cement-mason-tn-jd-approved-2025.html",
+        "may-2026-workshop-schedule.docx": "may-2026-workshop-schedule.html",
+        "mse-2026-resource-job-fair.pdf": "document-viewer.html?file=mse-2026-resource-job-fair.pdf&title=MSE%202026%20Resource%20Job%20Fair",
+        "nash-trifold-hiring-english.pdf": "document-viewer.html?file=nash-trifold-hiring-english.pdf&title=Nashville%20Hiring%20Trifold",
+        "nash-we-are-hiring-scan-english.pdf": "document-viewer.html?file=nash-we-are-hiring-scan-english.pdf&title=Nashville%20We%20Are%20Hiring",
+        "vets-dvop-flyer.pptx": "vets-dvop-flyer-reference.html"
+      };
+      const migrateLinks = (items = []) => items.map((item) => ({
+        ...item,
+        url: migrated[item.url] || item.url
+      }));
+      const normalizeFlyers = (items = []) => items.map((item) => ({
+        ...item,
+        category: item.category || inferFlyerCategory(item)
+      }));
+      return {
+        ...currentData,
+        justiceResources: migrateLinks(currentData.justiceResources || [])
+          .filter((item) => item.title !== "Justice-Impacted Resource Uploads")
+          .map((item) => item.title === "2nd Chance Construction Employment Lead" ? { ...item, url: "" } : item),
+        flyers: normalizeFlyers(currentData.flyers || []),
+        references: migrateLinks(currentData.references || []),
+        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website"))
+      };
+    }
+
+    function saveData() {
+      data.version = dataVersion;
+      localStorage.setItem(storageKey, JSON.stringify(data));
+    }
+
+    function mergeJobs(primary, secondary) {
+      const merged = [];
+      const seen = new Set();
+      [...primary, ...secondary].forEach((job) => {
+        const key = `${job.requisition || ""}|${job.title}|${job.company}|${job.date}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          merged.push(job);
+        }
+      });
+      return merged;
+    }
+
+    function formatDate(value) {
+      if (!value) return "No date";
+      return new Intl.DateTimeFormat("en", { month: "long", day: "numeric", year: "numeric" }).format(new Date(`${value}T12:00:00`));
+    }
+
+    function sortByDate(items, direction = "newest") {
+      return [...items].sort((a, b) => {
+        const first = new Date(a.date || 0).getTime();
+        const second = new Date(b.date || 0).getTime();
+        return direction === "oldest" ? first - second : second - first;
+      });
+    }
+
+    function getTodayIso() {
+      const today = new Date();
+      const month = String(today.getMonth() + 1).padStart(2, "0");
+      const day = String(today.getDate()).padStart(2, "0");
+      return `${today.getFullYear()}-${month}-${day}`;
+    }
+
+    function isPastDate(value) {
+      return value && value < getTodayIso();
+    }
+
+    function getBoardDate(jobs) {
+      const timestamps = jobs.map((job) => new Date(`${job.date}T12:00:00`).getTime()).filter(Boolean);
+      return timestamps.length ? Math.max(...timestamps) : Date.now();
+    }
+
+    function isWithinRecentWindow(job, boardDate) {
+      const posted = new Date(`${job.date}T12:00:00`).getTime();
+      const threeDays = 3 * 24 * 60 * 60 * 1000;
+      return boardDate - posted <= threeDays;
+    }
+
+    function getMonthLabel(value) {
+      if (!value) return "No Date";
+      return new Intl.DateTimeFormat("en", { month: "long", year: "numeric" }).format(new Date(`${value}T12:00:00`));
+    }
+
+    function groupByIndustry(jobs) {
+      return jobs.reduce((groups, job) => {
+        const industry = job.category || "Other";
+        groups[industry] = groups[industry] || [];
+        groups[industry].push(job);
+        return groups;
+      }, {});
+    }
+
+    function renderIndustryGroups(jobs) {
+      const groups = groupByIndustry(sortByDate(jobs, "newest"));
+      return `<div class="industry-groups">${Object.entries(groups)
+        .sort(([first], [second]) => first.localeCompare(second))
+        .map(([industry, industryJobs]) => `
+          <section class="industry-group">
+            <div class="job-section-title">${escapeHtml(industry)}<span>${industryJobs.length} active lead${industryJobs.length === 1 ? "" : "s"}</span></div>
+            <div class="industry-card-grid">
+              ${industryJobs.map(renderJobCard).join("")}
+            </div>
+          </section>
+        `).join("")}</div>`;
+    }
+
+    function renderJobCard(job) {
+      return `
+        <article class="card job-card">
+          <div>
+            <div class="job-title-row">
+              <h3>${escapeHtml(job.title)}</h3>
+              <span class="pill">${escapeHtml(job.category)}</span>
+            </div>
+            <div class="job-meta">
+              <span>${escapeHtml(job.company)}</span>
+              <span>${escapeHtml(job.location || "Location not listed")}</span>
+              <span>${formatDate(job.date)}</span>
+              ${job.requisition ? `<span>Req ${escapeHtml(job.requisition)}</span>` : ""}
+            </div>
+            ${job.notes ? `<p class="muted">${escapeHtml(job.notes)}</p>` : ""}
+            <small class="source-note">${escapeHtml(job.source || "Manual entry")}${job.sourceFile ? ` from ${escapeHtml(job.sourceFile)}` : ""}</small>
+          </div>
+          <a class="link-button" href="${escapeAttribute(job.url)}" target="_blank" rel="noopener">Open Link</a>
+        </article>
+      `;
+    }
+
+    function renderJobs() {
+      const search = document.querySelector("#jobSearch").value.trim().toLowerCase();
+      const category = document.querySelector("#jobCategory").value;
+      const sort = document.querySelector("#jobSort").value;
+      const filtered = sortByDate(data.jobs, sort === "industry" ? "newest" : sort).filter((job) => {
+        const content = `${job.title} ${job.company} ${job.category} ${job.location} ${job.requisition || ""} ${job.notes || ""}`.toLowerCase();
+        return (!category || job.category === category) && (!search || content.includes(search));
+      });
+      const boardDate = getBoardDate(filtered);
+      const recent = filtered.filter((job) => isWithinRecentWindow(job, boardDate));
+      const archive = filtered.filter((job) => !isWithinRecentWindow(job, boardDate));
+      const archiveByMonth = archive.reduce((groups, job) => {
+        const month = getMonthLabel(job.date);
+        groups[month] = groups[month] || [];
+        groups[month].push(job);
+        return groups;
+      }, {});
+      const archiveHtml = Object.entries(archiveByMonth).map(([month, jobs]) => `
+        <details class="lead-section">
+          <summary class="job-section-title">${month}<span>${jobs.length} active lead${jobs.length === 1 ? "" : "s"}</span></summary>
+          ${sort === "industry" ? renderIndustryGroups(jobs) : jobs.map(renderJobCard).join("")}
+        </details>
+      `).join("");
+
+      document.querySelector("#jobList").innerHTML = filtered.length ? `
+        <details class="lead-section">
+          <summary class="job-section-title">Current Leads: Last 3 Days<span>${recent.length} active</span></summary>
+          ${recent.length ? (sort === "industry" ? renderIndustryGroups(recent) : recent.map(renderJobCard).join("")) : `<div class="card empty">No current leads match these filters.</div>`}
+        </details>
+        ${archive.length ? `<div class="job-section-title">Active Archive By Month<span>${archive.length} older active</span></div>${archiveHtml}` : ""}
+      ` : `<div class="card empty">No matching job leads yet.</div>`;
+    }
+
+    function renderSnapshotCards(items, targetSelector, emptyMessage, options = {}) {
+      const target = document.querySelector(targetSelector);
+      const controls = options.editMode ? `<article class="card snapshot-card"><div class="snapshot-body"><span class="date">Resource tools</span><h3>Add New Resource</h3><p class="muted">Add a new resource card directly from this section.</p><button class="quiet-button" type="button" data-add-resource="${options.kind}">Update</button></div></article>` : "";
+      const cards = items && items.length ? items.map((item, index) => `
+        <article class="card snapshot-card">
+          ${item.image ? `<img src="${escapeAttribute(item.image)}" alt="${escapeAttribute(item.title)} preview">` : ""}
+          <div class="snapshot-body">
+            <span class="date">${escapeHtml(item.type || item.dateLabel || "Resource")}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            ${item.caption ? `<p class="muted">${escapeHtml(item.caption)}</p>` : ""}
+            ${item.date || item.time || item.location ? `<p class="muted">${[item.date ? formatDate(item.date) : "", item.time || "", formatLocation(item.location) || ""].filter(Boolean).map(escapeHtml).join(" | ")}</p>` : ""}
+            ${item.details ? `<p class="muted">${escapeHtml(item.details)}</p>` : ""}
+            ${item.url ? `<a class="secondary-button" href="${escapeAttribute(item.url)}" target="_blank" rel="noopener">More Info</a>` : ""}
+            ${options.editMode ? `<button class="quiet-button" type="button" data-edit-resource="${index}">Update</button><button class="quiet-button" type="button" data-delete-resource="${index}">Delete</button>` : ""}
+          </div>
+        </article>
+      `).join("") : `<div class="card empty">${emptyMessage}</div>`;
+      target.innerHTML = `${controls}${cards}`;
+    }
+
+    function renderJusticeResources() {
+      renderSnapshotCards(data.justiceResources || [], "#justiceResourceList", "No justice-impacted resources have been added yet.", { editMode: justiceEditMode, kind: "justice" });
+    }
+
+    function renderResources() {
+      renderSnapshotCards(data.resources || [], "#resourceList", "No career resources have been added yet.", { editMode: resourcesEditMode, kind: "resources" });
+    }
+
+    function renderFlyers() {
+      const order = document.querySelector("#flyerOrder").value;
+      const visibility = document.querySelector("#flyerVisibility").value;
+      const flyers = sortByDate(data.flyers, order).filter((flyer) => {
+        if (visibility === "current") return !isPastDate(flyer.date);
+        if (visibility === "past") return isPastDate(flyer.date);
+        return true;
+      });
+      const jobFairFlyers = flyers.filter(isJobFairFlyer);
+      const otherFlyers = flyers.filter((flyer) => !isJobFairFlyer(flyer));
+      const tools = flyersEditMode ? renderInlineFlyerForm() : "";
+      const groups = [
+        renderFlyerGroup("Job Fair Flyers", jobFairFlyers),
+        renderFlyerGroup("Newsletter Flyers", otherFlyers)
+      ].filter(Boolean).join("");
+      document.querySelector("#flyerList").innerHTML = `${tools}${groups || `<div class="card empty">No newsletter flyers match this view.</div>`}`;
+    }
+
+    function renderFlyerGroup(title, flyers) {
+      if (!flyers.length) return "";
+      return `
+        <section class="flyer-section-group">
+          <div class="flyer-section-title">${title}<span>${flyers.length} item${flyers.length === 1 ? "" : "s"}</span></div>
+          <div class="flyer-section-grid">
+            ${flyers.map(renderFlyerCard).join("")}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderFlyerCard(flyer) {
+        const flyerIndex = data.flyers.indexOf(flyer);
+        const isImage = flyer.fileType && flyer.fileType.startsWith("image/");
+        const isPdf = flyer.fileType === "application/pdf";
+        const preview = isImage
+          ? `<img src="${flyer.dataUrl}" alt="${escapeAttribute(flyer.title)}">`
+          : isPdf && flyer.dataUrl
+            ? `<object data="${flyer.dataUrl}" type="application/pdf"><a class="secondary-button" href="${flyer.dataUrl}" target="_blank" rel="noopener">Open PDF Flyer</a></object>`
+            : `<strong>${isPdf ? "PDF Flyer" : "Flyer Placeholder"}</strong>`;
+        return `
+          <article class="card flyer-card">
+            <div class="flyer-preview">
+              ${preview}
+            </div>
+            <div class="flyer-body">
+              <span class="date">${formatDate(flyer.date)}</span>
+              <h3>${escapeHtml(flyer.title)}</h3>
+              ${renderFlyerDetails(flyer)}
+              ${flyer.dataUrl || flyer.url ? `<a class="secondary-button" href="flyer-viewer.html?index=${flyerIndex}" target="_blank" rel="noopener">View Flyer</a>` : ""}
+              ${flyersEditMode ? `<button class="quiet-button" type="button" data-edit-flyer="${flyerIndex}">Update</button><button class="quiet-button" type="button" data-delete-flyer="${flyerIndex}">Delete</button>` : ""}
+            </div>
+          </article>
+        `;
+    }
+
+    function renderInlineFlyerForm() {
+      return `
+        <article class="card flyer-tools-card">
+          <form class="form-grid" data-inline-flyer-form>
+            <h3 class="wide">Add Flyer in This Section</h3>
+            <label>
+              Flyer title
+              <input class="input" name="title" required placeholder="Summer Job Fair">
+            </label>
+            <label>
+              Flyer date
+              <input class="input" name="date" type="date" required>
+            </label>
+            <label>
+              Flyer section
+              <select class="select" name="category">
+                <option>Job Fair</option>
+                <option>Training Workshop</option>
+                <option>Resource</option>
+                <option>Community Notice</option>
+              </select>
+            </label>
+            <label>
+              Time
+              <input class="input" name="time" placeholder="9am-2pm">
+            </label>
+            <label class="wide">
+              Location
+              <input class="input" name="location" placeholder="Event address or online">
+            </label>
+            <label class="wide">
+              Companies attending
+              <input class="input" name="employers" placeholder="Company names, separated by commas">
+            </label>
+            <label class="wide">
+              Things to bring
+              <input class="input" name="thingsToBring" placeholder="Resume, ID, interview clothes">
+            </label>
+            <label class="wide">
+              Notes or workshop details
+              <textarea name="workshops" placeholder="Short details, registration notes, or schedule highlights"></textarea>
+            </label>
+            <label class="wide">
+              Upload flyer image or PDF
+              <input class="input" name="file" type="file" accept="image/*,.pdf" required>
+            </label>
+            <button class="primary-button wide" type="submit">Add Flyer</button>
+          </form>
+        </article>
+      `;
+    }
+
+    function isJobFairFlyer(flyer) {
+      return inferFlyerCategory(flyer) === "Job Fair";
+    }
+
+    function inferFlyerCategory(flyer) {
+      const haystack = `${flyer.category || ""} ${flyer.title || ""} ${flyer.type || ""} ${flyer.caption || ""} ${flyer.workshops || ""}`.toLowerCase();
+      if (haystack.includes("job fair") || haystack.includes("hiring") || haystack.includes("expo") || (flyer.employers && flyer.employers.length)) return "Job Fair";
+      if (haystack.includes("workshop") || haystack.includes("training")) return "Training Workshop";
+      if (haystack.includes("resource")) return "Resource";
+      return "Community Notice";
+    }
+
+    function renderReferences() {
+      const references = data.references || [];
+      document.querySelector("#referenceList").innerHTML = references.length ? references.map((reference, index) => {
+        const linkTarget = reference.url || reference.image || "";
+        return `
+          <article class="card reference-card">
+            <figure class="reference-preview">
+              ${reference.image ? `<img src="${escapeAttribute(reference.image)}" alt="${escapeAttribute(reference.title)} preview">` : ""}
+              ${reference.caption ? `<figcaption class="caption">${escapeHtml(reference.caption)}</figcaption>` : ""}
+            </figure>
+            <div>
+              <span class="date">${escapeHtml(reference.type || "Reference")}</span>
+              <h3>${escapeHtml(reference.title)}</h3>
+              ${reference.details ? `<p class="muted">${escapeHtml(reference.details)}</p>` : ""}
+            </div>
+            ${linkTarget ? `<a class="secondary-button" href="${escapeAttribute(linkTarget)}" target="_blank" rel="noopener">View Reference</a>` : ""}
+            ${referencesEditMode ? `<button class="quiet-button" type="button" data-edit-reference="${index}">Update</button><button class="quiet-button" type="button" data-delete-reference="${index}">Delete</button>` : ""}
+          </article>
+        `;
+      }).join("") : `<div class="card empty">No references have been added yet.</div>`;
+    }
+
+    function renderFlyerDetails(flyer) {
+      const employers = Array.isArray(flyer.employers) ? flyer.employers.join(", ") : flyer.employers;
+      const bring = Array.isArray(flyer.thingsToBring) ? flyer.thingsToBring.join(", ") : flyer.thingsToBring;
+      const rows = [
+        flyer.category ? `<span><strong>Section:</strong> ${escapeHtml(flyer.category)}</span>` : "",
+        flyer.time ? `<span><strong>Time:</strong> ${escapeHtml(flyer.time)}</span>` : "",
+        flyer.location ? `<span><strong>Location:</strong> ${escapeHtml(flyer.location)}</span>` : "",
+        employers ? `<span><strong>Employers:</strong> ${escapeHtml(employers)}</span>` : "",
+        flyer.workshops ? `<span><strong>Workshops:</strong> ${escapeHtml(flyer.workshops)}</span>` : "",
+        bring ? `<span><strong>Things to bring:</strong> ${escapeHtml(bring)}</span>` : ""
+      ].filter(Boolean);
+      return rows.length ? `<div class="flyer-details">${rows.join("")}</div>` : "";
+    }
+
+    function renderTraining() {
+      const trainings = sortByDate(data.trainings);
+      document.querySelector("#trainingList").innerHTML = trainings.length ? trainings.map((item) => {
+        const index = data.trainings.indexOf(item);
+        return `
+        <article class="card job-card">
+          <div>
+            <div class="job-title-row">
+              <h3>${escapeHtml(item.title)}</h3>
+              <span class="pill">${escapeHtml(item.type || "Training")}</span>
+            </div>
+            <div class="job-meta">
+              <span>${escapeHtml(item.dateLabel || formatDate(item.date))}</span>
+              <span>${escapeHtml(formatLocation(item.where) || "Location not listed")}</span>
+            </div>
+            ${item.details ? `<p class="muted">${escapeHtml(item.details)}</p>` : ""}
+          </div>
+          ${trainingsEditMode ? `<div><button class="quiet-button" type="button" data-edit-training="${index}">Update</button><button class="quiet-button" type="button" data-delete-training="${index}">Delete</button></div>` : ""}
+        </article>
+      `;
+      }).join("") : `<div class="card empty">No training items have been added yet.</div>`;
+    }
+
+    function getYouTubeEmbed(url) {
+      const id = getYouTubeId(url);
+      return id ? `https://www.youtube.com/embed/${id}` : "";
+    }
+
+    function getYouTubeId(url) {
+      try {
+        const parsed = new URL(url);
+        if (parsed.hostname.includes("youtu.be")) return parsed.pathname.slice(1);
+        if (parsed.searchParams.has("v")) return parsed.searchParams.get("v");
+        if (parsed.pathname.includes("/embed/")) return parsed.pathname.split("/embed/")[1];
+        return "";
+      } catch {
+        return "";
+      }
+    }
+
+    function renderVideos() {
+      document.querySelector("#trainingVideoList").innerHTML = data.videos.length ? data.videos.map((video, index) => {
+        const videoId = getYouTubeId(video.url);
+        const thumbnail = video.thumbnail || (videoId ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg` : "");
+        return `
+          <article class="card snapshot-card">
+            ${thumbnail ? `<img src="${escapeAttribute(thumbnail)}" alt="${escapeAttribute(video.title)} video preview">` : ""}
+            <div class="video-body">
+              <span class="date">${escapeHtml(video.category || "Training Video")}</span>
+              <h3>${escapeHtml(video.title)}</h3>
+              ${video.recommendedUse ? `<p class="muted">${escapeHtml(video.recommendedUse)}</p>` : ""}
+              <p><a class="secondary-button" href="${escapeAttribute(video.url)}" target="_blank" rel="noopener">Open YouTube</a></p>
+              ${videosEditMode ? `<button class="quiet-button" type="button" data-edit-video="${index}">Update</button><button class="quiet-button" type="button" data-delete-video="${index}">Delete</button>` : ""}
+            </div>
+          </article>
+        `;
+      }).join("") : `<div class="card empty">No training videos have been added yet.</div>`;
+    }
+
+    function renderAll() {
+      renderJobs();
+      renderJusticeResources();
+      renderFlyers();
+      renderReferences();
+      renderTraining();
+      renderResources();
+      renderVideos();
+    }
+
+    function escapeHtml(value = "") {
+      return String(value).replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      })[char]);
+    }
+
+    function escapeAttribute(value = "") {
+      return escapeHtml(value);
+    }
+
+    function formatLocation(value) {
+      if (!value) return "";
+      if (typeof value === "string") return value;
+      if (value.address && value.name) return `${value.name}, ${value.address}`;
+      return value.address || value.name || "";
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-button").forEach((button) => {
+        button.classList.toggle("active", button.dataset.tab === tabId);
+      });
+      document.querySelectorAll(".tab-panel").forEach((panel) => {
+        panel.classList.toggle("active", panel.id === tabId);
+      });
+      window.scrollTo({ top: document.querySelector("main").offsetTop - 78, behavior: "smooth" });
+    }
+
+    document.querySelectorAll(".tab-button").forEach((button) => {
+      button.addEventListener("click", () => switchTab(button.dataset.tab));
+    });
+
+    document.querySelectorAll("[data-tab-shortcut]").forEach((button) => {
+      button.addEventListener("click", () => switchTab(button.dataset.tabShortcut));
+    });
+
+    document.addEventListener("click", (event) => {
+      const link = event.target.closest("a[href]");
+      if (!link || !isDocumentLink(link.getAttribute("href"))) return;
+      event.preventDefault();
+      window.open(link.href, "_blank", "noopener,noreferrer");
+    });
+
+    document.querySelector("#editReferences").addEventListener("click", () => {
+      referencesEditMode = unlockEditMode("references");
+      renderReferences();
+      showNotice(referencesEditMode ? "Reference edit mode is active." : "Reference edit mode was not unlocked.");
+    });
+
+    document.querySelector("#editFlyers").addEventListener("click", () => {
+      flyersEditMode = unlockEditMode("flyers");
+      renderFlyers();
+      showNotice(flyersEditMode ? "Flyer edit mode is active." : "Flyer edit mode was not unlocked.");
+    });
+
+    document.querySelector("#editJusticeResources").addEventListener("click", () => {
+      justiceEditMode = unlockEditMode("2nd Chance resources");
+      renderJusticeResources();
+      showNotice(justiceEditMode ? "2nd Chance resource edit mode is active." : "2nd Chance resource edit mode was not unlocked.");
+    });
+
+    document.querySelector("#editTrainingItems").addEventListener("click", () => {
+      trainingsEditMode = unlockEditMode("training items");
+      renderTraining();
+      showNotice(trainingsEditMode ? "Training item edit mode is active." : "Training item edit mode was not unlocked.");
+    });
+
+    document.querySelector("#editResources").addEventListener("click", () => {
+      resourcesEditMode = unlockEditMode("resources");
+      renderResources();
+      showNotice(resourcesEditMode ? "Resource edit mode is active." : "Resource edit mode was not unlocked.");
+    });
+
+    document.querySelector("#editTrainingVideos").addEventListener("click", () => {
+      videosEditMode = unlockEditMode("training videos");
+      renderVideos();
+      showNotice(videosEditMode ? "Training video edit mode is active." : "Training video edit mode was not unlocked.");
+    });
+
+    ["#jobSearch", "#jobCategory", "#jobSort"].forEach((selector) => {
+      document.querySelector(selector).addEventListener("input", renderJobs);
+      document.querySelector(selector).addEventListener("change", renderJobs);
+    });
+
+    ["#flyerOrder", "#flyerVisibility"].forEach((selector) => {
+      document.querySelector(selector).addEventListener("change", renderFlyers);
+    });
+
+    document.querySelector("#unlockButton").addEventListener("click", () => {
+      const unlocked = document.querySelector("#passcode").value === PASSCODE;
+      uploadsUnlocked = unlocked;
+      document.querySelector("#lockNotice").textContent = unlocked ? "" : "Passcode does not match.";
+      document.querySelector("#lockCard").classList.toggle("hidden", unlocked);
+      document.querySelector("#uploadForms").classList.toggle("hidden", !unlocked);
+      renderFlyers();
+      renderReferences();
+      renderVideos();
+    });
+
+    document.querySelector("#lockAgain").addEventListener("click", () => {
+      uploadsUnlocked = false;
+      document.querySelector("#passcode").value = "";
+      document.querySelector("#lockCard").classList.remove("hidden");
+      document.querySelector("#uploadForms").classList.add("hidden");
+      renderFlyers();
+      renderReferences();
+      renderVideos();
+    });
+
+    document.querySelector("#jobForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Adding job lead...");
+      await waitForPaint();
+      const form = new FormData(event.currentTarget);
+      data.jobs.push({
+        ...Object.fromEntries(form.entries()),
+        source: "Manual vetted upload"
+      });
+      saveData();
+      event.currentTarget.reset();
+      showNotice("Job lead added with its original link.");
+      renderAll();
+      clearLoading();
+    });
+
+    document.querySelector("#emlForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Reading veteran job email...");
+      await waitForPaint();
+      const file = new FormData(event.currentTarget).get("eml");
+      const rawEmail = await file.text();
+      const imported = parseVevaaEmail(rawEmail, file.name);
+      if (!imported.length) {
+        showNotice("No VEVRAA jobs were found in that email.");
+        clearLoading();
+        return;
+      }
+      data.jobs = mergeJobs(imported, data.jobs || []);
+      saveData();
+      event.currentTarget.reset();
+      showNotice(`${imported.length} VEVRAA job lead${imported.length === 1 ? "" : "s"} imported and sorted.`);
+      renderAll();
+      clearLoading();
+    });
+
+    document.querySelector("#jsonForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Importing JSON file...");
+      await waitForPaint();
+      const file = new FormData(event.currentTarget).get("json");
+      try {
+        const imported = importJsonPayload(JSON.parse(await file.text()));
+        event.currentTarget.reset();
+        showImportNotice(imported);
+      } catch {
+        showNotice("That JSON file could not be read. Check the format and try again.");
+      } finally {
+        clearLoading();
+      }
+    });
+
+    document.querySelector("#rawJsonForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Importing pasted JSON...");
+      await waitForPaint();
+      const rawJson = new FormData(event.currentTarget).get("rawJson");
+      try {
+        const imported = importJsonPayload(JSON.parse(rawJson));
+        event.currentTarget.reset();
+        showImportNotice(imported);
+      } catch {
+        showNotice("That pasted JSON could not be read. Check the format and try again.");
+      } finally {
+        clearLoading();
+      }
+    });
+
+    function importJsonPayload(payload) {
+      const imported = normalizeImportedJson(payload);
+      data.jobs = mergeJobs(imported.jobs, data.jobs || []);
+      data.justiceResources = mergeByKey(imported.justiceResources, data.justiceResources || [], "title", "url");
+      data.flyers = mergeByKey(imported.flyers, data.flyers || [], "title", "date");
+      data.trainings = mergeByKey(imported.trainings, data.trainings || [], "title", "date");
+      data.resources = mergeByKey(imported.resources, data.resources || [], "title", "url");
+      data.videos = mergeByKey(imported.videos, data.videos || [], "title", "url");
+      saveData();
+      renderAll();
+      return imported;
+    }
+
+    function showImportNotice(imported) {
+      showNotice(`JSON imported: ${imported.jobs.length} jobs, ${imported.justiceResources.length} justice resources, ${imported.flyers.length} flyers, ${imported.trainings.length} trainings, ${imported.resources.length} resources, ${imported.videos.length} videos.`);
+    }
+
+    function normalizeImportedJson(payload) {
+      const source = Array.isArray(payload) ? { jobs: payload } : payload;
+      const bulletinResources = normalizeArray(source.events_and_resources).map(resourceToTraining);
+      const dreamVideos = normalizeArray(source.dream_job_preparation_kit && source.dream_job_preparation_kit.videos).map((video) => ({
+        title: video.title || "",
+        category: video.topic || "D.R.E.A.M. Job Preparation Kit",
+        url: video.url || "",
+        recommendedUse: video.recommended_use || ""
+      })).filter((video) => video.title && video.url);
+      return {
+        jobs: normalizeArray(source.jobs).map((job) => ({
+          title: job.title || "",
+          company: job.company || "",
+          category: job.category || deriveJobCategory(job.title || ""),
+          location: job.location || "",
+          date: job.date || new Date().toISOString().slice(0, 10),
+          url: job.url || job.link || "",
+          requisition: job.requisition || job.req || "",
+          notes: job.notes || "",
+          source: job.source || "JSON import",
+          sourceFile: job.sourceFile || ""
+        })).filter((job) => job.title && job.company && job.url),
+        justiceResources: normalizeArray(source.justiceResources || source.justice_resources).map(normalizeSnapshotResource),
+        flyers: normalizeArray(source.flyers).map(normalizeFlyerResource),
+        trainings: [...normalizeArray(source.trainings || source.training), ...bulletinResources],
+        resources: normalizeArray(source.resources).map(normalizeSnapshotResource),
+        videos: [...normalizeArray(source.videos), ...dreamVideos]
+      };
+    }
+
+    function normalizeSnapshotResource(resource) {
+      return {
+        title: resource.title || "",
+        type: resource.type || "Resource",
+        image: resource.image || resource.imageUrl || resource.snapshot || "",
+        caption: resource.caption || resource.summary || "",
+        url: resource.url || resource.link || resource.fullViewUrl || "#",
+        date: resource.date || "",
+        dateLabel: resource.dateLabel || "",
+        time: resource.time || "",
+        location: resource.location || "",
+        details: resource.details || resource.notes || ""
+      };
+    }
+
+    function normalizeFlyerResource(flyer) {
+      const normalized = {
+        ...flyer,
+        title: flyer.title || "",
+        category: flyer.category || flyer.section || inferFlyerCategory(flyer),
+        date: flyer.date || "",
+        time: flyer.time || "",
+        location: flyer.location || "",
+        employers: Array.isArray(flyer.employers) ? flyer.employers : splitList(flyer.employers || flyer.companies),
+        thingsToBring: Array.isArray(flyer.thingsToBring) ? flyer.thingsToBring : splitList(flyer.thingsToBring || flyer.things_to_bring),
+        workshops: flyer.workshops || flyer.notes || "",
+        dataUrl: flyer.dataUrl || flyer.image || "",
+        fileType: flyer.fileType || (flyer.image ? "image/uploaded" : flyer.fileType || "")
+      };
+      return normalized;
+    }
+
+    function resourceToTraining(resource) {
+      const details = [
+        resource.summary,
+        resource.audience ? `Audience: ${resource.audience}` : "",
+        resource.services ? `Services: ${resource.services.join(", ")}` : "",
+        resource.featured_agencies ? `Featured agencies: ${resource.featured_agencies.join(", ")}` : "",
+        resource.registration && resource.registration.online ? `Register: ${resource.registration.online}` : "",
+        resource.call_to_action,
+        resource.hours ? `Hours: ${resource.hours}` : ""
+      ].filter(Boolean).join(" ");
+      return {
+        title: resource.title || "",
+        date: resource.date || "",
+        dateLabel: resource.date ? "" : (resource.month || "Ongoing"),
+        where: formatLocation(resource.location) || resource.service_area && resource.service_area.join(", ") || "",
+        type: resource.type || "Resource",
+        details
+      };
+    }
+
+    function normalizeArray(value) {
+      return Array.isArray(value) ? value : [];
+    }
+
+    function mergeByKey(primary, secondary, firstKey, secondKey) {
+      const merged = [];
+      const seen = new Set();
+      [...primary, ...secondary].forEach((item) => {
+        const key = `${item[firstKey] || ""}|${item[secondKey] || ""}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          merged.push(item);
+        }
+      });
+      return merged;
+    }
+
+    function splitList(value) {
+      return String(value || "")
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+    }
+
+    async function createFlyerFromForm(form) {
+      const formData = new FormData(form);
+      const file = formData.get("file");
+      const dataUrl = await readFile(file);
+      return {
+        title: formData.get("title"),
+        category: formData.get("category") || "Job Fair",
+        date: formData.get("date"),
+        time: formData.get("time"),
+        location: formData.get("location"),
+        employers: splitList(formData.get("employers")),
+        thingsToBring: splitList(formData.get("thingsToBring")),
+        workshops: formData.get("workshops"),
+        fileName: file.name,
+        fileType: file.type || "uploaded-file",
+        dataUrl
+      };
+    }
+
+    document.querySelector("#flyerForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Uploading flyer...");
+      await waitForPaint();
+      try {
+        data.flyers.push(await createFlyerFromForm(event.currentTarget));
+        saveData();
+        event.currentTarget.reset();
+        showNotice("Flyer added to the Veteran Professionals Newsletter area.");
+        renderAll();
+      } catch {
+        showNotice("That flyer could not be uploaded. Try a smaller file or another format.");
+      } finally {
+        clearLoading();
+      }
+    });
+
+    document.querySelector("#flyerList").addEventListener("submit", async (event) => {
+      const form = event.target.closest("[data-inline-flyer-form]");
+      if (!form || !flyersEditMode) return;
+      event.preventDefault();
+      setLoading("Adding flyer...");
+      await waitForPaint();
+      try {
+        data.flyers.push(await createFlyerFromForm(form));
+        saveData();
+        form.reset();
+        showNotice("Flyer added to the flyer section.");
+        renderFlyers();
+      } catch {
+        showNotice("That flyer could not be uploaded. Try a smaller file or another format.");
+      } finally {
+        clearLoading();
+      }
+    });
+
+    document.querySelector("#flyerList").addEventListener("click", async (event) => {
+      const editButton = event.target.closest("[data-edit-flyer]");
+      const deleteButton = event.target.closest("[data-delete-flyer]");
+      if (editButton && flyersEditMode) {
+        const index = Number(editButton.dataset.editFlyer);
+        const flyer = data.flyers[index];
+        if (!flyer) return;
+        updateFlyer(flyer);
+        saveData();
+        showNotice(`Updated flyer: ${flyer.title || "Untitled flyer"}.`);
+        renderFlyers();
+        return;
+      }
+      if (!deleteButton || !flyersEditMode) return;
+      setLoading("Deleting flyer...");
+      await waitForPaint();
+      const index = Number(deleteButton.dataset.deleteFlyer);
+      const flyer = data.flyers[index];
+      if (!flyer) {
+        clearLoading();
+        return;
+      }
+      data.flyers.splice(index, 1);
+      saveData();
+      showNotice(`Deleted flyer: ${flyer.title || "Untitled flyer"}.`);
+      renderFlyers();
+      clearLoading();
+    });
+
+    document.querySelector("#deletePastFlyers").addEventListener("click", async () => {
+      if (!uploadsUnlocked) return;
+      if (!flyerDeleteAllowed()) {
+        showNotice("Enter the flyer code before adjusting flyers.");
+        return;
+      }
+      setLoading("Deleting past-date flyers...");
+      await waitForPaint();
+      const before = data.flyers.length;
+      data.flyers = data.flyers.filter((flyer) => !isPastDate(flyer.date));
+      const deleted = before - data.flyers.length;
+      saveData();
+      showNotice(`${deleted} past-date flyer${deleted === 1 ? "" : "s"} deleted.`);
+      renderFlyers();
+      clearLoading();
+    });
+
+    document.querySelector("#justiceResourceList").addEventListener("click", async (event) => {
+      if (!justiceEditMode) return;
+      const addButton = event.target.closest("[data-add-resource]");
+      const editButton = event.target.closest("[data-edit-resource]");
+      const deleteButton = event.target.closest("[data-delete-resource]");
+      if (addButton) {
+        const resource = createJusticeResource();
+        if (!resource) return;
+        data.justiceResources.unshift(resource);
+        saveData();
+        showNotice("Added 2nd Chance resource.");
+        renderJusticeResources();
+        return;
+      }
+      if (editButton) {
+        const index = Number(editButton.dataset.editResource);
+        const resource = data.justiceResources[index];
+        if (!resource) return;
+        updateSnapshotResource(resource);
+        saveData();
+        showNotice(`Updated resource: ${resource.title || "Untitled resource"}.`);
+        renderJusticeResources();
+        return;
+      }
+      if (!deleteButton) return;
+      setLoading("Updating 2nd Chance resources...");
+      await waitForPaint();
+      const index = Number(deleteButton.dataset.deleteResource);
+      const resource = data.justiceResources[index];
+      if (!resource) {
+        clearLoading();
+        return;
+      }
+      data.justiceResources.splice(index, 1);
+      saveData();
+      showNotice(`Updated 2nd Chance resources: ${resource.title || "Untitled resource"} was removed.`);
+      renderJusticeResources();
+      clearLoading();
+    });
+
+    document.querySelector("#referenceList").addEventListener("click", async (event) => {
+      const editButton = event.target.closest("[data-edit-reference]");
+      const deleteButton = event.target.closest("[data-delete-reference]");
+      if (editButton && referencesEditMode) {
+        const index = Number(editButton.dataset.editReference);
+        const reference = data.references[index];
+        if (!reference) return;
+        updateReference(reference);
+        saveData();
+        showNotice(`Updated reference: ${reference.title || "Untitled reference"}.`);
+        renderReferences();
+        return;
+      }
+      if (!deleteButton || !referencesEditMode) return;
+      setLoading("Updating references...");
+      await waitForPaint();
+      const index = Number(deleteButton.dataset.deleteReference);
+      const reference = data.references[index];
+      if (!reference) {
+        clearLoading();
+        return;
+      }
+      data.references.splice(index, 1);
+      saveData();
+      showNotice(`Updated references: ${reference.title || "Untitled reference"} was removed.`);
+      renderReferences();
+      clearLoading();
+    });
+
+    document.querySelector("#deleteAllReferences").addEventListener("click", async () => {
+      if (!uploadsUnlocked) return;
+      if (!referenceDeleteAllowed()) {
+        showNotice("Enter the reference delete code before removing references.");
+        return;
+      }
+      setLoading("Deleting all references...");
+      await waitForPaint();
+      const deleted = data.references.length;
+      data.references = [];
+      saveData();
+      showNotice(`${deleted} reference${deleted === 1 ? "" : "s"} deleted.`);
+      renderReferences();
+      clearLoading();
+    });
+
+    document.querySelector("#resourceList").addEventListener("click", async (event) => {
+      if (!resourcesEditMode) return;
+      const addButton = event.target.closest("[data-add-resource]");
+      const editButton = event.target.closest("[data-edit-resource]");
+      const deleteButton = event.target.closest("[data-delete-resource]");
+      if (addButton) {
+        const resource = createJusticeResource();
+        if (!resource) return;
+        data.resources.unshift(resource);
+        saveData();
+        showNotice("Added resource.");
+        renderResources();
+        return;
+      }
+      if (editButton) {
+        const index = Number(editButton.dataset.editResource);
+        const resource = data.resources[index];
+        if (!resource) return;
+        updateSnapshotResource(resource);
+        saveData();
+        showNotice(`Updated resource: ${resource.title || "Untitled resource"}.`);
+        renderResources();
+        return;
+      }
+      if (!deleteButton) return;
+      setLoading("Updating resources...");
+      await waitForPaint();
+      const index = Number(deleteButton.dataset.deleteResource);
+      const resource = data.resources[index];
+      if (!resource) {
+        clearLoading();
+        return;
+      }
+      data.resources.splice(index, 1);
+      saveData();
+      showNotice(`Updated resources: ${resource.title || "Untitled resource"} was removed.`);
+      renderResources();
+      clearLoading();
+    });
+
+    document.querySelector("#trainingList").addEventListener("click", async (event) => {
+      const editButton = event.target.closest("[data-edit-training]");
+      const deleteButton = event.target.closest("[data-delete-training]");
+      if (editButton && trainingsEditMode) {
+        const index = Number(editButton.dataset.editTraining);
+        const item = data.trainings[index];
+        if (!item) return;
+        updateTraining(item);
+        saveData();
+        showNotice(`Updated training: ${item.title || "Untitled training"}.`);
+        renderTraining();
+        return;
+      }
+      if (!deleteButton || !trainingsEditMode) return;
+      setLoading("Updating training items...");
+      await waitForPaint();
+      const index = Number(deleteButton.dataset.deleteTraining);
+      const item = data.trainings[index];
+      if (!item) {
+        clearLoading();
+        return;
+      }
+      data.trainings.splice(index, 1);
+      saveData();
+      showNotice(`Updated training items: ${item.title || "Untitled training"} was removed.`);
+      renderTraining();
+      clearLoading();
+    });
+
+    document.querySelector("#trainingForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Adding training item...");
+      await waitForPaint();
+      const form = new FormData(event.currentTarget);
+      data.trainings.push(Object.fromEntries(form.entries()));
+      saveData();
+      event.currentTarget.reset();
+      showNotice("Training item added.");
+      renderAll();
+      clearLoading();
+    });
+
+    document.querySelector("#videoForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      setLoading("Adding how-to video...");
+      await waitForPaint();
+      const form = new FormData(event.currentTarget);
+      data.videos.push(Object.fromEntries(form.entries()));
+      saveData();
+      event.currentTarget.reset();
+      showNotice("How-to video added.");
+      renderAll();
+      clearLoading();
+    });
+
+    document.querySelector("#trainingVideoList").addEventListener("click", async (event) => {
+      const editButton = event.target.closest("[data-edit-video]");
+      const deleteButton = event.target.closest("[data-delete-video]");
+      if (editButton && videosEditMode) {
+        const index = Number(editButton.dataset.editVideo);
+        const video = data.videos[index];
+        if (!video) return;
+        updateVideo(video);
+        saveData();
+        showNotice(`Updated video: ${video.title || "Untitled video"}.`);
+        renderVideos();
+        return;
+      }
+      if (!deleteButton || !videosEditMode) return;
+      setLoading("Updating training videos...");
+      await waitForPaint();
+      const index = Number(deleteButton.dataset.deleteVideo);
+      const video = data.videos[index];
+      if (!video) {
+        clearLoading();
+        return;
+      }
+      data.videos.splice(index, 1);
+      saveData();
+      showNotice(`Updated training videos: ${video.title || "Untitled video"} was removed.`);
+      renderVideos();
+      clearLoading();
+    });
+
+    document.querySelector("#deleteAllVideos").addEventListener("click", async () => {
+      if (!uploadsUnlocked) return;
+      if (!videoDeleteAllowed()) {
+        showNotice("Enter the video delete code before removing training videos.");
+        return;
+      }
+      setLoading("Deleting all training videos...");
+      await waitForPaint();
+      const deleted = data.videos.length;
+      data.videos = [];
+      saveData();
+      showNotice(`${deleted} training video${deleted === 1 ? "" : "s"} deleted.`);
+      renderVideos();
+      clearLoading();
+    });
+
+    function unlockEditMode(label) {
+      return window.prompt(`Enter code to edit ${label}:`) === "1124";
+    }
+
+    function isDocumentLink(href) {
+      return href.includes("document-viewer.html") || /\.html([#?].*)?$/i.test(href) || href.startsWith("data:application/pdf");
+    }
+
+    function createJusticeResource() {
+      const resource = {
+        title: "",
+        type: "2nd Chance Resource",
+        image: "",
+        caption: "",
+        url: "",
+        date: "",
+        time: "",
+        location: "",
+        details: ""
+      };
+      const before = JSON.stringify(resource);
+      updateSnapshotResource(resource);
+      return JSON.stringify(resource) === before || !resource.title ? null : resource;
+    }
+
+    function updateSnapshotResource(resource) {
+      const title = window.prompt("Resource title", resource.title || "");
+      if (title === null) return;
+      const type = window.prompt("Resource type", resource.type || "");
+      if (type === null) return;
+      const image = window.prompt("Snapshot image path or URL", resource.image || "");
+      if (image === null) return;
+      const caption = window.prompt("Short caption", resource.caption || "");
+      if (caption === null) return;
+      const url = window.prompt("Website or document link", resource.url || "");
+      if (url === null) return;
+      const date = window.prompt("Date, if any, YYYY-MM-DD", resource.date || "");
+      if (date === null) return;
+      const time = window.prompt("Time, if any", resource.time || "");
+      if (time === null) return;
+      const location = window.prompt("Location, if any", formatLocation(resource.location) || "");
+      if (location === null) return;
+      const details = window.prompt("Additional details", resource.details || "");
+      if (details === null) return;
+      Object.assign(resource, { title, type, image, caption, url, date, time, location, details });
+    }
+
+    function updateReference(reference) {
+      const title = window.prompt("Reference title", reference.title || "");
+      if (title === null) return;
+      const type = window.prompt("Reference type", reference.type || "");
+      if (type === null) return;
+      const caption = window.prompt("Caption", reference.caption || "");
+      if (caption === null) return;
+      const details = window.prompt("Details", reference.details || "");
+      if (details === null) return;
+      const url = window.prompt("Link or document path", reference.url || "");
+      if (url === null) return;
+      const image = window.prompt("Preview image path or URL", reference.image || "");
+      if (image === null) return;
+      Object.assign(reference, { title, type, caption, details, url, image });
+    }
+
+    function updateFlyer(flyer) {
+      const title = window.prompt("Flyer title", flyer.title || "");
+      if (title === null) return;
+      const date = window.prompt("Flyer date, YYYY-MM-DD", flyer.date || "");
+      if (date === null) return;
+      const category = window.prompt("Flyer section", flyer.category || inferFlyerCategory(flyer));
+      if (category === null) return;
+      const time = window.prompt("Time", flyer.time || "");
+      if (time === null) return;
+      const location = window.prompt("Location", flyer.location || "");
+      if (location === null) return;
+      const employers = window.prompt("Employers attending, comma separated", Array.isArray(flyer.employers) ? flyer.employers.join(", ") : flyer.employers || "");
+      if (employers === null) return;
+      const thingsToBring = window.prompt("Things to bring, comma separated", Array.isArray(flyer.thingsToBring) ? flyer.thingsToBring.join(", ") : flyer.thingsToBring || "");
+      if (thingsToBring === null) return;
+      const workshops = window.prompt("Workshop details", flyer.workshops || "");
+      if (workshops === null) return;
+      Object.assign(flyer, { title, category, date, time, location, employers: splitList(employers), thingsToBring: splitList(thingsToBring), workshops });
+    }
+
+    function updateTraining(item) {
+      const title = window.prompt("Training title", item.title || "");
+      if (title === null) return;
+      const type = window.prompt("Training type", item.type || "");
+      if (type === null) return;
+      const date = window.prompt("Date, YYYY-MM-DD", item.date || "");
+      if (date === null) return;
+      const dateLabel = window.prompt("Date label, optional", item.dateLabel || "");
+      if (dateLabel === null) return;
+      const where = window.prompt("Location or link", formatLocation(item.where) || "");
+      if (where === null) return;
+      const details = window.prompt("Details", item.details || "");
+      if (details === null) return;
+      Object.assign(item, { title, type, date, dateLabel, where, details });
+    }
+
+    function updateVideo(video) {
+      const title = window.prompt("Video title", video.title || "");
+      if (title === null) return;
+      const category = window.prompt("Category", video.category || "");
+      if (category === null) return;
+      const recommendedUse = window.prompt("Description or recommended use", video.recommendedUse || "");
+      if (recommendedUse === null) return;
+      const url = window.prompt("YouTube link", video.url || "");
+      if (url === null) return;
+      const thumbnail = window.prompt("Optional thumbnail image URL", video.thumbnail || "");
+      if (thumbnail === null) return;
+      Object.assign(video, { title, category, recommendedUse, url, thumbnail });
+    }
+
+    function videoDeleteAllowed() {
+      return document.querySelector("#videoDeleteCode").value === VIDEO_DELETE_CODE;
+    }
+
+    function flyerDeleteAllowed() {
+      return document.querySelector("#flyerDeleteCode").value === FLYER_DELETE_CODE;
+    }
+
+    function referenceDeleteAllowed() {
+      return document.querySelector("#referenceDeleteCode").value === REFERENCE_DELETE_CODE;
+    }
+
+    function readFile(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function showNotice(message) {
+      const notice = document.querySelector("#uploadNotice");
+      notice.textContent = message;
+      window.setTimeout(() => {
+        notice.textContent = "";
+      }, 3200);
+    }
+
+    function setLoading(message) {
+      document.querySelector("#uploadLoadingText").textContent = message;
+      document.querySelector("#uploadLoading").classList.add("active");
+    }
+
+    function clearLoading() {
+      document.querySelector("#uploadLoading").classList.remove("active");
+    }
+
+    function waitForPaint() {
+      return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }
+
+    function parseVevaaEmail(rawEmail, sourceFile) {
+      const subjectDate = rawEmail.match(/Job Openings in Your Area on (\d{2})\/(\d{2})\/(\d{4})/);
+      const date = subjectDate ? `${subjectDate[3]}-${subjectDate[1]}-${subjectDate[2]}` : new Date().toISOString().slice(0, 10);
+      const lines = rawEmail
+        .replace(/\r/g, "")
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      const jobs = [];
+      lines.forEach((line, index) => {
+        if (!line.startsWith("https://")) return;
+        const title = decodeEmailText(lines[index + 1] || "");
+        const requisition = decodeEmailText(lines[index + 2] || "");
+        const company = decodeEmailText(lines[index + 3] || "");
+        const location = decodeEmailText(lines[index + 4] || "").replace(",", ", ");
+        if (!title || !company || !location || !/^R-\d+/i.test(requisition)) return;
+        jobs.push({
+          title,
+          requisition,
+          company,
+          category: deriveJobCategory(title),
+          location,
+          date,
+          url: line,
+          source: "VEVRAA email",
+          sourceFile
+        });
+      });
+
+      return mergeJobs(jobs, []);
+    }
+
+    function decodeEmailText(value) {
+      const textarea = document.createElement("textarea");
+      textarea.innerHTML = value.replace(/=E2=80=93/g, "-").replace(/=C2=A0/g, " ");
+      return textarea.value.trim();
+    }
+
+    function deriveJobCategory(title) {
+      const value = title.toLowerCase();
+      if (["nurse", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu"].some((word) => value.includes(word))) return "Healthcare";
+      if (["driver", "cdl", "transport"].some((word) => value.includes(word))) return "Transportation / CDL";
+      if (["mechanic", "technician", "maintenance"].some((word) => value.includes(word))) return "Skilled Trades";
+      if (["retail", "cashier", "sales", "customer"].some((word) => value.includes(word))) return "Retail / Customer Service";
+      if (["government", "federal", "state"].some((word) => value.includes(word))) return "Government";
+      return "Corporate / Professional";
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>
