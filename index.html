@@ -268,6 +268,31 @@
       align-items: start;
     }
 
+    .industry-shortcuts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 4px 0 12px;
+    }
+
+    .industry-shortcut {
+      min-height: 32px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--purple-dark);
+      background: #fff;
+      font-size: 0.78rem;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .industry-shortcut:hover,
+    .industry-shortcut:focus {
+      border-color: var(--purple);
+      background: #eef4f7;
+    }
+
     .industry-group {
       display: grid;
       gap: 10px;
@@ -275,6 +300,8 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.6);
+      max-height: 680px;
+      overflow: hidden;
     }
 
     .industry-group .job-section-title {
@@ -341,6 +368,10 @@
     .industry-card-grid {
       display: grid;
       gap: 10px;
+      max-height: 585px;
+      overflow-y: auto;
+      padding-right: 4px;
+      scrollbar-gutter: stable;
     }
 
     .job-section-title {
@@ -1632,8 +1663,14 @@
 
     function renderIndustryGroups(jobs) {
       const groups = groupByIndustry(sortByDate(jobs, "newest"));
-      return `<div class="industry-groups">${Object.entries(groups)
-        .sort(([first], [second]) => first.localeCompare(second))
+      const entries = Object.entries(groups).sort(([first], [second]) => first.localeCompare(second));
+      const shortcuts = entries.length > 1 ? `
+        <div class="industry-shortcuts" aria-label="Industry shortcuts">
+          <button class="industry-shortcut" type="button" data-industry-filter="">All industries</button>
+          ${entries.map(([industry, industryJobs]) => `<button class="industry-shortcut" type="button" data-industry-filter="${escapeAttribute(industry)}">${escapeHtml(industry)} (${industryJobs.length})</button>`).join("")}
+        </div>
+      ` : "";
+      return `${shortcuts}<div class="industry-groups">${entries
         .map(([industry, industryJobs]) => `
           <section class="industry-group">
             <div class="job-section-title"><span class="industry-title">${renderIndustryIcon(industry)}${escapeHtml(industry)}</span><span>${industryJobs.length} active lead${industryJobs.length === 1 ? "" : "s"}</span></div>
@@ -2083,6 +2120,14 @@
     ["#jobSearch", "#jobCategory", "#jobSort"].forEach((selector) => {
       document.querySelector(selector).addEventListener("input", renderJobs);
       document.querySelector(selector).addEventListener("change", renderJobs);
+    });
+
+    document.querySelector("#jobList").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-industry-filter]");
+      if (!button) return;
+      document.querySelector("#jobCategory").value = button.dataset.industryFilter;
+      renderJobs();
+      document.querySelector("#jobList").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     ["#flyerOrder", "#flyerVisibility"].forEach((selector) => {
