@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flyer Viewer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Aptos, "Segoe UI", Arial, Helvetica, sans-serif;
+      color: #262329;
+      background: #f5f7fb;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px clamp(16px, 4vw, 44px);
+      border-bottom: 1px solid #d9e0ea;
+      background: #fff;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+      width: min(980px, calc(100% - 32px));
+      margin: 22px auto 60px;
+    }
+
+    .details,
+    .viewer {
+      border: 1px solid #d9e0ea;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(38, 35, 41, 0.06);
+    }
+
+    .details {
+      padding: 18px;
+    }
+
+    .viewer {
+      min-height: 72vh;
+      overflow: hidden;
+    }
+
+    iframe,
+    object,
+    img {
+      display: block;
+      width: 100%;
+      min-height: 72vh;
+      border: 0;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    a {
+      color: #2c6897;
+      font-weight: 750;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">Back to portal</a>
+    <h1 id="title">Flyer Viewer</h1>
+    <a id="openRaw" href="#" target="_blank" rel="noopener">Open original</a>
+  </header>
+  <main>
+    <section class="details" id="details"></section>
+    <section class="viewer" id="viewer"></section>
+  </main>
+
+  <script>
+    const storageKey = "vetcentral-portal-content";
+    const params = new URLSearchParams(window.location.search);
+    const index = Number(params.get("index"));
+    const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    const flyer = saved.flyers && saved.flyers[index];
+    const title = flyer && flyer.title ? flyer.title : "Flyer Viewer";
+    document.querySelector("#title").textContent = title;
+
+    function escapeHtml(value) {
+      return String(value || "").replace(/[&<>"']/g, (character) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#039;"
+      }[character]));
+    }
+
+    function listValue(value) {
+      return Array.isArray(value) ? value.join(", ") : value;
+    }
+
+    if (!flyer) {
+      document.querySelector("#details").innerHTML = "<p>Flyer not found. Return to the portal and open it again.</p>";
+      document.querySelector("#openRaw").style.visibility = "hidden";
+    } else {
+      const source = flyer.dataUrl || flyer.url || "";
+      const details = [
+        flyer.category ? `<strong>Section:</strong> ${escapeHtml(flyer.category)}` : "",
+        flyer.date ? `<strong>Date:</strong> ${escapeHtml(flyer.date)}` : "",
+        flyer.time ? `<strong>Time:</strong> ${escapeHtml(flyer.time)}` : "",
+        flyer.location ? `<strong>Location:</strong> ${escapeHtml(flyer.location)}` : "",
+        flyer.employers && flyer.employers.length ? `<strong>Employers:</strong> ${escapeHtml(listValue(flyer.employers))}` : "",
+        flyer.thingsToBring && flyer.thingsToBring.length ? `<strong>Things to bring:</strong> ${escapeHtml(listValue(flyer.thingsToBring))}` : "",
+        flyer.workshops ? `<strong>Notes:</strong> ${escapeHtml(flyer.workshops)}` : ""
+      ].filter(Boolean).map((row) => `<p>${row}</p>`).join("");
+      document.querySelector("#details").innerHTML = `<h2>${escapeHtml(title)}</h2>${details}`;
+      if (source) {
+        document.querySelector("#openRaw").href = source;
+      } else {
+        document.querySelector("#openRaw").style.visibility = "hidden";
+      }
+
+      if (flyer.fileType && flyer.fileType.startsWith("image/")) {
+        document.querySelector("#viewer").innerHTML = `<img src="${source}" alt="${escapeHtml(title)}">`;
+      } else if (flyer.fileType === "application/pdf" || source.toLowerCase().includes(".pdf")) {
+        document.querySelector("#viewer").innerHTML = `<iframe src="${source}" title="${escapeHtml(title)}"></iframe>`;
+      } else if (source) {
+        document.querySelector("#viewer").innerHTML = `<iframe src="${source}" title="${escapeHtml(title)}"></iframe>`;
+      } else {
+        document.querySelector("#viewer").innerHTML = "<p style='padding:18px'>No preview available for this flyer.</p>";
+      }
+    }
+  </script>
+</body>
+</html>
