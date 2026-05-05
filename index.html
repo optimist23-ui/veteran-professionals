@@ -1315,7 +1315,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 11;
+    const dataVersion = 12;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -2784,7 +2784,7 @@
         const requisition = decodeEmailText(lines[index + 2] || "");
         const company = decodeEmailText(lines[index + 3] || "");
         const location = decodeEmailText(lines[index + 4] || "").replace(",", ", ");
-        if (!title || !company || !location || !/^(R-\d+|\d{5,})$/i.test(requisition)) return;
+        if (!title || !company || !location || !isLikelyRequisition(requisition)) return;
         jobs.push({
           title,
           requisition,
@@ -2802,9 +2802,21 @@
     }
 
     function decodeQuotedPrintableEmail(value) {
-      return value
-        .replace(/=\r?\n/g, "")
-        .replace(/=([A-Fa-f0-9]{2})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+      const text = value.replace(/=\r?\n/g, "");
+      const bytes = [];
+      for (let index = 0; index < text.length; index += 1) {
+        if (text[index] === "=" && /[A-Fa-f0-9]{2}/.test(text.slice(index + 1, index + 3))) {
+          bytes.push(parseInt(text.slice(index + 1, index + 3), 16));
+          index += 2;
+        } else {
+          bytes.push(text.charCodeAt(index));
+        }
+      }
+      return new TextDecoder().decode(new Uint8Array(bytes));
+    }
+
+    function isLikelyRequisition(value) {
+      return /^[A-Z0-9][A-Z0-9_-]{3,}$/i.test(value || "") && !String(value || "").includes(" ");
     }
 
     function decodeEmailText(value) {
@@ -2815,10 +2827,10 @@
 
     function deriveJobCategory(title) {
       const value = title.toLowerCase();
-      if (["nurse", "rn", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu", "patient care", "lifeline", "home health"].some((word) => value.includes(word))) return "Healthcare";
+      if (/\brn\b/.test(value) || ["nurse", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu", "patient care", "lifeline", "home health", "care partner", "unit secretary", "icu", "nicu", "mother/baby", "labor & delivery", "clinic", "emergency department", "acute care", "rehab"].some((word) => value.includes(word))) return "Healthcare";
       if (["driver", "cdl", "transport"].some((word) => value.includes(word))) return "Transportation / CDL";
-      if (["mechanic", "technician", "maintenance"].some((word) => value.includes(word))) return "Skilled Trades";
-      if (["retail", "cashier", "sales", "customer"].some((word) => value.includes(word))) return "Retail / Customer Service";
+      if (["mechanic", "technician", "maintenance", "warehouse", "production"].some((word) => value.includes(word))) return "Skilled Trades";
+      if (["retail", "cashier", "sales", "customer", "carwash", "gas attendant", "walmart", "walgreens"].some((word) => value.includes(word))) return "Retail / Customer Service";
       if (["government", "federal", "state"].some((word) => value.includes(word))) return "Government";
       return "Corporate / Professional";
     }

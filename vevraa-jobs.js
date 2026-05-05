@@ -55,7 +55,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_03_2026.eml"
   },
   {
-    "title": "TempForce Admin/Tech Support for Epic Training - Onsite in Clarksville TN",
+    "title": "TempForce Admin/Tech Support for Epic Training – Onsite in Clarksville TN",
     "requisition": "R-57720",
     "company": "Vanderbilt University Medical Center",
     "category": "Corporate / Professional",
@@ -141,5 +141,247 @@ window.VEVRAA_JOBS = [
     "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bEebeiif9ad8-2BK5klees5DJ4wQtC3D3uHamhfQ4Q8FYQFlnoYOrLNOF-2BaZNgwX-2Fj8-3DO6nZ_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrV3JpA8TZR-2BOnIQTARpeZbIGfqba8oEgYerxvjy293vZbww9aZun8BeKfT9sjUaG64MESfoT6wlwnvRNnhEL-2FiX-2Fh7FpN3LSJAxJyRQgMwgRZBZCFQlre-2FgMOwz4hYYMBVsubAeSrPnCoKZU-2F0pGw3NU-2BytAmbt8-2Bz-2B6nx-2FA92-2FmcYmw8ly1yWzFe0U-2BXQedp-2F__;!!PRtDf9A!qZzq7n61YHYwqpBZZ5ZWhpsjoH2ioHRKB5odci9tLgr8uUkfzfizKVBYXkmJPs7UPik8nCLRt3dtHdAruieeeiIC$",
     "source": "VEVRAA email",
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_04_2026.eml"
+  },
+  {
+    "title": "(USA) Carwash/Gas Attendant",
+    "requisition": "8261_R-2499801",
+    "company": "Walmart",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YWh1K0x-2F2BEjSuCi2ibKB4xOvsaoRIbWEB5zA-2FBue-2FlulgZIdyXGQSBsw5kvjqZjI-3DRjvb_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6amYDKv-2FpknnZw-2FBOhzsiLKwBCuQgHTtckKTEzr0oKUl8n14QCc2ZApfeXvDY3SArkwBbgVnlvOV-2BV87YOrYBKWU4ZRwKgINt78NmIgpRawAvL0wFtJdpMkyAI4b4vUPKBTefBuZdQNghdPJymUe02Esxd98XWMHBGETsQi1MuYzpg-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fCKOtviQ$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Physical Therapist (School)",
+    "requisition": "1134604",
+    "company": "Amergis",
+    "category": "Healthcare",
+    "location": "Erin, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aEE0tQKUTGicQ39Mns8BDxjs-2BSzq8rdX7Y2PMpXu3HAi-2BM06V3QWsEYAGj7nCad4I-3D9ImK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6Hsagch6zlEECxO2mPc3Zq7-2BxsMOY2th1s4jzdvT37-2FI6k2XaPnpk1xbX-2BpViCgbV7Yvmouxbd6Xo5pxpGsVNRo62RTj-2BF2hMIlOSBOohlaFJw5n6rvUzU-2FLEt40SxFqwRHZKnlWIEui5-2FES-2FOn1kEgHw-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fLbCC79K$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Regional Intelligence Manager, Compliance, Strategy and Risk Management, Data Centers",
+    "requisition": "94920707783172806",
+    "company": "Google",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YHu6Aa-2BZO5jQW0dubxE9K-2FFbf3u4aFoCX1emfdE1fRAoTUQHtZ5VK0Rc3ePpgbkoE-3DgFQx_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6akBk0H9bUCsdcPThRPvZyHdFpMVylZUAMCi9DrUsV6c5jFlIT4r8itgWimFh-2Bu8aM9-2F6DUZgjJmgLNrpHdy-2BDDYzS2xPfLk4esB6UTxCJDLp3Q214yBtnw3BWmn9qM-2FV5Ln4jhuT6-2BrKDkCrhgASgETzgXqx8YfI8kGWfn6X7cwjw-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fHtVRoPs$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Customer Service Associate - Temporary",
+    "requisition": "1802152BR",
+    "company": "Walgreens",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Zc4nSTuHK1FS17vK-2FYUc2zt8KbGEBA1Za0gNfcz50ZQf-2FvlLO4m7w068Cn-2F6s-2FU10-3DsTMy_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6akauxwY8Xld5UkrgjuHq7e-2BJvZQM6t-2B3i6MUj1vyR5t1SM2-2FCI3B-2FryD-2FNBVeH2dB4RG9Om1yYFTP0eSVZD6GPTgyjZsJ8M9KmIP3QVPBx716tjfNPhANXiMUutz4b4ZmiBoyokUXH0GyGbNHXsoXBMcqX9ljUnIGzHOvDEMiJgBQ-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fHsX7isd$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, ICU, Full-time Days, Clarksville",
+    "requisition": "R-65657",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aKtll7u5a0z-2BQVKASGYgMGtUHZ9qk5y54jBGX-2FoB1q8BYHUUuNaSdjW4YY5BNAhFA-3DUyut_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6akiYiizTQabxAaNdTjqHnbFR3-2F2ZbukTXoMTh89qOaTdE3LNRjQaeEY4A2Nq1LhtXeimvmOw29dNMwNcbPFS-2BX6eSDO3PjPxJm5Ea2WuyiO5CK4SLdcRiNQtYzeoBBUV7FE53qs6Jk5EVBusIvLMwgUVW0qK0Q7nQDpZPIKfTChDw-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fCOjptXS$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Physical Therapist (PT) – Acute Care & Inpatient Rehab, PRN",
+    "requisition": "R-66086",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35anEd31gju7Ojd1B4P7wa7kZX-2FvpBX4iV4bABItWURdp2Cm4kzDGfQ-2Fkiz1gf2cwt8-3DzBZA_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6am8w-2BIfzGeX6DrUNsn4nynor058W6l1dxR-2BMv40f4xW5cpBZSfQPjBn0ZTzn2H-2FGmmCnjxFdasmW7l39QsyFkJd9V1-2BWl5a3Kn0X4rCT5-2B8PuxkZyfJHRssDG3OzShvhBoDgijeZwiu4Z0JCXXJINEqHyp8yBHZxVBvupLMWd1JOw-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fFWDlzib$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Unit Secretary - Clarksville FSED (Nights)",
+    "requisition": "R-66056",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Zs2ED-2Bzypnt9oriLTbKv6mAkSdKzGV-2BYYLNhoNUAv3hLMFP2oFKwSry13oa-2FBkeak-3D09ZR_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anEoy2AlOM1VUdkFQPTuN24C0GXqtqZEeeuJqYn60JpEOacdqaYhcT-2Bh4dPvAFFaDP6YSn8kGaBvcdYAtFCJQ-2Fkyxe9IHe1CsLIk4SjcswlnC0Qi-2F-2FaWRr1oQRYh5ANg8vfzD8uM6ORmczB4Swadwxz1MiCnwXn0Rf9FkEVfquURQ-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fJHkq5XH$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Care Partner - Clarksville FSED (PRN Nights)",
+    "requisition": "R-66055",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YoyoTmWOy4LDnYaRWUXH8s7zbUx8dKNVnQWaBuX9XoUv55MPORURa7HlVMqEIzpqA-3DvhLS_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6amYgyQbPdkQ-2Fl04Q3VLBy-2BKJoEzVqQwD092jAXjvrO45k7B9akpZ52BO9ehnOqVqHHG4LHYV-2FTahn5U6KIiw-2FJA0lX6k8UVFrxXDWoa-2BSj4KAv85UpIRY21dDyySFdFl2MN5cPpq9A0ZC7uulWHSpgc4VTyP8ZpyDsEW9A4DyG-2Fhg-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fGDjw1_y$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Care Partner - Clarksville FSED (PRN Days)",
+    "requisition": "R-66052",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZhER0bZgC-2FsrmQuTa3jxSIWwMHpsQBRETkRI7FZGqCCJl89bb7YO-2FS-2FglQokikAmY-3DVOGu_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6al8P0JLEvFjpiycdmXF9Ls9C-2BxwCsdlizHaJZB-2FfzE5COCqgfVLX7gXQ2IZnSFf3r8hzXzppvTyBa8QmuTQNpfofnjI4mS9rUPjuqvDvWvUubk8tWPGtCPgnLPY-2B1GDTB-2F4ZVaNKEb9QPEmnbYcqYRiugf9gBgW5e1aGdIhp1JJhg-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fC210I2N$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, ER (Sango) Full-time, Days, Clarksville",
+    "requisition": "R-58310",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35arYnjRZbrELPEfqBX4-2FqrU40o-2FX2MnVtuio2zA9viVKNwPzX84qby9tX0jm1aJBLE-3DMkbQ_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6alcSb5IMow3xytvhdtgxYQMGHo67RQbO-2BZg98-2Bk5n4vRKwUrDEq0PLp2N8z8R5mKqfi672Tc7j2YJoVYyzt5saLA8TRKzJfY08RLye7p2Vf3avtChjcqn6-2BSA-2BfS9RHkNJm3Rlw7KgaHxyrCaMhHEJvEWv5iXejP8sq3Idp2B0j6Q-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fLvhjaUM$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse-- Emergency Department",
+    "requisition": "R-66064",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aSJ7eyy2rmfP8z2iAGfscQ7Vt1sga-2BBV9mc-2B2G8BC-2FmGLYjGMuB1oabhBqpLy2Qsw-3D5Bvg_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HsPFN-2F-2BMpo3FgiUUTcqrcK9GlWJM0T5KYAQkSUikgW0it8seY0D-2FzzQexJLzCTiM0Z63B6PY2DwMSnQkmciChAwaxrtEYoORCD2gsKmAf-2FqXKBY-2FB4K-2BaNM0FAsuownn9efeC6ntHJH7DcbCeCC1HN2g-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fAWixsKT$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, ER, Full-time days, Clarksville",
+    "requisition": "R-58339",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZKY9NUVZmtoAsrNBXjjbxKo8LinjzUXIvG2CvmvYsisyJt71K5y0MY2Ab2AZWxnEg-3DSICQ_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HsqyRhkHQ-2Fmx1vozFbCnPvXb5wDDr-2FG6LHXDj4ZwDi4xDBwWBdAChQYgGBWFj8G4ErUWjA6FvAmMDQUG62xEdn-2F9qleislz2VqjLjt7LltPKIYa-2FVHfi9F3EI3EQM7xlgoB1VKuO1pMg6d4FP7Srdt5A-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fOh-m5bm$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Care Partner - Clarksville FSED (PRN Midshift, 11a - 11p)",
+    "requisition": "R-66054",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Zx-2BBcyYnOrPa-2Brqcra5Voel7fbwhArSS42PkzhxpCE1Y6opkXRm9vSnd5fCfJUyhI-3Dc4Ob_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HskdWkkS8y3cVy-2BwIKJg7J-2FbEhVnqTQRpsR8hWCK-2FcFl3lQ-2BjrwHZtyqOXBsFTIrvHv3y3Q8foYDAwWYfd9aLI-2B3vLzXZo5Wivyzj2Hmx-2FGPlsVkMbgna0PRdZaSdwsx1usZTS0vlIfTYft6Oc1prOBg-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fBVSzBjL$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, ER, Full-time Days, Clarksville",
+    "requisition": "R-65715",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bQv8p-2BOA8-2FKpsFIuLEr2GWdCFmI1qplsF3b7QEDw55euuQXtKIxBJVBhSHD8QKxQw-3DfVBe_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HsaACog6210UnzbXrb4bPrZeU4KlPW1GyV7X84cfctZB-2FacNILPqO8HoBQE2PEFHj-2FR20JRNZL4CFVnUPwevco6MQI394ptKNKBTnexGoxaD0N64-2BZGo8u2OCLx6E4MCYDNVsxclyvv-2BJSOJIwWyEJmA-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fFOlERDn$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, NICU, Days Part-time, Clarksville",
+    "requisition": "R-66078",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35at-2FB0ddA7VF8MCBzmZ69hzti5v1UKu8wE73hREtIUvHkb1C7UQOgCf8HdMq-2FuDFys-3DeqAb_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6Hs5jUDP6safVPwLtzMP3JPFF1wWRtZI8C4S6fzkFdCA3iS2SLeipGVoJ1S971jFp-2BaCKjekHc0xFaJbB18mAlpBu0CaQpbtfk9lk7uXGJnxtC57fZrQ2AM1vte4IPkdugFqqp6lVFg6GMZYxtph0QI7w-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fBv1qLlb$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, Mother/Baby, Full-time nights, Clarksville",
+    "requisition": "R-66073",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YLrp7-2FNjsc0cywPAjOZrLHsl6awsIAJGPFH5RqXfYNQ-2BPl2pAFAeyH-2Faq8N6IKmh4-3D6RQx_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HsSQGrQGAN4iudtPU9M5b2N0GYznnPnZEj3mdpiYADQm9-2Fz40SzRpfvCKq08e-2B5L9tI5yHYionpBiSMUhFi6N6sz5CfhhFYoS6jxziHgSgE6MHzxioqQYvQ6gcsqvtfh0eA0WmKeQKkiiHtuXMidq80g-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fDQMY6yM$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse - Clarksville GI Clinic",
+    "requisition": "R-66031",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZOVWRm3nrdh0ZPyviyJ-2FyYL-2FnqtI1HYtl6H8lMfo-2Fepz7B5AgOV1AQpXaZPLuqH34-3D1ndl_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HsJUQrWkl77i8NsRSxJan6ZCoa6zwlFW-2BrdMQW-2FtqArV2cWuwyf5fogaBuN3ktaoRtGFN3wizdx28uXHtqpGUwMZTBSxwXUqZgLoDmPUzA5722NQ6Zo7reY4zVBbfYIPNWDjWscnwBY5c9vEcfsYvk4A-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fKyeTFQ9$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, Step Down PRN Nights, Clarksville",
+    "requisition": "R-65580",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35addI-2FJ9RqdIOXFCVzRYLil2P4VtiheGRw9fiM7MF3R4vDUleAI9S4ZJBK6xvN4bwQ-3DpsyC_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6HsJyxzjHVyFbjzo7wVUnlCLtxXJsh0DsaO-2F858w6NfxpL3HsZuN2fbyoxnbv3cQq4XIdAO8mFbH9rELbHVN0knQ1-2FrbkmSkqeMYjQI-2BpupA6rpETevMqM4W-2B22nynZ5yiloJEaG2RDjjDkUA1cun-2BZwg-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fNvH7fxE$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, Mother/Baby, Full-time Days, Clarksville",
+    "requisition": "R-66070",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bBxcRTwfN4SP7z7q1hv55f3g11YidrQBSEBNVQJu3QHji125DRsLQ0Wv6Fzqrp0Z4-3DNSCI_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6Hsk3BUxK1lsAYfmy9cs6NfuKNlOAqsnZ97mKCLRXiN6-2BqHg9LV2gj4hsYjgkcZSt1WAOdFtZBTfSbJ7duywxpOe-2BooQSihD4i6-2Bn6slRkE-2B29B07fa3-2BRBJP1qkwvO3BRYNgydVGSE-2FfCXRed3JwmK1w-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fDVeSxRF$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Registered Nurse, Labor & Delivery, Full-time Nights, Clarksville",
+    "requisition": "R-66123",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YCURghjt-2FfPHTCUB9YJ6lZPkmgB-2FWcUedT8HlhwW6ZGwcLtsRq5TeUaMmHirZkvXg-3DKPyB_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6anlUxdCeEnLf93EUvYaf6Hsegaw9xI7Jv5mQdgPGffqGE-2FKUVq0bTa-2FpuJDPJGv-2FLcQhLvt4E5NLK1ytp-2F-2F-2BYU-2F9MyelgIvsVaIHRaKUVT9rV9SmX1oWZpWauw2T0PtJwKLJOc1wuh7XflJAg58YwqI8IlzCeEW-2BrfTD2-2BZxquy4A-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fCtKOm3u$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Warehouse Clerk",
+    "requisition": "14400",
+    "company": "Graphic Packaging International, LLC",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Y4ozPZBVx-2FhZg04uUWay-2F0SD-2FXjFyjTpzt1gcF7NrAZf4wSZMesV80N3JRn8VWkF0-3DT_G3_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6akBk0H9bUCsdcPThRPvZyHdn9o2fnDrlYCsQXxK4m6ehJXdyupceFz09ATq-2FFAsAmbDZBTSvUSBu5E1hD-2FfBQ7rGKFaI2tciwf-2FAxpFIiMZWRgoSk7RPWFtOgAg4rkCOHZ3mBj755Mxpfd5NmGn3auGS70qZBhhl-2Ft-2BxsNATbT6gA-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fMaGkhGM$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Production Intern",
+    "requisition": "JR-3907",
+    "company": "Trane Technologies",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-05",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bhayjlQ1F3ixHiScd2XY1WhM7gl8kknzuLDWmZokWNwFNLX2k38QeUYNe5cqmdkKg-3DlXER_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6akBk0H9bUCsdcPThRPvZyHddKJ3B6gT4RyqtmMH2pDbPkOc2aPaB5W04GRjQy9BdLC450t4bVqlgMQVtmJ-2BvD1DD2Hr2m3nzdc2jdUvrp4OlMk6NqGPtPIRCfB24SjT5NXn-2F4TQZHqQWr-2BxCyZONUle3tBQiuy8xz15utJjpBBDtw-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fKwJP_vn$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
   }
 ];
