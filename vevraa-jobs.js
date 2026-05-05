@@ -55,13 +55,24 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_03_2026.eml"
   },
   {
-    "title": "TempForce Admin/Tech Support for Epic Training \u2013 Onsite in Clarksville TN",
+    "title": "TempForce Admin/Tech Support for Epic Training - Onsite in Clarksville TN",
     "requisition": "R-57720",
     "company": "Vanderbilt University Medical Center",
     "category": "Corporate / Professional",
     "location": "Clarksville, TN",
     "date": "2026-05-03",
     "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bB2FpNr2geQGtMbxNeBsEYSW5zYz5xm9gxUouaU8PGSE-2BMolE1qDoEUUz5uT9nTOI-3DdX8s_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVQXikVtdJbqRGJfOdT-2BiBrG-2F3OVzXa3Hj42DsJ39k7z37kB6s3sOAuO9hLh2CGVaBoBYpzL18ub2YcXDR2Wg8wYLyqEA5tNlaDKHCp0zeaxCA5gdR5ssixMqJofVH3cvqBjn4UgHPb17KSo78ICIRITqV4sZGjc-2BGqeFtJFzprTaF8MrLLsHdSTwvRZ6QMHDX__;!!PRtDf9A!pxen2x0nMYpMNYmDOPW1ZKre4xZMJ_IYRBf4mUNtSST2wDKT0S-9CStG_rDApS0AKNZw5Trlj-pfw16d_Bjg1NIh$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_03_2026.eml"
+  },
+  {
+    "title": "RN Patient Care Manager - Lifeline Home Health Care",
+    "requisition": "2361722",
+    "company": "UnitedHealth Group",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-03",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bbRbktbqWmWJcP-2FJMoVVi17dmXbbAD9iSWHPWOxKYOENvyhURFAoa7hknHnAjpByo-3D3X0W_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVQXikVtdJbqRGJfOdT-2BiBrG-2F3OVzXa3Hj42DsJ39k7z0HdIHVz-2B1smiuNYuF9Ak3sShFRsTEYrf4H9Deh44sldGNiItEKpwPJprRF34e8H5SOaoXT4eFRpqD33AhGVy28WVx6R3QY3hANotS1y4M4EAe-2FC6Rt28M0tp5uAaGU7gy22k4UQELGx3dBqGCstC5X__;!!PRtDf9A!pxen2x0nMYpMNYmDOPW1ZKre4xZMJ_IYRBf4mUNtSST2wDKT0S-9CStG_rDApS0AKNZw5Trlj-pfw16d_M5MK4l3$",
     "source": "VEVRAA email",
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_03_2026.eml"
   },

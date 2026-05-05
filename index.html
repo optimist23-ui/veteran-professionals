@@ -1232,7 +1232,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 10;
+    const dataVersion = 11;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -2641,7 +2641,7 @@
     function parseVevaaEmail(rawEmail, sourceFile) {
       const subjectDate = rawEmail.match(/Job Openings in Your Area on (\d{2})\/(\d{2})\/(\d{4})/);
       const date = subjectDate ? `${subjectDate[3]}-${subjectDate[1]}-${subjectDate[2]}` : new Date().toISOString().slice(0, 10);
-      const lines = rawEmail
+      const lines = decodeQuotedPrintableEmail(rawEmail)
         .replace(/\r/g, "")
         .split("\n")
         .map((line) => line.trim())
@@ -2654,7 +2654,7 @@
         const requisition = decodeEmailText(lines[index + 2] || "");
         const company = decodeEmailText(lines[index + 3] || "");
         const location = decodeEmailText(lines[index + 4] || "").replace(",", ", ");
-        if (!title || !company || !location || !/^R-\d+/i.test(requisition)) return;
+        if (!title || !company || !location || !/^(R-\d+|\d{5,})$/i.test(requisition)) return;
         jobs.push({
           title,
           requisition,
@@ -2671,15 +2671,21 @@
       return mergeJobs(jobs, []);
     }
 
+    function decodeQuotedPrintableEmail(value) {
+      return value
+        .replace(/=\r?\n/g, "")
+        .replace(/=([A-Fa-f0-9]{2})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+    }
+
     function decodeEmailText(value) {
       const textarea = document.createElement("textarea");
-      textarea.innerHTML = value.replace(/=E2=80=93/g, "-").replace(/=C2=A0/g, " ");
+      textarea.innerHTML = value.replace(/\u00a0/g, " ").replace(/\u00e2\u0080\u0093/g, "-").replace(/\u00e2\u0080\u0099/g, "'");
       return textarea.value.trim();
     }
 
     function deriveJobCategory(title) {
       const value = title.toLowerCase();
-      if (["nurse", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu"].some((word) => value.includes(word))) return "Healthcare";
+      if (["nurse", "rn", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu", "patient care", "lifeline", "home health"].some((word) => value.includes(word))) return "Healthcare";
       if (["driver", "cdl", "transport"].some((word) => value.includes(word))) return "Transportation / CDL";
       if (["mechanic", "technician", "maintenance"].some((word) => value.includes(word))) return "Skilled Trades";
       if (["retail", "cashier", "sales", "customer"].some((word) => value.includes(word))) return "Retail / Customer Service";
