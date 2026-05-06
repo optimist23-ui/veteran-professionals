@@ -1599,7 +1599,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 14;
+    const dataVersion = 15;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1700,6 +1700,45 @@
           fileName: "Sample flyer placeholder",
           fileType: "placeholder",
           dataUrl: ""
+        },
+        {
+          title: "Fort Campbell Summer Job Fair",
+          category: "Job Fair",
+          date: "2026-06-09",
+          time: "9:00 AM-2:00 PM",
+          location: "Cole Park Commons, 1610 William C. Lee Rd, Fort Campbell, KY 42223",
+          employers: ["110+ employers"],
+          thingsToBring: ["Resume", "Professional dress", "Questions for employers"],
+          workshops: "Open to transitioning soldiers, veterans, military family members, and the public. Presented by the Transition Assistance Program.",
+          fileName: "fort-campbell-summer-job-fair-2026.jpeg",
+          fileType: "image/jpeg",
+          dataUrl: "fort-campbell-summer-job-fair-2026.jpeg"
+        },
+        {
+          title: "Pathways to Prosperity",
+          category: "Job Fair",
+          date: "2026-05-06",
+          time: "Monday-Friday, 8:00 AM-4:30 PM",
+          location: "Coffee, Bedford, Maury, Marshall, Montgomery, Robertson, Putnam, and Smith Counties",
+          employers: ["Catholic Charities Diocese of Nashville"],
+          thingsToBring: ["Contact information", "Questions about training or employment support"],
+          workshops: "Career resource for basic needs assistance, financial education, one-on-one case management, and referrals to certified public-sector training programs and job opportunities.",
+          fileName: "catholic-charities-pathways-to-prosperity-2026.jpeg",
+          fileType: "image/jpeg",
+          dataUrl: "catholic-charities-pathways-to-prosperity-2026.jpeg"
+        },
+        {
+          title: "VA Clarksville Expo 2026",
+          category: "Job Fair",
+          date: "2026-05-20",
+          time: "4:00 PM-6:00 PM",
+          location: "VA Clarksville, 782 Weatherly Dr, Clarksville, TN",
+          employers: ["U.S. Department of Veterans Affairs", "Community resource partners"],
+          thingsToBring: ["Veteran ID if available", "Questions for VA and community resource partners"],
+          workshops: "Resource expo for veterans, service members, military families, and community partners.",
+          fileName: "va-clarksville-expo-2026-job-fair.jpeg",
+          fileType: "image/jpeg",
+          dataUrl: "va-clarksville-expo-2026-job-fair.jpeg"
         }
       ],
       references: [
@@ -1806,6 +1845,7 @@
     };
 
     let data = loadData();
+    saveData();
 
     function loadData() {
       const saved = localStorage.getItem(storageKey);
