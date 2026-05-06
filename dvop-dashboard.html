@@ -1,0 +1,2801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DVOP Productivity Command Center</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17202a;
+      --muted: #627080;
+      --paper: #f4f7fb;
+      --panel: #ffffff;
+      --line: #d7e0ea;
+      --navy: #25364d;
+      --teal: #0f766e;
+      --green: #147a45;
+      --amber: #a15c00;
+      --red: #b42318;
+      --blue: #2563a8;
+      --violet: #5b4b8a;
+      --soft-teal: #e8f6f3;
+      --soft-green: #eaf6ee;
+      --soft-amber: #fff4df;
+      --soft-red: #fdeceb;
+      --soft-blue: #eaf2fb;
+      --shadow: 0 12px 28px rgba(23, 32, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Aptos, "Segoe UI", Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      letter-spacing: 0;
+    }
+
+    button, input, select, textarea { font: inherit; }
+
+    button { cursor: pointer; }
+
+    a { color: inherit; }
+
+    .app-shell {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 248px minmax(0, 1fr);
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--line);
+      background: var(--navy);
+      color: #fff;
+    }
+
+    .brand {
+      padding: 22px 18px 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      color: var(--navy);
+      background: #fff;
+      font-weight: 900;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.2;
+    }
+
+    .brand p {
+      margin: 8px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.83rem;
+      line-height: 1.4;
+    }
+
+    .nav {
+      display: grid;
+      gap: 6px;
+      padding: 14px 10px;
+    }
+
+    .nav button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 42px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.82);
+      background: transparent;
+      text-align: left;
+      font-weight: 800;
+    }
+
+    .nav button.active,
+    .nav button:hover,
+    .nav button:focus {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .side-foot {
+      margin-top: auto;
+      padding: 14px 18px 18px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+
+    .main {
+      min-width: 0;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      min-height: 68px;
+      padding: 12px clamp(16px, 3vw, 34px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(244, 247, 251, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .top-title h2 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .top-title p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .top-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: end;
+    }
+
+    .app-locked .app-shell {
+      filter: blur(3px);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .security-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 18px;
+      background: rgba(23, 32, 42, 0.58);
+    }
+
+    .security-overlay.active { display: grid; }
+
+    .security-card {
+      width: min(460px, 100%);
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+    }
+
+    .security-card h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .security-card p {
+      margin: 8px 0 16px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .security-panel {
+      display: none;
+      gap: 10px;
+    }
+
+    .security-panel.active {
+      display: grid;
+    }
+
+    .security-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .page {
+      display: none;
+      padding: 22px clamp(16px, 3vw, 34px) 44px;
+    }
+
+    .page.active { display: block; }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+    }
+
+    .section-head p,
+    .muted {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .toolbar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) repeat(4, minmax(150px, 180px));
+      gap: 10px;
+      margin-bottom: 14px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .input, .select, textarea {
+      width: 100%;
+      min-height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      padding: 0 11px;
+      color: var(--ink);
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 120px;
+      padding: 10px 11px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 850;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .pad { padding: 16px; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.58fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .wide { grid-column: 1 / -1; }
+    .span-2 { grid-column: span 2; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      padding: 0 12px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+      font-weight: 850;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn.primary {
+      border-color: var(--teal);
+      color: #fff;
+      background: var(--teal);
+    }
+
+    .btn.navy {
+      border-color: var(--navy);
+      color: #fff;
+      background: var(--navy);
+    }
+
+    .btn.danger {
+      border-color: var(--red);
+      color: var(--red);
+      background: #fff;
+    }
+
+    .btn.small {
+      min-height: 30px;
+      padding: 0 9px;
+      font-size: 0.76rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.75rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1500px;
+    }
+
+    th, td {
+      padding: 10px 9px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.84rem;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      color: #fff;
+      background: var(--navy);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    tbody tr:hover { background: #f8fbff; }
+
+    .client-name {
+      border: 0;
+      padding: 0;
+      color: var(--navy);
+      background: transparent;
+      font-weight: 900;
+      text-align: left;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+    }
+
+    .table-input,
+    .table-select,
+    .table-textarea {
+      width: 100%;
+      min-width: 92px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 5px 7px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.62);
+      font-size: 0.78rem;
+    }
+
+    .table-textarea {
+      min-width: 220px;
+      min-height: 42px;
+      resize: vertical;
+      line-height: 1.35;
+    }
+
+    .table-input:focus,
+    .table-select:focus,
+    .table-textarea:focus {
+      outline: none;
+      border-color: var(--teal);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
+    }
+
+    .small-text {
+      color: var(--muted);
+      font-size: 0.77rem;
+      line-height: 1.35;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 8px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .status-employed { color: var(--green); background: var(--soft-green); }
+    .status-active { color: var(--amber); background: var(--soft-amber); }
+    .status-closed { color: #4b5563; background: #edf0f3; }
+    .status-hold { color: var(--blue); background: var(--soft-blue); }
+    .status-pending { color: var(--violet); background: #f1edfb; }
+    .flag-red { color: var(--red); background: var(--soft-red); }
+    .flag-blue { color: var(--blue); background: var(--soft-blue); }
+
+    .row-urgent { background: #fff8f8; }
+    .row-warn { background: #fffdf5; }
+    .row-employed { background: #f8fdf9; }
+
+    .detail-panel {
+      display: grid;
+      gap: 14px;
+      position: sticky;
+      top: 86px;
+    }
+
+    .detail-panel h3,
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+    }
+
+    .kv {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 8px;
+      padding: 7px 0;
+      border-bottom: 1px solid #edf1f5;
+      font-size: 0.84rem;
+    }
+
+    .kv span:first-child {
+      color: var(--muted);
+      font-weight: 850;
+    }
+
+    .list {
+      display: grid;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .list li {
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .tabs-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .tabs-inline button {
+      min-height: 34px;
+      padding: 0 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      background: #fff;
+      font-weight: 850;
+    }
+
+    .tabs-inline button.active {
+      color: #fff;
+      border-color: var(--navy);
+      background: var(--navy);
+    }
+
+    .subpanel { display: none; }
+    .subpanel.active { display: block; }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .resource-card {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .resource-card h3 { margin: 0; }
+
+    .resource-card a {
+      color: var(--blue);
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .archive-item {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) repeat(4, minmax(110px, 0.45fr)) auto;
+      gap: 10px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .archive-item strong,
+    .archive-item span {
+      min-width: 0;
+    }
+
+    .retention-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .retention-card {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+    }
+
+    .note-output {
+      min-height: 150px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      color: var(--ink);
+      background: #f8fbff;
+      white-space: pre-wrap;
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .form-section {
+      display: grid;
+      gap: 12px;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .form-section h4 {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--navy);
+    }
+
+    .verification-output {
+      min-height: 420px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      font-size: 0.88rem;
+    }
+
+    .output {
+      min-height: 220px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+      white-space: pre-wrap;
+      line-height: 1.5;
+      font-size: 0.9rem;
+    }
+
+    .tool-frame {
+      width: 100%;
+      height: calc(100vh - 160px);
+      min-height: 760px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .json-editor {
+      min-height: 330px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.78rem;
+    }
+
+    .notice {
+      min-height: 24px;
+      margin-top: 10px;
+      color: var(--teal);
+      font-weight: 850;
+      font-size: 0.84rem;
+    }
+
+    .empty {
+      padding: 16px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1180px) {
+      .stats { grid-template-columns: repeat(3, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .detail-panel { position: static; }
+      .resource-grid { grid-template-columns: repeat(2, 1fr); }
+      .archive-item { grid-template-columns: 1fr 1fr; }
+      .retention-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 820px) {
+      .app-shell { grid-template-columns: 1fr; }
+      .sidebar {
+        position: static;
+        height: auto;
+      }
+      .nav {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .topbar {
+        position: static;
+        align-items: start;
+        flex-direction: column;
+      }
+      .toolbar,
+      .form-grid,
+      .grid-3,
+      .stats,
+      .resource-grid,
+      .archive-item,
+      .retention-grid {
+        grid-template-columns: 1fr;
+      }
+      .span-2 { grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">DV</span>
+        <h1>DVOP Productivity Command Center</h1>
+        <p>Caseload, intake, notes, resources, JSON updates, and report narratives in one working desk.</p>
+      </div>
+      <nav class="nav" aria-label="Primary">
+        <button class="active" data-page="dashboard">Dashboard <span id="navDue">0</span></button>
+        <button data-page="clients">Clients</button>
+        <button data-page="intake">Intake</button>
+        <button data-page="notes">Case Notes</button>
+        <button data-page="vaGenerator">VA 28-10289</button>
+        <button data-page="reports">Reports</button>
+        <button data-page="resources">Resources</button>
+        <button data-page="json">JSON</button>
+      </nav>
+      <div class="side-foot">
+        Local browser storage is used for this first build. Export JSON before clearing browser data or moving machines.
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="top-title">
+          <h2 id="pageTitle">Dashboard</h2>
+          <p id="pageSubtitle">American Job Center - Clarksville | JVSG case management workspace</p>
+        </div>
+        <div class="top-actions">
+          <span class="badge status-hold" id="cloudStatus">Local mode</span>
+          <input class="input" id="cloudEmail" type="email" placeholder="Email" style="width:190px;min-height:32px;">
+          <input class="input" id="cloudPassword" type="password" placeholder="Password" style="width:150px;min-height:32px;">
+          <button class="btn small" id="cloudSignIn" type="button">Sign In</button>
+          <button class="btn small" id="cloudSync" type="button">Sync</button>
+          <button class="btn small" id="cloudSignOut" type="button">Sign Out</button>
+          <button class="btn small" id="lockApp" type="button">Lock</button>
+          <button class="btn small" id="exportDashboardCsv" type="button">Export Dashboard CSV</button>
+          <button class="btn small" id="exportTop">Export JSON</button>
+          <button class="btn small primary" data-page-shortcut="intake">New Intake</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="page active" id="page-dashboard">
+          <div class="section-head">
+            <div>
+              <h2>Caseload Dashboard</h2>
+              <p class="muted">Modeled after the workbook: summary metrics, active caseload, contact urgency, and follow-up accountability.</p>
+            </div>
+            <button class="btn navy" id="seedReset">Reset Sample Data</button>
+          </div>
+
+          <div class="stats" id="stats"></div>
+
+          <div class="toolbar">
+            <input class="input" id="dashSearch" type="search" placeholder="Search client, state ID, branch, notes, or POC">
+            <select class="select" id="dashStatus">
+              <option value="">All statuses</option>
+              <option>Active Job Search</option>
+              <option>Employed</option>
+              <option>On Hold</option>
+              <option>Pending Intake</option>
+              <option>Closed</option>
+            </select>
+            <select class="select" id="dashUrgency">
+              <option value="">All urgency</option>
+              <option value="due">Follow-up needed</option>
+              <option value="urgent">Urgent 31+ days</option>
+              <option value="failed">Failed contacts 3+</option>
+            </select>
+            <select class="select" id="dashClientType">
+              <option value="">All client types</option>
+              <option>Case Managed</option>
+              <option>VR&E</option>
+              <option>TMP</option>
+            </select>
+            <select class="select" id="dashArchiveView">
+              <option value="active">Active dashboard</option>
+              <option value="closed">Closed cases</option>
+              <option value="archived">Archived only</option>
+              <option value="all">All records</option>
+            </select>
+          </div>
+
+          <div class="grid-2">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>State ID</th>
+                    <th>Enrolled</th>
+                    <th>Last Contact</th>
+                    <th>Status</th>
+                    <th>Client Type</th>
+                    <th>Next Follow-Up</th>
+                    <th>Days W/O Contact</th>
+                    <th>Contact Outcome</th>
+                    <th>Failed Contacts</th>
+                    <th>Education / Certification</th>
+                    <th>POC / Assigned</th>
+                    <th>Veteran</th>
+                    <th>Branch</th>
+                    <th>Contact Info</th>
+                    <th>Archive</th>
+                    <th>Notes</th>
+                  </tr>
+                </thead>
+                <tbody id="clientRows"></tbody>
+              </table>
+            </div>
+
+            <aside class="detail-panel">
+              <div class="card pad" id="detailCard"></div>
+              <div class="card pad">
+                <h3>Daily Rhythm</h3>
+                <ul class="list" id="dailyList"></ul>
+              </div>
+            </aside>
+          </div>
+
+          <div class="card pad" style="margin-top:16px;">
+            <div class="section-head" style="margin-bottom:10px;">
+              <div>
+                <h2 style="font-size:1.15rem;">Closed Case Archive</h2>
+                <p class="muted" style="margin:4px 0 0;">Closed and archived clients stay here for reference without crowding the active dashboard.</p>
+              </div>
+            </div>
+            <div class="archive-list" id="closedArchiveList"></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-clients">
+          <div class="section-head">
+            <div>
+              <h2>Client Records</h2>
+              <p class="muted">Open a client from the dashboard or select one here to review intake, goals, contact log, job leads, tasks, and reports.</p>
+            </div>
+            <select class="select" id="clientPicker"></select>
+          </div>
+
+          <div class="tabs-inline">
+            <button class="active" data-client-tab="overview">Overview</button>
+            <button data-client-tab="goals">IEP / Goals</button>
+            <button data-client-tab="contacts">Contact Log</button>
+            <button data-client-tab="leads">Job Leads</button>
+            <button data-client-tab="employment">Employment Verification</button>
+            <button data-client-tab="tasks">Tasks</button>
+            <button data-client-tab="reports">Reports</button>
+          </div>
+
+          <div class="card pad">
+            <div class="subpanel active" id="client-overview"></div>
+            <div class="subpanel" id="client-goals"></div>
+            <div class="subpanel" id="client-contacts"></div>
+            <div class="subpanel" id="client-leads"></div>
+            <div class="subpanel" id="client-employment"></div>
+            <div class="subpanel" id="client-tasks"></div>
+            <div class="subpanel" id="client-reports"></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-intake">
+          <div class="section-head">
+            <div>
+              <h2>Guided Intake</h2>
+              <p class="muted">Based on the uploaded intake sheet. Capture the conversation, set the first follow-up, and create the client record.</p>
+            </div>
+          </div>
+
+          <form class="card pad" id="intakeForm">
+            <div class="form-grid">
+              <label>Name <input class="input" name="name" required placeholder="Last, First"></label>
+              <label>State ID <input class="input" name="stateId" placeholder="0000000"></label>
+              <label>Branch <select class="select" name="branch"></select></label>
+              <label>Client Type <select class="select" name="clientType">
+                <option>Case Managed</option>
+                <option>VR&E</option>
+                <option>TMP</option>
+              </select></label>
+              <label>Phone <input class="input" name="phone" placeholder="(xxx) xxx-xxxx"></label>
+              <label>Email <input class="input" name="email" type="email" placeholder="name@email.com"></label>
+              <label>Enrolled / Intake Date <input class="input" name="enrolledDate" type="date"></label>
+              <label>Current Status <select class="select" name="status"></select></label>
+              <label>Employment Status <input class="input" name="employmentStatus" placeholder="Unemployed, employed, transitioning"></label>
+              <label>Last Contact <input class="input" name="lastContactDate" type="date"></label>
+              <label class="span-2">Career Goal <input class="input" name="careerGoal" placeholder="Administrative, IT support, CDL, logistics"></label>
+              <label>Education / Certification <input class="input" name="educationCertification" placeholder="Degree, license, resume status"></label>
+              <label>Support Needs <select class="select" name="supportNeeds">
+                <option>Job leads</option>
+                <option>Resume</option>
+                <option>Interviews</option>
+                <option>Training</option>
+                <option>Direction</option>
+                <option>Stability support</option>
+              </select></label>
+              <label>Failed Contacts <input class="input" name="failedContacts" type="number" min="0" value="0"></label>
+              <label>Assigned POC <input class="input" name="assignedStaff" value="DVOP McMichael"></label>
+              <label class="wide">Barriers / Stability Notes <textarea name="barriers" placeholder="Transportation, financial concerns, medical limitations, childcare, housing, licensing"></textarea></label>
+              <label class="wide">Initial Notes <textarea name="notes" placeholder="What the client shared and what you agreed to do next"></textarea></label>
+            </div>
+            <div class="top-actions" style="justify-content:start;margin-top:14px;">
+              <button class="btn primary" type="submit">Create Client Record</button>
+              <button class="btn" type="reset">Clear</button>
+            </div>
+            <div class="notice" id="intakeNotice"></div>
+          </form>
+        </section>
+
+        <section class="page" id="page-notes">
+          <div class="section-head">
+            <div>
+              <h2>Case Note Generator</h2>
+              <p class="muted">Full DVOP case note generator with scenarios, closure notes, JSON profiles, generated note output, and copy tools.</p>
+            </div>
+            <a class="btn navy" href="full-case-note-generator.html" target="_blank" rel="noopener">Open Full Page</a>
+          </div>
+
+          <iframe class="tool-frame" src="full-case-note-generator.html" title="Full DVOP Case Note Generator"></iframe>
+        </section>
+
+        <section class="page" id="page-vaGenerator">
+          <div class="section-head">
+            <div>
+              <h2>VA Form 28-10289 Generator</h2>
+              <p class="muted">Full standalone VA progress report generator with client manager, report builder, history, backup/import, and saved reports.</p>
+            </div>
+            <a class="btn navy" href="full-va-28-10289-generator.html" target="_blank" rel="noopener">Open Full Page</a>
+          </div>
+
+          <iframe class="tool-frame" src="full-va-28-10289-generator.html" title="Full VA Form 28-10289 Generator"></iframe>
+        </section>
+
+        <section class="page" id="page-reports">
+          <div class="section-head">
+            <div>
+              <h2>Reports & Narratives</h2>
+              <p class="muted">Generate progress summaries, intake narratives, follow-up summaries, case timelines, or VA-style service summaries from client data.</p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <form class="card pad" id="reportForm">
+              <div class="form-grid">
+                <label>Client <select class="select" name="clientId" id="reportClient"></select></label>
+                <label>Report Type <select class="select" name="reportType">
+                  <option>Progress Summary</option>
+                  <option>Intake Summary</option>
+                  <option>Case Timeline</option>
+                  <option>VA 28-10289 Draft</option>
+                  <option>Closure Summary</option>
+                </select></label>
+                <label>Report Date <input class="input" name="date" type="date"></label>
+                <label class="wide">Additional Remarks <textarea name="remarks" placeholder="Anything special to include in this report"></textarea></label>
+              </div>
+              <div class="top-actions" style="justify-content:start;margin-top:14px;">
+                <button class="btn primary" type="button" id="generateReport">Generate Report</button>
+                <button class="btn navy" type="submit">Save Report</button>
+              </div>
+              <div class="notice" id="reportNotice"></div>
+            </form>
+
+            <div class="card pad">
+              <h3>Generated Narrative</h3>
+              <div class="output" id="reportOutput">Select a client and generate a narrative.</div>
+              <div class="top-actions" style="justify-content:start;margin-top:12px;">
+                <button class="btn small" id="copyReport">Copy Report</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="page-resources">
+          <div class="section-head">
+            <div>
+              <h2>Resources & Job Leads</h2>
+              <p class="muted">Quick links, uploaded documents, flyers, workshops, and VEVRAA job leads that can be attached to client workflows.</p>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <input class="input" id="resourceSearch" type="search" placeholder="Search resources or job leads">
+            <select class="select" id="resourceType">
+              <option value="">All resource types</option>
+              <option>Work Tool</option>
+              <option>Job Search</option>
+              <option>Recurring Report</option>
+              <option>Flyer</option>
+              <option>Job Lead</option>
+            </select>
+            <button class="btn primary" id="renderJobLeads">Load Job Leads</button>
+          </div>
+
+          <div class="resource-grid" id="resourceGrid"></div>
+        </section>
+
+        <section class="page" id="page-json">
+          <div class="section-head">
+            <div>
+              <h2>JSON Import, Update, Export</h2>
+              <p class="muted">Use JSON to import clients/tasks, update client progress, add contact events, generate reports, or back up the workspace.</p>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="card pad">
+              <h3>JSON Editor</h3>
+              <textarea class="json-editor" id="jsonEditor" spellcheck="false"></textarea>
+              <div class="top-actions" style="justify-content:start;margin-top:12px;">
+                <button class="btn primary" id="applyJson">Apply JSON</button>
+                <button class="btn" id="loadExport">Load Current Export</button>
+                <button class="btn" id="copyJson">Copy JSON</button>
+              </div>
+              <div class="notice" id="jsonNotice"></div>
+            </div>
+
+            <div class="card pad">
+              <h3>Supported Actions</h3>
+              <ul class="list">
+                <li><strong>Full import:</strong> paste `{ "clients": [...], "resources": [...] }`.</li>
+                <li><strong>Update progress:</strong> `{ "action": "updateClientProgress", "clientId": "...", "status": "...", "clientType": "TMP", "nextFollowUpDate": "YYYY-MM-DD" }`.</li>
+                <li><strong>Trigger VR&E retention:</strong> `{ "action": "updateClientProgress", "clientId": "...", "clientType": "VR&E", "status": "Employed", "employmentDate": "YYYY-MM-DD" }`.</li>
+                <li><strong>Archive closed case:</strong> `{ "action": "updateClientProgress", "clientId": "...", "status": "Closed", "archived": true }`.</li>
+                <li><strong>Add contact:</strong> `{ "action": "addContactEvent", "clientId": "...", "scenario": "Successful Contact" }`.</li>
+                <li><strong>Generate report:</strong> `{ "action": "generateReport", "clientId": "...", "reportType": "Progress Summary" }`.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="security-overlay" id="securityOverlay" aria-live="polite">
+    <div class="security-card">
+      <h2 id="securityTitle">Secure Access</h2>
+      <p id="securityMessage">Enter your passcode to unlock the DVOP Productivity Command Center.</p>
+
+      <div class="security-panel" id="securityCreatePanel">
+        <label>Create Passcode <input class="input" id="newPasscode" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="4-6 digits"></label>
+        <label>Confirm Passcode <input class="input" id="confirmPasscode" type="password" inputmode="numeric" maxlength="6" autocomplete="new-password" placeholder="Repeat passcode"></label>
+        <div class="security-actions">
+          <button class="btn primary" type="button" id="savePasscode">Save Passcode</button>
+        </div>
+      </div>
+
+      <div class="security-panel" id="securityUnlockPanel">
+        <label>Passcode <input class="input" id="unlockPasscode" type="password" inputmode="numeric" maxlength="6" autocomplete="current-password" placeholder="Enter passcode"></label>
+        <div class="security-actions">
+          <button class="btn primary" type="button" id="unlockApp">Unlock</button>
+        </div>
+      </div>
+
+      <div class="notice" id="securityNotice"></div>
+    </div>
+  </div>
+
+  <script src="vevraa-jobs.js"></script>
+  <script src="data/dashboard-seed.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="cloud-config.js"></script>
+  <script>
+    const TODAY = new Date().toISOString().slice(0, 10);
+    const STORE_KEY = "dvop_productivity_command_center_reports_v1";
+    const CLOUD_CONFIG = window.DVOP_CLOUD_CONFIG || {};
+    const CLOUD_READY = Boolean(CLOUD_CONFIG.supabaseUrl && CLOUD_CONFIG.supabaseAnonKey && window.supabase);
+    const cloud = {
+      client: CLOUD_READY ? window.supabase.createClient(CLOUD_CONFIG.supabaseUrl, CLOUD_CONFIG.supabaseAnonKey) : null,
+      user: null,
+      loading: false,
+      unlocked: false
+    };
+    const PASSCODE_PREFIX = "dvop_passcode_v2_";
+
+    const lists = {
+      statuses: ["Active Job Search", "Employed", "Closed", "On Hold", "Pending Intake"],
+      clientTypes: ["Case Managed", "VR&E", "TMP"],
+      branches: ["Army", "Navy", "Air Force", "Marine Corps", "Coast Guard", "Space Force", "National Guard", "Reserves", "Other"],
+      contactOutcomes: ["", "Successful", "Left VM", "No Reply", "Email Sent", "Text Sent", "Unable to Contact", "Initial Intake"],
+      priorities: ["High", "Medium", "Low"],
+      taskStatuses: ["To Do", "In Progress", "Complete", "Deferred"]
+    };
+
+    const seedData = {
+      clients: [
+        {
+          clientId: "client_bisignano_joseph",
+          name: "Bisignano, Joseph",
+          stateId: "5249966",
+          enrolledDate: "2025-12-05",
+          lastContactDate: "2026-03-03",
+          status: "Active Job Search",
+          contactOutcome: "Left VM",
+          failedContacts: 4,
+          educationCertification: "Associate's degree. Short-term interests include administrative, logistics, security, and related roles.",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Army",
+          poc: { primaryPhone: "570-982-9074", mobilePhone: "", email: "Jbiz854@gmail.com" },
+          careerGoal: "Administrative, logistics, or security employment aligned with limitations.",
+          supportNeeds: "Job leads",
+          barriers: "Communication re-engagement needed.",
+          notes: "Outreach attempt made; no response received. Continue follow-up and re-engagement attempts.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_dahal_tulshi",
+          name: "Dahal, Tulshi",
+          stateId: "328009",
+          enrolledDate: "2026-03-19",
+          lastContactDate: "2026-04-20",
+          status: "Active Job Search",
+          contactOutcome: "Successful",
+          failedContacts: 0,
+          educationCertification: "",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Army",
+          poc: { primaryPhone: "", mobilePhone: "", email: "" },
+          careerGoal: "Project management and related roles.",
+          supportNeeds: "Job leads",
+          barriers: "",
+          notes: "Veteran actively applying and received a callback for a Project Manager position.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_daniels_joshua",
+          name: "Daniels, Joshua",
+          stateId: "2876406",
+          enrolledDate: "2025-12-03",
+          lastContactDate: "2026-03-31",
+          status: "Employed",
+          contactOutcome: "Successful",
+          failedContacts: 0,
+          educationCertification: "",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Other",
+          poc: { primaryPhone: "", mobilePhone: "", email: "" },
+          careerGoal: "Employment retention and verification.",
+          supportNeeds: "Employment verification",
+          barriers: "",
+          notes: "Veteran remains employed and stable. Employment verification in progress.",
+          goals: defaultGoals("In Progress"),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_duanah_solomon",
+          name: "Duanah, Solomon",
+          stateId: "500898",
+          enrolledDate: "2025-11-01",
+          lastContactDate: "2026-04-20",
+          status: "Active Job Search",
+          contactOutcome: "Left VM",
+          failedContacts: 0,
+          educationCertification: "",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Other",
+          poc: { primaryPhone: "910-434-9988", mobilePhone: "", email: "solopeace0830@gmail.com" },
+          careerGoal: "Employment at or above $45,000 annually in the Clarksville region.",
+          supportNeeds: "Job leads",
+          barriers: "",
+          notes: "Voicemail left requesting update. Veteran remains engaged but unavailable at time of contact.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_lance_alexander",
+          name: "Lance, Alexander",
+          stateId: "316923",
+          enrolledDate: "2026-01-20",
+          lastContactDate: "2026-04-20",
+          status: "Active Job Search",
+          contactOutcome: "Successful",
+          failedContacts: 0,
+          educationCertification: "Bachelor's degree. Information security engineering interest.",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Navy",
+          poc: { primaryPhone: "931-401-2492", mobilePhone: "", email: "alexander_prewitt@yahoo.com" },
+          careerGoal: "Information security or related technical employment.",
+          supportNeeds: "Job leads",
+          barriers: "",
+          notes: "Veteran remains engaged in services and continues career planning activities.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_vincent_karen",
+          name: "Vincent, Karen",
+          stateId: "23988",
+          enrolledDate: "",
+          lastContactDate: "2026-04-20",
+          status: "Active Job Search",
+          contactOutcome: "Successful",
+          failedContacts: 0,
+          educationCertification: "",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Other",
+          poc: { primaryPhone: "", mobilePhone: "", email: "kari.vincent007@yahoo.com" },
+          careerGoal: "Healthcare management, preferably remote due to caregiving responsibilities.",
+          supportNeeds: "Direction",
+          barriers: "Caregiver responsibilities and disability considerations limit in-person opportunities.",
+          notes: "Veteran reported upcoming surgery; job search temporarily paused. VR&E case on hold.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_weber_mark",
+          name: "Weber Jr, Mark",
+          stateId: "292329",
+          enrolledDate: "",
+          lastContactDate: "2026-04-06",
+          status: "Employed",
+          contactOutcome: "",
+          failedContacts: 0,
+          educationCertification: "",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Other",
+          poc: { primaryPhone: "", mobilePhone: "", email: "" },
+          careerGoal: "Retention and follow-up.",
+          supportNeeds: "Employment verification",
+          barriers: "",
+          notes: "Veteran remains employed and progressing through retention milestones.",
+          goals: defaultGoals("In Progress"),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_wiedel_chase",
+          name: "Wiedel, Chase",
+          stateId: "5326840",
+          enrolledDate: "2026-03-12",
+          lastContactDate: "2026-03-17",
+          status: "On Hold",
+          contactOutcome: "Left VM",
+          failedContacts: 0,
+          educationCertification: "BA degree. No resume uploaded.",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Army",
+          poc: { primaryPhone: "931-302-1654", mobilePhone: "", email: "chase.wiedel09@gmail.com" },
+          careerGoal: "Pending re-engagement.",
+          supportNeeds: "Resume",
+          barriers: "No current response to outreach.",
+          notes: "Multiple outreach attempts made; no response received. Veteran is not currently engaged.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        },
+        {
+          clientId: "client_williams_fred",
+          name: "Williams, Fred",
+          stateId: "1264097",
+          enrolledDate: "2026-02-26",
+          lastContactDate: "2026-04-20",
+          status: "Active Job Search",
+          contactOutcome: "Successful",
+          failedContacts: 0,
+          educationCertification: "No degree. Justice impacted.",
+          assignedStaff: "DVOP McMichael",
+          isVeteran: true,
+          branch: "Army",
+          poc: { primaryPhone: "931-272-7714", mobilePhone: "931-551-5549", email: "brotha491@gmail.com" },
+          careerGoal: "Employment with callbacks in active search.",
+          supportNeeds: "Job leads",
+          barriers: "Medicare and reentry-related support needs.",
+          notes: "Veteran actively applying and receiving job callbacks.",
+          goals: defaultGoals(),
+          contacts: [],
+          jobLeads: [],
+          tasks: defaultTasks(),
+          reports: []
+        }
+      ],
+      resources: [
+        { resourceId: "res_case_tracker", title: "Case Tracker", type: "Work Tool", url: "#", notes: "Primary caseload system." },
+        { resourceId: "res_jobs4tn", title: "Jobs4TN", type: "Work Tool", url: "#", notes: "Enter services, case notes, and report data." },
+        { resourceId: "res_email_calendar", title: "Email / Calendar", type: "Work Tool", url: "#", notes: "Check appointments and scheduled contacts." },
+        { resourceId: "res_voc_board", title: "Vocational Job Lead Board", type: "Job Search", url: "#", notes: "Share matched job leads with active clients." },
+        { resourceId: "res_tn_jobs", title: "TN.gov Job Board", type: "Job Search", url: "https://www.tn.gov/careers.html", notes: "State government opportunities." },
+        { resourceId: "res_usajobs", title: "USAJOBS", type: "Job Search", url: "https://www.usajobs.gov/", notes: "Federal employment opportunities." },
+        { resourceId: "res_vre_monthly", title: "VR&E Monthly Reports", type: "Recurring Report", url: "#", notes: "Monthly reporting workflow." },
+        { resourceId: "res_30_day", title: "30-Day Follow-Up Checklist", type: "Recurring Report", url: "#", notes: "Follow-up and retention review." },
+        { resourceId: "res_workshop_may", title: "May 2026 Workshop Schedule", type: "Flyer", url: "document-viewer.html?file=may-2026-workshop-schedule.html&title=May%202026%20Workshop%20Schedule", notes: "Training and workshop calendar." },
+        { resourceId: "res_mse_jobfair", title: "MSE 2026 Resource Job Fair", type: "Flyer", url: "document-viewer.html?file=mse-2026-resource-job-fair.pdf&title=MSE%202026%20Resource%20Job%20Fair", notes: "Resource and job fair flyer." }
+      ]
+    };
+
+    if (window.DASHBOARD_SEED_DATA?.clients?.length) {
+      seedData.clients = window.DASHBOARD_SEED_DATA.clients;
+      seedData.sourceBatch = window.DASHBOARD_SEED_DATA.sourceBatch;
+      seedData.caseloadSummary = window.DASHBOARD_SEED_DATA.caseloadSummary;
+    }
+
+    let state = loadState();
+    let selectedClientId = state.clients[0]?.clientId || "";
+    let generatedNote = "";
+    let generatedReport = "";
+
+    function defaultGoals(status = "Not Started") {
+      return [
+        { title: "Obtain Employment Aligned with Career Goals", targetDate: "", percent: 0, status, updatedAt: "" },
+        { title: "Resume Development", targetDate: "", percent: 0, status: "Not Started", updatedAt: "" },
+        { title: "Interview Preparation Strategy", targetDate: "", percent: 0, status: "Not Started", updatedAt: "" },
+        { title: "Follow-Up / 30-Day Assessment", targetDate: "", percent: 0, status: "Not Started", updatedAt: "" },
+        { title: "90-Day Employment Retention", targetDate: "", percent: 0, status: "Not Started", updatedAt: "" }
+      ];
+    }
+
+    function defaultTasks() {
+      return [
+        { taskId: "task_" + Math.random().toString(36).slice(2), title: "Complete resume development review", priority: "High", dueDate: "", assignedTo: "DVOP McMichael", status: "To Do", completedDate: "", notes: "" },
+        { taskId: "task_" + Math.random().toString(36).slice(2), title: "Send first job lead batch to client", priority: "Medium", dueDate: "", assignedTo: "DVOP McMichael", status: "To Do", completedDate: "", notes: "" },
+        { taskId: "task_" + Math.random().toString(36).slice(2), title: "Schedule 30-day assessment call", priority: "Medium", dueDate: "", assignedTo: "DVOP McMichael", status: "To Do", completedDate: "", notes: "" }
+      ];
+    }
+
+    function loadState() {
+      try {
+        const stored = localStorage.getItem(STORE_KEY);
+        if (stored) return normalizeState(JSON.parse(stored));
+      } catch (error) {}
+      return normalizeState(structuredClone(seedData));
+    }
+
+    function normalizeState(data) {
+      const copy = data && typeof data === "object" ? data : structuredClone(seedData);
+      copy.clients = Array.isArray(copy.clients) ? copy.clients : [];
+      copy.resources = Array.isArray(copy.resources) ? copy.resources : [];
+      copy.clients.forEach(client => {
+        client.clientId ||= "client_" + Date.now() + "_" + Math.random().toString(36).slice(2);
+        client.goals ||= defaultGoals();
+        client.contacts ||= [];
+        client.jobLeads ||= [];
+        client.tasks ||= defaultTasks();
+        client.reports ||= [];
+        client.employmentVerifications ||= [];
+        client.poc ||= { primaryPhone: "", mobilePhone: "", email: "" };
+        client.clientType = normalizeClientType(client.clientType || inferClientType(client));
+        client.archived = Boolean(client.archived);
+        client.retentionEvaluations ||= [];
+        if (client.clientType === "VR&E" && client.status === "Employed") ensureVreRetention(client, client.employmentDate || client.lastContactDate || TODAY);
+      });
+      return copy;
+    }
+
+    function inferClientType(client) {
+      const text = [client.notes, client.supportNeeds, client.barriers, client.careerGoal].join(" ").toLowerCase();
+      if (text.includes("vr&e") || text.includes("vre")) return "VR&E";
+      if (text.includes("tmp") || text.includes("job lead only") || text.includes("job leads only")) return "TMP";
+      return "Case Managed";
+    }
+
+    function normalizeClientType(value) {
+      const cleaned = String(value || "").trim().toLowerCase();
+      if (cleaned === "vre" || cleaned === "vr&e" || cleaned === "vr and e") return "VR&E";
+      if (cleaned === "tmp") return "TMP";
+      if (cleaned === "case managed" || cleaned === "case management" || cleaned === "casemanagement") return "Case Managed";
+      return lists.clientTypes.includes(value) ? value : "Case Managed";
+    }
+
+    function ensureVreRetention(client, employmentDate = TODAY) {
+      if (client.clientType !== "VR&E" || client.status !== "Employed") return;
+      client.employmentDate ||= employmentDate || TODAY;
+      client.retentionEvaluations ||= [];
+      [30, 60, 90].forEach(days => {
+        if (!client.retentionEvaluations.some(item => Number(item.milestone) === days)) {
+          client.retentionEvaluations.push({
+            milestone: days,
+            dueDate: addDays(client.employmentDate, days),
+            veteranStillEmployed: "Pending",
+            furtherAssistanceNeeded: "Pending",
+            assistanceDetails: "",
+            completedDate: "",
+            note: ""
+          });
+        }
+      });
+      client.tasks ||= [];
+      [30, 60, 90].forEach(days => {
+        const title = `VR&E ${days}-day employment evaluation`;
+        if (!client.tasks.some(task => task.title === title)) {
+          client.tasks.push({
+            taskId: "task_retention_" + days + "_" + Math.random().toString(36).slice(2),
+            title,
+            priority: days === 30 ? "High" : "Medium",
+            dueDate: addDays(client.employmentDate, days),
+            assignedTo: client.assignedStaff || "DVOP McMichael",
+            status: "To Do",
+            completedDate: "",
+            notes: "Confirm veteran is still employed and whether further assistance is needed."
+          });
+        }
+      });
+    }
+
+    function buildRetentionNote(client, evaluation) {
+      const milestone = Number(evaluation.milestone || 30);
+      const employed = evaluation.veteranStillEmployed || "Pending";
+      const assistance = evaluation.furtherAssistanceNeeded || "Pending";
+      const details = evaluation.assistanceDetails || "No additional assistance details recorded.";
+      const employer = client.employer ? `\nEmployer: ${client.employer}` : "";
+      return `VR&E ${milestone}-DAY EMPLOYMENT EVALUATION\n\nClient: ${client.name}\nState ID: ${client.stateId || "-"}\nEmployment Date: ${fmtDate(client.employmentDate)}\nEvaluation Due Date: ${fmtDate(evaluation.dueDate)}${employer}\n\nKey Data Points:\n- Is the veteran still employed? ${employed}\n- Does the veteran require further assistance? ${assistance}\n- Assistance / follow-up details: ${details}\n\nNarrative:\nDVOP completed the VR&E ${milestone}-day employment evaluation for ${client.name}. Employment retention status was recorded as ${employed}. Further assistance need was recorded as ${assistance}. ${details}\n\nNext Step:\nDocument this evaluation in the appropriate system, update the client record, and schedule any follow-up support if assistance is needed.`;
+    }
+
+    function passcodeKey() {
+      return PASSCODE_PREFIX + "local";
+    }
+
+    function passcodeRecord() {
+      try {
+        const raw = localStorage.getItem(passcodeKey());
+        return raw ? JSON.parse(raw) : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function validPasscode(value) {
+      return /^\d{4,6}$/.test(String(value || ""));
+    }
+
+    async function sha256(text) {
+      const bytes = new TextEncoder().encode(text);
+      const hash = await crypto.subtle.digest("SHA-256", bytes);
+      return Array.from(new Uint8Array(hash)).map(byte => byte.toString(16).padStart(2, "0")).join("");
+    }
+
+    async function saveLocalPasscode(passcode) {
+      const salt = crypto.getRandomValues(new Uint32Array(4)).join("-");
+      const hash = await sha256(`dvop-local:${salt}:${passcode}`);
+      localStorage.setItem(passcodeKey(), JSON.stringify({ salt, hash, createdAt: new Date().toISOString() }));
+    }
+
+    async function checkLocalPasscode(passcode) {
+      const record = passcodeRecord();
+      if (!record) return false;
+      const hash = await sha256(`dvop-local:${record.salt}:${passcode}`);
+      return hash === record.hash;
+    }
+
+    function setSecurityNotice(message, tone = "hold") {
+      const notice = document.getElementById("securityNotice");
+      if (!notice) return;
+      notice.textContent = message;
+      notice.style.color = tone === "bad" ? "var(--red)" : "var(--teal)";
+    }
+
+    function showSecurityPanel(mode) {
+      const overlay = document.getElementById("securityOverlay");
+      if (!overlay) return;
+      document.body.classList.add("app-locked");
+      overlay.classList.add("active");
+      document.querySelectorAll(".security-panel").forEach(panel => panel.classList.remove("active"));
+      const title = document.getElementById("securityTitle");
+      const message = document.getElementById("securityMessage");
+      setSecurityNotice("");
+      if (mode === "create") {
+        document.getElementById("securityCreatePanel").classList.add("active");
+        title.textContent = "Create Passcode";
+        message.textContent = "Create one 4-6 digit passcode to open this dashboard on this device.";
+        setTimeout(() => document.getElementById("newPasscode")?.focus(), 50);
+      } else {
+        document.getElementById("securityUnlockPanel").classList.add("active");
+        title.textContent = "Enter Passcode";
+        message.textContent = "Enter your passcode to unlock the dashboard.";
+        setTimeout(() => document.getElementById("unlockPasscode")?.focus(), 50);
+      }
+    }
+
+    function hideSecurityPanel() {
+      document.body.classList.remove("app-locked");
+      document.getElementById("securityOverlay")?.classList.remove("active");
+      cloud.unlocked = true;
+    }
+
+    function requirePasscodeGate() {
+      if (passcodeRecord()) {
+        cloud.unlocked = false;
+        showSecurityPanel("unlock");
+      } else {
+        cloud.unlocked = false;
+        showSecurityPanel("create");
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem(STORE_KEY, JSON.stringify(state));
+      if (cloud.client && cloud.user && !cloud.loading) {
+        queueCloudSave();
+      }
+      renderAll();
+    }
+
+    let cloudSaveTimer = null;
+
+    function queueCloudSave() {
+      clearTimeout(cloudSaveTimer);
+      cloudSaveTimer = setTimeout(() => saveCloudState(), 650);
+    }
+
+    function setCloudStatus(message, tone = "hold") {
+      const el = document.getElementById("cloudStatus");
+      if (!el) return;
+      el.textContent = message;
+      el.className = "badge " + (tone === "ok" ? "status-employed" : tone === "warn" ? "status-active" : tone === "bad" ? "flag-red" : "status-hold");
+    }
+
+    async function initCloud() {
+      if (!cloud.client) {
+        setCloudStatus("Local mode", "warn");
+        return;
+      }
+      const { data } = await cloud.client.auth.getSession();
+      cloud.user = data.session?.user || null;
+      if (cloud.user) {
+        setCloudStatus("Cloud signed in", "ok");
+        await loadCloudState();
+      } else {
+        setCloudStatus("Cloud ready", "hold");
+      }
+    }
+
+    async function signInCloud() {
+      if (!cloud.client) {
+        alert("Add your Supabase URL and anon key to cloud-config.js first.");
+        return;
+      }
+      const email = document.getElementById("cloudEmail").value.trim();
+      const password = document.getElementById("cloudPassword").value;
+      if (!email || !password) {
+        alert("Enter your Supabase email and password.");
+        return;
+      }
+      setCloudStatus("Signing in...", "hold");
+      const { data, error } = await cloud.client.auth.signInWithPassword({ email, password });
+      if (error) {
+        setCloudStatus("Sign in failed", "bad");
+        alert(error.message);
+        return;
+      }
+      cloud.user = data.user;
+      setCloudStatus("Cloud signed in", "ok");
+      await loadCloudState();
+    }
+
+    async function signOutCloud() {
+      if (!cloud.client) return;
+      await cloud.client.auth.signOut();
+      cloud.user = null;
+      cloud.unlocked = false;
+      setCloudStatus("Cloud ready", "hold");
+    }
+
+    async function loadCloudState() {
+      if (!cloud.client || !cloud.user) return;
+      cloud.loading = true;
+      setCloudStatus("Loading cloud...", "hold");
+      const { data, error } = await cloud.client
+        .from("dvop_dashboard_states")
+        .select("data, updated_at")
+        .eq("user_id", cloud.user.id)
+        .eq("app_key", CLOUD_CONFIG.appKey || "dvop-command-center-main")
+        .maybeSingle();
+      if (error) {
+        cloud.loading = false;
+        setCloudStatus("Cloud load error", "bad");
+        alert(error.message);
+        return;
+      }
+      if (data?.data?.clients?.length) {
+        state = normalizeState(data.data);
+        localStorage.setItem(STORE_KEY, JSON.stringify(state));
+        selectedClientId = state.clients[0]?.clientId || "";
+      } else {
+        await saveCloudState();
+      }
+      cloud.loading = false;
+      setCloudStatus("Cloud synced", "ok");
+      renderAll();
+    }
+
+    async function saveCloudState() {
+      if (!cloud.client || !cloud.user) return;
+      const payload = {
+        user_id: cloud.user.id,
+        app_key: CLOUD_CONFIG.appKey || "dvop-command-center-main",
+        data: state
+      };
+      const { error } = await cloud.client
+        .from("dvop_dashboard_states")
+        .upsert(payload, { onConflict: "user_id,app_key" });
+      if (error) {
+        setCloudStatus("Cloud save error", "bad");
+        console.error(error);
+        return;
+      }
+      setCloudStatus("Cloud synced", "ok");
+    }
+
+    function daysBetween(dateStr) {
+      if (!dateStr) return null;
+      const a = new Date(TODAY + "T00:00:00");
+      const b = new Date(dateStr + "T00:00:00");
+      return Math.floor((a - b) / 86400000);
+    }
+
+    function addDays(dateStr, days) {
+      if (!dateStr) return "";
+      const d = new Date(dateStr + "T00:00:00");
+      d.setDate(d.getDate() + days);
+      return d.toISOString().slice(0, 10);
+    }
+
+    function fmtDate(dateStr) {
+      if (!dateStr) return "-";
+      const d = new Date(dateStr + "T00:00:00");
+      if (Number.isNaN(d.getTime())) return dateStr;
+      return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+
+    function esc(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function getClient(id = selectedClientId) {
+      return state.clients.find(client => client.clientId === id) || state.clients[0];
+    }
+
+    function statusClass(status) {
+      if (status === "Employed") return "status-employed";
+      if (status === "Active Job Search") return "status-active";
+      if (status === "Closed") return "status-closed";
+      if (status === "Pending Intake") return "status-pending";
+      return "status-hold";
+    }
+
+    function outcomeClass(outcome) {
+      if (outcome === "Successful") return "status-employed";
+      if (outcome === "No Reply" || outcome === "Unable to Contact") return "flag-red";
+      if (outcome === "Email Sent" || outcome === "Text Sent") return "flag-blue";
+      return "status-active";
+    }
+
+    function contactInfo(client) {
+      return [client.poc?.primaryPhone, client.poc?.mobilePhone, client.poc?.email].filter(Boolean).join(" / ");
+    }
+
+    function dashboardExportRows() {
+      return state.clients.map((client, index) => {
+        const days = daysBetween(client.lastContactDate);
+        return {
+          "#": index + 1,
+          "Name": client.name || "",
+          "State ID": client.stateId || "",
+          "Enrolled": client.enrolledDate || "",
+          "Last Contact": client.lastContactDate || "",
+          "Status": client.status || "",
+          "Client Type": client.clientType || "Case Managed",
+          "Next Follow-Up": client.nextFollowUpDate || addDays(client.lastContactDate, 14),
+          "Days Without Contact": days ?? "",
+          "Contact Outcome": client.contactOutcome || "",
+          "Failed Contacts": Number(client.failedContacts || 0),
+          "Education / Certification": client.educationCertification || "",
+          "POC / Assigned": client.assignedStaff || "",
+          "Veteran": client.isVeteran ? "Yes" : "No",
+          "Branch": client.branch || "",
+          "Contact Info": contactInfo(client),
+          "Archived": client.archived ? "Yes" : "No",
+          "Notes": client.notes || ""
+        };
+      });
+    }
+
+    function csvCell(value) {
+      const text = String(value ?? "");
+      return /[",\n\r]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+    }
+
+    function exportDashboardCsv() {
+      const rows = dashboardExportRows();
+      const headers = Object.keys(rows[0] || {
+        "#": "", "Name": "", "State ID": "", "Enrolled": "", "Last Contact": "", "Status": "", "Client Type": "",
+        "Next Follow-Up": "", "Days Without Contact": "", "Contact Outcome": "", "Failed Contacts": "",
+        "Education / Certification": "", "POC / Assigned": "", "Veteran": "", "Branch": "", "Contact Info": "",
+        "Archived": "", "Notes": ""
+      });
+      const csv = [headers.join(","), ...rows.map(row => headers.map(header => csvCell(row[header])).join(","))].join("\n");
+      const blob = new Blob(["\ufeff" + csv], { type: "text/csv;charset=utf-8" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `dvop-dashboard-${TODAY}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function renderAll() {
+      renderStats();
+      renderDashboard();
+      renderArchive();
+      renderSelectors();
+      renderDetail();
+      renderClientRecord();
+      renderResources();
+      document.getElementById("navDue").textContent = state.clients.filter(c => {
+        const days = daysBetween(c.lastContactDate);
+        return days !== null && days > 14 && !c.archived && c.status !== "Closed" && c.status !== "Employed";
+      }).length;
+    }
+
+    function renderStats() {
+      const active = state.clients.filter(c => !c.archived && c.status !== "Closed").length;
+      const employed = state.clients.filter(c => !c.archived && c.status === "Employed").length;
+      const jobSearch = state.clients.filter(c => !c.archived && c.status === "Active Job Search").length;
+      const closed = state.clients.filter(c => c.status === "Closed").length;
+      const archived = state.clients.filter(c => c.archived).length;
+      const due = state.clients.filter(c => {
+        const days = daysBetween(c.lastContactDate);
+        return days !== null && days > 14 && !c.archived && c.status !== "Closed" && c.status !== "Employed";
+      }).length;
+      const urgent = state.clients.filter(c => {
+        const days = daysBetween(c.lastContactDate);
+        return days !== null && days > 30 && !c.archived && c.status !== "Closed" && c.status !== "Employed";
+      }).length;
+      const stats = [
+        ["Total Active", active, "var(--teal)"],
+        ["Employed", employed, "var(--green)"],
+        ["Active Job Search", jobSearch, "var(--amber)"],
+        ["Closed YTD", closed, "#4b5563"],
+        ["Archived", archived, "var(--violet)"],
+        ["Follow-Ups Due", due, "var(--blue)"],
+        ["Overdue Contacts", urgent, "var(--red)"]
+      ];
+      document.getElementById("stats").innerHTML = stats.map(([label, value, color]) => `
+        <div class="stat" style="border-left-color:${color}">
+          <strong style="color:${color}">${value}</strong>
+          <span>${label}</span>
+        </div>
+      `).join("");
+    }
+
+    function renderDashboard() {
+      const q = document.getElementById("dashSearch").value.toLowerCase();
+      const status = document.getElementById("dashStatus").value;
+      const urgency = document.getElementById("dashUrgency").value;
+      const clientType = document.getElementById("dashClientType").value;
+      const archiveView = document.getElementById("dashArchiveView").value;
+      const rows = state.clients.filter(client => {
+        const hay = [client.name, client.stateId, client.status, client.clientType, client.branch, client.notes, client.assignedStaff, contactInfo(client)].join(" ").toLowerCase();
+        const days = daysBetween(client.lastContactDate);
+        const matchQ = !q || hay.includes(q);
+        const matchStatus = !status || client.status === status;
+        const matchType = !clientType || client.clientType === clientType;
+        const matchArchive = archiveView === "all"
+          || (archiveView === "active" && !client.archived && client.status !== "Closed")
+          || (archiveView === "closed" && (client.status === "Closed" || client.archived))
+          || (archiveView === "archived" && client.archived);
+        const matchUrgency = !urgency
+          || (urgency === "due" && days > 14 && !client.archived && client.status !== "Closed" && client.status !== "Employed")
+          || (urgency === "urgent" && days > 30 && !client.archived && client.status !== "Closed" && client.status !== "Employed")
+          || (urgency === "failed" && Number(client.failedContacts || 0) >= 3);
+        return matchQ && matchStatus && matchType && matchArchive && matchUrgency;
+      });
+
+      document.getElementById("clientRows").innerHTML = rows.map((client, index) => {
+        const days = daysBetween(client.lastContactDate);
+        const rowClass = client.archived || client.status === "Closed" ? "row-employed" : client.status === "Employed" ? "row-employed" : days > 30 ? "row-urgent" : days > 14 ? "row-warn" : "";
+        const next = client.nextFollowUpDate || addDays(client.lastContactDate, 14);
+        const failed = Number(client.failedContacts || 0);
+        const canArchive = client.status === "Closed" || client.archived;
+        return `
+          <tr class="${rowClass}" data-client-id="${esc(client.clientId)}">
+            <td>${index + 1}</td>
+            <td><button class="client-name" type="button" data-snapshot-client="${esc(client.clientId)}">${esc(client.name)}</button></td>
+            <td><input class="table-input" data-client-field="stateId" value="${esc(client.stateId)}"></td>
+            <td><input class="table-input" data-client-field="enrolledDate" type="date" value="${esc(client.enrolledDate)}"></td>
+            <td><input class="table-input" data-client-field="lastContactDate" type="date" value="${esc(client.lastContactDate)}"></td>
+            <td><select class="table-select" data-client-field="status">${lists.statuses.map(s => `<option${s === client.status ? " selected" : ""}>${esc(s)}</option>`).join("")}</select></td>
+            <td><select class="table-select" data-client-field="clientType">${lists.clientTypes.map(t => `<option${t === client.clientType ? " selected" : ""}>${esc(t)}</option>`).join("")}</select></td>
+            <td><input class="table-input" data-client-field="nextFollowUpDate" type="date" value="${esc(next)}"></td>
+            <td><span class="badge ${days > 30 ? "flag-red" : days > 14 ? "status-active" : "status-employed"}">${days ?? "-"}d</span></td>
+            <td><select class="table-select" data-client-field="contactOutcome">${lists.contactOutcomes.map(o => `<option value="${esc(o)}"${o === (client.contactOutcome || "") ? " selected" : ""}>${esc(o || "Not recorded")}</option>`).join("")}</select></td>
+            <td><input class="table-input" data-client-field="failedContacts" type="number" min="0" value="${esc(failed)}"></td>
+            <td><textarea class="table-textarea" data-client-field="educationCertification">${esc(client.educationCertification || "")}</textarea></td>
+            <td><input class="table-input" data-client-field="assignedStaff" value="${esc(client.assignedStaff || "")}"></td>
+            <td><select class="table-select" data-client-field="isVeteran"><option value="true"${client.isVeteran ? " selected" : ""}>Yes</option><option value="false"${!client.isVeteran ? " selected" : ""}>No</option></select></td>
+            <td><select class="table-select" data-client-field="branch">${lists.branches.map(b => `<option${b === client.branch ? " selected" : ""}>${esc(b)}</option>`).join("")}</select></td>
+            <td>
+              <input class="table-input" data-client-field="poc.primaryPhone" placeholder="Primary phone" value="${esc(client.poc?.primaryPhone || "")}">
+              <input class="table-input" data-client-field="poc.email" placeholder="Email" value="${esc(client.poc?.email || "")}" style="margin-top:4px;">
+            </td>
+            <td>
+              <button class="btn small ${client.archived ? "" : "navy"}" type="button" data-toggle-archive="${esc(client.clientId)}"${canArchive ? "" : " disabled"}>${client.archived ? "Restore" : "Archive"}</button>
+              ${!canArchive ? `<div class="small-text">Close case first</div>` : ""}
+            </td>
+            <td><textarea class="table-textarea" data-client-field="notes">${esc(client.notes || "")}</textarea></td>
+          </tr>
+        `;
+      }).join("") || `<tr><td colspan="18" class="empty">No clients match the current filters.</td></tr>`;
+
+      document.querySelectorAll("[data-snapshot-client]").forEach(button => {
+        button.addEventListener("click", () => {
+          selectedClientId = button.dataset.snapshotClient;
+          renderDetail();
+          renderSelectors();
+        });
+      });
+
+      document.querySelectorAll("#clientRows [data-client-field]").forEach(input => {
+        input.addEventListener("change", handleDashboardEdit);
+        input.addEventListener("blur", handleDashboardEdit);
+      });
+
+      document.querySelectorAll("[data-toggle-archive]").forEach(button => {
+        button.addEventListener("click", () => toggleArchive(button.dataset.toggleArchive));
+      });
+    }
+
+    function handleDashboardEdit(event) {
+      const row = event.target.closest("tr[data-client-id]");
+      const client = getClient(row?.dataset.clientId);
+      if (!client) return;
+      setClientField(client, event.target.dataset.clientField, event.target.value);
+      saveState();
+    }
+
+    function setClientField(client, field, value) {
+      if (field === "failedContacts") {
+        client.failedContacts = Number(value || 0);
+        client.updatedAt = new Date().toISOString();
+        return;
+      }
+      if (field === "isVeteran") {
+        client.isVeteran = value === "true";
+        client.updatedAt = new Date().toISOString();
+        return;
+      }
+      if (field === "clientType") {
+        client.clientType = normalizeClientType(value);
+        if (client.clientType === "VR&E" && client.status === "Employed") ensureVreRetention(client);
+        client.updatedAt = new Date().toISOString();
+        return;
+      }
+      if (field === "archived") {
+        client.archived = value === "true";
+        client.updatedAt = new Date().toISOString();
+        return;
+      }
+      if (field.startsWith("poc.")) {
+        client.poc ||= {};
+        client.poc[field.split(".")[1]] = value.trim();
+        client.updatedAt = new Date().toISOString();
+        return;
+      }
+      client[field] = typeof value === "string" ? value.trim() : value;
+      if (field === "status" && client.status === "Employed" && client.clientType === "VR&E") {
+        ensureVreRetention(client, client.employmentDate || TODAY);
+      }
+      if (field === "employmentDate" && client.clientType === "VR&E" && client.status === "Employed") {
+        client.retentionEvaluations = [];
+        client.tasks = (client.tasks || []).filter(task => !/^VR&E (30|60|90)-day employment evaluation$/.test(task.title || ""));
+        ensureVreRetention(client, client.employmentDate);
+      }
+      client.updatedAt = new Date().toISOString();
+    }
+
+    function toggleArchive(clientId) {
+      const client = getClient(clientId);
+      if (!client) return;
+      client.archived = !client.archived;
+      client.updatedAt = new Date().toISOString();
+      if (client.archived && client.status !== "Closed") client.status = "Closed";
+      saveState();
+    }
+
+    function renderArchive() {
+      const el = document.getElementById("closedArchiveList");
+      if (!el) return;
+      const records = state.clients
+        .filter(client => client.status === "Closed" || client.archived)
+        .sort((a, b) => String(b.updatedAt || b.lastContactDate || "").localeCompare(String(a.updatedAt || a.lastContactDate || "")));
+      el.innerHTML = records.map(client => `
+        <div class="archive-item" data-client-id="${esc(client.clientId)}">
+          <strong><button class="client-name" type="button" data-snapshot-client="${esc(client.clientId)}">${esc(client.name)}</button></strong>
+          <span><span class="badge ${statusClass(client.status)}">${esc(client.status)}</span></span>
+          <span><span class="badge status-hold">${esc(client.clientType || "Case Managed")}</span></span>
+          <span class="small-text">Last: ${fmtDate(client.lastContactDate)}</span>
+          <span class="small-text">${client.archived ? "Archived" : "Ready to archive"}</span>
+          <button class="btn small ${client.archived ? "" : "navy"}" type="button" data-toggle-archive="${esc(client.clientId)}">${client.archived ? "Restore" : "Archive"}</button>
+        </div>
+      `).join("") || `<div class="empty">No closed or archived cases yet.</div>`;
+
+      el.querySelectorAll("[data-snapshot-client]").forEach(button => {
+        button.addEventListener("click", () => {
+          selectedClientId = button.dataset.snapshotClient;
+          renderDetail();
+          renderSelectors();
+        });
+      });
+      el.querySelectorAll("[data-toggle-archive]").forEach(button => {
+        button.addEventListener("click", () => toggleArchive(button.dataset.toggleArchive));
+      });
+    }
+
+    function renderDetail() {
+      const client = getClient();
+      if (!client) {
+        document.getElementById("detailCard").innerHTML = `<div class="empty">No client selected.</div>`;
+        return;
+      }
+      const days = daysBetween(client.lastContactDate);
+      const next = client.nextFollowUpDate || addDays(client.lastContactDate, 14);
+      document.getElementById("detailCard").innerHTML = `
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:8px;">
+          <h3 style="margin:0;">${esc(client.name)}</h3>
+          <button class="btn small navy" type="button" id="openSelectedProfile">Open Profile</button>
+        </div>
+        <div class="kv"><span>Status</span><strong>${esc(client.status)}</strong></div>
+        <div class="kv"><span>Client Type</span><span>${esc(client.clientType || "Case Managed")}${client.clientType === "TMP" ? " - job-leads only / no IEP" : ""}</span></div>
+        <div class="kv"><span>Archive</span><span>${client.archived ? "Archived" : "Active record"}</span></div>
+        ${client.clientType === "VR&E" && client.status === "Employed" ? `<div class="kv"><span>Employment Date</span><span>${fmtDate(client.employmentDate || TODAY)}</span></div>` : ""}
+        ${client.clientType === "VR&E" && client.status === "Employed" ? `<div class="kv"><span>VR&E Eval Dates</span><span>${(client.retentionEvaluations || []).map(item => `${item.milestone}: ${fmtDate(item.dueDate)}`).join(" / ")}</span></div>` : ""}
+        <div class="kv"><span>State ID</span><span>${esc(client.stateId)}</span></div>
+        <div class="kv"><span>Last Contact</span><span>${fmtDate(client.lastContactDate)}</span></div>
+        <div class="kv"><span>Next Follow-Up</span><span>${fmtDate(next)}</span></div>
+        <div class="kv"><span>Days Without</span><span>${days ?? "-"} days</span></div>
+        <div class="kv"><span>Career Goal</span><span>${esc(client.careerGoal || "-")}</span></div>
+        <div class="kv"><span>Contact</span><span>${esc(contactInfo(client) || "-")}</span></div>
+        <p class="muted">${esc(client.notes || "")}</p>
+      `;
+      document.getElementById("openSelectedProfile").addEventListener("click", () => showPage("clients"));
+      document.getElementById("dailyList").innerHTML = [
+        "Review clients due for contact today.",
+        "Log each contact outcome before leaving the client record.",
+        "Attach job leads or resources immediately after sending.",
+        "Generate a case note or progress narrative while context is fresh.",
+        "Set the next follow-up date before closing the interaction."
+      ].map(item => `<li>${item}</li>`).join("");
+    }
+
+    function renderSelectors() {
+      const options = state.clients.map(client => `<option value="${esc(client.clientId)}"${client.clientId === selectedClientId ? " selected" : ""}>${esc(client.name)}</option>`).join("");
+      ["clientPicker", "noteClient", "reportClient"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = options;
+      });
+
+      document.querySelectorAll("select[name='branch']").forEach(sel => {
+        if (!sel.dataset.ready) {
+          sel.innerHTML = lists.branches.map(v => `<option>${v}</option>`).join("");
+          sel.dataset.ready = "true";
+        }
+      });
+      document.querySelectorAll("select[name='status']").forEach(sel => {
+        if (!sel.dataset.ready) {
+          sel.innerHTML = lists.statuses.map(v => `<option>${v}</option>`).join("");
+          sel.dataset.ready = "true";
+        }
+      });
+    }
+
+    function renderClientRecord() {
+      const client = getClient();
+      if (!client) return;
+
+      document.getElementById("client-overview").innerHTML = `
+        <form id="clientEditForm">
+        <div class="grid-3">
+          <div class="card pad"><h3>Identity</h3>
+            <label>Name <input class="input" name="name" value="${esc(client.name)}"></label>
+            <label>State ID <input class="input" name="stateId" value="${esc(client.stateId)}"></label>
+            <label>Veteran <select class="select" name="isVeteran">
+              <option value="true"${client.isVeteran ? " selected" : ""}>Yes</option>
+              <option value="false"${!client.isVeteran ? " selected" : ""}>No</option>
+            </select></label>
+            <label>Branch <select class="select" name="branch">
+              ${lists.branches.map(branch => `<option${branch === client.branch ? " selected" : ""}>${esc(branch)}</option>`).join("")}
+            </select></label>
+            <label>Client Type <select class="select" name="clientType">
+              ${lists.clientTypes.map(type => `<option${type === client.clientType ? " selected" : ""}>${esc(type)}</option>`).join("")}
+            </select></label>
+          </div>
+          <div class="card pad"><h3>Contact</h3>
+            <label>Primary Phone <input class="input" name="primaryPhone" value="${esc(client.poc.primaryPhone || "")}"></label>
+            <label>Mobile Phone <input class="input" name="mobilePhone" value="${esc(client.poc.mobilePhone || "")}"></label>
+            <label>Email <input class="input" name="email" type="email" value="${esc(client.poc.email || "")}"></label>
+            <label>Assigned POC <input class="input" name="assignedStaff" value="${esc(client.assignedStaff || "")}"></label>
+          </div>
+          <div class="card pad"><h3>Progress</h3>
+            <label>Status <select class="select" name="status">
+              ${lists.statuses.map(status => `<option${status === client.status ? " selected" : ""}>${esc(status)}</option>`).join("")}
+            </select></label>
+            <label>Enrolled Date <input class="input" name="enrolledDate" type="date" value="${esc(client.enrolledDate)}"></label>
+            <label>Last Contact <input class="input" name="lastContactDate" type="date" value="${esc(client.lastContactDate)}"></label>
+            <label>Employment Date <input class="input" name="employmentDate" type="date" value="${esc(client.employmentDate || "")}"></label>
+            <label>Next Follow-Up <input class="input" name="nextFollowUpDate" type="date" value="${esc(client.nextFollowUpDate || addDays(client.lastContactDate, 14))}"></label>
+            <label>Contact Outcome <select class="select" name="contactOutcome">
+              ${lists.contactOutcomes.map(outcome => `<option value="${esc(outcome)}"${outcome === (client.contactOutcome || "") ? " selected" : ""}>${esc(outcome || "Not recorded")}</option>`).join("")}
+            </select></label>
+            <label>Failed Contacts <input class="input" name="failedContacts" type="number" min="0" value="${esc(client.failedContacts || 0)}"></label>
+            <label>Archive Status <select class="select" name="archived">
+              <option value="false"${!client.archived ? " selected" : ""}>Active record</option>
+              <option value="true"${client.archived ? " selected" : ""}>Archived</option>
+            </select></label>
+          </div>
+        </div>
+        <div class="card pad" style="margin-top:12px;">
+          <h3>Profile Details</h3>
+          <div class="form-grid">
+            <label class="span-2">Career Goal <input class="input" name="careerGoal" value="${esc(client.careerGoal || "")}"></label>
+            <label>Employer <input class="input" name="employer" value="${esc(client.employer || "")}" placeholder="Employer / worksite"></label>
+            <label class="wide">Education / Certification <textarea name="educationCertification">${esc(client.educationCertification || "")}</textarea></label>
+            <label class="wide">Barriers / Support Needs <textarea name="barriers">${esc(client.barriers || "")}</textarea></label>
+            <label class="wide">Notes <textarea name="notes">${esc(client.notes || "")}</textarea></label>
+          </div>
+          <div class="top-actions" style="justify-content:start;margin-top:14px;">
+            <button class="btn primary" type="submit">Save Client Updates</button>
+          </div>
+          <p class="muted" style="margin:10px 0 0;font-size:0.82rem;">Last saved: ${client.updatedAt ? new Date(client.updatedAt).toLocaleString() : "Not recorded"}</p>
+          ${client.clientType === "TMP" ? `<p class="muted" style="margin:6px 0 0;font-size:0.82rem;">TMP record: job lead information only. IEP is not required unless the client moves into case management.</p>` : ""}
+          <div class="notice" id="clientEditNotice"></div>
+        </form>
+        ${renderRetentionPanel(client)}
+      `;
+      bindClientEditForm(client.clientId);
+      bindRetentionControls(client.clientId);
+
+      document.getElementById("client-goals").innerHTML = renderSimpleTable(["Goal / Objective", "Target Date", "% Complete", "Status", "Last Updated"], client.goals.map(g => [
+        g.title, fmtDate(g.targetDate), `${g.percent || 0}%`, g.status, fmtDate(g.updatedAt)
+      ]));
+
+      document.getElementById("client-contacts").innerHTML = client.contacts.length
+        ? renderSimpleTable(["Date", "Scenario", "Method", "Outcome", "Next Follow-Up", "Generated Note"], client.contacts.map(c => [
+          fmtDate(c.date), c.scenario, c.method, c.outcome, fmtDate(c.nextFollowUpDate), c.generatedNote
+        ]))
+        : `<div class="empty">No contact events saved yet.</div>`;
+
+      document.getElementById("client-leads").innerHTML = client.jobLeads.length
+        ? renderSimpleTable(["Date Sent", "Position", "Employer", "Source", "Outcome", "Follow-Up"], client.jobLeads.map(j => [
+          fmtDate(j.dateSent), j.title, j.employer, j.source, j.outcome, fmtDate(j.followUpDate)
+        ]))
+        : `<div class="empty">No job leads attached yet.</div>`;
+
+      renderEmploymentVerification(client);
+
+      document.getElementById("client-tasks").innerHTML = client.tasks.length
+        ? renderSimpleTable(["Task", "Priority", "Due Date", "Assigned To", "Status", "Completed", "Notes"], client.tasks.map(t => [
+          t.title, t.priority, fmtDate(t.dueDate), t.assignedTo, t.status, fmtDate(t.completedDate), t.notes
+        ]))
+        : `<div class="empty">No tasks saved yet.</div>`;
+
+      document.getElementById("client-reports").innerHTML = client.reports.length
+        ? renderSimpleTable(["Date", "Type", "Narrative"], client.reports.map(r => [fmtDate(r.date), r.reportType, r.narrative]))
+        : `<div class="empty">No reports saved yet.</div>`;
+    }
+
+    function renderRetentionPanel(client) {
+      if (client.clientType !== "VR&E") {
+        return "";
+      }
+      if (client.status !== "Employed") {
+        return `
+          <div class="card pad" style="margin-top:12px;">
+            <h3>VR&E Employment Retention</h3>
+            <p class="muted">When this VR&E client status changes to Employed, the dashboard will automatically create 30, 60, and 90-day evaluation dates from the employment date.</p>
+          </div>
+        `;
+      }
+      ensureVreRetention(client, client.employmentDate || TODAY);
+      return `
+        <div class="card pad" style="margin-top:12px;">
+          <div class="section-head" style="margin-bottom:8px;">
+            <div>
+              <h2 style="font-size:1.15rem;">VR&E Employment Retention</h2>
+              <p class="muted" style="margin:4px 0 0;">Employment date: ${fmtDate(client.employmentDate)}. Copy each evaluation note into the system after contact.</p>
+            </div>
+          </div>
+          <div class="retention-grid">
+            ${client.retentionEvaluations.map(evaluation => `
+              <div class="card retention-card" data-retention-milestone="${esc(evaluation.milestone)}">
+                <div>
+                  <span class="badge status-employed">${esc(evaluation.milestone)} Day</span>
+                  <p class="muted" style="margin:8px 0 0;">Due ${fmtDate(evaluation.dueDate)}</p>
+                </div>
+                <label>Veteran Still Employed?
+                  <select class="select" data-retention-field="veteranStillEmployed">
+                    ${["Pending", "Yes", "No", "Unable to Verify"].map(value => `<option${value === (evaluation.veteranStillEmployed || "Pending") ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                  </select>
+                </label>
+                <label>Further Assistance Needed?
+                  <select class="select" data-retention-field="furtherAssistanceNeeded">
+                    ${["Pending", "No", "Yes", "Follow-up Needed"].map(value => `<option${value === (evaluation.furtherAssistanceNeeded || "Pending") ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                  </select>
+                </label>
+                <label>Assistance / Follow-Up Details
+                  <textarea data-retention-field="assistanceDetails" placeholder="Transportation, accommodation, retention support, job adjustment, no further assistance needed">${esc(evaluation.assistanceDetails || "")}</textarea>
+                </label>
+                <label>Completed Date
+                  <input class="input" type="date" data-retention-field="completedDate" value="${esc(evaluation.completedDate || "")}">
+                </label>
+                <div class="note-output">${esc(buildRetentionNote(client, evaluation))}</div>
+                <button class="btn small primary" type="button" data-copy-retention="${esc(evaluation.milestone)}">Copy Note</button>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      `;
+    }
+
+    function bindRetentionControls(clientId) {
+      const client = getClient(clientId);
+      if (!client) return;
+      document.querySelectorAll("[data-retention-milestone] [data-retention-field]").forEach(input => {
+        input.addEventListener("change", event => {
+          const card = event.target.closest("[data-retention-milestone]");
+          const evaluation = client.retentionEvaluations.find(item => String(item.milestone) === String(card.dataset.retentionMilestone));
+          if (!evaluation) return;
+          evaluation[event.target.dataset.retentionField] = event.target.value.trim();
+          evaluation.note = buildRetentionNote(client, evaluation);
+          client.updatedAt = new Date().toISOString();
+          saveState();
+        });
+      });
+      document.querySelectorAll("[data-copy-retention]").forEach(button => {
+        button.addEventListener("click", () => {
+          const evaluation = client.retentionEvaluations.find(item => String(item.milestone) === String(button.dataset.copyRetention));
+          if (!evaluation) return;
+          const note = buildRetentionNote(client, evaluation);
+          navigator.clipboard.writeText(note);
+          button.textContent = "Copied";
+          setTimeout(() => { button.textContent = "Copy Note"; }, 1200);
+        });
+      });
+    }
+
+    function latestEmploymentVerification(client) {
+      const latest = client.employmentVerifications?.[client.employmentVerifications.length - 1] || {};
+      return {
+        verificationDate: latest.verificationDate || TODAY,
+        employeeName: latest.employeeName || client.name || "",
+        employer: latest.employer || client.employer || "",
+        employerAddress: latest.employerAddress || client.employerAddress || "",
+        employerCity: latest.employerCity || client.employerCity || "",
+        employerState: latest.employerState || client.employerState || "",
+        employerZip: latest.employerZip || client.employerZip || "",
+        workPhone: latest.workPhone || client.workPhone || "",
+        employerContactName: latest.employerContactName || client.employerContactName || "",
+        employerTitle: latest.employerTitle || client.employerTitle || "",
+        employerEmail: latest.employerEmail || client.employerEmail || "",
+        employeeStartDate: latest.employeeStartDate || client.employmentDate || "",
+        employeeJobTitle: latest.employeeJobTitle || client.employeeJobTitle || "",
+        jobDescription: latest.jobDescription || client.jobDescription || "",
+        wage: latest.wage || client.wage || "",
+        hoursPerWeek: latest.hoursPerWeek || client.hoursPerWeek || "",
+        firstMonthStatus: latest.firstMonthStatus || "Pending",
+        secondMonthStatus: latest.secondMonthStatus || "Pending",
+        thirdMonthStatus: latest.thirdMonthStatus || "Pending",
+        veteranStillEmployed: latest.veteranStillEmployed || "Pending",
+        furtherAssistanceNeeded: latest.furtherAssistanceNeeded || "Pending",
+        assistanceDetails: latest.assistanceDetails || "",
+        verificationMethod: latest.verificationMethod || "Phone",
+        notes: latest.notes || ""
+      };
+    }
+
+    function buildEmploymentVerificationText(client, record) {
+      return `VETERAN EMPLOYMENT VERIFICATION\n\nVerification Date: ${fmtDate(record.verificationDate)}\nVeteran / Employee Name: ${record.employeeName || client.name}\nState ID: ${client.stateId || "-"}\nVeteran Status: ${client.isVeteran ? "Veteran" : "Not marked as veteran"}\nClient Type: ${client.clientType || "Case Managed"}\n\nEmployer Information:\nEmployer: ${record.employer || "-"}\nEmployer Address: ${record.employerAddress || "-"}\nCity / State / Zip: ${[record.employerCity, record.employerState, record.employerZip].filter(Boolean).join(", ") || "-"}\nWork Phone: ${record.workPhone || "-"}\nEmployer Contact: ${record.employerContactName || "-"}\nEmployer Title: ${record.employerTitle || "-"}\nEmployer Email: ${record.employerEmail || "-"}\n\nEmployment Information:\nEmployee Start Date: ${fmtDate(record.employeeStartDate)}\nEmployee Job Title: ${record.employeeJobTitle || "-"}\nJob Description: ${record.jobDescription || "-"}\nHourly / Salary Wage: ${record.wage || "-"}\nHours Per Week: ${record.hoursPerWeek || "-"}\n\nRetention / Check-In Status:\n1st Month: ${record.firstMonthStatus || "Pending"}\n2nd Month: ${record.secondMonthStatus || "Pending"}\n3rd Month: ${record.thirdMonthStatus || "Pending"}\nIs the veteran still employed? ${record.veteranStillEmployed || "Pending"}\nDoes the veteran require further assistance? ${record.furtherAssistanceNeeded || "Pending"}\nAssistance / Follow-Up Details: ${record.assistanceDetails || "No additional assistance details recorded."}\nVerification Method: ${record.verificationMethod || "-"}\n\nNotes:\n${record.notes || "No additional notes recorded."}\n\nDigital Narrative:\nDVOP documented employment verification for ${record.employeeName || client.name}. Employer was recorded as ${record.employer || "not recorded"} with a start date of ${fmtDate(record.employeeStartDate)} and job title of ${record.employeeJobTitle || "not recorded"}. Current employment status was marked as ${record.veteranStillEmployed || "Pending"}. Further assistance need was marked as ${record.furtherAssistanceNeeded || "Pending"}.`;
+    }
+
+    function renderEmploymentVerification(client) {
+      const panel = document.getElementById("client-employment");
+      if (!panel) return;
+      if (!client.isVeteran || client.status !== "Employed") {
+        panel.innerHTML = `
+          <div class="empty">Employment verification forms become available when the selected veteran status is Employed.</div>
+        `;
+        return;
+      }
+      const record = latestEmploymentVerification(client);
+      const savedRows = (client.employmentVerifications || []).slice().reverse().map(item => [
+        fmtDate(item.verificationDate),
+        item.employer,
+        item.employeeJobTitle,
+        item.veteranStillEmployed,
+        item.furtherAssistanceNeeded,
+        item.verificationMethod
+      ]);
+      panel.innerHTML = `
+        <div class="grid-2">
+          <form class="card pad" id="employmentVerificationForm">
+            <h3>Veteran Employment Verification</h3>
+            <p class="muted">Microsoft Forms style intake for employer details, job information, retention status, and assistance needs. Saved submissions stay in this client profile.</p>
+            <div class="form-section">
+              <h4>Veteran & Verification</h4>
+              <div class="form-grid">
+                <label>Verification Date <input class="input" name="verificationDate" type="date" value="${esc(record.verificationDate)}"></label>
+                <label>Employee Name <input class="input" name="employeeName" value="${esc(record.employeeName)}"></label>
+                <label>Verification Method <select class="select" name="verificationMethod">
+                  ${["Phone", "Email", "In Person", "Employer Form", "Client Self-Report", "Other"].map(value => `<option${value === record.verificationMethod ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                </select></label>
+              </div>
+            </div>
+            <div class="form-section">
+              <h4>Employer Information</h4>
+              <div class="form-grid">
+                <label>Employer <input class="input" name="employer" value="${esc(record.employer)}"></label>
+                <label class="span-2">Employer Address <input class="input" name="employerAddress" value="${esc(record.employerAddress)}"></label>
+                <label>City <input class="input" name="employerCity" value="${esc(record.employerCity)}"></label>
+                <label>State <input class="input" name="employerState" value="${esc(record.employerState)}"></label>
+                <label>Zip <input class="input" name="employerZip" value="${esc(record.employerZip)}"></label>
+                <label>Work Phone <input class="input" name="workPhone" value="${esc(record.workPhone)}"></label>
+                <label>Employer Contact <input class="input" name="employerContactName" value="${esc(record.employerContactName)}"></label>
+                <label>Employer Title <input class="input" name="employerTitle" value="${esc(record.employerTitle)}"></label>
+                <label class="span-2">Employer Email <input class="input" name="employerEmail" type="email" value="${esc(record.employerEmail)}"></label>
+              </div>
+            </div>
+            <div class="form-section">
+              <h4>Employment Information</h4>
+              <div class="form-grid">
+                <label>Employee Start Date <input class="input" name="employeeStartDate" type="date" value="${esc(record.employeeStartDate)}"></label>
+                <label>Employee Job Title <input class="input" name="employeeJobTitle" value="${esc(record.employeeJobTitle)}"></label>
+                <label>Hourly / Salary Wage <input class="input" name="wage" value="${esc(record.wage)}"></label>
+                <label># Hours Per Week <input class="input" name="hoursPerWeek" value="${esc(record.hoursPerWeek)}"></label>
+                <label class="wide">Job Description <textarea name="jobDescription">${esc(record.jobDescription)}</textarea></label>
+              </div>
+            </div>
+            <div class="form-section">
+              <h4>Retention & Assistance Status</h4>
+              <div class="form-grid">
+                <label>1st Month Status <select class="select" name="firstMonthStatus">
+                  ${["Pending", "Still Employed", "Not Employed", "Unable to Verify", "Needs Follow-Up"].map(value => `<option${value === record.firstMonthStatus ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                </select></label>
+                <label>2nd Month Status <select class="select" name="secondMonthStatus">
+                  ${["Pending", "Still Employed", "Not Employed", "Unable to Verify", "Needs Follow-Up"].map(value => `<option${value === record.secondMonthStatus ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                </select></label>
+                <label>3rd Month Status <select class="select" name="thirdMonthStatus">
+                  ${["Pending", "Still Employed", "Not Employed", "Unable to Verify", "Needs Follow-Up"].map(value => `<option${value === record.thirdMonthStatus ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                </select></label>
+                <label>Veteran Still Employed? <select class="select" name="veteranStillEmployed">
+                  ${["Pending", "Yes", "No", "Unable to Verify"].map(value => `<option${value === record.veteranStillEmployed ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                </select></label>
+                <label>Further Assistance Needed? <select class="select" name="furtherAssistanceNeeded">
+                  ${["Pending", "No", "Yes", "Follow-up Needed"].map(value => `<option${value === record.furtherAssistanceNeeded ? " selected" : ""}>${esc(value)}</option>`).join("")}
+                </select></label>
+                <label class="wide">Assistance / Follow-Up Details <textarea name="assistanceDetails">${esc(record.assistanceDetails)}</textarea></label>
+                <label class="wide">Notes <textarea name="notes">${esc(record.notes)}</textarea></label>
+              </div>
+            </div>
+            <div class="top-actions" style="justify-content:start;margin-top:14px;">
+              <button class="btn primary" type="submit">Save To Veteran Profile</button>
+              <button class="btn" type="button" id="previewEmploymentVerification">Update Preview</button>
+            </div>
+            <div class="notice" id="employmentVerificationNotice"></div>
+          </form>
+          <div class="card pad">
+            <h3>Hard Copy & Digital Text</h3>
+            <div class="verification-output" id="employmentVerificationOutput">${esc(buildEmploymentVerificationText(client, record))}</div>
+            <div class="top-actions" style="justify-content:start;margin-top:12px;">
+              <button class="btn small primary" type="button" id="copyEmploymentVerification">Copy Digital Text</button>
+              <button class="btn small navy" type="button" id="printEmploymentVerification">Print Hard Copy</button>
+            </div>
+          </div>
+        </div>
+        <div class="card pad" style="margin-top:12px;">
+          <h3>Saved Employment Verification History</h3>
+          ${savedRows.length ? renderSimpleTable(["Date", "Employer", "Job Title", "Still Employed", "Assistance Needed", "Method"], savedRows) : `<div class="empty">No employment verification forms saved yet.</div>`}
+        </div>
+      `;
+      bindEmploymentVerificationForm(client.clientId);
+    }
+
+    function getEmploymentVerificationDraft(form, client) {
+      const data = Object.fromEntries(new FormData(form).entries());
+      return {
+        verificationId: "employment_verification_" + Date.now(),
+        verificationDate: data.verificationDate || TODAY,
+        employeeName: data.employeeName.trim() || client.name,
+        employer: data.employer.trim(),
+        employerAddress: data.employerAddress.trim(),
+        employerCity: data.employerCity.trim(),
+        employerState: data.employerState.trim(),
+        employerZip: data.employerZip.trim(),
+        workPhone: data.workPhone.trim(),
+        employerContactName: data.employerContactName.trim(),
+        employerTitle: data.employerTitle.trim(),
+        employerEmail: data.employerEmail.trim(),
+        employeeStartDate: data.employeeStartDate,
+        employeeJobTitle: data.employeeJobTitle.trim(),
+        jobDescription: data.jobDescription.trim(),
+        wage: data.wage.trim(),
+        hoursPerWeek: data.hoursPerWeek.trim(),
+        firstMonthStatus: data.firstMonthStatus,
+        secondMonthStatus: data.secondMonthStatus,
+        thirdMonthStatus: data.thirdMonthStatus,
+        veteranStillEmployed: data.veteranStillEmployed,
+        furtherAssistanceNeeded: data.furtherAssistanceNeeded,
+        assistanceDetails: data.assistanceDetails.trim(),
+        verificationMethod: data.verificationMethod,
+        notes: data.notes.trim(),
+        createdAt: new Date().toISOString()
+      };
+    }
+
+    function syncEmploymentFieldsToClient(client, record) {
+      client.employer = record.employer;
+      client.employerAddress = record.employerAddress;
+      client.employerCity = record.employerCity;
+      client.employerState = record.employerState;
+      client.employerZip = record.employerZip;
+      client.workPhone = record.workPhone;
+      client.employerContactName = record.employerContactName;
+      client.employerTitle = record.employerTitle;
+      client.employerEmail = record.employerEmail;
+      client.employmentDate = record.employeeStartDate || client.employmentDate;
+      client.employeeJobTitle = record.employeeJobTitle;
+      client.jobDescription = record.jobDescription;
+      client.wage = record.wage;
+      client.hoursPerWeek = record.hoursPerWeek;
+      client.lastContactDate = record.verificationDate || client.lastContactDate;
+      client.contactOutcome = record.veteranStillEmployed === "Yes" ? "Successful" : client.contactOutcome;
+      client.updatedAt = new Date().toISOString();
+    }
+
+    function bindEmploymentVerificationForm(clientId) {
+      const form = document.getElementById("employmentVerificationForm");
+      if (!form) return;
+      const output = document.getElementById("employmentVerificationOutput");
+      const updatePreview = () => {
+        const client = getClient(clientId);
+        if (!client) return;
+        const draft = getEmploymentVerificationDraft(form, client);
+        output.textContent = buildEmploymentVerificationText(client, draft);
+      };
+      form.querySelectorAll("input,select,textarea").forEach(input => input.addEventListener("input", updatePreview));
+      document.getElementById("previewEmploymentVerification").addEventListener("click", updatePreview);
+      document.getElementById("copyEmploymentVerification").addEventListener("click", () => navigator.clipboard.writeText(output.textContent));
+      document.getElementById("printEmploymentVerification").addEventListener("click", () => {
+        const printWindow = window.open("", "_blank");
+        printWindow.document.write(`<html><head><title>Veteran Employment Verification</title><style>body{font-family:Arial,Helvetica,sans-serif;margin:36px;line-height:1.45;color:#111;}pre{white-space:pre-wrap;font:inherit;}h1{font-size:20px;border-bottom:2px solid #111;padding-bottom:8px;}</style></head><body><h1>Veteran Employment Verification</h1><pre>${esc(output.textContent)}</pre></body></html>`);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
+      });
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        const client = getClient(clientId);
+        if (!client) return;
+        const record = getEmploymentVerificationDraft(form, client);
+        record.digitalText = buildEmploymentVerificationText(client, record);
+        client.employmentVerifications ||= [];
+        client.employmentVerifications.push(record);
+        syncEmploymentFieldsToClient(client, record);
+        client.contacts ||= [];
+        client.contacts.push({
+          eventId: "event_employment_verification_" + Date.now(),
+          date: record.verificationDate,
+          scenario: "Employment Verification",
+          method: record.verificationMethod,
+          outcome: record.veteranStillEmployed === "Yes" ? "Successful" : record.veteranStillEmployed,
+          nextFollowUpDate: addDays(record.verificationDate, 30),
+          generatedNote: record.digitalText
+        });
+        saveState();
+        showPage("clients");
+        document.querySelector("[data-client-tab='employment']").click();
+      });
+    }
+
+    function bindClientEditForm(clientId) {
+      const form = document.getElementById("clientEditForm");
+      if (!form) return;
+      form.addEventListener("submit", event => {
+        event.preventDefault();
+        const client = getClient(clientId);
+        if (!client) return;
+        const data = Object.fromEntries(new FormData(form).entries());
+        const previousEmploymentDate = client.employmentDate || "";
+        client.name = data.name.trim();
+        client.stateId = data.stateId.trim();
+        client.isVeteran = data.isVeteran === "true";
+        client.status = data.status;
+        client.clientType = normalizeClientType(data.clientType);
+        client.archived = data.archived === "true";
+        if (client.archived && client.status !== "Closed") client.status = "Closed";
+        client.branch = data.branch;
+        client.enrolledDate = data.enrolledDate;
+        client.lastContactDate = data.lastContactDate;
+        client.employmentDate = data.employmentDate;
+        client.nextFollowUpDate = data.nextFollowUpDate;
+        client.contactOutcome = data.contactOutcome.trim();
+        client.failedContacts = Number(data.failedContacts || 0);
+        client.assignedStaff = data.assignedStaff.trim();
+        client.employer = data.employer.trim();
+        client.careerGoal = data.careerGoal.trim();
+        client.educationCertification = data.educationCertification.trim();
+        client.barriers = data.barriers.trim();
+        client.notes = data.notes.trim();
+        client.poc ||= {};
+        client.poc.primaryPhone = data.primaryPhone.trim();
+        client.poc.mobilePhone = data.mobilePhone.trim();
+        client.poc.email = data.email.trim();
+        if (previousEmploymentDate && client.employmentDate && previousEmploymentDate !== client.employmentDate) {
+          client.retentionEvaluations = [];
+          client.tasks = (client.tasks || []).filter(task => !/^VR&E (30|60|90)-day employment evaluation$/.test(task.title || ""));
+        }
+        if (client.status === "Employed" && client.clientType === "VR&E") ensureVreRetention(client, client.employmentDate || TODAY);
+        client.updatedAt = new Date().toISOString();
+        selectedClientId = client.clientId;
+        saveState();
+        showPage("clients");
+      });
+    }
+
+    function renderSimpleTable(headers, rows) {
+      return `
+        <div class="table-wrap">
+          <table style="min-width:900px;">
+            <thead><tr>${headers.map(h => `<th>${esc(h)}</th>`).join("")}</tr></thead>
+            <tbody>${rows.map(row => `<tr>${row.map(cell => `<td>${esc(cell || "-")}</td>`).join("")}</tr>`).join("")}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function renderResources() {
+      const q = document.getElementById("resourceSearch")?.value.toLowerCase() || "";
+      const type = document.getElementById("resourceType")?.value || "";
+      const resources = state.resources.filter(resource => {
+        const hay = [resource.title, resource.type, resource.notes, resource.url].join(" ").toLowerCase();
+        return (!q || hay.includes(q)) && (!type || resource.type === type);
+      });
+      document.getElementById("resourceGrid").innerHTML = resources.map(resource => `
+        <article class="card resource-card">
+          <div><span class="badge status-hold">${esc(resource.type)}</span></div>
+          <h3>${esc(resource.title)}</h3>
+          <p class="muted">${esc(resource.notes || "")}</p>
+          <a href="${esc(resource.url || "#")}" target="_blank" rel="noopener">Open resource</a>
+        </article>
+      `).join("") || `<div class="empty">No resources match the current filters.</div>`;
+    }
+
+    function addJobLeadsToResources() {
+      const leads = Array.isArray(window.VEVRAA_JOBS) ? window.VEVRAA_JOBS : [];
+      let added = 0;
+      leads.slice(0, 80).forEach(job => {
+        const id = "job_" + String(job.requisition || job.title).toLowerCase().replace(/[^a-z0-9]+/g, "_");
+        if (state.resources.some(r => r.resourceId === id)) return;
+        state.resources.push({
+          resourceId: id,
+          title: `${job.title} - ${job.company}`,
+          type: "Job Lead",
+          url: job.url,
+          eventDate: job.date,
+          notes: `${job.category || "Job Lead"} | ${job.location || ""} | ${job.source || ""}`
+        });
+        added++;
+      });
+      saveState();
+      document.getElementById("resourceSearch").value = "";
+      document.getElementById("resourceType").value = "Job Lead";
+      renderResources();
+      alert(added ? `Loaded ${added} job leads into resources.` : "Job leads were already loaded.");
+    }
+
+    function buildNoteFromForm() {
+      const form = new FormData(document.getElementById("noteForm"));
+      const client = getClient(form.get("clientId"));
+      const date = form.get("date") || TODAY;
+      const scenario = form.get("scenario");
+      const method = form.get("method");
+      const outcome = form.get("outcome");
+      const services = form.get("servicesProvided") || "Services discussed and documented.";
+      const clientAction = form.get("clientAction") || "Client will continue agreed next steps.";
+      const cmAction = form.get("cmAction") || "DVOP will follow up and provide continued support.";
+      const next = form.get("nextFollowUpDate") || addDays(date, 14);
+      return `${scenario.toUpperCase()}\n\nDate: ${fmtDate(date)}\nClient: ${client?.name || "Selected client"}\nMethod: ${method}\nOutcome: ${outcome}\n\nServices Provided:\n${services}\n\nClient Next Action:\n${clientAction}\n\nCase Manager Next Action:\n${cmAction}\n\nNext Follow-Up: ${fmtDate(next)}\n\nNarrative:\nDVOP documented ${scenario.toLowerCase()} with ${client?.name || "the client"} by ${method.toLowerCase()}. Outcome was recorded as ${outcome.toLowerCase()}. Services and next steps were reviewed to support continued progress toward the employment plan.`;
+    }
+
+    function buildReportFromForm() {
+      const form = new FormData(document.getElementById("reportForm"));
+      const client = getClient(form.get("clientId"));
+      const reportType = form.get("reportType");
+      const date = form.get("date") || TODAY;
+      const remarks = form.get("remarks");
+      const contacts = client.contacts.slice(-3).map(c => `- ${fmtDate(c.date)}: ${c.scenario}, ${c.outcome}`).join("\n") || "- No saved contacts during this period.";
+      const tasks = client.tasks.filter(t => t.status !== "Complete").slice(0, 4).map(t => `- ${t.title} (${t.priority}, ${t.status})`).join("\n") || "- No open tasks.";
+      const next = client.nextFollowUpDate || addDays(client.lastContactDate, 14);
+      return `${reportType.toUpperCase()}\n\nReport Date: ${fmtDate(date)}\nClient: ${client.name}\nState ID: ${client.stateId || "-"}\nStatus: ${client.status}\nClient Type: ${client.clientType || "Case Managed"}\nAssigned Staff: ${client.assignedStaff || "-"}\n\nCareer Goal:\n${client.careerGoal || "Career goal not recorded."}\n\nCurrent Progress:\nClient is currently listed as ${client.status}. Last contact was ${fmtDate(client.lastContactDate)} with next follow-up scheduled for ${fmtDate(next)}. Contact outcome is ${client.contactOutcome || "not recorded"} with ${client.failedContacts || 0} failed contact(s) recorded.\n\nRecent Contact Activity:\n${contacts}\n\nOpen Tasks:\n${client.clientType === "TMP" ? "- TMP job-lead-only record. IEP tasks are not required unless moved into case management." : tasks}\n\nSupport Needs / Barriers:\n${client.barriers || client.supportNeeds || "No current barriers recorded."}\n\nRemarks:\n${remarks || client.notes || "No additional remarks entered."}\n\nNext Step:\nContinue service delivery, document all contacts in the appropriate system, and update client progress after the next follow-up.`;
+    }
+
+    function applyJsonPayload(payload) {
+      if (Array.isArray(payload)) {
+        state.clients = payload;
+        saveState();
+        return "Imported client array.";
+      }
+      if (payload.clients || payload.resources) {
+        if (Array.isArray(payload.clients)) state.clients = payload.clients;
+        if (Array.isArray(payload.resources)) state.resources = payload.resources;
+        state = normalizeState(state);
+        saveState();
+        return "Imported full workspace data.";
+      }
+
+      const action = payload.action;
+      if (action === "updateClientProgress") {
+        const client = getClient(payload.clientId);
+        if (!client) throw new Error("Client not found.");
+        Object.assign(client, payload);
+        delete client.action;
+        client.clientType = normalizeClientType(client.clientType);
+        client.archived = Boolean(client.archived);
+        if (client.archived && client.status !== "Closed") client.status = "Closed";
+        if (client.clientType === "VR&E" && client.status === "Employed") ensureVreRetention(client, client.employmentDate || TODAY);
+        client.updatedAt = new Date().toISOString();
+        saveState();
+        return "Updated client progress.";
+      }
+      if (action === "addContactEvent") {
+        const client = getClient(payload.clientId);
+        if (!client) throw new Error("Client not found.");
+        const contact = {
+          eventId: payload.eventId || "event_" + Date.now(),
+          date: payload.date || TODAY,
+          scenario: payload.scenario || "Check-In",
+          method: payload.method || "Phone",
+          outcome: payload.outcome || "Successful",
+          servicesProvided: payload.servicesProvided || "",
+          clientAction: payload.clientAction || "",
+          cmAction: payload.caseManagerAction || payload.cmAction || "",
+          nextFollowUpDate: payload.nextFollowUpDate || addDays(payload.date || TODAY, 14),
+          generatedNote: payload.generatedNote || ""
+        };
+        client.contacts.push(contact);
+        client.lastContactDate = contact.date;
+        client.contactOutcome = contact.outcome;
+        client.nextFollowUpDate = contact.nextFollowUpDate;
+        saveState();
+        return "Added contact event.";
+      }
+      if (action === "generateReport") {
+        selectedClientId = payload.clientId || selectedClientId;
+        document.getElementById("reportClient").value = selectedClientId;
+        generatedReport = buildReportFromForm();
+        document.getElementById("reportOutput").textContent = generatedReport;
+        showPage("reports");
+        return "Generated report from JSON action.";
+      }
+      throw new Error("Unsupported JSON action.");
+    }
+
+    function showPage(pageName) {
+      document.querySelectorAll(".page").forEach(page => page.classList.remove("active"));
+      document.getElementById("page-" + pageName).classList.add("active");
+      document.querySelectorAll(".nav button").forEach(btn => btn.classList.toggle("active", btn.dataset.page === pageName));
+      const labels = {
+        dashboard: ["Dashboard", "Caseload status, contact urgency, and daily actions"],
+        clients: ["Clients", "Client detail records and activity history"],
+        intake: ["Intake", "Guided intake and first service plan"],
+        notes: ["Case Notes", "Contact documentation generator"],
+        vaGenerator: ["VA 28-10289", "Formal VA progress report generator"],
+        reports: ["Reports", "Progress narratives and VA-style summaries"],
+        resources: ["Resources", "Job leads, flyers, workshops, and links"],
+        json: ["JSON", "Import, update, generate, and export structured data"]
+      };
+      document.getElementById("pageTitle").textContent = labels[pageName][0];
+      document.getElementById("pageSubtitle").textContent = labels[pageName][1];
+      if (pageName === "clients") renderClientRecord();
+    }
+
+    document.querySelectorAll(".nav button[data-page], [data-page-shortcut]").forEach(btn => {
+      btn.addEventListener("click", () => showPage(btn.dataset.page || btn.dataset.pageShortcut));
+    });
+
+    document.querySelectorAll("#dashSearch,#dashStatus,#dashUrgency,#dashClientType,#dashArchiveView").forEach(el => el.addEventListener("input", () => {
+      renderDashboard();
+      renderArchive();
+    }));
+    document.querySelectorAll("#resourceSearch,#resourceType").forEach(el => el.addEventListener("input", renderResources));
+
+    document.getElementById("clientPicker").addEventListener("change", event => {
+      selectedClientId = event.target.value;
+      renderAll();
+    });
+
+    document.querySelectorAll("[data-client-tab]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("[data-client-tab]").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".subpanel").forEach(panel => panel.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById("client-" + btn.dataset.clientTab).classList.add("active");
+      });
+    });
+
+    document.getElementById("intakeForm").addEventListener("submit", event => {
+      event.preventDefault();
+      const data = Object.fromEntries(new FormData(event.currentTarget).entries());
+      const client = {
+        clientId: "client_" + Date.now(),
+        name: data.name,
+        stateId: data.stateId,
+        enrolledDate: data.enrolledDate || TODAY,
+        lastContactDate: data.lastContactDate || data.enrolledDate || TODAY,
+        status: data.status || "Pending Intake",
+        clientType: normalizeClientType(data.clientType),
+        archived: false,
+        contactOutcome: "Initial Intake",
+        failedContacts: Number(data.failedContacts || 0),
+        educationCertification: data.educationCertification,
+        assignedStaff: data.assignedStaff,
+        isVeteran: true,
+        branch: data.branch,
+        poc: { primaryPhone: data.phone, mobilePhone: "", email: data.email },
+        careerGoal: data.careerGoal,
+        supportNeeds: data.supportNeeds,
+        barriers: data.barriers,
+        notes: data.notes,
+        goals: defaultGoals(),
+        contacts: [{
+          eventId: "event_" + Date.now(),
+          date: data.enrolledDate || TODAY,
+          scenario: "Initial Intake",
+          method: "Intake",
+          outcome: "Successful",
+          nextFollowUpDate: addDays(data.enrolledDate || TODAY, 14),
+          generatedNote: `Initial intake completed. Career goal: ${data.careerGoal || "not recorded"}. Support need: ${data.supportNeeds || "not recorded"}.`
+        }],
+        jobLeads: [],
+        tasks: defaultTasks(),
+        reports: []
+      };
+      state.clients.push(client);
+      selectedClientId = client.clientId;
+      saveState();
+      event.currentTarget.reset();
+      document.getElementById("intakeNotice").textContent = "Client record created and first follow-up date generated.";
+      showPage("clients");
+    });
+
+    document.getElementById("generateReport").addEventListener("click", () => {
+      generatedReport = buildReportFromForm();
+      document.getElementById("reportOutput").textContent = generatedReport;
+      document.getElementById("reportNotice").textContent = "Narrative generated.";
+    });
+
+    document.getElementById("reportForm").addEventListener("submit", event => {
+      event.preventDefault();
+      if (!generatedReport) generatedReport = buildReportFromForm();
+      const form = new FormData(event.currentTarget);
+      const client = getClient(form.get("clientId"));
+      client.reports.push({
+        reportId: "report_" + Date.now(),
+        date: form.get("date") || TODAY,
+        reportType: form.get("reportType"),
+        narrative: generatedReport
+      });
+      selectedClientId = client.clientId;
+      saveState();
+      document.getElementById("reportNotice").textContent = "Report saved to client record.";
+    });
+
+    document.getElementById("renderJobLeads").addEventListener("click", addJobLeadsToResources);
+    document.getElementById("exportDashboardCsv").addEventListener("click", exportDashboardCsv);
+    document.getElementById("exportTop").addEventListener("click", () => {
+      showPage("json");
+      document.getElementById("jsonEditor").value = JSON.stringify(state, null, 2);
+    });
+    document.getElementById("loadExport").addEventListener("click", () => {
+      document.getElementById("jsonEditor").value = JSON.stringify(state, null, 2);
+    });
+    document.getElementById("copyJson").addEventListener("click", () => navigator.clipboard.writeText(document.getElementById("jsonEditor").value));
+    document.getElementById("copyReport").addEventListener("click", () => navigator.clipboard.writeText(document.getElementById("reportOutput").textContent));
+    document.getElementById("cloudSignIn").addEventListener("click", signInCloud);
+    document.getElementById("cloudSignOut").addEventListener("click", signOutCloud);
+    document.getElementById("lockApp").addEventListener("click", () => {
+      requirePasscodeGate();
+    });
+    document.getElementById("cloudSync").addEventListener("click", async () => {
+      if (!cloud.user) {
+        await signInCloud();
+      } else {
+        await saveCloudState();
+        await loadCloudState();
+      }
+    });
+
+    document.getElementById("savePasscode").addEventListener("click", async () => {
+      const passcode = document.getElementById("newPasscode").value;
+      const confirm = document.getElementById("confirmPasscode").value;
+      if (!validPasscode(passcode)) {
+        setSecurityNotice("Use a 4-6 digit passcode.", "bad");
+        return;
+      }
+      if (passcode !== confirm) {
+        setSecurityNotice("Passcodes do not match.", "bad");
+        return;
+      }
+      await saveLocalPasscode(passcode);
+      document.getElementById("newPasscode").value = "";
+      document.getElementById("confirmPasscode").value = "";
+      hideSecurityPanel();
+    });
+
+    document.getElementById("unlockApp").addEventListener("click", async () => {
+      const passcode = document.getElementById("unlockPasscode").value;
+      if (await checkLocalPasscode(passcode)) {
+        document.getElementById("unlockPasscode").value = "";
+        hideSecurityPanel();
+      } else {
+        setSecurityNotice("Passcode did not match.", "bad");
+      }
+    });
+
+    document.getElementById("applyJson").addEventListener("click", () => {
+      const notice = document.getElementById("jsonNotice");
+      try {
+        const payload = JSON.parse(document.getElementById("jsonEditor").value);
+        notice.textContent = applyJsonPayload(payload);
+      } catch (error) {
+        notice.textContent = "JSON error: " + error.message;
+      }
+    });
+
+    document.getElementById("seedReset").addEventListener("click", () => {
+      if (!confirm("Reset the app to sample workbook-style data?")) return;
+      state = normalizeState(structuredClone(seedData));
+      selectedClientId = state.clients[0]?.clientId || "";
+      saveState();
+    });
+
+    document.querySelectorAll("input[type='date']").forEach(input => {
+      if (!input.value && ["date", "dateSigned", "lastContactDate", "enrolledDate"].includes(input.name)) input.value = TODAY;
+    });
+
+    renderSelectors();
+    renderAll();
+    initCloud();
+    requirePasscodeGate();
+  </script>
+</body>
+</html>
