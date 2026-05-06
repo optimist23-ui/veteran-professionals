@@ -204,16 +204,134 @@
       line-height: 1.55;
     }
 
+    .filter-panel {
+      position: relative;
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+      padding: 14px;
+      border: 1px solid rgba(93, 111, 143, 0.34);
+      border-left: 6px solid var(--orange);
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(15, 120, 101, 0.08), rgba(93, 111, 143, 0.08)),
+        var(--panel);
+      box-shadow: 0 16px 34px rgba(38, 35, 41, 0.09);
+    }
+
+    .filter-guide {
+      border: 1px solid rgba(44, 104, 151, 0.22);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+      overflow: hidden;
+    }
+
+    .filter-guide-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      width: 100%;
+      padding: 12px 14px;
+      border: 0;
+      color: #fff;
+      background: linear-gradient(90deg, var(--purple-dark), var(--green));
+      cursor: pointer;
+      text-align: left;
+      font-weight: 800;
+    }
+
+    .filter-guide-header::after {
+      content: "Hide";
+      flex: 0 0 auto;
+      padding: 4px 9px;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .filter-guide.is-minimized .filter-guide-header::after {
+      content: "Show";
+    }
+
+    .filter-guide small {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .filter-guide.is-minimized .filter-steps {
+      display: none;
+    }
+
+    .filter-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .filter-step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid rgba(217, 224, 234, 0.9);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .filter-marker {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--orange);
+      font-size: 0.84rem;
+      font-weight: 900;
+    }
+
+    .filter-step p {
+      margin: 0;
+      color: var(--soft-ink);
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+
+    .filter-step strong {
+      color: var(--ink);
+    }
+
     .toolbar {
       display: grid;
       grid-template-columns: minmax(180px, 1fr) 170px 170px;
       gap: 10px;
-      margin-bottom: 18px;
-      padding: 12px;
-      border: 1px solid var(--line);
+      padding: 0;
+      border: 0;
       border-radius: 8px;
-      background: var(--panel);
-      box-shadow: 0 8px 22px rgba(38, 35, 41, 0.06);
+      background: transparent;
+    }
+
+    .filter-field {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      min-width: 0;
+    }
+
+    .filter-label {
+      color: var(--purple-dark);
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .input,
@@ -875,6 +993,7 @@
 
       .toolbar,
       .grid,
+      .filter-steps,
       .calendar-feature,
       .upload-shell,
       .form-grid {
@@ -893,6 +1012,15 @@
     }
 
     @media (max-width: 560px) {
+      .filter-panel {
+        padding: 10px;
+      }
+
+      .filter-guide-header {
+        align-items: start;
+        flex-direction: column;
+      }
+
       .job-card,
       .section-head,
       footer {
@@ -944,23 +1072,55 @@
         </div>
       </div>
 
-      <div class="toolbar">
-        <input class="input" id="jobSearch" type="search" placeholder="Search title, company, category, or city">
-        <select class="select" id="jobCategory">
-          <option value="">All categories</option>
-          <option>Transportation / CDL</option>
-          <option>Healthcare</option>
-          <option>Skilled Trades</option>
-          <option>Retail / Customer Service</option>
-          <option>Corporate / Professional</option>
-          <option>Government</option>
-        </select>
-        <select class="select" id="jobSort">
-          <option value="industry">Industry</option>
-          <option value="newest">Newest first</option>
-          <option value="oldest">Oldest first</option>
-        </select>
-      </div>
+      <section class="filter-panel" aria-label="Job board search and filter tools">
+        <div class="filter-guide" id="filterGuide">
+          <button class="filter-guide-header" id="filterGuideToggle" type="button" aria-expanded="true" aria-controls="filterSteps">
+            <span>How to use the job filters</span>
+            <small>Minimize when you are ready to search</small>
+          </button>
+          <div class="filter-steps" id="filterSteps">
+            <div class="filter-step">
+              <span class="filter-marker">1</span>
+              <p><strong>Search first.</strong><br>Type a job title, company, city, category, or requisition number.</p>
+            </div>
+            <div class="filter-step">
+              <span class="filter-marker">2</span>
+              <p><strong>Pick an industry.</strong><br>Choose Healthcare, Skilled Trades, Transportation, or another category.</p>
+            </div>
+            <div class="filter-step">
+              <span class="filter-marker">3</span>
+              <p><strong>Set the view order.</strong><br>Use Industry for grouped leads, or sort by newest or oldest posting date.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <label class="filter-field">
+            <span class="filter-label">Search job leads</span>
+            <input class="input" id="jobSearch" type="search" placeholder="Search title, company, category, city, or req">
+          </label>
+          <label class="filter-field">
+            <span class="filter-label">Industry</span>
+            <select class="select" id="jobCategory">
+              <option value="">All categories</option>
+              <option>Transportation / CDL</option>
+              <option>Healthcare</option>
+              <option>Skilled Trades</option>
+              <option>Retail / Customer Service</option>
+              <option>Corporate / Professional</option>
+              <option>Government</option>
+            </select>
+          </label>
+          <label class="filter-field">
+            <span class="filter-label">View order</span>
+            <select class="select" id="jobSort">
+              <option value="industry">Industry</option>
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+            </select>
+          </label>
+        </div>
+      </section>
 
       <div class="grid">
         <div class="stack" id="jobList" aria-live="polite"></div>
@@ -2120,6 +2280,12 @@
     ["#jobSearch", "#jobCategory", "#jobSort"].forEach((selector) => {
       document.querySelector(selector).addEventListener("input", renderJobs);
       document.querySelector(selector).addEventListener("change", renderJobs);
+    });
+
+    document.querySelector("#filterGuideToggle").addEventListener("click", () => {
+      const guide = document.querySelector("#filterGuide");
+      const isMinimized = guide.classList.toggle("is-minimized");
+      document.querySelector("#filterGuideToggle").setAttribute("aria-expanded", String(!isMinimized));
     });
 
     document.querySelector("#jobList").addEventListener("click", (event) => {
