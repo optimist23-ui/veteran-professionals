@@ -383,5 +383,126 @@ window.VEVRAA_JOBS = [
     "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bhayjlQ1F3ixHiScd2XY1WhM7gl8kknzuLDWmZokWNwFNLX2k38QeUYNe5cqmdkKg-3DlXER_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVz50w022xDliDtODH5KRwuskVPQA567micvSu-2FWQi6akBk0H9bUCsdcPThRPvZyHddKJ3B6gT4RyqtmMH2pDbPkOc2aPaB5W04GRjQy9BdLC450t4bVqlgMQVtmJ-2BvD1DD2Hr2m3nzdc2jdUvrp4OlMk6NqGPtPIRCfB24SjT5NXn-2F4TQZHqQWr-2BxCyZONUle3tBQiuy8xz15utJjpBBDtw-3D-3D__;!!PRtDf9A!pT-pBq6qgb4zRXuBUDlu5hjTyBbOzFH0jW3UtIqxMQPxsx4BwSuNS0xH8OkW7DVUPcg512qxveDcMg4_fKwJP_vn$",
     "source": "VEVRAA email",
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_05_2026.eml"
+  },
+  {
+    "title": "Specialty Representative, Dermatology - Nashville, TN",
+    "requisition": "VEVRAA-20260506-01",
+    "company": "AbbVie",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Y1J8BFuBkBML2T7TQfMWdE0-2Bl9dkEbEaUfmqx7e3Krrmo4m-2FM-2FeftVWrujHzGadUo-3DQANy_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu2rn9gvtAuJEfBRdHmG1jQZdvawqIElIvaT8-2Bz44Xb1j04mjhaRxybmnV9kMpxz9OoW-2FDPmaeMCq7eHGpCMFr2Zeiw7lC6JmXQnf5XBGRs16sHjwy813WB-2BScDXBW6JeqK__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCssckZUyO-w$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Medical Lab Technician",
+    "requisition": "VEVRAA-20260506-02",
+    "company": "Vanderbilt University Medical Center",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35b9tTVyHsTsYWdv6yrl40lFqgQxlvfH5-2FuOOT34BQSQYVSreJS0jq-2BnaJ8Z62v7WqU-3DWP3a_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu2eA6dWqBVK0q8W4UAcWS7VPWKoZfeiR6meTyTt-2F1U-2B6qnxTVsdPl11aa37hht8UOWX6T-2BO4F7Hzrt-2FZg-2BPtpUYKHo0LffvK2A44FDxYml9H-2BFaC13kJn4Gg6P0GR4iyaS__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscmfajgom$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Supply Chain Manager",
+    "requisition": "VEVRAA-20260506-03",
+    "company": "Jostens",
+    "category": "Transportation / CDL",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Z61-2Bw0F-2FwUJRGAMQp5rnAsXlNpnCQA-2FuhvJxo8hWgf3jLvGoAxdgXQj3pHJ-2FT4qB0-3D4e4h_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu2E6GKwQUoHAFUGGvkPMSI-2Bqek-2Fhz8r0AuwrXBIJVVglvwWtC5R04qN0cxstzQTsYSWV-2BuhaP2w6wiojVdceprAHVmWV8yWMzxIYM8ZJFqvLufUAJUKHfBKabzAcjc39Bu__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscoB-y9ek$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Senior Scheduler - Real Estate Construction",
+    "requisition": "VEVRAA-20260506-04",
+    "company": "Turner & Townsend",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aTYZ-2FGYmsp9ckrh7uDEbFjXws8frV5sjKgd1dr2GiL6uxhbQI8pCONkg73cLzFurs-3DJv3i_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu2PFAM4Sg5wJ5rEbyYCs8w5ImfPTTeHlREn79-2FizSThtublYC0zn6-2FBwf3YsupmnOsKSU-2F1nsVbS7AJeU5ZXokkAPgpTBUYZQNJTUgUum1FYG4TgnfCQrm31f-2FWQ4Xy06S__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscnisugZA$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Associate Director- Project Controls (Data Center Construction)",
+    "requisition": "VEVRAA-20260506-05",
+    "company": "Turner & Townsend",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Yo0Nn05k1qexKwtG3iUMZZQkffxeHmM5knLHeTpGmcvyXSObNskcwj5fGkahBQwcc-3Di6qe_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu20eLPwNIES-2BZ-2FwI0AOll1OCl3I5ZQNvc-2BAjDJJTazlDa8FP-2BBPGj4zKS0rcCe8AZxqSYr7UjUQxqjkwTi-2BGoO5GCy42auAIToPpZXPDlm9lhbNghjQ37-2FqoWdyUwG7ME1__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscqvWUNvB$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Order Builder",
+    "requisition": "VEVRAA-20260506-06",
+    "company": "Reyes Holdings",
+    "category": "Transportation / CDL",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35buts4BF7MWqUzUPa-2Fhvim8DW2hpxkYKI7Vz9OUdkzxYiFBgf4NWFHz6wo1dUOp0QU-3DvkLZ_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu22n6Ae7gZ0fgTwAxOcFLEj4MXvZuXZpIc5SmRubgcTYaCjnJU2nIL7qXUVjPMAgMDmKXucMVMSmItLMf-2BcJJxLQCSPNzgy4fGQtMI8yLC4tMOaHEgqGIdksUg-2FMD8uRVP__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscgrbpEiu$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Industrial Maintenance Technician",
+    "requisition": "VEVRAA-20260506-07",
+    "company": "Aerotek",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bfAMMpeAdNv-2FpNgtitIaMIgQYtB-2BkCkl1o33Kv9rKn1ncyqnqAEaK5tIxYx743w1s-3DG5j__uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho4wvYInvC4v5IlEay8ZZvu2DoEYSkQrSZxKBM8Az9EuknNTke6a62ZlZmGVIWV5iF56iNZyEwm99I6RhWYsAmoIyhZDRK0v1BJCsgl-2FRrhdJnHrJDTUi5Iy-2BGoBb-2BVAfYhMLb-2BnECoKYhXKG7GJIb-2BS__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscnwki_Mz$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Part-Time 2nd Shift Prep Cook (TRANE) (TN, Clarksville)",
+    "requisition": "VEVRAA-20260506-08",
+    "company": "Five Star Breaktime Solutions",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZByIFARVYe9SUOXkYG8-2F8MnCiPzFrsKK106Y2gPnwps3gPTfXsBmUPsAOinRMf57E-3DeyFk_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho5I3wTZqixGEoEbC4NKNydxY3s-2B33a8FcXxQZondOYgwnJ4lphCeaZs2YD32SPGM7G9EuqYTaU3IbmXhKKygi3UzSNwGIQVJbT567ZtM7K9NZJE-2F9us95rnytZFS8k9-2BKZDLzcBOZIjqY6SOhJtQCQ1__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscmHfXozs$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Electrical Engineer",
+    "requisition": "VEVRAA-20260506-09",
+    "company": "Trane Technologies",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35a2DLwf-2F1nYK0wlVN-2Fxvt82ocV1IZS6QTMGxIytR1nSsJrCcTG0xxxtGQqXGMmj8oM-3DwEhb_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho5I3wTZqixGEoEbC4NKNydxCczruo-2BrtE20cbtzvu4aoEGdAEtvZ4VW2CVGfu8ZfjwmooUkpbrXZmGCbSmfCb-2BJEYcDeFRPMueX1bbpwKGO0LaSYKZvRlaHKu5LdFOw67SoHNAkq7-2FW-2FGu4CEmKrEZQ__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCssck7ADolA$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Inventory Control Analyst",
+    "requisition": "VEVRAA-20260506-10",
+    "company": "Trane Technologies",
+    "category": "Transportation / CDL",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bOvrCxeKS-2FG31kQInS5dcyf-2BoCQ7-2BoBFmcem9lSDW8XZUrfLTd6fnzcWbHTnUX2AE-3DCC2y_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho5I3wTZqixGEoEbC4NKNydxDzjGRC3DdpHijS90AyBYWdYAkDWLH4Gcd91hb7T3eH6LS8wBZyziwYjHW45CxRYI9xD5jGaJ0s1KN-2FptN2nR5qmyWeG5omXhnS0dojPtql8wafimkIBY-2FQb6AqMzFYWP__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscl8zMMAq$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
+  },
+  {
+    "title": "Maintenance Specialist",
+    "requisition": "VEVRAA-20260506-11",
+    "company": "Graphic Packaging International, LLC",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-06",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Yig7Vs5oNJZG-2FVlUUV8dYzSXuaAQwYotSapllaB79zQ-2BMQ4Kgsjm3-2Bqwcj9QLoNkg-3Dgq3j_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVbrRP6DZb2IKvcaLaBw8ixu49JG4Z-2BFRnqRTSCJM-2Fho5I3wTZqixGEoEbC4NKNydxDnf-2F28PTafdTOI4OTRrk9rG8RI2rPe6z7OOY8OY65BCeKCPCzNCAIvTQLdvuqpSC537IF7iYqwM4Z6QXRSeAMXls5h-2FLbPeWSn0wMGj1MBqZPVqc8al5VUowIQKpH8SG__;!!PRtDf9A!qTEhiOpgJBQXTuwVTQTuV3QzLw3MnbmGDF0H67H3nPKdmVoYIEKhcKtCBCcxGmiCUlyt-BRHoNcMiCsscp7yzkyj$",
+    "source": "VEVRAA email",
+    "sourceFile": "VEVRAA_ Job Openings in Your Area on 05_06_2026.eml"
   }
 ];
