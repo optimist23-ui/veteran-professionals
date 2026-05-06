@@ -1,0 +1,45 @@
+{
+  "sourceBatch": {
+    "createdAt": "",
+    "filesProcessed": [],
+    "reportDateRange": {
+      "from": "",
+      "to": ""
+    },
+    "assignedCaseManager": "",
+    "office": "",
+    "program": "",
+    "region": ""
+  },
+  "caseloadSummary": {
+    "program": "",
+    "region": "",
+    "office": "",
+    "assignedCaseManager": "",
+    "reportRunTime": "",
+    "rows": [],
+    "totals": {
+      "currentActiveCases": null,
+      "closedCasesWithNoExit": null,
+      "inCurrentQuarterFollowUp": null,
+      "firstQuarter": null,
+      "secondQuarter": null,
+      "thirdQuarter": null,
+      "fourthQuarter": null
+    }
+  },
+  "clients": [],
+  "contacts": [],
+  "staffAssistedActivities": [],
+  "caseNotes": [],
+  "employmentClosures": [],
+  "individualEmploymentPlans": [],
+  "dashboardImport": {
+    "clients": []
+  },
+  "dataQuality": {
+    "warnings": [],
+    "unmatchedRecords": [],
+    "assumptions": []
+  }
+}
