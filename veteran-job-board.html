@@ -2032,7 +2032,9 @@
     }
 
     function renderLeadSpotlight(jobs) {
-      const spotlightJobs = sortByDate(jobs, "newest").slice(0, 3);
+      const priorityJobs = sortByDate(jobs, "newest").filter((job) => job.company === "City of Clarksville" && job.date === "2026-05-07");
+      const remainingJobs = sortByDate(jobs, "newest").filter((job) => !priorityJobs.includes(job));
+      const spotlightJobs = [...priorityJobs, ...remainingJobs].slice(0, 3);
       if (!spotlightJobs.length) return "";
       return `
         <div class="job-section-title">Current Lead Spotlight<span>${spotlightJobs.length} visible now</span></div>
