@@ -573,6 +573,56 @@
       text-decoration: none;
     }
 
+    .breakdown-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .breakdown-item {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .breakdown-item strong {
+      display: block;
+      margin-top: 6px;
+      color: var(--navy);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .breakdown-item span {
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
+    .number-card {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .number-card strong {
+      display: block;
+      color: var(--teal);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .number-card span {
+      display: block;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+
     .archive-list {
       display: grid;
       gap: 10px;
@@ -732,6 +782,7 @@
       <nav class="nav" aria-label="Primary">
         <button class="active" data-page="dashboard">Dashboard <span id="navDue">0</span></button>
         <button data-page="clients">Clients</button>
+        <button data-page="activity">Activity</button>
         <button data-page="intake">Intake</button>
         <button data-page="notes">Case Notes</button>
         <button data-page="vaGenerator">VA 28-10289</button>
@@ -852,6 +903,92 @@
               </div>
             </div>
             <div class="archive-list" id="closedArchiveList"></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-activity">
+          <div class="section-head">
+            <div>
+              <h2>Daily Activity</h2>
+              <p class="muted">Capture daily interactions by client, date, and action type. Saved activity is also attached to the client contact log.</p>
+            </div>
+          </div>
+
+          <div class="card pad">
+            <div class="section-head" style="margin-bottom:10px;">
+              <div>
+                <h2 style="font-size:1.15rem;">Activity Numbers</h2>
+                <p class="muted" style="margin:4px 0 0;">Choose a type of action and a date, week, month, or all-time view.</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label>Type of Action <select class="select" id="activityMetricType"></select></label>
+              <label>View By <select class="select" id="activityMetricRange">
+                <option value="all">All dates</option>
+                <option value="date">Specific date</option>
+                <option value="week">Specific week</option>
+                <option value="month">Specific month</option>
+              </select></label>
+              <label>Specific Date <input class="input" id="activityMetricDate" type="date"></label>
+              <label>Specific Week <input class="input" id="activityMetricWeek" type="week"></label>
+              <label>Specific Month <input class="input" id="activityMetricMonth" type="month"></label>
+            </div>
+            <div class="breakdown-grid" id="activityNumberCards" style="margin-top:12px;"></div>
+            <div class="section-head" style="margin:16px 0 10px;">
+              <div>
+                <h2 style="font-size:1.05rem;">Breakdown By Type</h2>
+                <p class="muted" style="margin:4px 0 0;">Counts for the same date, week, month, or all-time view.</p>
+              </div>
+            </div>
+            <div class="breakdown-grid" id="activityBreakdown"></div>
+          </div>
+
+          <div class="grid-2">
+            <form class="card pad" id="activityForm">
+              <h3>Log Activity</h3>
+              <div class="form-grid">
+                <label>Client <select class="select" id="activityClient" name="clientId"></select></label>
+                <label>Date <input class="input" name="date" type="date"></label>
+                <label>Action Type <select class="select" name="actionType" id="activityType"></select></label>
+                <label class="wide">Action Summary <textarea name="summary" placeholder="Email sent, job leads provided, intake completed, follow-up call, resource information shared"></textarea></label>
+              </div>
+              <div class="top-actions" style="justify-content:start;margin-top:14px;">
+                <button class="btn primary" type="submit">Save Activity</button>
+                <button class="btn" type="reset">Clear</button>
+              </div>
+              <div class="notice" id="activityNotice"></div>
+            </form>
+
+            <div class="card pad">
+              <h3>Activity Filters</h3>
+              <div class="form-grid">
+                <label>Search <input class="input" id="activitySearch" type="search" placeholder="Name, action type, or summary"></label>
+                <label>Action Type <select class="select" id="activityFilterType"></select></label>
+                <label>Sort By <select class="select" id="activitySort">
+                  <option value="dateDesc">Newest first</option>
+                  <option value="dateAsc">Oldest first</option>
+                  <option value="nameAsc">Name A-Z</option>
+                  <option value="nameDesc">Name Z-A</option>
+                  <option value="typeAsc">Action type A-Z</option>
+                </select></label>
+                <label>Client Type <select class="select" id="activityFilterClientType">
+                  <option value="">All client types</option>
+                  <option>Case Managed</option>
+                  <option>VR&E</option>
+                  <option>TMP</option>
+                </select></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="card pad" style="margin-top:16px;">
+            <div class="section-head" style="margin-bottom:10px;">
+              <div>
+                <h2 style="font-size:1.15rem;">Activity Timeline</h2>
+                <p class="muted" style="margin:4px 0 0;">Includes saved activity plus client contact-log entries from uploaded reports.</p>
+              </div>
+            </div>
+            <div id="activityRows"></div>
           </div>
         </section>
 
@@ -1102,6 +1239,7 @@
       clientTypes: ["Case Managed", "VR&E", "TMP"],
       branches: ["Army", "Navy", "Air Force", "Marine Corps", "Coast Guard", "Space Force", "National Guard", "Reserves", "Other"],
       contactOutcomes: ["", "Successful", "Left VM", "No Reply", "Email Sent", "Text Sent", "Unable to Contact", "Initial Intake"],
+      activityTypes: ["Email Sent", "Job Leads", "Phone Call", "Face-to-Face", "Intake", "Follow-Up", "Resource Information", "Case Note", "Employment Verification", "Other"],
       priorities: ["High", "Medium", "Low"],
       taskStatuses: ["To Do", "In Progress", "Complete", "Deferred"]
     };
@@ -1371,15 +1509,44 @@
     function loadState() {
       try {
         const stored = localStorage.getItem(STORE_KEY);
-        if (stored) return normalizeState(JSON.parse(stored));
+        if (stored) return mergeSeedClients(normalizeState(JSON.parse(stored)));
       } catch (error) {}
       return normalizeState(structuredClone(seedData));
+    }
+
+    function mergeSeedClients(data) {
+      const copy = data && typeof data === "object" ? data : normalizeState(structuredClone(seedData));
+      copy.clients = Array.isArray(copy.clients) ? copy.clients : [];
+      const existingKeys = new Set(copy.clients.flatMap(client => [client.clientId, client.stateId].filter(Boolean)));
+      (seedData.clients || []).forEach(seedClient => {
+        const existingClient = copy.clients.find(client => client.clientId === seedClient.clientId || (seedClient.stateId && client.stateId === seedClient.stateId));
+        if (existingClient && seedClient.clientType === "TMP") {
+          existingClient.clientType = "TMP";
+          existingClient.status = seedClient.status || existingClient.status;
+          existingClient.lastContactDate = seedClient.lastContactDate || existingClient.lastContactDate;
+          existingClient.contactOutcome = seedClient.contactOutcome || existingClient.contactOutcome;
+          existingClient.supportNeeds = seedClient.supportNeeds || existingClient.supportNeeds;
+          existingClient.barriers = seedClient.barriers || existingClient.barriers;
+          existingClient.notes = seedClient.notes || existingClient.notes;
+          existingClient.contacts ||= [];
+          const contactIds = new Set(existingClient.contacts.map(contact => contact.eventId).filter(Boolean));
+          (seedClient.contacts || []).forEach(contact => {
+            if (!contactIds.has(contact.eventId)) existingClient.contacts.push(structuredClone(contact));
+          });
+        } else if (!existingKeys.has(seedClient.clientId) && !existingKeys.has(seedClient.stateId)) {
+          copy.clients.push(structuredClone(seedClient));
+          existingKeys.add(seedClient.clientId);
+          if (seedClient.stateId) existingKeys.add(seedClient.stateId);
+        }
+      });
+      return normalizeState(copy);
     }
 
     function normalizeState(data) {
       const copy = data && typeof data === "object" ? data : structuredClone(seedData);
       copy.clients = Array.isArray(copy.clients) ? copy.clients : [];
       copy.resources = Array.isArray(copy.resources) ? copy.resources : [];
+      copy.activityLog = Array.isArray(copy.activityLog) ? copy.activityLog : [];
       copy.clients.forEach(client => {
         client.clientId ||= "client_" + Date.now() + "_" + Math.random().toString(36).slice(2);
         client.goals ||= defaultGoals();
@@ -1703,6 +1870,50 @@
       return [client.poc?.primaryPhone, client.poc?.mobilePhone, client.poc?.email].filter(Boolean).join(" / ");
     }
 
+    function activityTypeFromContact(contact) {
+      const text = [contact.scenario, contact.method, contact.outcome, contact.generatedNote, contact.servicesProvided].join(" ").toLowerCase();
+      if (text.includes("job lead")) return "Job Leads";
+      if (text.includes("email")) return "Email Sent";
+      if (text.includes("face-to-face")) return "Face-to-Face";
+      if (text.includes("intake")) return "Intake";
+      if (text.includes("verification")) return "Employment Verification";
+      if (text.includes("resource")) return "Resource Information";
+      if (text.includes("follow")) return "Follow-Up";
+      if (text.includes("phone") || text.includes("voicemail")) return "Phone Call";
+      return contact.method || contact.outcome || "Case Note";
+    }
+
+    function allActivities() {
+      const contactActivities = state.clients.flatMap(client => (client.contacts || []).map(contact => ({
+        activityId: contact.eventId || `contact_${client.clientId}_${contact.date}_${contact.scenario}`,
+        clientId: client.clientId,
+        clientName: client.name,
+        clientType: client.clientType || "Case Managed",
+        date: contact.date || client.lastContactDate || "",
+        actionType: activityTypeFromContact(contact),
+        summary: contact.scenario || contact.generatedNote || contact.servicesProvided || "",
+        source: "Contact Log"
+      })));
+      const manualActivities = (state.activityLog || []).map(activity => {
+        const client = getClient(activity.clientId);
+        return {
+          ...activity,
+          clientName: client?.name || activity.clientName || "",
+          clientType: client?.clientType || activity.clientType || "Case Managed",
+          source: "Daily Activity"
+        };
+      });
+      const seen = new Set();
+      return [...manualActivities, ...contactActivities]
+        .filter(activity => {
+          const key = activity.activityId || [activity.clientId, activity.date, activity.actionType, activity.summary].join("|");
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        })
+        .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
+    }
+
     function dashboardExportRows() {
       return state.clients.map((client, index) => {
         const days = daysBetween(client.lastContactDate);
@@ -1761,6 +1972,7 @@
       renderSelectors();
       renderDetail();
       renderClientRecord();
+      renderActivity();
       renderResources();
       document.getElementById("navDue").textContent = state.clients.filter(c => {
         const days = daysBetween(c.lastContactDate);
@@ -2000,10 +2212,20 @@
 
     function renderSelectors() {
       const options = state.clients.map(client => `<option value="${esc(client.clientId)}"${client.clientId === selectedClientId ? " selected" : ""}>${esc(client.name)}</option>`).join("");
-      ["clientPicker", "noteClient", "reportClient"].forEach(id => {
+      ["clientPicker", "noteClient", "reportClient", "activityClient"].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.innerHTML = options;
       });
+
+      const activityOptions = `<option value="">All action types</option>` + lists.activityTypes.map(type => `<option>${esc(type)}</option>`).join("");
+      ["activityFilterType"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = activityOptions;
+      });
+      const metricType = document.getElementById("activityMetricType");
+      if (metricType) metricType.innerHTML = activityOptions;
+      const activityType = document.getElementById("activityType");
+      if (activityType) activityType.innerHTML = lists.activityTypes.map(type => `<option>${esc(type)}</option>`).join("");
 
       document.querySelectorAll("select[name='branch']").forEach(sel => {
         if (!sel.dataset.ready) {
@@ -2482,6 +2704,147 @@
       `;
     }
 
+    function renderActivity() {
+      const target = document.getElementById("activityRows");
+      if (!target) return;
+      renderActivityNumbers();
+      const q = document.getElementById("activitySearch")?.value.toLowerCase() || "";
+      const type = document.getElementById("activityFilterType")?.value || "";
+      const clientType = document.getElementById("activityFilterClientType")?.value || "";
+      const sort = document.getElementById("activitySort")?.value || "dateDesc";
+      const activities = allActivities().filter(activity => {
+        const hay = [activity.clientName, activity.clientType, activity.actionType, activity.summary, activity.source].join(" ").toLowerCase();
+        return (!q || hay.includes(q))
+          && (!type || activity.actionType === type)
+          && (!clientType || activity.clientType === clientType);
+      }).sort((a, b) => {
+        if (sort === "dateAsc") return String(a.date || "").localeCompare(String(b.date || ""));
+        if (sort === "nameAsc") return String(a.clientName || "").localeCompare(String(b.clientName || ""));
+        if (sort === "nameDesc") return String(b.clientName || "").localeCompare(String(a.clientName || ""));
+        if (sort === "typeAsc") return String(a.actionType || "").localeCompare(String(b.actionType || ""));
+        return String(b.date || "").localeCompare(String(a.date || ""));
+      });
+      target.innerHTML = activities.length
+        ? renderSimpleTable(["Date", "Name", "Client Type", "Type of Action", "Summary", "Source"], activities.map(activity => [
+          fmtDate(activity.date),
+          activity.clientName,
+          activity.clientType,
+          activity.actionType,
+          activity.summary,
+          activity.source
+        ]))
+        : `<div class="empty">No activity matches the current filters.</div>`;
+    }
+
+    function isoWeekKey(dateStr) {
+      if (!dateStr) return "";
+      const date = new Date(dateStr + "T00:00:00");
+      if (Number.isNaN(date.getTime())) return "";
+      date.setHours(0, 0, 0, 0);
+      date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
+      const week1 = new Date(date.getFullYear(), 0, 4);
+      const week = 1 + Math.round(((date - week1) / 86400000 - 3 + ((week1.getDay() + 6) % 7)) / 7);
+      return `${date.getFullYear()}-W${String(week).padStart(2, "0")}`;
+    }
+
+    function metricActivities() {
+      const range = document.getElementById("activityMetricRange")?.value || "all";
+      const type = document.getElementById("activityMetricType")?.value || "";
+      const date = document.getElementById("activityMetricDate")?.value || TODAY;
+      const week = document.getElementById("activityMetricWeek")?.value || isoWeekKey(TODAY);
+      const month = document.getElementById("activityMetricMonth")?.value || TODAY.slice(0, 7);
+      return allActivities().filter(activity => {
+        const matchType = !type || activity.actionType === type;
+        const matchRange = range === "all"
+          || (range === "date" && activity.date === date)
+          || (range === "week" && isoWeekKey(activity.date) === week)
+          || (range === "month" && String(activity.date || "").slice(0, 7) === month);
+        return matchType && matchRange;
+      });
+    }
+
+    function renderActivityNumbers() {
+      const target = document.getElementById("activityNumberCards");
+      if (!target) return;
+      const activities = metricActivities();
+      const selectedType = document.getElementById("activityMetricType")?.value || "All action types";
+      const uniqueClients = new Set(activities.map(activity => activity.clientId || activity.clientName).filter(Boolean)).size;
+      const tmpCount = activities.filter(activity => activity.clientType === "TMP").length;
+      target.innerHTML = [
+        ["Total Actions", activities.length],
+        [selectedType === "All action types" ? "All Types Selected" : selectedType, activities.length],
+        ["Unique Clients", uniqueClients],
+        ["TMP Actions", tmpCount]
+      ].map(([label, value]) => `
+        <div class="number-card">
+          <strong>${value}</strong>
+          <span>${esc(label)}</span>
+        </div>
+      `).join("");
+      renderActivityBreakdown(activities);
+    }
+
+    function renderActivityBreakdown(activities) {
+      const target = document.getElementById("activityBreakdown");
+      if (!target) return;
+      const counts = new Map();
+      activities.forEach(activity => {
+        const type = activity.actionType || "Other";
+        counts.set(type, (counts.get(type) || 0) + 1);
+      });
+      const sorted = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+      target.innerHTML = sorted.length
+        ? sorted.map(([type, count]) => `
+          <div class="breakdown-item">
+            <span>${esc(type)}</span>
+            <strong>${count}</strong>
+          </div>
+        `).join("")
+        : `<div class="empty">No activity to summarize.</div>`;
+    }
+
+    function saveActivityFromForm(event) {
+      event.preventDefault();
+      const form = event.currentTarget;
+      const data = Object.fromEntries(new FormData(form).entries());
+      const client = getClient(data.clientId);
+      if (!client) return;
+      const activity = {
+        activityId: "activity_" + Date.now(),
+        clientId: client.clientId,
+        clientName: client.name,
+        clientType: client.clientType || "Case Managed",
+        date: data.date || TODAY,
+        actionType: data.actionType || "Other",
+        summary: data.summary.trim(),
+        createdAt: new Date().toISOString()
+      };
+      state.activityLog ||= [];
+      state.activityLog.push(activity);
+      client.contacts ||= [];
+      client.contacts.push({
+        eventId: "event_" + activity.activityId,
+        date: activity.date,
+        scenario: activity.actionType,
+        method: activity.actionType,
+        outcome: activity.actionType === "Email Sent" ? "Email Sent" : "Successful",
+        servicesProvided: activity.summary,
+        clientAction: "",
+        cmAction: "",
+        nextFollowUpDate: addDays(activity.date, 14),
+        generatedNote: activity.summary
+      });
+      client.lastContactDate = activity.date;
+      client.contactOutcome = activity.actionType === "Email Sent" ? "Email Sent" : "Successful";
+      client.updatedAt = new Date().toISOString();
+      selectedClientId = client.clientId;
+      saveState();
+      form.reset();
+      form.elements.date.value = TODAY;
+      document.getElementById("activityNotice").textContent = "Activity saved to daily activity and client contact log.";
+      showPage("activity");
+    }
+
     function renderResources() {
       const q = document.getElementById("resourceSearch")?.value.toLowerCase() || "";
       const type = document.getElementById("resourceType")?.value || "";
@@ -2616,6 +2979,7 @@
       const labels = {
         dashboard: ["Dashboard", "Caseload status, contact urgency, and daily actions"],
         clients: ["Clients", "Client detail records and activity history"],
+        activity: ["Activity", "Daily interaction tracking by client, date, and action type"],
         intake: ["Intake", "Guided intake and first service plan"],
         notes: ["Case Notes", "Contact documentation generator"],
         vaGenerator: ["VA 28-10289", "Formal VA progress report generator"],
@@ -2626,6 +2990,7 @@
       document.getElementById("pageTitle").textContent = labels[pageName][0];
       document.getElementById("pageSubtitle").textContent = labels[pageName][1];
       if (pageName === "clients") renderClientRecord();
+      if (pageName === "activity") renderActivity();
     }
 
     document.querySelectorAll(".nav button[data-page], [data-page-shortcut]").forEach(btn => {
@@ -2637,6 +3002,9 @@
       renderArchive();
     }));
     document.querySelectorAll("#resourceSearch,#resourceType").forEach(el => el.addEventListener("input", renderResources));
+    document.querySelectorAll("#activitySearch,#activityFilterType,#activityFilterClientType,#activitySort").forEach(el => el.addEventListener("input", renderActivity));
+    document.querySelectorAll("#activityMetricType,#activityMetricRange,#activityMetricDate,#activityMetricWeek,#activityMetricMonth").forEach(el => el.addEventListener("input", renderActivityNumbers));
+    document.getElementById("activityForm").addEventListener("submit", saveActivityFromForm);
 
     document.getElementById("clientPicker").addEventListener("change", event => {
       selectedClientId = event.target.value;
@@ -2791,6 +3159,10 @@
     document.querySelectorAll("input[type='date']").forEach(input => {
       if (!input.value && ["date", "dateSigned", "lastContactDate", "enrolledDate"].includes(input.name)) input.value = TODAY;
     });
+    document.querySelector("#activityForm input[name='date']").value = TODAY;
+    document.getElementById("activityMetricDate").value = TODAY;
+    document.getElementById("activityMetricWeek").value = isoWeekKey(TODAY);
+    document.getElementById("activityMetricMonth").value = TODAY.slice(0, 7);
 
     renderSelectors();
     renderAll();

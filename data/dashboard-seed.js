@@ -3725,6 +3725,84 @@ window.DASHBOARD_SEED_DATA = {
       "jobLeads": [],
       "tasks": [],
       "reports": []
+    },
+    {
+      "clientId": "client_grannan_james_4239483",
+      "name": "Grannan, James",
+      "stateId": "4239483",
+      "enrolledDate": "2026-05-06",
+      "lastContactDate": "2026-05-06",
+      "status": "Closed",
+      "clientType": "TMP",
+      "archived": false,
+      "contactOutcome": "Successful",
+      "failedContacts": 0,
+      "educationCertification": "Interested in using remaining GI Bill education benefits; discussed APSU, TCAT Clarksville, and VR&E information.",
+      "assignedStaff": "DVOP McMichael",
+      "isVeteran": true,
+      "branch": "Other",
+      "poc": { "primaryPhone": "", "mobilePhone": "", "email": "" },
+      "careerGoal": "Education planning and long-term career transition into less physically demanding work.",
+      "supportNeeds": "Education benefits and VR&E resource information",
+      "barriers": "Medical and employment sustainability concerns; not currently seeking employment services.",
+      "notes": "TMP record. Veteran completed general intake and education benefits discussion on 2026-05-06. Veteran is not seeking employment services or active job placement assistance at this time. Education and VA resource information was emailed. No DVOP employment follow-up scheduled unless employment services are requested.",
+      "goals": [],
+      "contacts": [
+        {
+          "eventId": "note_4239483_20260506_tmp_intake",
+          "date": "2026-05-06",
+          "scenario": "General Intake - Education Benefits & Career Planning Discussion / Not Seeking Employment Services",
+          "method": "Face-to-Face",
+          "outcome": "Successful",
+          "servicesProvided": "Provided GI Bill benefit usage and expiration considerations, VA education resources, APSU and TCAT veteran contact information, VR&E program information and referral guidance, and school certification/enrollment timeline information.",
+          "clientAction": "Veteran will independently follow up with APSU, TCAT, and VA education representatives regarding enrollment and education benefits. Veteran was encouraged to contact VR&E.",
+          "cmAction": "No additional employment-focused DVOP follow-up scheduled because Veteran is not actively seeking employment services. Case may be reviewed for closure if no additional employment services are requested.",
+          "nextFollowUpDate": "",
+          "generatedNote": "TMP record. Veteran participated in a general intake and career planning discussion regarding VA education benefits, school options, and long-term career planning. Veteran stated he is not currently seeking employment services or active job placement assistance. DVOP provided GI Bill, VA education, APSU, TCAT, and VR&E resource information by email. No job leads, resume assistance, or employment referrals were requested."
+        }
+      ],
+      "jobLeads": [],
+      "tasks": [],
+      "reports": []
+    },
+    {
+      "clientId": "client_bray_roy_5336763",
+      "name": "Bray, Roy",
+      "stateId": "5336763",
+      "enrolledDate": "2026-05-06",
+      "lastContactDate": "2026-05-06",
+      "status": "Active Job Search",
+      "clientType": "TMP",
+      "archived": false,
+      "contactOutcome": "Successful",
+      "failedContacts": 0,
+      "educationCertification": "Warehouse, stocking, receiving, forklift, dock operations, loading/unloading, and warehouse equipment experience.",
+      "assignedStaff": "DVOP McMichael",
+      "isVeteran": true,
+      "branch": "Other",
+      "poc": { "primaryPhone": "", "mobilePhone": "", "email": "" },
+      "careerGoal": "Stocking, warehouse support, receiving, and related warehouse-type work in the Clarksville area.",
+      "supportNeeds": "Job leads and employment resource information",
+      "barriers": "Prefers to avoid heavy equipment road/construction-type positions at this stage.",
+      "notes": "TMP record. Veteran received job search assistance and resource information on 2026-05-06. Jobs4TN review completed and Virtual Recruiter created for stocking and warehouse-type work. Veteran was given information about the veteran employment resource website for active job leads, hiring events, training resources, resume tools, and interview support.",
+      "goals": [],
+      "contacts": [
+        {
+          "eventId": "note_5336763_20260506_tmp_job_search",
+          "date": "2026-05-06",
+          "scenario": "Job Search Assistance and Resource Information",
+          "method": "Other",
+          "outcome": "Successful",
+          "servicesProvided": "Reviewed stocking, warehouse support, receiving, and equipment-related employment opportunities. Completed Jobs4TN job search review and created a daily Virtual Recruiter for stocking and warehouse-type work. Provided veteran employment resource website information.",
+          "clientAction": "Veteran will monitor email for Virtual Recruiter updates and review job leads/resources through Jobs4TN and the veteran employment resource website.",
+          "cmAction": "Provide additional assistance with applications, job searches, or navigation of employment resources if requested.",
+          "nextFollowUpDate": "",
+          "generatedNote": "TMP record. DVOP met with Veteran and reviewed employment opportunities related to stocking, warehouse support, receiving, and equipment-related positions including Walmart, Lowe's, and other Clarksville-area employers. Jobs4TN job search review was completed and a daily Virtual Recruiter was created. Veteran was provided access information for the veteran employment resource website."
+        }
+      ],
+      "jobLeads": [],
+      "tasks": [],
+      "reports": []
     }
   ]
 };
