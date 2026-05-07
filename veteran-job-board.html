@@ -2472,37 +2472,54 @@
     document.querySelector("#jobForm").addEventListener("submit", async (event) => {
       event.preventDefault();
       setLoading("Adding job lead...");
-      await waitForPaint();
-      const form = new FormData(event.currentTarget);
-      data.jobs.push({
-        ...Object.fromEntries(form.entries()),
-        source: "Manual vetted upload"
-      });
-      saveData();
-      event.currentTarget.reset();
-      showNotice("Job lead added with its original link.");
-      renderAll();
-      clearLoading();
+      const formElement = event.currentTarget;
+      try {
+        await waitForPaint();
+        const form = new FormData(formElement);
+        data.jobs.push({
+          ...Object.fromEntries(form.entries()),
+          source: "Manual vetted upload"
+        });
+        saveData();
+        formElement.reset();
+        showNotice("Job lead added with its original link.");
+        renderAll();
+      } catch (error) {
+        console.error(error);
+        showNotice("That job lead could not be added. Check the fields and try again.");
+      } finally {
+        clearLoading();
+      }
     });
 
     document.querySelector("#emlForm").addEventListener("submit", async (event) => {
       event.preventDefault();
       setLoading("Reading veteran job email...");
-      await waitForPaint();
-      const file = new FormData(event.currentTarget).get("eml");
-      const rawEmail = await file.text();
-      const imported = parseVevaaEmail(rawEmail, file.name);
-      if (!imported.length) {
-        showNotice("No VEVRAA jobs were found in that email.");
+      const formElement = event.currentTarget;
+      try {
+        await waitForPaint();
+        const file = new FormData(formElement).get("eml");
+        if (!file || !file.name) {
+          showNotice("Choose a VEVRAA .eml file before importing.");
+          return;
+        }
+        const rawEmail = await readUploadedFileAsText(file);
+        const imported = parseVevaaEmail(rawEmail, file.name);
+        if (!imported.length) {
+          showNotice("No VEVRAA jobs were found in that email.");
+          return;
+        }
+        data.jobs = mergeJobs(imported, data.jobs || []);
+        saveData();
+        formElement.reset();
+        showNotice(`${imported.length} VEVRAA job lead${imported.length === 1 ? "" : "s"} imported and sorted.`);
+        renderAll();
+      } catch (error) {
+        console.error(error);
+        showNotice("That email could not be imported. Try saving it as a .eml file and upload again.");
+      } finally {
         clearLoading();
-        return;
       }
-      data.jobs = mergeJobs(imported, data.jobs || []);
-      saveData();
-      event.currentTarget.reset();
-      showNotice(`${imported.length} VEVRAA job lead${imported.length === 1 ? "" : "s"} imported and sorted.`);
-      renderAll();
-      clearLoading();
     });
 
     document.querySelector("#jsonForm").addEventListener("submit", async (event) => {
@@ -3120,6 +3137,16 @@
       });
     }
 
+    function readUploadedFileAsText(file) {
+      if (file && typeof file.text === "function") return file.text();
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsText(file);
+      });
+    }
+
     function showNotice(message) {
       const notice = document.querySelector("#uploadNotice");
       notice.textContent = message;
@@ -3136,6 +3163,23 @@
     function clearLoading() {
       document.querySelector("#uploadLoading").classList.remove("active");
     }
+
+    function stopStuckLoading(message) {
+      clearLoading();
+      showNotice(message || "That upload could not be completed. Please try again.");
+    }
+
+    window.addEventListener("error", () => {
+      if (document.querySelector("#uploadLoading").classList.contains("active")) {
+        stopStuckLoading("Something stopped the upload. Check the file and try again.");
+      }
+    });
+
+    window.addEventListener("unhandledrejection", () => {
+      if (document.querySelector("#uploadLoading").classList.contains("active")) {
+        stopStuckLoading("Something stopped the upload. Check the file and try again.");
+      }
+    });
 
     function waitForPaint() {
       return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
