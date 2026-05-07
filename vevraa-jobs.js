@@ -724,5 +724,29 @@ window.VEVRAA_JOBS = [
     "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Y1zP9b9HAAGmvtvHKR-2FeaoZZJ-2FjcLvgbktqJLka0RKSC6GM-2FV40Gfoi9GSR0-2BB6lU-3Dtoca_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVCCJVoZSdQcflrxCgPP-2FG-2BAji2kNEY-2BcsMeL2RBeABTrZ1HBe8bHbaKQ2fh0hKj8YkxHv33mgZyDQ-2B0UkNWZMds4PjADfxvOEPrbec-2BRCNC06x-2FaNfONQm0VOVLJC58DM9g8PcKuupxvMshL7SHt95WPtAtoCLCoDpAVi-2FDeGUgLluQ7JWm0uk0vIDg1XbfB9__;!!PRtDf9A!pEF_ARhBUPgxxG9DYHLsvMP8ermATL5CQ2DS0e0DpFR88eShEkEEzvQzaTHxuoUU7ZaNoSkaWQllbQZNfeZF9tOT$",
     "source": "VEVRAA email",
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_07_2026.eml"
+  },
+  {
+    "title": "Cook",
+    "requisition": "87094581",
+    "company": "City of Clarksville",
+    "category": "Government",
+    "location": "Clarksville, TN",
+    "date": "2026-05-07",
+    "url": "https://urldefense.com/v3/__https:/oms-employer.circaworks.com/candidate-referral/ca282d56-db70-436a-a1c0-05174ab07f79/j/87094581__;!!PRtDf9A!q0Wq3IfyBmTvmPizUXcQhJ3v1YILe89849tHBpW3TV02iVG7rEx0paFaxe31o1ONTLHQLaS21vmI11IfaTwgAaxlPVyf$",
+    "notes": "Part-time City of Clarksville role. Experience listed: 2 years. Cooks, seasons, and prepares meals and snacks according to recipes and menus; maintains a clean sanitary kitchen and stores food according to health department, state, and local regulations.",
+    "source": "City of Clarksville employment opportunities email",
+    "sourceFile": "1.A - Mario McMichael - Outlook.pdf"
+  },
+  {
+    "title": "Summer Lunch Program Assistant (Part-time)",
+    "requisition": "87094587",
+    "company": "City of Clarksville",
+    "category": "Government",
+    "location": "Clarksville, TN",
+    "date": "2026-05-07",
+    "url": "https://urldefense.com/v3/__https:/oms-employer.circaworks.com/candidate-referral/ca282d56-db70-436a-a1c0-05174ab07f79/j/87094587__;!!PRtDf9A!q0Wq3IfyBmTvmPizUXcQhJ3v1YILe89849tHBpW3TV02iVG7rEx0paFaxe31o1ONTLHQLaS21vmI11IfaTwgAUVSEPiT$",
+    "notes": "Part-time City of Clarksville role. Experience listed: Open. Assists with planning, organizing, and directing the Summer Lunch Program under Tennessee and USDA Summer Food Service Program guidelines.",
+    "source": "City of Clarksville employment opportunities email",
+    "sourceFile": "1.A - Mario McMichael - Outlook.pdf"
   }
 ];
