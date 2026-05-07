@@ -403,6 +403,47 @@
       gap: 10px;
     }
 
+    .job-fair-feature {
+      border-left-color: var(--orange);
+      background:
+        linear-gradient(135deg, rgba(214, 91, 54, 0.1), rgba(15, 120, 101, 0.08)),
+        #fff;
+    }
+
+    .job-fair-feature img {
+      object-fit: contain;
+      background: #f8fafc;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(72px, 1fr));
+      gap: 8px;
+    }
+
+    .countdown-box {
+      padding: 10px;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--purple-dark);
+      text-align: center;
+    }
+
+    .countdown-box strong {
+      display: block;
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+
+    .countdown-box span {
+      display: block;
+      margin-top: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
     .input,
     .select,
     textarea {
@@ -1095,6 +1136,10 @@
         grid-template-columns: 1fr;
       }
 
+      .countdown-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .job-card,
       .section-head,
       footer {
@@ -1195,6 +1240,31 @@
           </label>
         </div>
       </section>
+
+      <article class="resume-help-card job-fair-feature" aria-label="Bridgestone Metalpha 3 day job fair countdown">
+        <img src="bridgestone-metalpha-job-fair-2026.png" alt="Bridgestone Metalpha job fair flyer preview">
+        <div class="resume-help-content">
+          <span class="pill">3-Day Job Fair</span>
+          <h3>Bridgestone Metalpha USA Inc. Hiring Production Workers</h3>
+          <p>Bridgestone Metalpha USA Inc. will be at the American Job Center in Clarksville for a 3-day job fair. Bring your resume and dress for success.</p>
+          <div class="countdown-grid" id="bridgestoneCountdown" data-event-start="2026-05-19T09:00:00-05:00">
+            <div class="countdown-box"><strong data-countdown-days>--</strong><span>Days</span></div>
+            <div class="countdown-box"><strong data-countdown-hours>--</strong><span>Hours</span></div>
+            <div class="countdown-box"><strong data-countdown-minutes>--</strong><span>Minutes</span></div>
+            <div class="countdown-box"><strong data-countdown-seconds>--</strong><span>Seconds</span></div>
+          </div>
+          <ul class="resume-help-details">
+            <li><strong>Dates:</strong> May 19-21, 2026</li>
+            <li><strong>Time:</strong> 9:00 AM-11:00 AM</li>
+            <li><strong>Location:</strong> American Job Center, 523 Madison Street Suite B, Clarksville, TN 37040</li>
+            <li><strong>Opportunity:</strong> Production Workers in Clarksville</li>
+          </ul>
+          <div class="resume-help-actions">
+            <a class="link-button" href="bridgestone-metalpha-job-fair-2026.png" target="_blank" rel="noopener">View Job Fair Flyer</a>
+            <a class="secondary-button" href="mailto:Michael.a.hill@tn.gov">Email Contact</a>
+          </div>
+        </div>
+      </article>
 
       <article class="resume-help-card" aria-label="Federal resume writing assistance">
         <img src="federal-resume-workshop.pdf.png" alt="Federal Resume Workshops flyer preview">
@@ -1599,7 +1669,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 17;
+    const dataVersion = 18;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1623,6 +1693,18 @@
           notes: "Training pay, lodging for qualified trainees, tuition reimbursement for qualifying student drivers, weekly home time, and apply online at 3rustynails.com.",
           source: "Job flyer",
           sourceFile: "3 Rusty Nails Flyer (2).pdf"
+        },
+        {
+          title: "Production Workers - 3 Day Job Fair",
+          requisition: "BMUSA-JOB-FAIR-2026",
+          company: "Bridgestone Metalpha USA Inc.",
+          category: "Skilled Trades",
+          location: "Clarksville, TN",
+          date: "2026-05-07",
+          url: "bridgestone-metalpha-job-fair-2026.png",
+          notes: "3-day job fair at AJC Clarksville, May 19-21, 2026, 9:00 AM-11:00 AM. Bring your resume and dress for success. Hiring for Production Worker opportunities.",
+          source: "Job fair email",
+          sourceFile: "Bridgestone Metalpha 3 Day Job Fair.eml"
         }
       ],
       justiceResources: [
@@ -1739,6 +1821,19 @@
           fileName: "va-clarksville-expo-2026-job-fair.jpeg",
           fileType: "image/jpeg",
           dataUrl: "va-clarksville-expo-2026-job-fair.jpeg"
+        },
+        {
+          title: "Bridgestone Metalpha 3 Day Job Fair",
+          category: "Job Fair",
+          date: "2026-05-19",
+          time: "9:00 AM-11:00 AM",
+          location: "American Job Center, 523 Madison Street Suite B, Clarksville, TN 37040",
+          employers: ["Bridgestone Metalpha USA Inc."],
+          thingsToBring: ["Resume", "Dress for success"],
+          workshops: "Bridgestone Metalpha USA Inc. is hiring for Production Worker opportunities in Clarksville. Event runs May 19-21, 2026.",
+          fileName: "bridgestone-metalpha-job-fair-2026.png",
+          fileType: "image/png",
+          dataUrl: "bridgestone-metalpha-job-fair-2026.png"
         }
       ],
       references: [
@@ -2343,6 +2438,28 @@
       renderTraining();
       renderResources();
       renderVideos();
+      updateCountdowns();
+    }
+
+    function updateCountdowns() {
+      document.querySelectorAll("[data-event-start]").forEach((timer) => {
+        const target = new Date(timer.dataset.eventStart).getTime();
+        const remaining = target - Date.now();
+        const parts = {
+          days: Math.max(0, Math.floor(remaining / 86400000)),
+          hours: Math.max(0, Math.floor((remaining % 86400000) / 3600000)),
+          minutes: Math.max(0, Math.floor((remaining % 3600000) / 60000)),
+          seconds: Math.max(0, Math.floor((remaining % 60000) / 1000))
+        };
+        const setValue = (selector, value) => {
+          const node = timer.querySelector(selector);
+          if (node) node.textContent = String(value).padStart(2, "0");
+        };
+        setValue("[data-countdown-days]", parts.days);
+        setValue("[data-countdown-hours]", parts.hours);
+        setValue("[data-countdown-minutes]", parts.minutes);
+        setValue("[data-countdown-seconds]", parts.seconds);
+      });
     }
 
     function escapeHtml(value = "") {
@@ -3255,6 +3372,7 @@
     }
 
     renderAll();
+    window.setInterval(updateCountdowns, 1000);
   </script>
 </body>
 </html>
