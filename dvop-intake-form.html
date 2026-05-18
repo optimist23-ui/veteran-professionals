@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DVOP Intake Questionnaire</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:   #1B2A4A;
+    --blue:   #2D5FA6;
+    --gold:   #C5A028;
+    --teal:   #1A6B72;
+    --light:  #F0F4FA;
+    --border: #D0D8E8;
+    --text:   #1E2D45;
+    --muted:  #6B7A99;
+    --script-bg: #EAF7F8;
+    --script-border: #1A6B72;
+    --white:  #FFFFFF;
+    --green:  #1A7A4A;
+    --red:    #A62D2D;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: #E8EDF5;
+    color: var(--text);
+    min-height: 100vh;
+    padding: 20px 16px 40px;
+  }
+
+  .shell {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--navy);
+    border-radius: 10px 10px 0 0;
+    padding: 28px 36px 22px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 14px,
+      rgba(255,255,255,0.025) 14px, rgba(255,255,255,0.025) 15px
+    );
+  }
+  .header-stripe {
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold) 0%, #E8C048 50%, var(--gold) 100%);
+    border-radius: 2px;
+    margin-bottom: 16px;
+    width: 60px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: -0.3px;
+    position: relative;
+  }
+  .header p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+    font-family: 'IBM Plex Mono', monospace;
+    position: relative;
+  }
+
+  .progress-bar-wrap {
+    background: var(--navy);
+    padding: 10px 36px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .progress-track {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 3px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+  .progress-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+  }
+
+  /* ── BODY ── */
+  .body {
+    background: var(--white);
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    border-bottom: 1px solid var(--border);
+    display: none;
+    animation: fadeIn 0.25s ease;
+  }
+  .section.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-header {
+    background: var(--navy);
+    padding: 12px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-num {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 2px 8px;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+  .section-title {
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-arrow {
+    color: var(--gold);
+    font-size: 14px;
+    margin-right: 4px;
+  }
+
+  .section-body {
+    padding: 24px 28px;
+  }
+
+  /* ── SCRIPT BOX ── */
+  .script-box {
+    background: var(--script-bg);
+    border-left: 3px solid var(--script-border);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--teal);
+    line-height: 1.6;
+  }
+  .script-box strong {
+    font-style: normal;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 6px;
+    color: var(--teal);
+    opacity: 0.7;
+  }
+
+  /* ── QUESTIONS ── */
+  .question-group {
+    margin-bottom: 20px;
+  }
+  .question-group:last-child { margin-bottom: 0; }
+
+  .q-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .q-num {
+    background: var(--blue);
+    color: white;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  select, input[type="text"], textarea {
+    width: 100%;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--light);
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 9px 12px;
+    appearance: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .select-wrap {
+    position: relative;
+  }
+  .select-wrap::after {
+    content: '▾';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+    font-size: 13px;
+  }
+  select:focus, input[type="text"]:focus, textarea:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(45,95,166,0.12);
+    background: #FFFFFF;
+  }
+  select.answered {
+    border-color: var(--green);
+    background: #F2FAF5;
+  }
+
+  /* Checkbox group */
+  .checkbox-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 520px) { .checkbox-grid { grid-template-columns: 1fr; } }
+  .cb-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--light);
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 13px;
+    user-select: none;
+  }
+  .cb-item:hover { border-color: var(--blue); background: #EBF1FB; }
+  .cb-item input[type="checkbox"] { accent-color: var(--blue); width: 15px; height: 15px; }
+  .cb-item.checked { border-color: var(--blue); background: #EBF1FB; font-weight: 500; }
+
+  /* ── INLINE DATE PAIR ── */
+  .date-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .date-pair label {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ── NAV BUTTONS ── */
+  .nav {
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid var(--border);
+    background: #FAFBFD;
+  }
+  .btn {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-back {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--border);
+  }
+  .btn-back:hover { background: var(--light); color: var(--navy); }
+  .btn-next {
+    background: var(--blue);
+    color: white;
+  }
+  .btn-next:hover { background: #2251A0; transform: translateY(-1px); box-shadow: 0 4px 12px rgba(45,95,166,0.3); }
+  .btn-finish {
+    background: var(--teal);
+    color: white;
+  }
+  .btn-finish:hover { background: #15585E; }
+  .btn-print {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .btn-print:hover { background: #B8911F; }
+  .btn-new {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid var(--border);
+  }
+  .btn-new:hover { background: var(--light); }
+
+  .section-dots {
+    display: flex;
+    gap: 6px;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: background 0.2s;
+  }
+  .dot.done { background: var(--gold); }
+  .dot.active { background: var(--blue); transform: scale(1.2); }
+
+  /* ── SUMMARY ── */
+  #summary-section {
+    display: none;
+    padding: 28px;
+    animation: fadeIn 0.3s ease;
+  }
+  #summary-section.active { display: block; }
+  .summary-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .summary-subtitle {
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 24px;
+  }
+  .summary-block {
+    margin-bottom: 20px;
+  }
+  .summary-block h3 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--blue);
+    font-family: 'IBM Plex Mono', monospace;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+    margin-bottom: 10px;
+  }
+  .summary-row {
+    display: flex;
+    gap: 12px;
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #EEF1F7;
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-key {
+    color: var(--muted);
+    min-width: 210px;
+    font-size: 12px;
+  }
+  .summary-val {
+    color: var(--navy);
+    font-weight: 500;
+    flex: 1;
+  }
+  .summary-val.empty { color: #CCC; font-style: italic; font-weight: 400; }
+
+  .closing-script {
+    background: var(--script-bg);
+    border-left: 3px solid var(--script-border);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--teal);
+    line-height: 1.7;
+  }
+  .closing-script strong {
+    font-style: normal;
+    display: block;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.7;
+  }
+
+  .next-steps {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 18px 22px;
+    color: white;
+    margin-top: 20px;
+  }
+  .next-steps h3 {
+    font-size: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    letter-spacing: 0.8px;
+  }
+  .next-steps ol {
+    padding-left: 20px;
+  }
+  .next-steps li {
+    font-size: 13px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .shell { max-width: 100%; }
+    .header, .progress-bar-wrap { border-radius: 0; }
+    .nav { display: none; }
+    .section { display: block !important; }
+    #summary-section { display: none !important; }
+    .section-body { padding: 16px 20px; }
+    select { border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="header">
+    <div class="header-stripe"></div>
+    <h1>DVOP Intake Questionnaire</h1>
+    <p>American Job Center · Veterans Employment Program</p>
+  </div>
+
+  <div class="progress-bar-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">Section 1 of 8</div>
+  </div>
+
+  <div class="body">
+
+    <!-- ─────────────── SECTION 1 ─────────────── -->
+    <div class="section active" data-section="1">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Core Intake</span>
+      </div>
+      <div class="section-body">
+        <div class="script-box">
+          <strong>Opening Script</strong>
+          "Hey, my name is Mario with the American Job Center. I work as a DVOP Specialist supporting veterans with employment. My role is to understand your situation, identify any barriers, and help you build a solid plan to get you back to work. I'm going to ask you a few quick questions so we can build that plan together — sound good?"
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>Are you currently working right now?</div>
+          <div class="select-wrap">
+            <select id="q1_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – Full-time</option>
+              <option>Yes – Part-time / Seasonal</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>If not currently working — how long have you been unemployed?</div>
+          <div class="select-wrap">
+            <select id="q1_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Less than 1 month</option>
+              <option>1–3 months</option>
+              <option>3–6 months</option>
+              <option>6–12 months</option>
+              <option>Over 1 year</option>
+              <option>N/A – currently employed</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>If working — are you trying to transition into something better?</div>
+          <div class="select-wrap">
+            <select id="q1_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – looking for better pay / fit</option>
+              <option>Yes – career change entirely</option>
+              <option>No – just need stability first</option>
+              <option>N/A – not currently employed</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots1"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-next" onclick="nextSection(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 2 ─────────────── -->
+    <div class="section" data-section="2">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Career Direction</span>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>What kind of work are you looking for right now?</div>
+          <div class="select-wrap">
+            <select id="q2_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Trades / Skilled Labor</option>
+              <option>Office / Administrative</option>
+              <option>Transportation / Logistics</option>
+              <option>Healthcare / Social Services</option>
+              <option>Law Enforcement / Security</option>
+              <option>IT / Technology</option>
+              <option>Construction / Engineering</option>
+              <option>Federal / Government Employment</option>
+              <option>Open to anything right now</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>What's your long-term career goal?</div>
+          <div class="select-wrap">
+            <select id="q2_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Management / Leadership role</option>
+              <option>Trade certification or license</option>
+              <option>Federal employment</option>
+              <option>Entrepreneurship / self-employment</option>
+              <option>Degree completion</option>
+              <option>Still figuring it out</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Are you open to short-term work while working toward that goal?</div>
+          <div class="select-wrap">
+            <select id="q2_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – open to anything that pays</option>
+              <option>Maybe – depends on the opportunity</option>
+              <option>No – focused on target role only</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots2"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(2)">← Back</button>
+          <button class="btn btn-next" onclick="nextSection(2)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 3 ─────────────── -->
+    <div class="section" data-section="3">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Veteran Eligibility</span>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>What branch did you serve in?</div>
+          <div class="select-wrap">
+            <select id="q3_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Army</option>
+              <option>Navy</option>
+              <option>Marine Corps</option>
+              <option>Air Force</option>
+              <option>Space Force</option>
+              <option>Coast Guard</option>
+              <option>National Guard</option>
+              <option>Reserves</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>Service dates</div>
+          <div class="date-pair">
+            <div>
+              <label>Entry Date</label>
+              <input type="text" id="q3_2a" placeholder="MM/YYYY" oninput="markAnswered(this)">
+            </div>
+            <div>
+              <label>Separation Date</label>
+              <input type="text" id="q3_2b" placeholder="MM/YYYY" oninput="markAnswered(this)">
+            </div>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Do you have a service-connected disability rating?</div>
+          <div class="select-wrap">
+            <select id="q3_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>None / Not rated</option>
+              <option>10–30%</option>
+              <option>40–60%</option>
+              <option>70–90%</option>
+              <option>100%</option>
+              <option>Claim pending</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">4</span>Are you currently transitioning or recently separated?</div>
+          <div class="select-wrap">
+            <select id="q3_4" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Currently transitioning (in TAP)</option>
+              <option>Separated less than 1 year ago</option>
+              <option>Separated 1–3 years ago</option>
+              <option>Separated 3+ years ago</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots3"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(3)">← Back</button>
+          <button class="btn btn-next" onclick="nextSection(3)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 4 ─────────────── -->
+    <div class="section" data-section="4">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Education &amp; Skills</span>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>What's your highest level of education?</div>
+          <div class="select-wrap">
+            <select id="q4_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>High School / GED</option>
+              <option>Some College – no degree</option>
+              <option>Associate's Degree</option>
+              <option>Bachelor's Degree</option>
+              <option>Master's or Higher</option>
+              <option>Trade / Vocational Certificate</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>Any certifications or licenses?</div>
+          <div class="select-wrap">
+            <select id="q4_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>CDL (Commercial Driver's License)</option>
+              <option>OSHA / Safety certification</option>
+              <option>IT / CompTIA / Cisco / Microsoft</option>
+              <option>Medical / Healthcare (CNA, EMT, etc.)</option>
+              <option>Project Management (PMP, etc.)</option>
+              <option>Security / Law Enforcement</option>
+              <option>Multiple – various fields</option>
+              <option>Currently in progress</option>
+              <option>None at this time</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Currently working toward any education or training?</div>
+          <div class="select-wrap">
+            <select id="q4_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – enrolled in school / program</option>
+              <option>Yes – self-studying / online courses</option>
+              <option>Interested but haven't started</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots4"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(4)">← Back</button>
+          <button class="btn btn-next" onclick="nextSection(4)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 5 ─────────────── -->
+    <div class="section" data-section="5">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Barriers (SBE)</span>
+      </div>
+      <div class="section-body">
+        <div class="script-box">
+          <strong>Transition Cue</strong>
+          "Let me ask you a few things so I can support you better…"
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>Service-connected conditions that impact work?</div>
+          <div class="select-wrap">
+            <select id="q5_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – physical limitations</option>
+              <option>Yes – mental health / PTSD / TBI</option>
+              <option>Yes – both physical and mental health</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>Any financial pressure right now?</div>
+          <div class="select-wrap">
+            <select id="q5_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – urgent / immediate need</option>
+              <option>Yes – manageable but tight</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Reliable transportation?</div>
+          <div class="select-wrap">
+            <select id="q5_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – own vehicle</option>
+              <option>Yes – but limited (shared, ride-share)</option>
+              <option>No – need transportation assistance</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">4</span>Childcare or family responsibilities affecting availability?</div>
+          <div class="select-wrap">
+            <select id="q5_4" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – limits hours / availability</option>
+              <option>Yes – but manageable</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">5</span>Any issues with certifications or licensing?</div>
+          <div class="select-wrap">
+            <select id="q5_5" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – expired or lapsed</option>
+              <option>Yes – never obtained, need help getting it</option>
+              <option>No – current and valid</option>
+              <option>N/A – no certs required for my field</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">6</span>Biggest challenge in your job search so far?</div>
+          <div class="select-wrap">
+            <select id="q5_6" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>No callbacks or interviews</option>
+              <option>Resume / application issues</option>
+              <option>Translating military experience to civilian</option>
+              <option>Skills gap / lack of civilian credentials</option>
+              <option>Location or transportation barriers</option>
+              <option>Background / legal history</option>
+              <option>Not sure where to start</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots5"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(5)">← Back</button>
+          <button class="btn btn-next" onclick="nextSection(5)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 6 ─────────────── -->
+    <div class="section" data-section="6">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Job Search Activity</span>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>What are you doing right now to look for work?</div>
+          <div class="select-wrap">
+            <select id="q6_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Applying online daily</option>
+              <option>Applying occasionally / as time allows</option>
+              <option>Networking and referrals</option>
+              <option>Using job boards (Indeed, USAJobs, etc.)</option>
+              <option>Multiple methods</option>
+              <option>Not actively searching yet</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>Are you applying consistently?</div>
+          <div class="select-wrap">
+            <select id="q6_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – multiple applications per week</option>
+              <option>Sometimes – could be more consistent</option>
+              <option>No – just getting started</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Do you have a resume ready?</div>
+          <div class="select-wrap">
+            <select id="q6_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – updated and ready to go</option>
+              <option>Yes – but it needs work</option>
+              <option>No – need to build one from scratch</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots6"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(6)">← Back</button>
+          <button class="btn btn-next" onclick="nextSection(6)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 7 ─────────────── -->
+    <div class="section" data-section="7">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Support Needs &amp; Stability</span>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>What do you feel like you need the most help with right now? <em style="font-weight:400;color:var(--muted);font-size:11px">(select all that apply)</em></div>
+          <div class="checkbox-grid" id="support-needs">
+            <label class="cb-item" onclick="toggleCb(this)"><input type="checkbox" value="Resume writing / updating"> Resume writing / updating</label>
+            <label class="cb-item" onclick="toggleCb(this)"><input type="checkbox" value="Interview prep"> Interview prep</label>
+            <label class="cb-item" onclick="toggleCb(this)"><input type="checkbox" value="Job leads / referrals"> Job leads / referrals</label>
+            <label class="cb-item" onclick="toggleCb(this)"><input type="checkbox" value="Training / upskilling"> Training / upskilling</label>
+            <label class="cb-item" onclick="toggleCb(this)"><input type="checkbox" value="Career direction / planning"> Career direction / planning</label>
+            <label class="cb-item" onclick="toggleCb(this)"><input type="checkbox" value="Benefits navigation (VA, WIOA)"> Benefits navigation (VA, WIOA)</label>
+          </div>
+        </div>
+
+        <div class="question-group" style="margin-top:20px">
+          <div class="q-label"><span class="q-num">2</span>Are you in stable housing right now?</div>
+          <div class="select-wrap">
+            <select id="q7_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – own or lease</option>
+              <option>Temporary / staying with family or friends</option>
+              <option>In shelter or transitional housing</option>
+              <option>Homeless or at immediate risk</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Any financial concerns we need to factor into your plan?</div>
+          <div class="select-wrap">
+            <select id="q7_3" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – immediate crisis situation</option>
+              <option>Yes – manageable but a factor</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots7"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(7)">← Back</button>
+          <button class="btn btn-next" onclick="nextSection(7)">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SECTION 8 ─────────────── -->
+    <div class="section" data-section="8">
+      <div class="section-header">
+        <span class="section-num">08</span>
+        <span class="section-arrow">→</span>
+        <span class="section-title">Close Intake → Commitment</span>
+      </div>
+      <div class="section-body">
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">1</span>Are you ready to actively work toward getting employed?</div>
+          <div class="select-wrap">
+            <select id="q8_1" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – committed and ready to start</option>
+              <option>Yes – but need some help getting started</option>
+              <option>Still weighing options</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">2</span>Are you okay with me checking in with you regularly?</div>
+          <div class="select-wrap">
+            <select id="q8_2" onchange="markAnswered(this)">
+              <option value="">— Select —</option>
+              <option>Yes – call or text works</option>
+              <option>Yes – email preferred</option>
+              <option>Yes – I'll reach out when ready</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">3</span>Veteran name</div>
+          <input type="text" id="q8_name" placeholder="Full name" oninput="markAnswered(this)">
+        </div>
+
+        <div class="question-group">
+          <div class="q-label"><span class="q-num">4</span>Best phone number</div>
+          <input type="text" id="q8_phone" placeholder="(xxx) xxx-xxxx" oninput="markAnswered(this)">
+        </div>
+      </div>
+      <div class="nav">
+        <div class="section-dots" id="dots8"></div>
+        <div style="display:flex;gap:10px">
+          <button class="btn btn-back" onclick="prevSection(8)">← Back</button>
+          <button class="btn btn-finish" onclick="showSummary()">Finish & Generate Summary ✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────────── SUMMARY ─────────────── -->
+    <div id="summary-section">
+      <div class="summary-title" id="summary-name-title">Intake Summary</div>
+      <div class="summary-subtitle" id="summary-date"></div>
+
+      <div class="summary-block">
+        <h3>Core Intake</h3>
+        <div class="summary-row"><span class="summary-key">Currently working</span><span class="summary-val" id="s1_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Unemployment duration</span><span class="summary-val" id="s1_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Seeking transition</span><span class="summary-val" id="s1_3"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Career Direction</h3>
+        <div class="summary-row"><span class="summary-key">Target work type</span><span class="summary-val" id="s2_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Long-term goal</span><span class="summary-val" id="s2_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Open to short-term work</span><span class="summary-val" id="s2_3"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Veteran Eligibility</h3>
+        <div class="summary-row"><span class="summary-key">Branch</span><span class="summary-val" id="s3_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Service dates</span><span class="summary-val" id="s3_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Disability rating</span><span class="summary-val" id="s3_3"></span></div>
+        <div class="summary-row"><span class="summary-key">Separation status</span><span class="summary-val" id="s3_4"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Education &amp; Skills</h3>
+        <div class="summary-row"><span class="summary-key">Education level</span><span class="summary-val" id="s4_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Certifications</span><span class="summary-val" id="s4_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Active training</span><span class="summary-val" id="s4_3"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Barriers (SBE)</h3>
+        <div class="summary-row"><span class="summary-key">Service-connected conditions</span><span class="summary-val" id="s5_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Financial pressure</span><span class="summary-val" id="s5_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Transportation</span><span class="summary-val" id="s5_3"></span></div>
+        <div class="summary-row"><span class="summary-key">Childcare / family</span><span class="summary-val" id="s5_4"></span></div>
+        <div class="summary-row"><span class="summary-key">Certification issues</span><span class="summary-val" id="s5_5"></span></div>
+        <div class="summary-row"><span class="summary-key">Biggest job search challenge</span><span class="summary-val" id="s5_6"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Job Search Activity</h3>
+        <div class="summary-row"><span class="summary-key">Current search method</span><span class="summary-val" id="s6_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Application consistency</span><span class="summary-val" id="s6_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Resume status</span><span class="summary-val" id="s6_3"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Support Needs &amp; Stability</h3>
+        <div class="summary-row"><span class="summary-key">Help needed with</span><span class="summary-val" id="s7_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Housing stability</span><span class="summary-val" id="s7_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Financial concerns</span><span class="summary-val" id="s7_3"></span></div>
+      </div>
+
+      <div class="summary-block">
+        <h3>Commitment</h3>
+        <div class="summary-row"><span class="summary-key">Ready to work toward employment</span><span class="summary-val" id="s8_1"></span></div>
+        <div class="summary-row"><span class="summary-key">Check-in preference</span><span class="summary-val" id="s8_2"></span></div>
+        <div class="summary-row"><span class="summary-key">Veteran name</span><span class="summary-val" id="s8_name"></span></div>
+        <div class="summary-row"><span class="summary-key">Phone</span><span class="summary-val" id="s8_phone"></span></div>
+      </div>
+
+      <div class="closing-script">
+        <strong>Closing Script</strong>
+        "Based on what you told me, I can definitely help you with that. Here's what we're going to focus on next: (1) Continue applying to positions, (2) Review the job leads I send, (3) Attend any hiring events if possible. I'll follow up with you in about two weeks to check your progress and adjust the plan if needed. If anything comes up before then, reach out to me."
+      </div>
+
+      <div class="next-steps">
+        <h3>Next Steps</h3>
+        <ol>
+          <li>Continue applying to positions</li>
+          <li>Review job leads sent by specialist</li>
+          <li>Attend any available hiring events</li>
+          <li>Follow-up check-in in approximately 2 weeks</li>
+        </ol>
+      </div>
+
+      <div class="nav" style="margin-top:20px">
+        <button class="btn btn-new" onclick="startOver()">← New Intake</button>
+        <button class="btn btn-print" onclick="window.print()">🖨 Print Summary</button>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+</div><!-- /shell -->
+
+<script>
+  const TOTAL = 8;
+  let current = 1;
+
+  function buildDots(containerId, active) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    el.innerHTML = '';
+    for (let i = 1; i <= TOTAL; i++) {
+      const d = document.createElement('div');
+      d.className = 'dot' + (i < active ? ' done' : i === active ? ' active' : '');
+      el.appendChild(d);
+    }
+  }
+
+  function updateProgress(section) {
+    const pct = ((section - 1) / TOTAL) * 100;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = `Section ${section} of ${TOTAL}`;
+    for (let i = 1; i <= TOTAL; i++) buildDots('dots' + i, section);
+  }
+
+  function showSection(n) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('summary-section').classList.remove('active');
+    const target = document.querySelector(`.section[data-section="${n}"]`);
+    if (target) { target.classList.add('active'); current = n; updateProgress(n); }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function nextSection(n) { showSection(n + 1); }
+  function prevSection(n) { showSection(n - 1); }
+
+  function markAnswered(el) {
+    if (el.value && el.value !== '') el.classList.add('answered');
+    else el.classList.remove('answered');
+  }
+
+  function toggleCb(label) {
+    const cb = label.querySelector('input[type="checkbox"]');
+    setTimeout(() => {
+      label.classList.toggle('checked', cb.checked);
+    }, 0);
+  }
+
+  function v(id) {
+    const el = document.getElementById(id);
+    if (!el) return '';
+    return el.value ? el.value : '';
+  }
+
+  function fillSummary(id, val) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = val || '—';
+    el.className = 'summary-val' + (val ? '' : ' empty');
+  }
+
+  function showSummary() {
+    // Populate all fields
+    fillSummary('s1_1', v('q1_1'));
+    fillSummary('s1_2', v('q1_2'));
+    fillSummary('s1_3', v('q1_3'));
+    fillSummary('s2_1', v('q2_1'));
+    fillSummary('s2_2', v('q2_2'));
+    fillSummary('s2_3', v('q2_3'));
+    fillSummary('s3_1', v('q3_1'));
+    const dates = [v('q3_2a'), v('q3_2b')].filter(Boolean).join(' → ');
+    fillSummary('s3_2', dates);
+    fillSummary('s3_3', v('q3_3'));
+    fillSummary('s3_4', v('q3_4'));
+    fillSummary('s4_1', v('q4_1'));
+    fillSummary('s4_2', v('q4_2'));
+    fillSummary('s4_3', v('q4_3'));
+    fillSummary('s5_1', v('q5_1'));
+    fillSummary('s5_2', v('q5_2'));
+    fillSummary('s5_3', v('q5_3'));
+    fillSummary('s5_4', v('q5_4'));
+    fillSummary('s5_5', v('q5_5'));
+    fillSummary('s5_6', v('q5_6'));
+    fillSummary('s6_1', v('q6_1'));
+    fillSummary('s6_2', v('q6_2'));
+    fillSummary('s6_3', v('q6_3'));
+
+    const checked = [...document.querySelectorAll('#support-needs input:checked')].map(c => c.value);
+    fillSummary('s7_1', checked.length ? checked.join(', ') : '');
+    fillSummary('s7_2', v('q7_2'));
+    fillSummary('s7_3', v('q7_3'));
+    fillSummary('s8_1', v('q8_1'));
+    fillSummary('s8_2', v('q8_2'));
+    fillSummary('s8_name', v('q8_name'));
+    fillSummary('s8_phone', v('q8_phone'));
+
+    const name = v('q8_name');
+    document.getElementById('summary-name-title').textContent =
+      name ? `Intake Summary — ${name}` : 'Intake Summary';
+    document.getElementById('summary-date').textContent =
+      'Completed: ' + new Date().toLocaleDateString('en-US', { weekday:'long', year:'numeric', month:'long', day:'numeric' });
+
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.getElementById('summary-section').classList.add('active');
+    document.getElementById('progressFill').style.width = '100%';
+    document.getElementById('progressLabel').textContent = 'Complete ✓';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function startOver() {
+    document.querySelectorAll('select').forEach(s => { s.value = ''; s.classList.remove('answered'); });
+    document.querySelectorAll('input[type="text"]').forEach(i => { i.value = ''; i.classList.remove('answered'); });
+    document.querySelectorAll('input[type="checkbox"]').forEach(c => { c.checked = false; });
+    document.querySelectorAll('.cb-item').forEach(l => l.classList.remove('checked'));
+    showSection(1);
+  }
+
+  // Init
+  updateProgress(1);
+</script>
+</body>
+</html>
