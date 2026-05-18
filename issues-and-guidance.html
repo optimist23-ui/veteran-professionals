@@ -249,6 +249,7 @@
   .entry[data-type="submission"] { --type-color: var(--sage);   --type-soft: var(--sage-soft); }
   .entry[data-type="action"]     { --type-color: var(--terra);  --type-soft: var(--terra-soft); }
   .entry[data-type="event"]      { --type-color: var(--plum);   --type-soft: var(--plum-soft); }
+  .entry[data-type="interest"]   { --type-color: var(--ochre);  --type-soft: var(--ochre-soft); }
 
   .summary { margin: 4px 0 10px; color: var(--ink); font-size: 14.5px; }
 
@@ -358,6 +359,30 @@
     min-height: 72px;
     resize: vertical;
   }
+  .archive-panel {
+    margin-top: 4px;
+  }
+  .archive-note {
+    margin: 0 0 14px;
+    padding: 10px 12px;
+    border: 1px dashed var(--rule);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .archive-list .entry {
+    opacity: 0.88;
+  }
+  .archive-list .entry::after {
+    content: "ARCHIVED";
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    color: var(--muted);
+    font: 700 9px/1 "SF Mono", ui-monospace, Menlo, monospace;
+    letter-spacing: 0.14em;
+  }
 
   .empty {
     text-align: center; color: var(--muted); padding: 40px 20px;
@@ -423,9 +448,11 @@
       <button class="tab" data-filter="all" aria-pressed="true">All</button>
       <button class="tab" data-filter="action" aria-pressed="false">Action</button>
       <button class="tab" data-filter="guidance" aria-pressed="false">Guidance</button>
+      <button class="tab" data-filter="interest" aria-pressed="false">Interest</button>
       <button class="tab" data-filter="submission" aria-pressed="false">Submission</button>
       <button class="tab" data-filter="event" aria-pressed="false">Event</button>
       <button class="tab" data-filter="issue" aria-pressed="false">Issue</button>
+      <button class="tab" data-filter="archive" aria-pressed="false">Archive</button>
     </div>
   </div>
 
@@ -668,6 +695,17 @@
 
   <div class="empty" id="empty" hidden>No entries match.</div>
 
+  <div class="divider">
+    <span class="label">Archive</span>
+    <span class="line"></span>
+    <span class="label" id="archive-count">— archived</span>
+  </div>
+
+  <section class="archive-panel">
+    <p class="archive-note">Completed entries and action items more than 30 days past their original date are moved here automatically. Uncheck the completion box to return an item to the active list.</p>
+    <div class="archive-list" id="archive-list"></div>
+  </section>
+
   <footer>Living document · iCloud-synced · add new entries via Cowork</footer>
 </div>
 
@@ -697,38 +735,172 @@
     const ms = (b.setHours(0,0,0,0) - a.setHours(0,0,0,0));
     return Math.round(ms / 86400000);
   }
+  const listEl = document.getElementById("list");
+  const archiveListEl = document.getElementById("archive-list");
   const entries = Array.from(document.querySelectorAll("#list .entry"));
   const todayClone = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const upcoming = entries
-    .map(e => ({
-      el: e,
-      type: e.dataset.type,
-      date: parseDate(e.dataset.date),
-      title: e.querySelector("h2").textContent.trim()
-    }))
-    .filter(x => diffDays(new Date(todayClone), x.date) >= 0)
-    .sort((a,b) => a.date - b.date)
-    .slice(0, 4);
+  const completionPrefix = "issues-guidance-task:";
+  const typeLabels = {
+    action: "Action",
+    guidance: "Guidance",
+    interest: "Interest",
+    submission: "Submission",
+    event: "Event",
+    issue: "Issue"
+  };
 
-  const cuEl = document.getElementById("coming-up");
-  if (upcoming.length === 0) {
-    cuEl.innerHTML = '<li><span class="when">—</span><span>No upcoming items</span><span class="countdown"></span></li>';
-  } else {
-    cuEl.innerHTML = upcoming.map(x => {
-      const dd = diffDays(new Date(todayClone), x.date);
-      const label = dd === 0 ? "Today" : dd === 1 ? "Tomorrow" : `in ${dd} d`;
-      const urgent = dd <= 3 && x.type === "action";
-      const whenLbl = `${monthNames[x.date.getMonth()].slice(0,3)} ${x.date.getDate()}`;
-      return `<li class="${urgent ? 'urgent' : ''}">
-        <span class="when">${whenLbl}</span>
-        <span>${x.title}</span>
-        <span class="countdown">${label}</span>
-      </li>`;
-    }).join("");
+  function entryTitle(entry) {
+    return entry.querySelector("h2")?.textContent.trim() || "Untitled entry";
   }
 
-  // ---------- Entry count ----------
-  document.getElementById("entry-count").textContent = `${entries.length} entries`;
+  function slugify(text) {
+    return text.toLowerCase()
+      .replace(/&/g, " and ")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "")
+      .slice(0, 72) || "entry";
+  }
+
+  function entryDate(entry) {
+    return parseDate(entry.dataset.date);
+  }
+
+  function taskPanelFor(entry) {
+    let panel = entry.querySelector(".task-tools");
+    if (panel) return panel;
+
+    const taskId = slugify(entryTitle(entry));
+    const typeLabel = typeLabels[entry.dataset.type] || "Entry";
+    panel = document.createElement("div");
+    panel.className = "task-tools";
+    panel.dataset.taskId = taskId;
+    panel.innerHTML = `
+      <div class="tool-title">${typeLabel} completion</div>
+      <div class="task-checks">
+        <label><input type="checkbox" data-field="reviewed"> Reviewed / tracked</label>
+        <label><input type="checkbox" data-field="followUpNeeded"> Follow-up needed</label>
+        <label><input type="checkbox" data-field="caseNote"> Case note completed</label>
+        <label><input type="checkbox" data-field="taskComplete"> Task complete</label>
+      </div>
+      <div class="task-date">
+        <label><span>Completion date</span><input type="date" data-field="completedDate"></label>
+      </div>
+      <div class="task-text">
+        <label><span>Completion notes</span><textarea data-field="completionNotes" placeholder="Short narrative, outcome, or status update."></textarea></label>
+        <label><span>Related / completion links</span><textarea data-field="completionLinks" placeholder="Paste links here, one per line."></textarea></label>
+      </div>`;
+
+    const source = entry.querySelector(".source");
+    if (source) source.before(panel);
+    else entry.querySelector(".body")?.appendChild(panel);
+    return panel;
+  }
+
+  function ensureLinksBox(panel) {
+    if (panel.querySelector('[data-field="completionLinks"]')) return;
+    let textGrid = panel.querySelector(".task-text");
+    if (!textGrid) {
+      textGrid = document.createElement("div");
+      textGrid.className = "task-text";
+      panel.appendChild(textGrid);
+    }
+    const label = document.createElement("label");
+    label.innerHTML = '<span>Related / completion links</span><textarea data-field="completionLinks" placeholder="Paste links here, one per line."></textarea>';
+    textGrid.appendChild(label);
+  }
+
+  function completionBox(entry) {
+    return entry.querySelector('.task-tools [data-field="taskComplete"]');
+  }
+
+  function isComplete(entry) {
+    return completionBox(entry)?.checked === true;
+  }
+
+  function isPastAction(entry) {
+    if (entry.dataset.type !== "action") return false;
+    const daysSince = diffDays(entryDate(entry), new Date(todayClone));
+    return daysSince >= 30;
+  }
+
+  function shouldArchive(entry) {
+    return isComplete(entry) || isPastAction(entry);
+  }
+
+  function updateCounts() {
+    const archived = entries.filter(e => e.dataset.archived === "true").length;
+    const active = entries.length - archived;
+    document.getElementById("entry-count").textContent = `${active} active · ${entries.length} total`;
+    document.getElementById("archive-count").textContent = `${archived} archived`;
+  }
+
+  function renderUpcoming() {
+    const upcoming = entries
+      .filter(e => e.dataset.archived !== "true")
+      .map(e => ({
+        el: e,
+        type: e.dataset.type,
+        date: entryDate(e),
+        title: entryTitle(e)
+      }))
+      .filter(x => diffDays(new Date(todayClone), x.date) >= 0)
+      .sort((a,b) => a.date - b.date)
+      .slice(0, 4);
+
+    const cuEl = document.getElementById("coming-up");
+    if (upcoming.length === 0) {
+      cuEl.innerHTML = '<li><span class="when">—</span><span>No upcoming items</span><span class="countdown"></span></li>';
+    } else {
+      cuEl.innerHTML = upcoming.map(x => {
+        const dd = diffDays(new Date(todayClone), x.date);
+        const label = dd === 0 ? "Today" : dd === 1 ? "Tomorrow" : `in ${dd} d`;
+        const urgent = dd <= 3 && x.type === "action";
+        const whenLbl = `${monthNames[x.date.getMonth()].slice(0,3)} ${x.date.getDate()}`;
+        return `<li class="${urgent ? 'urgent' : ''}">
+          <span class="when">${whenLbl}</span>
+          <span>${x.title}</span>
+          <span class="countdown">${label}</span>
+        </li>`;
+      }).join("");
+    }
+  }
+
+  function refreshArchive() {
+    entries.forEach(entry => {
+      const archived = shouldArchive(entry);
+      entry.dataset.archived = archived ? "true" : "false";
+      (archived ? archiveListEl : listEl).appendChild(entry);
+    });
+    updateCounts();
+    renderUpcoming();
+  }
+
+  function bindTaskControls(panel) {
+    const taskId = panel.dataset.taskId;
+    if (!taskId) return;
+    panel.querySelectorAll("[data-field]").forEach(control => {
+      const key = `${completionPrefix}${taskId}:${control.dataset.field}`;
+      const saved = localStorage.getItem(key);
+      if (saved !== null) {
+        if (control.type === "checkbox") control.checked = saved === "true";
+        else control.value = saved;
+      }
+      const eventName = control.type === "checkbox" ? "change" : "input";
+      control.addEventListener(eventName, () => {
+        localStorage.setItem(key, control.type === "checkbox" ? String(control.checked) : control.value);
+        if (control.dataset.field === "taskComplete") {
+          refreshArchive();
+          apply();
+        }
+      });
+    });
+  }
+
+  entries.forEach(entry => {
+    const panel = taskPanelFor(entry);
+    ensureLinksBox(panel);
+    bindTaskControls(panel);
+  });
 
   // ---------- Filter + search ----------
   const q = document.getElementById("q");
@@ -738,9 +910,11 @@
     const term = q.value.trim().toLowerCase();
     let visible = 0;
     entries.forEach(e => {
-      const matchType = activeFilter === "all" || e.dataset.type === activeFilter;
+      const archived = e.dataset.archived === "true";
+      const matchArchive = activeFilter === "archive" ? archived : true;
+      const matchType = activeFilter === "all" || activeFilter === "archive" || e.dataset.type === activeFilter;
       const matchTerm = !term || e.textContent.toLowerCase().includes(term);
-      const show = matchType && matchTerm;
+      const show = matchArchive && matchType && matchTerm;
       e.style.display = show ? "" : "none";
       if (show) visible++;
     });
@@ -754,24 +928,8 @@
   }));
   q.addEventListener("input", apply);
 
-  // ---------- Task completion widgets ----------
-  const completionPrefix = "issues-guidance-task:";
-  document.querySelectorAll(".task-tools").forEach(panel => {
-    const taskId = panel.dataset.taskId;
-    if (!taskId) return;
-    panel.querySelectorAll("[data-field]").forEach(control => {
-      const key = `${completionPrefix}${taskId}:${control.dataset.field}`;
-      const saved = localStorage.getItem(key);
-      if (saved !== null) {
-        if (control.type === "checkbox") control.checked = saved === "true";
-        else control.value = saved;
-      }
-      const eventName = control.type === "checkbox" ? "change" : "input";
-      control.addEventListener(eventName, () => {
-        localStorage.setItem(key, control.type === "checkbox" ? String(control.checked) : control.value);
-      });
-    });
-  });
+  refreshArchive();
+  apply();
 </script>
 </body>
 </html>
