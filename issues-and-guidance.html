@@ -290,6 +290,75 @@
   .source a:hover { text-decoration: underline; }
   .source .dot { margin: 0 6px; color: var(--rule); }
 
+  .task-tools {
+    margin: 10px 0 8px;
+    padding: 10px 12px;
+    border: 1px solid var(--card-edge);
+    border-radius: 8px;
+    background: var(--card);
+    display: grid;
+    gap: 10px;
+  }
+  .task-tools .tool-title {
+    font: 700 10px/1.2 "SF Mono", ui-monospace, Menlo, monospace;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--type-color, var(--slate));
+  }
+  .task-checks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+  }
+  .task-checks label,
+  .task-date label,
+  .task-text label {
+    display: grid;
+    gap: 4px;
+    color: var(--ink);
+    font-size: 13px;
+  }
+  .task-checks label {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+  .task-checks input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--sage);
+  }
+  .task-date {
+    display: grid;
+    grid-template-columns: minmax(160px, 220px) 1fr;
+    gap: 10px;
+  }
+  .task-date span,
+  .task-text span {
+    color: var(--muted);
+    font: 600 10px/1.3 "SF Mono", ui-monospace, Menlo, monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .task-date input,
+  .task-text textarea {
+    width: 100%;
+    border: 1px solid var(--card-edge);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 13.5px/1.45 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    padding: 8px 9px;
+  }
+  .task-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .task-text textarea {
+    min-height: 72px;
+    resize: vertical;
+  }
+
   .empty {
     text-align: center; color: var(--muted); padding: 40px 20px;
     font-style: italic; font-family: "New York", Georgia, serif;
@@ -313,6 +382,9 @@
     .entry { grid-template-columns: 64px 1fr; }
     .entry .date-tab .day { font-size: 22px; }
     .upcoming li { grid-template-columns: 56px 1fr auto; font-size: 13px; }
+    .task-checks,
+    .task-date,
+    .task-text { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -371,14 +443,31 @@
       <div class="body">
         <div class="meta-line"><span class="tag">Submission</span></div>
         <h2>Jeremy Williams (#3898012) — RESEA Referral</h2>
-        <p class="summary">Margaret Lewis (Career Specialist, Workforce Services, Clarksville) sent the DVOP Eligibility Screening Form and Referral Form for Jeremy Williams, a RESEA participant. Cc: Mario McMichael, Paul Hines.</p>
+        <p class="summary">Margaret Lewis (Career Specialist, Workforce Services, Clarksville) sent the DVOP Eligibility Screening Form and Referral Form for Jeremy Williams, a RESEA participant. Referral was sent to Williams and related tasks were completed on 2026-05-18. Cc: Mario McMichael, Paul Hines.</p>
         <dl class="fields">
           <dt>Participant</dt><dd>Jeremy Williams — ID #3898012</dd>
           <dt>Program</dt><dd>RESEA</dd>
           <dt>From</dt><dd>Margaret M. Lewis — Margaret.Lewis@TN.Gov · (931) 905-3576</dd>
           <dt>Office</dt><dd>523 Madison Street, Suite B, Clarksville, TN 37040</dd>
           <dt>Forms</dt><dd>DVOP Eligibility Screening Form; Referral Form</dd>
+          <dt>Status</dt><dd>Completed — referral sent to Williams on 2026-05-18</dd>
         </dl>
+        <div class="task-tools" data-task-id="jeremy-williams-resea">
+          <div class="tool-title">Task completion</div>
+          <div class="task-checks">
+            <label><input type="checkbox" data-field="referralSent" checked> Referral sent</label>
+            <label><input type="checkbox" data-field="screeningReviewed" checked> Screening form reviewed</label>
+            <label><input type="checkbox" data-field="caseNote" checked> Case note completed</label>
+            <label><input type="checkbox" data-field="taskComplete" checked> Task complete</label>
+          </div>
+          <div class="task-date">
+            <label><span>Completed date</span><input type="date" data-field="completedDate" value="2026-05-18"></label>
+          </div>
+          <div class="task-text">
+            <label><span>Short narrative</span><textarea data-field="narrative">Received DVOP Eligibility Screening Form and Referral Form for Jeremy Williams, RESEA participant ID #3898012. Referral was sent to Williams today and the case note was completed.</textarea></label>
+            <label><span>Follow-up steps</span><textarea data-field="followUp">Monitor for Williams response and complete any DVOP eligibility or service-plan follow-up if needed.</textarea></label>
+          </div>
+        </div>
         <p class="source">📎 <a href="Archive/Jeremy%20Williams,%20DVOP%20Referral%20Form.pdf">DVOP Eligibility Screening Form</a> <span class="dot">·</span> <a href="Archive/Jeremy%20Williams,%20%233898012,%20Referral%20Form.pdf">Referral Form</a></p>
       </div>
     </article>
@@ -394,13 +483,30 @@
       <div class="body">
         <div class="meta-line"><span class="tag">Participant update</span></div>
         <h2>Kari Vincent — post-surgery update &amp; HCA interview</h2>
-        <p class="summary">Surgery went well; not yet weight-bearing, hopes to walk again in a couple of weeks. Did not apply during recovery, but HCA Healthcare reached out via their talent network and scheduled an interview.</p>
+        <p class="summary">Surgery went well; not yet weight-bearing, hopes to walk again in a couple of weeks. Did not apply during recovery, but HCA Healthcare reached out via their talent network and scheduled an interview. All related tasks and the case note were completed on 2026-05-18.</p>
         <dl class="fields">
           <dt>Interview</dt><dd><strong>2026-05-21, 9:30</strong> — HCA Healthcare</dd>
           <dt>Source</dt><dd>HCA talent network (proactive outreach)</dd>
           <dt>Target</dt><dd>Open to remote management role if it surfaces in the meeting</dd>
           <dt>Note</dt><dd>Timing is awkward — interview falls during non-weight-bearing window</dd>
+          <dt>Status</dt><dd>Completed — update reviewed and case note completed on 2026-05-18</dd>
         </dl>
+        <div class="task-tools" data-task-id="kari-vincent-hca-update">
+          <div class="tool-title">Task completion</div>
+          <div class="task-checks">
+            <label><input type="checkbox" data-field="updateReviewed" checked> Participant update reviewed</label>
+            <label><input type="checkbox" data-field="interviewLogged" checked> Interview logged</label>
+            <label><input type="checkbox" data-field="caseNote" checked> Case note completed</label>
+            <label><input type="checkbox" data-field="taskComplete" checked> Task complete</label>
+          </div>
+          <div class="task-date">
+            <label><span>Completed date</span><input type="date" data-field="completedDate" value="2026-05-18"></label>
+          </div>
+          <div class="task-text">
+            <label><span>Short narrative</span><textarea data-field="narrative">Participant reported surgery went well and HCA Healthcare scheduled an interview for 2026-05-21 at 9:30. Case note was completed today.</textarea></label>
+            <label><span>Follow-up steps</span><textarea data-field="followUp">Follow up after the HCA interview to document the outcome and identify any remote management opportunities or accommodation-related needs.</textarea></label>
+          </div>
+        </div>
         <p class="source">📧 Email update from Kari Vincent — no attachment</p>
       </div>
     </article>
@@ -608,6 +714,25 @@
     apply();
   }));
   q.addEventListener("input", apply);
+
+  // ---------- Task completion widgets ----------
+  const completionPrefix = "issues-guidance-task:";
+  document.querySelectorAll(".task-tools").forEach(panel => {
+    const taskId = panel.dataset.taskId;
+    if (!taskId) return;
+    panel.querySelectorAll("[data-field]").forEach(control => {
+      const key = `${completionPrefix}${taskId}:${control.dataset.field}`;
+      const saved = localStorage.getItem(key);
+      if (saved !== null) {
+        if (control.type === "checkbox") control.checked = saved === "true";
+        else control.value = saved;
+      }
+      const eventName = control.type === "checkbox" ? "change" : "input";
+      control.addEventListener(eventName, () => {
+        localStorage.setItem(key, control.type === "checkbox" ? String(control.checked) : control.value);
+      });
+    });
+  });
 </script>
 </body>
 </html>
