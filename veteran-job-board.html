@@ -1241,46 +1241,27 @@
         </div>
       </section>
 
-      <article class="resume-help-card job-fair-feature" aria-label="Bridgestone Metalpha 3 day job fair countdown">
-        <img src="bridgestone-metalpha-job-fair-2026.png" alt="Bridgestone Metalpha job fair flyer preview">
+      <article class="resume-help-card job-fair-feature" aria-label="Fatherhood Festival 2026 event">
+        <img src="fatherhood-festival-2026.jpeg" alt="Fatherhood Festival 2026 flyer preview">
         <div class="resume-help-content">
-          <span class="pill">3-Day Job Fair</span>
-          <h3>Bridgestone Metalpha USA Inc. Hiring Production Workers</h3>
-          <p>Bridgestone Metalpha USA Inc. will be at the American Job Center in Clarksville for a 3-day job fair. Bring your resume and dress for success.</p>
-          <div class="countdown-grid" id="bridgestoneCountdown" data-event-start="2026-05-19T09:00:00-05:00">
+          <span class="pill">Community Resource Event</span>
+          <h3>Fatherhood Festival 2026: NFL Alumni Training Camp for Dads</h3>
+          <p>New Life Center and NFL Alumni are hosting a family-friendly event for veteran dads, rookie dads, and families with music, food, games, giveaways, and parenting resources.</p>
+          <div class="countdown-grid" id="fatherhoodCountdown" data-event-start="2026-06-20T12:00:00-05:00">
             <div class="countdown-box"><strong data-countdown-days>--</strong><span>Days</span></div>
             <div class="countdown-box"><strong data-countdown-hours>--</strong><span>Hours</span></div>
             <div class="countdown-box"><strong data-countdown-minutes>--</strong><span>Minutes</span></div>
             <div class="countdown-box"><strong data-countdown-seconds>--</strong><span>Seconds</span></div>
           </div>
           <ul class="resume-help-details">
-            <li><strong>Dates:</strong> May 19-21, 2026</li>
-            <li><strong>Time:</strong> 9:00 AM-11:00 AM</li>
-            <li><strong>Location:</strong> American Job Center, 523 Madison Street Suite B, Clarksville, TN 37040</li>
-            <li><strong>Opportunity:</strong> Production Workers in Clarksville</li>
+            <li><strong>Date:</strong> Saturday, June 20, 2026</li>
+            <li><strong>Time:</strong> 12:00 PM-5:00 PM</li>
+            <li><strong>Location:</strong> Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208</li>
+            <li><strong>Audience:</strong> Veteran dads, rookie dads, and families</li>
           </ul>
           <div class="resume-help-actions">
-            <a class="link-button" href="bridgestone-metalpha-job-fair-2026.png" target="_blank" rel="noopener">View Job Fair Flyer</a>
-            <a class="secondary-button" href="mailto:Michael.a.hill@tn.gov">Email Contact</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="resume-help-card" aria-label="Federal resume writing assistance">
-        <img src="federal-resume-workshop.pdf.png" alt="Federal Resume Workshops flyer preview">
-        <div class="resume-help-content">
-          <span class="pill">Federal Resume Writing Assistance</span>
-          <h3>Federal Resume Workshops for USAJOBS Applications</h3>
-          <p>Attend a class on federal resume writing and the federal employment application process. Reserve your seat before attending.</p>
-          <ul class="resume-help-details">
-            <li><strong>Dates:</strong> May 5 or May 19, 2026</li>
-            <li><strong>Time:</strong> 1:00 pm to 3:00 pm</li>
-            <li><strong>Location:</strong> 5662 Screaming Eagle Blvd, Spouse Employment Center Classroom, Fort Campbell, Kentucky</li>
-            <li><strong>Reserve:</strong> 270-798-4412 or Abrell.m.jones2.civ@army.mil</li>
-          </ul>
-          <div class="resume-help-actions">
-            <a class="link-button" href="document-viewer.html?file=federal-resume-workshop.pdf&amp;title=Federal%20Resume%20Writing%20Assistance" target="_blank" rel="noopener">View Workshop Flyer</a>
-            <a class="secondary-button" href="https://www.usajobs.gov/" target="_blank" rel="noopener">Open USAJOBS</a>
+            <a class="link-button" href="fatherhood-festival-2026.jpeg" target="_blank" rel="noopener">View Event Flyer</a>
+            <a class="secondary-button" href="https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026" target="_blank" rel="noopener">Register</a>
           </div>
         </div>
       </article>
@@ -1571,8 +1552,8 @@
             <label>
               Flyer view
               <select class="select" id="flyerVisibility">
-                <option value="all">Show all flyers</option>
                 <option value="current">Current and upcoming</option>
+                <option value="all">Show all flyers</option>
                 <option value="past">Past flyers only</option>
               </select>
             </label>
@@ -1669,7 +1650,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 21;
+    const dataVersion = 22;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1681,31 +1662,7 @@
     const starterData = {
       version: dataVersion,
       jobs: [
-        ...(window.VEVRAA_JOBS || []),
-        {
-          title: "Driver Training Program & New Driver Pay Package",
-          requisition: "3RN-DRIVER-FLYER",
-          company: "3 Rusty Nails Inc.",
-          category: "Transportation / CDL",
-          location: "Morrison, TN",
-          date: "2026-05-05",
-          url: "document-viewer.html?file=3-rusty-nails-flyer.pdf&title=3%20Rusty%20Nails%20Driver%20Training%20Flyer",
-          notes: "Training pay, lodging for qualified trainees, tuition reimbursement for qualifying student drivers, weekly home time, and apply online at 3rustynails.com.",
-          source: "Job flyer",
-          sourceFile: "3 Rusty Nails Flyer (2).pdf"
-        },
-        {
-          title: "Production Workers - 3 Day Job Fair",
-          requisition: "BMUSA-JOB-FAIR-2026",
-          company: "Bridgestone Metalpha USA Inc.",
-          category: "Skilled Trades",
-          location: "Clarksville, TN",
-          date: "2026-05-07",
-          url: "bridgestone-metalpha-job-fair-2026.png",
-          notes: "3-day job fair at AJC Clarksville, May 19-21, 2026, 9:00 AM-11:00 AM. Bring your resume and dress for success. Hiring for Production Worker opportunities.",
-          source: "Job fair email",
-          sourceFile: "Bridgestone Metalpha 3 Day Job Fair.eml"
-        }
+        ...(window.VEVRAA_JOBS || [])
       ],
       justiceResources: [
         {
@@ -1776,14 +1733,6 @@
       ],
       flyers: [
         {
-          title: "April 28-29 Job Lead Flyer",
-          category: "Job Fair",
-          date: "2026-04-29",
-          fileName: "Sample flyer placeholder",
-          fileType: "placeholder",
-          dataUrl: ""
-        },
-        {
           title: "Fort Campbell Summer Job Fair",
           category: "Job Fair",
           date: "2026-06-09",
@@ -1797,43 +1746,18 @@
           dataUrl: "fort-campbell-summer-job-fair-2026.jpeg"
         },
         {
-          title: "Pathways to Prosperity",
-          category: "Job Fair",
-          date: "2026-05-06",
-          time: "Monday-Friday, 8:00 AM-4:30 PM",
-          location: "Coffee, Bedford, Maury, Marshall, Montgomery, Robertson, Putnam, and Smith Counties",
-          employers: ["Catholic Charities Diocese of Nashville"],
-          thingsToBring: ["Contact information", "Questions about training or employment support"],
-          workshops: "Career resource for basic needs assistance, financial education, one-on-one case management, and referrals to certified public-sector training programs and job opportunities.",
-          fileName: "catholic-charities-pathways-to-prosperity-2026.jpeg",
+          title: "Fatherhood Festival 2026",
+          category: "Community Notice",
+          date: "2026-06-20",
+          time: "12:00 PM-5:00 PM",
+          location: "Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208",
+          employers: ["New Life Center", "NFL Alumni"],
+          thingsToBring: ["Family members", "Questions about fatherhood and wellness resources"],
+          workshops: "NFL Alumni Training Camp for Dads with music, food, games, giveaways, photos, autographs, parenting resources, co-parenting and communication tools, and health and wellbeing resources.",
+          fileName: "fatherhood-festival-2026.jpeg",
           fileType: "image/jpeg",
-          dataUrl: "catholic-charities-pathways-to-prosperity-2026.jpeg"
-        },
-        {
-          title: "VA Clarksville Expo 2026",
-          category: "Job Fair",
-          date: "2026-05-20",
-          time: "4:00 PM-6:00 PM",
-          location: "VA Clarksville, 782 Weatherly Dr, Clarksville, TN",
-          employers: ["U.S. Department of Veterans Affairs", "Community resource partners"],
-          thingsToBring: ["Veteran ID if available", "Questions for VA and community resource partners"],
-          workshops: "Resource expo for veterans, service members, military families, and community partners.",
-          fileName: "va-clarksville-expo-2026-job-fair.jpeg",
-          fileType: "image/jpeg",
-          dataUrl: "va-clarksville-expo-2026-job-fair.jpeg"
-        },
-        {
-          title: "Bridgestone Metalpha 3 Day Job Fair",
-          category: "Job Fair",
-          date: "2026-05-19",
-          time: "9:00 AM-11:00 AM",
-          location: "American Job Center, 523 Madison Street Suite B, Clarksville, TN 37040",
-          employers: ["Bridgestone Metalpha USA Inc."],
-          thingsToBring: ["Resume", "Dress for success"],
-          workshops: "Bridgestone Metalpha USA Inc. is hiring for Production Worker opportunities in Clarksville. Event runs May 19-21, 2026.",
-          fileName: "bridgestone-metalpha-job-fair-2026.png",
-          fileType: "image/png",
-          dataUrl: "bridgestone-metalpha-job-fair-2026.png"
+          dataUrl: "fatherhood-festival-2026.jpeg",
+          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
       references: [
@@ -1854,67 +1778,36 @@
           url: ""
         },
         {
-          title: "VA Clarksville Expo 2026",
-          type: "Event Reference",
-          image: "va-clarksville-expo-2026.jpeg",
-          caption: "Resource expo notice for veterans, service members, families, and community partners.",
-          details: "May 20, 2026 from 4-6pm at VA Clarksville, 782 Weatherly Dr.",
-          url: ""
-        },
-        {
-          title: "Federal Resume Writing Assistance",
-          type: "Workshop Reference",
-          image: "federal-resume-workshop.pdf.png",
-          caption: "Federal resume workshop flyer for USAJOBS applications and federal employment support.",
-          details: "May 5 or May 19, 2026 from 1:00 pm to 3:00 pm at the Spouse Employment Center Classroom, Fort Campbell, Kentucky. Reserve by calling 270-798-4412.",
-          url: "document-viewer.html?file=federal-resume-workshop.pdf&title=Federal%20Resume%20Writing%20Assistance"
+          title: "Fatherhood Festival 2026",
+          type: "Community Event Reference",
+          image: "fatherhood-festival-2026.jpeg",
+          caption: "Family-friendly fatherhood event for veteran dads, rookie dads, and families with NFL Alumni and community partners.",
+          details: "Saturday, June 20, 2026 from 12:00 PM-5:00 PM at Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208.",
+          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
       trainings: [
-        {
-          title: "Resume Refresh and Follow-Up Workshop",
-          date: "2026-05-08",
-          where: "Veteran Professionals Resource Room",
-          type: "Workshop",
-          details: "Bring your latest resume and two job links you want to apply for."
-        },
         {
           title: "Pathways to Prosperity",
           dateLabel: "Ongoing",
           where: "Coffee, Bedford, Maury, Marshall, Montgomery, Robertson, Putnam, and Smith Counties",
           type: "Career Resource",
           details: "Catholic Charities Diocese of Nashville resource offering basic needs assistance, financial education, one-on-one case management, and referrals to certified public sector training programs and job opportunities. Hours: Monday-Friday, 8:00 AM-4:30 PM."
-        },
-        {
-          title: "American Job Center Workshop Calendar",
-          date: "2026-05-01",
-          where: "American Job Center / https://bit.ly/ajc353",
-          type: "Workshop Calendar",
-          details: "May 2026 workshops include interviewing, resume building, labor market information, virtual hiring event, networking, career specialist assistance, and Memorial Day closure notes."
-        },
-        {
-          title: "Federal Resume Writing Assistance",
-          date: "2026-05-19",
-          where: "5662 Screaming Eagle Blvd, Spouse Employment Center Classroom, Fort Campbell, Kentucky",
-          type: "Federal Resume Workshop",
-          details: "1:00 pm to 3:00 pm. Attend a class on federal resume writing and the federal employment application process. Reserve your seat by calling 270-798-4412 or emailing Abrell.m.jones2.civ@army.mil. USAJOBS: https://www.usajobs.gov/"
-        },
-        {
-          title: "VA Clarksville Expo 2026",
-          date: "2026-05-20",
-          where: "VA Clarksville, 782 Weatherly Dr, Clarksville, TN",
-          type: "Expo",
-          details: "4:00 PM-6:00 PM. VA and community resource expo for veterans, service members, military families, and community partners."
-        },
-        {
-          title: "One Tennessee Virtual Career Fair",
-          date: "2026-05-20",
-          where: "Online statewide opportunity",
-          type: "Virtual Career Fair",
-          details: "1:00 PM-2:30 PM. Virtual hiring event with Tennessee State Government agencies including Correction, Children's Services, Health, Human Resources, Human Services, Mental Health and Substance Abuse Services, Revenue, Safety and Homeland Security, and Tennessee Department of Military."
         }
       ],
-      resources: [],
+      resources: [
+        {
+          title: "Fatherhood Festival 2026",
+          type: "Community Event",
+          image: "fatherhood-festival-2026.jpeg",
+          caption: "New Life Center and NFL Alumni host an NFL Alumni Training Camp for Dads with family activities and fatherhood resources.",
+          date: "2026-06-20",
+          time: "12:00 PM-5:00 PM",
+          location: "Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208",
+          details: "Open to veteran dads, rookie dads, and families. Includes music, food, games, NFL alumni giveaways, photos, autographs, parenting tools, co-parenting and communication resources, and wellness supports.",
+          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
+        }
+      ],
       videos: [
         {
           title: "How to Search and Apply on USAJobs",
@@ -1986,14 +1879,26 @@
         ...item,
         category: item.category || inferFlyerCategory(item)
       }));
+      const staleTitles = new Set([
+        "April 28-29 Job Lead Flyer",
+        "Bridgestone Metalpha 3 Day Job Fair",
+        "VA Clarksville Expo 2026",
+        "Federal Resume Writing Assistance",
+        "Resume Refresh and Follow-Up Workshop",
+        "American Job Center Workshop Calendar",
+        "One Tennessee Virtual Career Fair"
+      ]);
+      const keepFreshDate = (item) => !item.date || !isPastDate(item.date);
       return {
         ...currentData,
+        jobs: pruneCurrentJobs(currentData.jobs || []),
         justiceResources: migrateLinks(currentData.justiceResources || [])
           .filter((item) => item.title !== "Justice-Impacted Resource Uploads")
           .map((item) => item.title === "2nd Chance Construction Employment Lead" ? { ...item, url: "" } : item),
-        flyers: normalizeFlyers(currentData.flyers || []),
-        references: migrateLinks(currentData.references || []),
-        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website"))
+        flyers: normalizeFlyers(currentData.flyers || []).filter((item) => !staleTitles.has(item.title) && keepFreshDate(item)),
+        references: migrateLinks(currentData.references || []).filter((item) => !staleTitles.has(item.title)),
+        trainings: (currentData.trainings || []).filter((item) => !staleTitles.has(item.title) && keepFreshDate(item)),
+        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website" && !staleTitles.has(item.title) && keepFreshDate(item)))
       };
     }
 
@@ -2006,13 +1911,18 @@
       const merged = [];
       const seen = new Set();
       [...primary, ...secondary].forEach((job) => {
-        const key = `${job.requisition || ""}|${job.title}|${job.company}|${job.date}`;
+        const key = `${job.requisition || ""}|${job.title}|${job.company}|${job.location || ""}|${job.date}`;
         if (!seen.has(key)) {
           seen.add(key);
           merged.push(job);
         }
       });
       return merged;
+    }
+
+    function pruneCurrentJobs(jobs = []) {
+      const boardDate = getBoardDate(jobs);
+      return jobs.filter((job) => isWithinRecentWindow(job, boardDate));
     }
 
     function formatDate(value) {
@@ -2047,7 +1957,7 @@
     function isWithinRecentWindow(job, boardDate) {
       const posted = new Date(`${job.date}T12:00:00`).getTime();
       const threeDays = 3 * 24 * 60 * 60 * 1000;
-      return boardDate - posted <= threeDays;
+      return boardDate - posted < threeDays;
     }
 
     function getMonthLabel(value) {
