@@ -1241,6 +1241,30 @@
         </div>
       </section>
 
+      <article class="resume-help-card job-fair-feature" aria-label="A.O. Smith hiring event">
+        <img src="ao-smith-job-fair-2026.png" alt="A.O. Smith hiring event flyer preview">
+        <div class="resume-help-content">
+          <span class="pill">Employer Hiring Event</span>
+          <h3>A.O. Smith at American Job Center Clarksville</h3>
+          <p>A.O. Smith is recruiting for various positions at the American Job Center. Bring a resume, dress professionally, and be ready to speak with recruiters.</p>
+          <div class="countdown-grid" id="aoSmithCountdown" data-event-start="2026-06-11T09:00:00-05:00">
+            <div class="countdown-box"><strong data-countdown-days>--</strong><span>Days</span></div>
+            <div class="countdown-box"><strong data-countdown-hours>--</strong><span>Hours</span></div>
+            <div class="countdown-box"><strong data-countdown-minutes>--</strong><span>Minutes</span></div>
+            <div class="countdown-box"><strong data-countdown-seconds>--</strong><span>Seconds</span></div>
+          </div>
+          <ul class="resume-help-details">
+            <li><strong>Date:</strong> Thursday, June 11, 2026</li>
+            <li><strong>Time:</strong> 9:00 AM-12:00 PM</li>
+            <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
+            <li><strong>Bring:</strong> Resume and professional dress</li>
+          </ul>
+          <div class="resume-help-actions">
+            <a class="link-button" href="ao-smith-job-fair-2026.png" target="_blank" rel="noopener">View Event Flyer</a>
+          </div>
+        </div>
+      </article>
+
       <article class="resume-help-card job-fair-feature" aria-label="Fatherhood Festival 2026 event">
         <img src="fatherhood-festival-2026.jpeg" alt="Fatherhood Festival 2026 flyer preview">
         <div class="resume-help-content">
@@ -1643,14 +1667,14 @@
     <span>Mario McMichael | <a href="mailto:mario.mcmichael@tn.gov">mario.mcmichael@tn.gov</a> | <a href="tel:19319053566">931-905-3566</a></span>
   </footer>
 
-  <script src="vevraa-jobs.js?v=20260526"></script>
+  <script src="vevraa-jobs.js?v=20260527"></script>
   <script>
     const PASSCODE = "vetcentral2026";
     const FLYER_DELETE_CODE = "1124";
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 23;
+    const dataVersion = 24;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1732,6 +1756,19 @@
         }
       ],
       flyers: [
+        {
+          title: "A.O. Smith Hiring Event",
+          category: "Job Fair",
+          date: "2026-06-11",
+          time: "9:00 AM-12:00 PM",
+          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
+          employers: ["A.O. Smith"],
+          thingsToBring: ["Resume", "Professional dress", "Questions for recruiters"],
+          workshops: "A.O. Smith will be recruiting for various positions. Job seekers can connect with recruiters and explore current career opportunities.",
+          fileName: "ao-smith-job-fair-2026.png",
+          fileType: "image/png",
+          dataUrl: "ao-smith-job-fair-2026.png"
+        },
         {
           title: "Fort Campbell Summer Job Fair",
           category: "Job Fair",
