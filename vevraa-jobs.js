@@ -1,5 +1,93 @@
 window.VEVRAA_JOBS = [
   {
+    "title": "Monitoring Specialist",
+    "requisition": "JR-4160",
+    "company": "Trane Technologies",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZFWi1k5Cpsv8-2FOgfaHesY686w8kNEZp85Eth89KrJCOU3Hhx7Ebv96a1jMb17bz2U-3DXzih_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj3oKGdWz-2BNFr-2BDZlKZwl-2FLkDcaumfDaew-2Bp-2FvvQRk4w4splm-2B-2FOz-2BCrVLzk1AgCuWL95O7IXBEYr-2BBt079iiWGcKRkaZVwZy2702L2yBVppmtfGlu-2FIhEq97BwFPHkm0ItgnLCAF9xr9aBLwOG10GMF__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVfjuEg1J$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "Automation Project Manager - ACE Projects Division, Waterworks",
+    "requisition": "R-136915",
+    "company": "Ferguson Enterprises, LLC.",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35apx68UbP8Q-2BAGEgMAVNZoFvwfyZuknDZ-2BlwIP6G4itGIA6jLKDMKqNi2D4rcM3RfI-3D_tCP_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj0Nd3J1YRNpzPqPz-2F4zC74XAlDb5091K4VUG8YZm1siMPts4fq3VGXBGiXkWBokKMKkjNt6cWXAxz-2BLERWuCug3cE3Zk1l1KWx0jLf4tgnkYW8Q2F3kXkoVOYTlCE0ywLD8hxNu9KrSJ00Uz23Wmw2F__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVU9wi4PV$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "Construction Manager",
+    "requisition": "10764",
+    "company": "Ervin Cable",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aopcwKbF4QUUSQNhk0jflgKfROrSZwvDyTRJZQi6hfszMqiKg8UuSn4IS4mrCko5E-3DBfnO_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj2vQBbzREQNCkbVs2-2F-2Bcg2Rue9WQB7SUbZk-2FxFYI7Gia1Vjs8SgFhO8c7xzH5wzBNf4Ob-2BemDQTcCNCiK7vUa5mZMeCH3fFkRvAnJHiBx9HvCCOOAhYZcJzOFNelgNXMEh-2BWgNyzqY5bWDIlp24EcJ4__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVVy7fIDV$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "Armed Security Site Supervisor",
+    "requisition": "2026-1600922",
+    "company": "Allied Universal",
+    "category": "Skilled Trades",
+    "location": "Cumberland City, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZkABgBNizLiL57R-2BEMCIPMHTN3eXlisEZu2Q7WMrGcR-2BoZF6AoTIwhxphJs-2BjXB7k-3DTOgV_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj00Gm0kxyUN6BNbmt1YYWJvcxDyVaJl45W9-2BDbb9TnJDlKPAw5rgBDxs5CyVu6QAgeLQLjQGwStPuVjbz1xqgftARyTBIWlSCKwRp7WQ9ANsGOaF7qLaDrl2R8s4PEW8XZ2wz265HbArV88tQufK9yK__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVekuyvxs$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "barista - Store# 09927, S. HAMPTON (NEAR MALL)",
+    "requisition": "260034979",
+    "company": "Starbucks",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35a0lCTi932LApvgQdZg74vls5-2FVKNSNPXtG-2FFwU3SBY5TfPrBXCzq2taClnwBTwe4k-3DP1rK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj13Sk4IdB62tGKsOIR9JgLtrAgmq8e1aO-2BF-2ByJP5s4eRcM-2B3ZrzA384r1gWGd6i0QHwSSgEB34Ci-2FOOFkywZWRopxzgAd2S9iqex8-2BJ-2F-2BbhGv5qkAuZnQeFSdtdgbVM4xMKYuMK8SzYjd1iUzMAv86H__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVUDd_CDO$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "Sales Support Representative - Valve and Automation",
+    "requisition": "R-136999",
+    "company": "Ferguson Enterprises, LLC.",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aD6Hxg7x9zH5s34HsetlJQAVFTYulWjkqQDI1vWNXKNN9-2F62vNeK7M7wbX4GGlKPo-3DSMBh_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj0eSwPY1n-2BXS0cuyrz8lyaeac-2FntVtpSPdoY8hpgtauGaWUvUpdV67xER-2FApAmPDCLlP7XBGzTX1kfUGb-2B7evvR9a2F3UOsa93xY4tIdu8wAiOrvQfUO1RddYWwMMKUnO2G7JcaRxZkMWaCtmEFhgSm__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVVyYvJjh$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "Infusion Nurse II",
+    "requisition": "R35583",
+    "company": "Option Care Health",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Zz3EngjARVr-2FJNucXT-2Bc0NMLYvsuMYToL4QpuPprfU6HN5ggvRQurKae-2FmpCD-2BNeg-3Dh2A3_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj0qgwBJVZWNHInH-2FM8j3TQJ8ffd29nXvtwFVijNNt3Y5sL-2B63106cqfMpl5QMVTr-2F7smd8vDkzU085Hg10SxC5P0Xbf2Yw7Zmho6cFpVE7bqWFyBVMXN0Nj5DKdeF8TaalIR7Z7RtLwXs8NVZV-2F0HXF__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVbuLkX8q$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
+    "title": "Student CMO (Campus Marketing Officer \u2013 Marketing Intern)",
+    "requisition": "2026-22834",
+    "company": "Barnes & Noble Education",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-05-29",
+    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bXoK-2Fjtx2FfP1lAmmo546UyZIFxnL8b9gtvntY3csuvln21NzJBsPr71-2FV4zrPFb4-3D1s7e_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVo1kybIr54-2BiYIVKHX2Kupa8Q8xoKL2glvGSN6gRZFj3zLKRkyyvTqCqAcHux09-2FqjdlkcS3quzwUjBJUnF9EjxtNsi2K59Z1N3OQGZDpZuriaZCAZWvhgnP4HhAdPKhXqEEG-2BtsQ1ZBL-2BMkGbhWMXNWHlH10VAsyD84C9IskRctGNQqz4QaRokjxImIilJau__;!!PRtDf9A!rXvIUx_MwK7qoJBYygGftXCMy5ZWe3pQLqJ9FIBJAUEaGZ7z4X_iBA7YndHZEQhyvunmAhmFOWyrQ_EsVQQ-KZeX$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_29_2026.eml"
+  },
+  {
     "title": "Truck Driver CDL A Local Home Daily",
     "requisition": "2026-202646",
     "company": "Ryder System",
@@ -439,38 +527,5 @@ window.VEVRAA_JOBS = [
     "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bXYGsa2CXcm63p-2Fp64m-2B4-2FHZjfQcuRrMWNiSBX7R115VOSp9nswb4ou4PBvyFJtZQ-3DoXh1_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrV1ztHDPZgIFC90zejOvsP3mOR1mY2U-2B0gvrSXZeuvQIokRlG0B8N0-2BJzC4LckXb-2FL-2FH6rytFWDTKORYkDRRQQhiqkQ39FEgfdyBbX3Mnfy2ZSC6yXSSSjdn-2BxN7QtLT-2B6gCTeUYVUSV8-2FGtEF5B2tCwZ919k7M-2FhffrDeJTsrfdSDhp4AQ-2FWf-2BtdHdGBSQ81I__;!!PRtDf9A!tY72JKyJvvbs6Mg7JxNvJiVSIwK3IpI71199DgTctgytIry10jvGt2yY-JSjxc36MntCmdw23P0ZOMNP5uTMX44i$",
     "source": "VEVRAA email",
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_27_2026.eml"
-  },
-  {
-    "title": "Data Center Operations Manager",
-    "requisition": "105786169735684806",
-    "company": "Google",
-    "category": "Skilled Trades",
-    "location": "Clarksville, TN",
-    "date": "2026-05-26",
-    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YDuRpswnMeS-2F1KJjh2NTmf315-2BVW1tWYRPa1AzQkKsp8IRr9RnOul7x7zc9-2B05wCo-3DbjUK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVQgWmoUua5KN85z-2BoSfZinV5MzC77mqKKdiPKq0ZR4KFynFsaJQdeLoclTfV-2BTClQxlyINOC0zvKb8855KQeTaA-2BixqQX3DohugBgUuQ7ytJPDQ7mbA9HbjhCekpL9gX9AXl-2B1So3TX43gMvJB5TdVDyM4nQg2io-2BoDcxYmLcJw8QnwmJHVtgTpFW4Il1IDf4__;!!PRtDf9A!t9qvf6ujZ3MaVnxawkIrLbtUpH1H1HdqgDJSJjz0CgjIheswjlOnVeoFVlOFEe5J-u9PJryOLaMsdV2NIKy_F5co$",
-    "source": "VEVRAA email",
-    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_26_2026.eml"
-  },
-  {
-    "title": "Cashier Part Time",
-    "requisition": "JR-02505757",
-    "company": "Lowe's",
-    "category": "Retail / Customer Service",
-    "location": "Clarksville, TN",
-    "date": "2026-05-26",
-    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YqIFENGke7PcZ8qcbSa8fe9nH3Z9eSnhD-2FVeYxTiWUoXyjL5-2BiEXkJXaNZJeKXTOA-3Du8sx_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVQgWmoUua5KN85z-2BoSfZinV5MzC77mqKKdiPKq0ZR4KEL3dA9Prbf022G5EX0TPsOuahWsDNuXUH9krFPViUTL1CUZz84vm7iVTLKrma9bAizpShmXe1x5rMTT22Tu-2BTO5nxwl-2ByynGo4jFybKnXCg58fSnGg-2BId8liEnZnSFnxBUTWlGez-2FNvGUdX5yCQRTc__;!!PRtDf9A!t9qvf6ujZ3MaVnxawkIrLbtUpH1H1HdqgDJSJjz0CgjIheswjlOnVeoFVlOFEe5J-u9PJryOLaMsdV2NIEdRY2Fb$",
-    "source": "VEVRAA email",
-    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_26_2026.eml"
-  },
-  {
-    "title": "Director of Continuous Improvement",
-    "requisition": "6183-10579",
-    "company": "Jostens",
-    "category": "Corporate / Professional",
-    "location": "Clarksville, TN",
-    "date": "2026-05-26",
-    "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Z29kKsRE11dwQgt6H6M-2FJG3IEKrj5DBnQAsKLIjMHaxgXLG7FuC4666Nsa0rHNhuw-3DESQI_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVQgWmoUua5KN85z-2BoSfZinV5MzC77mqKKdiPKq0ZR4KF-2Bz-2Fsk6WvyTJaoOF0MgyotdSC8dtpBxxodm0CViCWR1diqxyZlBZlUdtrMj6CG-2FPKP-2Beajb-2Fe1IXQ1cS7gGG7LzzcOEqjavU9q2I1wiMvOJhMySJPOp-2BwIwFpgsyGiOKJfKUNxpF8be-2FxOLyqLQKeE__;!!PRtDf9A!t9qvf6ujZ3MaVnxawkIrLbtUpH1H1HdqgDJSJjz0CgjIheswjlOnVeoFVlOFEe5J-u9PJryOLaMsdV2NIMh5W_ZR$",
-    "source": "VEVRAA email",
-    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 05_26_2026.eml"
   }
 ];
