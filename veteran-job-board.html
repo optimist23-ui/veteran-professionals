@@ -620,35 +620,6 @@
       stroke-linejoin: round;
     }
 
-    .lead-preview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin: 0 0 16px;
-    }
-
-    .lead-preview-card {
-      display: grid;
-      gap: 10px;
-      padding: 16px;
-      border-left: 4px solid var(--green);
-    }
-
-    .lead-preview-card .job-title-row {
-      margin-bottom: 0;
-    }
-
-    .lead-preview-card .job-meta {
-      font-size: 0.86rem;
-    }
-
-    .lead-preview-note {
-      margin: 0;
-      color: var(--soft-ink);
-      line-height: 1.45;
-      font-size: 0.92rem;
-    }
-
     .industry-card-grid {
       display: grid;
       gap: 10px;
@@ -1221,7 +1192,6 @@
       .snapshot-grid,
       .support-agency-grid,
       .industry-groups,
-      .lead-preview-grid,
       .video-grid {
         grid-template-columns: 1fr;
       }
@@ -2316,34 +2286,6 @@
       `;
     }
 
-    function renderLeadSpotlight(jobs) {
-      const priorityJobs = sortByDate(jobs, "newest").filter((job) => job.company === "City of Clarksville" && job.date === "2026-05-07");
-      const remainingJobs = sortByDate(jobs, "newest").filter((job) => !priorityJobs.includes(job));
-      const spotlightJobs = [...priorityJobs, ...remainingJobs].slice(0, 3);
-      if (!spotlightJobs.length) return "";
-      return `
-        <div class="job-section-title">Current Lead Spotlight<span>${spotlightJobs.length} visible now</span></div>
-        <div class="lead-preview-grid">
-          ${spotlightJobs.map((job) => `
-            <article class="card lead-preview-card">
-              <div class="job-title-row">
-                ${renderIndustryIcon(job.category)}
-                <h3>${escapeHtml(job.title)}</h3>
-                <span class="pill">${escapeHtml(job.category)}</span>
-              </div>
-              <div class="job-meta">
-                <span>${escapeHtml(job.company)}</span>
-                <span>${escapeHtml(job.location || "Location not listed")}</span>
-                <span>${formatDate(job.date)}</span>
-              </div>
-              <p class="lead-preview-note">Open this lead or expand Current Leads below to view all active postings.</p>
-              <a class="secondary-button" href="${escapeAttribute(job.url)}" target="_blank" rel="noopener">Open Link</a>
-            </article>
-          `).join("")}
-        </div>
-      `;
-    }
-
     function renderJobs() {
       const search = document.querySelector("#jobSearch").value.trim().toLowerCase();
       const category = document.querySelector("#jobCategory").value;
@@ -2369,7 +2311,6 @@
       `).join("");
 
       document.querySelector("#jobList").innerHTML = filtered.length ? `
-        ${renderLeadSpotlight(recent)}
         <details class="lead-section">
           <summary class="job-section-title">Current Leads: Last 3 Days<span>${recent.length} active</span></summary>
           ${recent.length ? (sort === "industry" ? renderIndustryGroups(recent) : recent.map(renderJobCard).join("")) : `<div class="card empty">No current leads match these filters.</div>`}
