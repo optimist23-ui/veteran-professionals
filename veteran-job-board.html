@@ -2378,7 +2378,7 @@
       `).join("");
 
       document.querySelector("#jobList").innerHTML = filtered.length ? `
-        <details class="lead-section">
+        <details class="lead-section" open>
           <summary class="job-section-title">Current Leads: Last 3 Days<span>${recent.length} active</span></summary>
           ${recent.length ? (sort === "industry" ? renderIndustryGroups(recent) : recent.map(renderJobCard).join("")) : `<div class="card empty">No current leads match these filters.</div>`}
         </details>
