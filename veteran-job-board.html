@@ -311,8 +311,9 @@
 
     .toolbar {
       display: grid;
-      grid-template-columns: minmax(180px, 1fr) 170px 170px;
+      grid-template-columns: minmax(180px, 1fr) 170px 170px auto;
       gap: 10px;
+      align-items: end;
       padding: 0;
       border: 0;
       border-radius: 8px;
@@ -332,6 +333,25 @@
       font-weight: 900;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+    }
+
+    .filter-reset-button {
+      min-height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--purple);
+      border-radius: 7px;
+      color: var(--purple-dark);
+      background: #fff;
+      font-size: 0.82rem;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .filter-reset-button:hover,
+    .filter-reset-button:focus {
+      color: #fff;
+      background: var(--purple-dark);
     }
 
     .resume-help-card {
@@ -1405,7 +1425,7 @@
             </div>
             <div class="filter-step">
               <span class="filter-marker">3</span>
-              <p><strong>Set the view order.</strong><br>Use Industry for grouped leads, or sort by newest or oldest posting date.</p>
+              <p><strong>Set the view order.</strong><br>Use Industry for grouped leads, or choose Reset to full list to return to every current lead.</p>
             </div>
           </div>
         </div>
@@ -1435,6 +1455,7 @@
               <option value="oldest">Oldest first</option>
             </select>
           </label>
+          <button class="filter-reset-button" id="resetJobFilters" type="button">Reset to full list</button>
         </div>
       </section>
 
@@ -2745,6 +2766,14 @@
     ["#jobSearch", "#jobCategory", "#jobSort"].forEach((selector) => {
       document.querySelector(selector).addEventListener("input", renderJobs);
       document.querySelector(selector).addEventListener("change", renderJobs);
+    });
+
+    document.querySelector("#resetJobFilters").addEventListener("click", () => {
+      document.querySelector("#jobSearch").value = "";
+      document.querySelector("#jobCategory").value = "";
+      document.querySelector("#jobSort").value = "newest";
+      renderJobs();
+      document.querySelector("#jobList").scrollIntoView({ behavior: "smooth", block: "start" });
     });
 
     document.querySelector("#filterGuideToggle").addEventListener("click", () => {
