@@ -918,6 +918,54 @@
       margin-top: 28px;
     }
 
+    .support-agency-section {
+      display: grid;
+      gap: 14px;
+      margin: 0 0 22px;
+      padding: 18px;
+      border: 1px solid rgba(44, 104, 151, 0.24);
+      border-radius: 10px;
+      background:
+        linear-gradient(135deg, rgba(44, 104, 151, 0.09), rgba(15, 120, 101, 0.08)),
+        #fff;
+      box-shadow: 0 16px 34px rgba(38, 35, 41, 0.08);
+    }
+
+    .support-agency-section .section-head {
+      margin: 0;
+    }
+
+    .support-agency-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .support-agency-card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+
+    .support-agency-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: top center;
+      border-bottom: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .support-agency-body {
+      display: grid;
+      gap: 10px;
+      padding: 16px;
+    }
+
     .snapshot-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1115,6 +1163,7 @@
       .flyer-section-grid,
       .reference-grid,
       .snapshot-grid,
+      .support-agency-grid,
       .industry-groups,
       .lead-preview-grid,
       .video-grid {
@@ -1190,6 +1239,41 @@
           <p class="muted">Active job leads with original source links preserved from email lists and approved veteran employment postings.</p>
         </div>
       </div>
+
+      <section class="support-agency-section" aria-label="Additional resume and job support agencies">
+        <div class="section-head">
+          <div>
+            <h2>Additional Resume and Job Support Agencies</h2>
+            <p class="muted">Free veteran, military spouse, and transitioning service member support for resumes, training, job prep, and career growth.</p>
+          </div>
+        </div>
+        <div class="support-agency-grid">
+          <article class="support-agency-card">
+            <img src="vetjobs-grow-your-career-support-2026.png" alt="VetJobs and Military Spouse Jobs career support flyer">
+            <div class="support-agency-body">
+              <span class="pill">Career Support</span>
+              <h3>VetJobs and Military Spouse Jobs</h3>
+              <p class="muted">Job prep and exploration services for veterans, transitioning military, and military spouses.</p>
+              <div class="resume-help-actions">
+                <a class="secondary-button" href="https://www.vetjobs.org/" target="_blank" rel="noopener">VetJobs</a>
+                <a class="secondary-button" href="https://www.militaryspousejobs.org/" target="_blank" rel="noopener">Military Spouse Jobs</a>
+              </div>
+            </div>
+          </article>
+          <article class="support-agency-card">
+            <img src="vetjobs-training-support-2026.png" alt="VetJobs and Military Spouse Jobs training flyer">
+            <div class="support-agency-body">
+              <span class="pill">Training and Resume Support</span>
+              <h3>Training, Resume Readiness, and Career Coaching</h3>
+              <p class="muted">Industry upskilling, resume targeting, interview preparation, and job-search strategy support.</p>
+              <div class="resume-help-actions">
+                <a class="secondary-button" href="https://www.vetjobs.org/training" target="_blank" rel="noopener">VetJobs Training</a>
+                <a class="secondary-button" href="https://www.militaryspousejobs.org/training" target="_blank" rel="noopener">Spouse Jobs Training</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section class="filter-panel" aria-label="Job board search and filter tools">
         <div class="filter-guide" id="filterGuide">
