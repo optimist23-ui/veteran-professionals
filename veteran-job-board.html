@@ -1408,6 +1408,28 @@
         </div>
       </section>
 
+      <div class="workshop-calendar-section">
+        <div class="section-head">
+          <div>
+            <h2>Workshop Calendar</h2>
+            <p class="muted">American Job Center Tennessee workshop schedule for June 2026.</p>
+          </div>
+        </div>
+        <article class="card calendar-feature">
+          <img src="june-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar June 2026">
+          <div class="calendar-details">
+            <h3>American Job Center Workshop Calendar</h3>
+            <ul class="calendar-detail-list">
+              <li><strong>Month:</strong> June 2026</li>
+              <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
+              <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
+              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
+              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Westmoreland Public Library, Martha O'Bryan Center, Cheatham AJC, Dickson AJC.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
       <section class="filter-panel" aria-label="Job board search and filter tools">
         <div class="filter-guide" id="filterGuide">
           <button class="filter-guide-header" id="filterGuideToggle" type="button" aria-expanded="true" aria-controls="filterSteps">
@@ -1553,16 +1575,11 @@
           </div>
         </aside>
       </div>
-      <div class="resource-section" id="justiceResources">
-        <div class="section-head">
-          <div>
-            <h2>2nd Chance & Justice-Impacted Resources</h2>
-            <p class="muted">Vetted leads, reentry resources, and referral information for justice-impacted job seekers.</p>
-          </div>
-          <button class="quiet-button" id="editJusticeResources" type="button">Edit</button>
-        </div>
-        <div class="snapshot-grid" id="justiceResourceList" aria-live="polite"></div>
-      </div>
+      <article class="card side-card resource-section">
+        <h3>Justice-Impacted Resources</h3>
+        <p class="muted">Vetted reentry, second-chance, and referral resources are now grouped in the newsletter area.</p>
+        <button class="secondary-button" type="button" data-tab-shortcut="vetNewsletter" data-scroll-target="justiceResources">Open Justice Resources</button>
+      </article>
     </section>
 
     <section class="tab-panel" id="vetNewsletter">
@@ -1574,6 +1591,16 @@
         <button class="quiet-button" id="editFlyers" type="button">Edit</button>
       </div>
       <div class="flyer-grid" id="flyerList" aria-live="polite"></div>
+      <div class="resource-section" id="justiceResources">
+        <div class="section-head">
+          <div>
+            <h2>Justice-Impacted Resources</h2>
+            <p class="muted">Vetted leads, reentry resources, and referral information for justice-impacted job seekers.</p>
+          </div>
+          <button class="quiet-button" id="editJusticeResources" type="button">Edit</button>
+        </div>
+        <div class="snapshot-grid" id="justiceResourceList" aria-live="polite"></div>
+      </div>
       <div class="reference-section">
         <div class="section-head">
           <div>
@@ -1593,28 +1620,6 @@
           <p class="muted">Classes, certification reminders, resume workshops, job-readiness sessions, and how-to videos.</p>
         </div>
         <button class="quiet-button" id="editTrainingItems" type="button">Edit</button>
-      </div>
-
-      <div class="workshop-calendar-section">
-        <div class="section-head">
-          <div>
-            <h2>Workshop Calendar</h2>
-            <p class="muted">American Job Center Tennessee workshop schedule for June 2026.</p>
-          </div>
-        </div>
-        <article class="card calendar-feature">
-          <img src="june-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar June 2026">
-          <div class="calendar-details">
-            <h3>American Job Center Workshop Calendar</h3>
-            <ul class="calendar-detail-list">
-              <li><strong>Month:</strong> June 2026</li>
-              <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
-              <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
-              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
-              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Westmoreland Public Library, Martha O'Bryan Center, Cheatham AJC, Dickson AJC.</li>
-            </ul>
-          </div>
-        </article>
       </div>
 
       <div class="resource-section">
@@ -2702,14 +2707,15 @@
       return value.address || value.name || "";
     }
 
-    function switchTab(tabId) {
+    function switchTab(tabId, scrollTarget = "") {
       document.querySelectorAll(".tab-button").forEach((button) => {
         button.classList.toggle("active", button.dataset.tab === tabId);
       });
       document.querySelectorAll(".tab-panel").forEach((panel) => {
         panel.classList.toggle("active", panel.id === tabId);
       });
-      window.scrollTo({ top: document.querySelector("main").offsetTop - 78, behavior: "smooth" });
+      const target = scrollTarget ? document.querySelector(`#${scrollTarget}`) : document.querySelector("main");
+      window.scrollTo({ top: (target || document.querySelector("main")).offsetTop - 78, behavior: "smooth" });
     }
 
     document.querySelectorAll(".tab-button").forEach((button) => {
@@ -2717,7 +2723,7 @@
     });
 
     document.querySelectorAll("[data-tab-shortcut]").forEach((button) => {
-      button.addEventListener("click", () => switchTab(button.dataset.tabShortcut));
+      button.addEventListener("click", () => switchTab(button.dataset.tabShortcut, button.dataset.scrollTarget || ""));
     });
 
     document.addEventListener("click", (event) => {
