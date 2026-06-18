@@ -25,6 +25,10 @@
       box-sizing: border-box;
     }
 
+    [hidden] {
+      display: none !important;
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -1117,6 +1121,43 @@
       margin: 0 0 30px;
     }
 
+    .featured-events-section {
+      margin: 18px 0 30px;
+    }
+
+    .featured-events-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .featured-event-card {
+      display: grid;
+      grid-template-rows: minmax(360px, 1fr) auto;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .featured-event-card img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 360px;
+      object-fit: contain;
+      background: #eef2f6;
+    }
+
+    .featured-event-body {
+      padding: 18px;
+    }
+
+    .featured-event-body h3 {
+      margin: 8px 0;
+    }
+
     .calendar-feature {
       display: grid;
       grid-template-columns: minmax(260px, 0.95fr) minmax(260px, 1fr);
@@ -1272,6 +1313,7 @@
       .filter-steps,
       .resume-help-card,
       .calendar-feature,
+      .featured-events-grid,
       .upload-shell,
       .form-grid {
         grid-template-columns: 1fr;
@@ -1372,6 +1414,45 @@
           <p class="muted">Active job leads with original source links preserved from email lists and approved veteran employment postings.</p>
         </div>
       </div>
+
+      <section class="featured-events-section" aria-label="Upcoming Clarksville hiring events">
+        <div class="section-head">
+          <div>
+            <h2>Upcoming Clarksville Hiring Events</h2>
+            <p class="muted">Meet local employers at the American Job Center, 523 Madison Street, Suite B, Clarksville.</p>
+          </div>
+        </div>
+        <div class="featured-events-grid">
+          <article class="featured-event-card" data-expiration-date="2026-06-25">
+            <img src="cmcss-transportation-june-23-25-2026.png" alt="CMCSS Transportation Department job fair flyer for June 23 and June 25, 2026">
+            <div class="featured-event-body">
+              <span class="pill">Official Job Fair</span>
+              <h3>CMCSS Transportation Department</h3>
+              <p>Recruiting Bus Drivers, Bus Aides, and Bus Monitors on two dates.</p>
+              <ul class="resume-help-details">
+                <li><strong>Dates:</strong> June 23 and June 25, 2026</li>
+                <li><strong>Time:</strong> 9:00 AM-12:00 PM</li>
+                <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
+              </ul>
+              <a class="link-button" href="cmcss-transportation-june-23-25-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
+            </div>
+          </article>
+          <article class="featured-event-card" data-expiration-date="2026-06-24">
+            <img src="csc-event-staff-job-fair-june-24-2026.png" alt="Contemporary Services Corporation hiring event flyer for June 24, 2026">
+            <div class="featured-event-body">
+              <span class="pill">Official Hiring Event</span>
+              <h3>Contemporary Services Corporation</h3>
+              <p>Recruiting part-time event staff for Austin Peay, Nashville, and Bowling Green events.</p>
+              <ul class="resume-help-details">
+                <li><strong>Date:</strong> June 24, 2026</li>
+                <li><strong>Time:</strong> 9:00 AM-12:00 PM</li>
+                <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
+              </ul>
+              <a class="link-button" href="csc-event-staff-job-fair-june-24-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
       <section class="support-agency-section" aria-label="Additional resume and job support agencies">
         <div class="section-head">
@@ -1873,7 +1954,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 30;
+    const dataVersion = 31;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1956,27 +2037,14 @@
       ],
       flyers: [
         {
-          title: "CMCSS Transportation Job Fair - June 23",
-          category: "Job Fair",
-          date: "2026-06-23",
-          time: "9:00 AM-12:00 PM",
-          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
-          employers: ["CMCSS Transportation Department"],
-          thingsToBring: ["Resume", "Professional dress", "Questions for hiring representatives"],
-          workshops: "Recruiting for Bus Drivers, Bus Aides, and Bus Monitors. Meet directly with CMCSS representatives.",
-          fileName: "cmcss-transportation-june-23-25-2026.png",
-          fileType: "image/png",
-          dataUrl: "cmcss-transportation-june-23-25-2026.png"
-        },
-        {
-          title: "CMCSS Transportation Job Fair - June 25",
+          title: "CMCSS Transportation Job Fair - June 23 and 25",
           category: "Job Fair",
           date: "2026-06-25",
           time: "9:00 AM-12:00 PM",
           location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
           employers: ["CMCSS Transportation Department"],
           thingsToBring: ["Resume", "Professional dress", "Questions for hiring representatives"],
-          workshops: "Recruiting for Bus Drivers, Bus Aides, and Bus Monitors. Meet directly with CMCSS representatives.",
+          workshops: "Official two-date event on June 23 and June 25. Recruiting for Bus Drivers, Bus Aides, and Bus Monitors.",
           fileName: "cmcss-transportation-june-23-25-2026.png",
           fileType: "image/png",
           dataUrl: "cmcss-transportation-june-23-25-2026.png"
@@ -2159,6 +2227,8 @@
       const staleTitles = new Set([
         "April 28-29 Job Lead Flyer",
         "Bridgestone Metalpha 3 Day Job Fair",
+        "CMCSS Transportation Job Fair - June 23",
+        "CMCSS Transportation Job Fair - June 25",
         "VA Clarksville Expo 2026",
         "Federal Resume Writing Assistance",
         "Resume Refresh and Follow-Up Workshop",
@@ -2585,6 +2655,7 @@
     }
 
     function renderAll() {
+      hideExpiredFeaturedEvents();
       renderJobs();
       renderJusticeResources();
       renderFlyers();
@@ -2593,6 +2664,12 @@
       renderResources();
       renderVideos();
       updateCountdowns();
+    }
+
+    function hideExpiredFeaturedEvents() {
+      document.querySelectorAll("[data-expiration-date]").forEach((eventCard) => {
+        eventCard.hidden = isPastDate(eventCard.dataset.expirationDate);
+      });
     }
 
     function updateCountdowns() {
