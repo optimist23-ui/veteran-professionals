@@ -1,4 +1,92 @@
 window.VEVRAA_JOBS = [
+{
+  "title": "Class A CDL Regional Truck Driver Hourly",
+  "requisition": "2026-200273",
+  "company": "Ryder System",
+  "category": "Transportation / CDL",
+  "location": "CLARKSVILLE, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZHMOPJ26XME0KQfgnWvnVflAAVLWgcBNKzg2OEHVuElPbDJyyG9YT0kz2FgGvtOfo-3Dvu2b_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6eDQ9AvQ0D4NoP46GyPUpgBO45vK6pNHWts3jz7cEo1MsktyrAtAZV2eigh3wLKrpGBv-2FE1i5stRUZk3TBQaqF8b3pcVmRFqlkF8DHchFiBtDV5dfDeosYsS2XvTVyhz6Vk9u0Rsg3rGxH3u5Yel3BT__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINoi9pRJe$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "Part-Time 2nd Shift Cafe Cook (TRANE) (TN, Clarksville)",
+  "requisition": "44596.9204",
+  "company": "Five Star Breaktime Solutions",
+  "category": "Food Service",
+  "location": "Clarksville, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aiHsRzE16CPc-2F-2FJihE3IjEIDUuY4zzJ07ONY8isr8UMvZil-2F8vfu-2FNtmgaEUTCNeo-3Do1tr_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6cbVcwvWDsOHUzadl8xLdiztdPAjnNvq-2FSU9Mcr-2BYe8AU-2Fv0B4RjAQajknpo-2FpwKQb3WSJ1mBojXuYRWka0HBrLSzNQPN-2FgOOR1kA2XkhOvGzYB28FwC0O7obJFDWFpxrgVgD-2BZ4Fw-2Fx8mM5TYz7q1I__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINgxSOba1$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "FOOD SERVICE WORKER (FULL TIME AND PART TIME)",
+  "requisition": "1545866",
+  "company": "Compass Group, North America",
+  "category": "Food Service",
+  "location": "Clarksville, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bDxjsH4KgOLrJLDLWyU3iCDN-2F1YJyR9xQUrR-2F6kgUQu7-2BEt-2FIDllW9y-2BHMXiSDudU-3D51z__uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6dWbd4LffWVz6q7eEBk7rVnfS34CO9dIDtbf0FbaDWghSbrOqS9NOgws0UBtIL9CsaO1CYA-2Fl0IiUDeKrc99qNaGh-2Ffo5OFLRJcfhxy8i3jluVQL3mCbCZgLZO0JTEM1-2FwtXgeNt-2BvL96SnhL63bcsy__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINlppTR3k$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "Field Service Representative",
+  "requisition": "JP-006124578",
+  "company": "Actalent",
+  "category": "Skilled Trades",
+  "location": "Clarksville, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35an9-2ByW3UzFxrTy-2FZH6IjTk2Fnt1Z3v6sCzOkFDHwfSbEI-2BkqhPK9hbEkXT12EtZLo-3DdP7c_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6dOgZsTK3-2BuewJFqqpPX5Ug2-2BaCroa4Hdr52D9D53uu0xBLrLDT8oMn4A2LDE9vR72IGEMwx4F2UfULo4xu4gJQrcOdsySpUUGm2vwZ554CionOnFj7kDkRufCt4ZcCWaWMXeiULEzwp-2FrvcZPoh5mZ__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINqMndV5u$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "Electrical Engineer II",
+  "requisition": "JR-8830",
+  "company": "Trane Technologies",
+  "category": "Skilled Trades",
+  "location": "Clarksville, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YF1ju7toU05skoPRDiSrg56NlbpHpN-2BhjOpo0oqFHN-2BJ00UCmmipD4kod2LaAh1L4-3DEB4s_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6cRcx87KEx-2BLHDWpDIfEaZAJ-2BeOqdPuJyX3FV3HK9IGdEaV2OVz7ReiVLqRlSDU0Tuu5-2FUqK3MR783kgOOxy3hVydahp3bXlVGX0OA10PrfBxnKh5deMD1wn31TZVjseyJfCm-2BFdTATaTsclqDCPzkc__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINlkWi-sn$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "Truck Driver",
+  "requisition": "2080",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Dover, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YylLuFq09Nuf-2BChBapEwBnmJQOQFVfblyl-2BcSUbdl3V1XInxiv9iqsjNZv4vtariA-3D7DCc_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6dq6IyoqPwf6DRW7hQRT-2FsfKqEcIBGDzCCqZiG4T2wLI3r-2FaCCwxx4DYFTbDhCQwFU44-2BxTW3I950P-2BiifCSs7t2qE-2B5xtfxmVdrOtW9I2AjnxDJPUVDUnAiky-2BbXgsmFV7BrgcjdlYDg9-2FM8qHnCdm__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINuBqykjA$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "Truck Driver",
+  "requisition": "2080",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Chapmansboro, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bJYLB9bm-2BXg8sVdSeI-2BZhsYFxOdjozaS0Ei5a1nWyQ9pp4O6yUj6wIwj4opigPJ80-3DTXwQ_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6cuIFKPVRo5zTjbAb96ZTahMf9FwnIgNR0-2FpNpiFcaQg2WW70uBimnI3zaCa2hi4zkTYLNfdCujdW12elgURdpxBdgOGhR9iPzk4EcJC8QeBQ-2B5-2BSpelgCDYzcKI92ePL3Qd9f3RMved-2F9kYH9AowuD__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINof9Q-qx$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
+{
+  "title": "Physical Therapist",
+  "requisition": "REF6415Z",
+  "company": "U.S. Physical Therapy",
+  "category": "Healthcare",
+  "location": "Clarksville, TN",
+  "date": "2026-06-30",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aRiJm77Jk3thPedceUxPX-2FtEizXkioPcr2FBb-2FgNV-2FYaCB2xR89YNqVynsckmD0T4-3D7srR_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVr79-2FLz5QF-2Fjkv0-2FF3N4ZtN1EzpDcvtcj3BarI-2FLQe6cAWd9-2Bdv7MKkSKCeOdSHPT-2F7dRKoD4dIBIpemtOCpopq3rp7GktFWf5NKYRpapuy2qyzNb48yjBpnY8V-2BSARgm8Rh-2FHmMwKoJiDRBY0Iyq34A9cjzcc9PmFwyhbxHMqoBRgQknvulq0Jswyd3Mkp9G__;!!PRtDf9A!pmNDKIs7nFDzNRP8kklgjcJvHwwEhN0Sre45IDBTQ3eGixelUz-nZgdZ6czSO68NkGrSg5In3NLJ8MQINt9-mS6U$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_30_2026.eml"
+},
   {
     "title": "Truck Driver CDL A No Touch  Local",
     "requisition": "2026-204188",
