@@ -1125,6 +1125,10 @@
       margin: 18px 0 30px;
     }
 
+    .archive-section {
+      margin: 18px 0 30px;
+    }
+
     .featured-events-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1160,6 +1164,33 @@
 
     .featured-event-body h3 {
       margin: 8px 0;
+    }
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .archive-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px;
+    }
+
+    .archive-card img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .archive-card h3 {
+      margin: 6px 0;
+      font-size: 1rem;
     }
 
     .calendar-feature {
@@ -1318,6 +1349,7 @@
       .resume-help-card,
       .calendar-feature,
       .featured-events-grid,
+      .archive-card,
       .upload-shell,
       .form-grid {
         grid-template-columns: 1fr;
@@ -1456,6 +1488,16 @@
             </div>
           </article>
         </div>
+      </section>
+
+      <section class="archive-section" id="pastEventArchive" aria-label="Past job fair archive" hidden>
+        <div class="section-head">
+          <div>
+            <h2>Past Job Fair Archive</h2>
+            <p class="muted">Expired flyers kept for reference only. Use the active job board and upcoming events first when sharing with clients.</p>
+          </div>
+        </div>
+        <div class="archive-grid" id="pastEventArchiveList"></div>
       </section>
 
       <section class="support-agency-section" aria-label="Additional resume and job support agencies">
@@ -1958,7 +2000,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 31;
+    const dataVersion = 32;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -2094,6 +2136,30 @@
           url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
+      pastEvents: [
+        {
+          title: "CMCSS Transportation Department",
+          category: "Official Job Fair",
+          date: "2026-06-25",
+          dateLabel: "June 23 and June 25, 2026",
+          time: "9:00 AM-12:00 PM",
+          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
+          summary: "Recruiting Bus Drivers, Bus Aides, and Bus Monitors.",
+          image: "cmcss-transportation-june-23-25-2026.png",
+          url: "cmcss-transportation-june-23-25-2026.png"
+        },
+        {
+          title: "Contemporary Services Corporation",
+          category: "Official Hiring Event",
+          date: "2026-06-24",
+          dateLabel: "June 24, 2026",
+          time: "9:00 AM-12:00 PM",
+          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
+          summary: "Recruiting part-time event staff for Austin Peay, Nashville, and Bowling Green events.",
+          image: "csc-event-staff-job-fair-june-24-2026.png",
+          url: "csc-event-staff-job-fair-june-24-2026.png"
+        }
+      ],
       references: [
         {
           title: "Employer Engagement Guide 2026",
@@ -2200,6 +2266,7 @@
             references: mergeByKey(starterData.references || [], parsed.references || [], "title", "url"),
             trainings: mergeByKey(starterData.trainings || [], parsed.trainings || [], "title", "date"),
             resources: mergeByKey(starterData.resources || [], parsed.resources || [], "title", "url"),
+            pastEvents: mergeByKey(starterData.pastEvents || [], parsed.pastEvents || [], "title", "date"),
             videos: mergeByKey(starterData.videos || [], parsed.videos || [], "title", "url")
           });
         }
@@ -2249,7 +2316,8 @@
         flyers: normalizeFlyers(currentData.flyers || []).filter((item) => !staleTitles.has(item.title) && keepFreshDate(item)),
         references: migrateLinks(currentData.references || []).filter((item) => !staleTitles.has(item.title)),
         trainings: (currentData.trainings || []).filter((item) => !staleTitles.has(item.title) && keepFreshDate(item)),
-        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website" && !staleTitles.has(item.title) && keepFreshDate(item)))
+        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website" && !staleTitles.has(item.title) && keepFreshDate(item))),
+        pastEvents: mergeByKey(starterData.pastEvents || [], currentData.pastEvents || [], "title", "date")
       };
     }
 
@@ -2660,6 +2728,7 @@
 
     function renderAll() {
       hideExpiredFeaturedEvents();
+      renderPastEventArchive();
       renderJobs();
       renderJusticeResources();
       renderFlyers();
@@ -2674,6 +2743,30 @@
       document.querySelectorAll("[data-expiration-date]").forEach((eventCard) => {
         eventCard.hidden = isPastDate(eventCard.dataset.expirationDate);
       });
+    }
+
+    function renderPastEventArchive() {
+      const archiveSection = document.querySelector("#pastEventArchive");
+      const archiveList = document.querySelector("#pastEventArchiveList");
+      if (!archiveSection || !archiveList) return;
+      const expiredEvents = sortByDate(data.pastEvents || []).filter((eventItem) => isPastDate(eventItem.date));
+      archiveSection.hidden = !expiredEvents.length;
+      archiveList.innerHTML = expiredEvents.map((eventItem) => `
+        <article class="card archive-card">
+          ${eventItem.image ? `<img src="${escapeAttribute(eventItem.image)}" alt="${escapeAttribute(eventItem.title)} flyer preview">` : ""}
+          <div>
+            <span class="pill">${escapeHtml(eventItem.category || "Past Event")}</span>
+            <h3>${escapeHtml(eventItem.title)}</h3>
+            <p class="muted">${escapeHtml(eventItem.summary || "Expired event retained for reference.")}</p>
+            <div class="flyer-details">
+              <span><strong>Date:</strong> ${escapeHtml(eventItem.dateLabel || formatDate(eventItem.date))}</span>
+              ${eventItem.time ? `<span><strong>Time:</strong> ${escapeHtml(eventItem.time)}</span>` : ""}
+              ${eventItem.location ? `<span><strong>Location:</strong> ${escapeHtml(eventItem.location)}</span>` : ""}
+            </div>
+            ${eventItem.url ? `<a class="secondary-button" href="${escapeAttribute(eventItem.url)}" target="_blank" rel="noopener">View Archived Flyer</a>` : ""}
+          </div>
+        </article>
+      `).join("");
     }
 
     function updateCountdowns() {
