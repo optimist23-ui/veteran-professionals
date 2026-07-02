@@ -265,6 +265,205 @@ table.ref-tbl {
 .alert-green { background: #e8f5e9; border-left: 4px solid var(--green); color: #1b5e20; }
 
 /* ══════════════════════════════════════════════════════
+   ROSTER DASHBOARD
+══════════════════════════════════════════════════════ */
+.roster-board {
+  background: #f8fbff;
+  border: 1px solid #b9c8dd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(26,58,107,0.12);
+}
+.roster-top {
+  background: #071d3d;
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 24px;
+  align-items: center;
+  padding: 12px 16px;
+}
+.roster-title h1 {
+  font-size: 26px;
+  line-height: 1;
+  letter-spacing: .02em;
+}
+.roster-title strong {
+  display: block;
+  color: #ffc928;
+  font-size: 16px;
+  margin-top: 7px;
+  letter-spacing: .03em;
+}
+.roster-status {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.status-dot {
+  width: 18px; height: 18px; border-radius: 50%;
+  display: inline-grid; place-items: center;
+  margin-right: 5px; color: #fff; font-size: 11px;
+}
+.dot-green { background: #238b35; }
+.dot-blue { background: #126fba; }
+.dot-purple { background: #6f3bb1; }
+.dot-orange { background: #f26b1d; }
+.time-block {
+  border-left: 1px solid rgba(255,255,255,.35);
+  padding-left: 18px;
+  font-weight: 900;
+  text-align: right;
+}
+.time-block span { color: #ffc928; font-size: 22px; display: block; }
+.roster-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+.roster-card {
+  background: #fff;
+  border: 1.5px solid #91b5dc;
+  border-radius: 6px;
+  min-width: 0;
+  overflow: hidden;
+  position: relative;
+}
+.roster-card.jvsg0 { border-color: #f48a32; }
+.roster-card.jvsg1 { border-color: #9d72d0; }
+.roster-card.jvsg2 { border-color: #6bb36d; }
+.roster-card.jvsg3 { border-color: #ff8b31; }
+.roster-num {
+  position: absolute; left: 8px; top: 8px;
+  width: 23px; height: 23px; border-radius: 4px;
+  display: grid; place-items: center;
+  color: white; background: #126fba; font-weight: 900;
+  font-size: 15px;
+}
+.roster-card.jvsg0 .roster-num, .roster-card.jvsg3 .roster-num { background: #f26b1d; }
+.roster-card.jvsg1 .roster-num { background: #67339d; }
+.roster-card.jvsg2 .roster-num { background: #238b35; }
+.roster-person {
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  gap: 10px;
+  padding: 16px 10px 10px 36px;
+  border-bottom: 1px solid #d7e0ec;
+}
+.avatar-face {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: grid; place-items: center;
+  color: #071d3d;
+  background: linear-gradient(#dceefc, #c7d8ef);
+  font-size: 30px;
+}
+.roster-person h2 {
+  color: #075bb6;
+  font-size: 13px;
+  line-height: 1.1;
+  margin: 0 0 3px;
+  overflow-wrap: anywhere;
+}
+.roster-person b { display: block; font-size: 12px; }
+.roster-person em { display: block; font-size: 11px; margin-top: 3px; }
+.jvsg-line { color: #0a7f22; font-size: 11px; font-weight: 900; margin-top: 5px; }
+.roster-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 10px;
+  padding: 8px 10px;
+  font-size: 9px;
+}
+.mini-line { border-bottom: 1px solid #c9d3df; min-height: 17px; }
+.mini-line strong { font-size: 9px; }
+.client-type-row {
+  grid-column: 1 / -1;
+  display: flex; gap: 14px; align-items: center;
+  font-size: 9px;
+}
+.task-box {
+  margin: 0 10px 8px;
+  border: 1px solid #c8d4e3;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.task-title {
+  background: #eef4fb;
+  text-align: center;
+  color: #071d3d;
+  font-weight: 900;
+  font-size: 10px;
+  padding: 4px;
+}
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+}
+.task-cell {
+  border-top: 1px solid #d8e1eb;
+  border-right: 1px solid #d8e1eb;
+  padding: 4px 2px;
+  font-size: 8px;
+  min-width: 0;
+}
+.task-cell:last-child { border-right: 0; }
+.task-cell input { width: 12px; height: 12px; margin-top: 4px; }
+.roster-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 10px 10px;
+}
+.action-pad label {
+  display: block; font-size: 9px; font-weight: 900;
+}
+.action-pad textarea {
+  border: 0;
+  border-bottom: 1px solid #c9d3df;
+  min-height: 54px;
+  resize: vertical;
+  padding: 4px 0;
+  font-size: 10px;
+}
+.roster-footer {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1.1fr 2.3fr;
+  gap: 12px;
+  padding: 10px 14px 14px;
+  border-top: 1px solid #c8d4e3;
+  background: #fff;
+  font-size: 11px;
+}
+.footer-panel {
+  border-right: 1px solid #c8d4e3;
+  padding-right: 12px;
+}
+.footer-panel:last-child { border-right: 0; }
+.footer-panel h3 { font-size: 11px; color: #071d3d; margin-bottom: 7px; }
+.legend-row { margin: 4px 0; }
+.legend-box { display: inline-block; width: 10px; height: 10px; border: 2px solid #238b35; margin-right: 6px; }
+.legend-blue { border-color: #126fba; }
+.legend-purple { border-color: #67339d; }
+.notes-lines textarea { min-height: 72px; font-size: 11px; }
+
+@media (max-width: 1180px) {
+  .roster-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .roster-top, .roster-footer { grid-template-columns: 1fr; }
+  .time-block, .footer-panel { border-left: 0; border-right: 0; padding-left: 0; padding-right: 0; }
+}
+
+@media (max-width: 680px) {
+  .roster-grid { grid-template-columns: 1fr; }
+  .roster-person { grid-template-columns: 54px 1fr; padding-left: 34px; }
+  .avatar-face { width: 52px; height: 52px; font-size: 24px; }
+}
+
+/* ══════════════════════════════════════════════════════
    PREVIEW MODAL
 ══════════════════════════════════════════════════════ */
 #preview-overlay {
@@ -404,6 +603,7 @@ table.va-ref {
   <div class="nav-tabs">
     <div class="nav-tab active" onclick="showView('clients')">👤 Clients</div>
     <div class="nav-tab" onclick="showView('report')">📋 New Report</div>
+    <div class="nav-tab" onclick="showView('roster')">🧭 Roster Dashboard</div>
     <div class="nav-tab" onclick="showView('history')">📁 History</div>
     <div class="nav-tab" onclick="showView('backup')">💾 Backup</div>
   </div>
@@ -618,6 +818,55 @@ table.va-ref {
     </div>
   </div>
 
+  <!-- ── ROSTER DASHBOARD ── -->
+  <div id="view-roster" class="view">
+    <div class="roster-board">
+      <div class="roster-top">
+        <div class="roster-title">
+          <h1>DVOP Client Roster &amp; Case Management Dashboard</h1>
+          <strong>10 Veterans on Caseload</strong>
+        </div>
+        <div class="roster-status">
+          <span><span class="status-dot dot-green">✓</span>Enrolled</span>
+          <span><span class="status-dot dot-blue">↻</span>Follow-Up</span>
+          <span><span class="status-dot dot-purple">▣</span>Appointment Set</span>
+          <span><span class="status-dot dot-orange">!</span>Outreach / Not Yet Enrolled</span>
+        </div>
+        <div class="time-block">Time Block <span>20-30 Min</span>Per Client</div>
+      </div>
+      <div class="roster-grid" id="roster-grid"></div>
+      <div class="roster-footer">
+        <div class="footer-panel">
+          <h3>Task Legend</h3>
+          <div class="legend-row"><span class="legend-box"></span><strong>Case Note</strong> - Document contact, services, or progress</div>
+          <div class="legend-row"><span class="legend-box legend-blue"></span><strong>Email</strong> - Send or follow up on emails</div>
+          <div class="legend-row"><span class="legend-box"></span><strong>Job Lead</strong> - Share job leads or resources</div>
+          <div class="legend-row"><span class="legend-box legend-purple"></span><strong>Other</strong> - Appointments, referrals, notes, etc.</div>
+        </div>
+        <div class="footer-panel">
+          <h3>Daily Flow</h3>
+          <ol style="padding-left:16px;line-height:1.5;">
+            <li>Review daily priorities</li>
+            <li>Spend 20-30 min per client</li>
+            <li>Complete task(s)</li>
+            <li>Update Last Action &amp; Next Action</li>
+            <li>Move to next client</li>
+          </ol>
+        </div>
+        <div class="footer-panel">
+          <h3>Reminders</h3>
+          <div>✓ Update case notes within 3 business days.</div>
+          <div>✓ Maintain contact at least every 14 days.</div>
+          <div>✓ All services with Significant Barriers must be documented in Jobs4TN.</div>
+        </div>
+        <div class="footer-panel notes-lines">
+          <h3>Notes / General Notes</h3>
+          <textarea id="roster-general-notes" placeholder="General notes..."></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ── HISTORY ── -->
   <div id="view-history" class="view">
     <div class="card">
@@ -693,6 +942,19 @@ const CHECKS = [
   { id:'11g', text:'11G. Has the participant been COOPERATIVE / RESPONSIVE this month?' },
 ];
 
+const ROSTER_CLIENTS = [
+  { code:"ALANCE10", name:"Alexander Lance", flag:"U.S. Flag Veteran", jvsg:"JVSG 0", wp:"WP - Enrolled 01/20/2026", theme:"jvsg0", face:"🙂", poc:"", ssn:"2152", stateId:"5316923", lastLogin:"02/26/2026", edit:"05/01/2026 1:28 PM", created:"01/20/2026" },
+  { code:"BELLEVIE85@", name:"Wendpouire Ouedraogo", flag:"U.S. Flag Veteran", jvsg:"TSM TSM", wp:"WP - Enrolled 06/01/2026", theme:"", face:"👤", poc:"", ssn:"9731", stateId:"5286834", lastLogin:"06/01/2026", edit:"06/17/2026 10:24 AM", created:"10/10/2025" },
+  { code:"CHARISSJEVANS", name:"Charisse Evans", flag:"U.S. Flag Veteran", jvsg:"JVSG 1", wp:"WP - Enrolled 06/04/2026", theme:"jvsg1", face:"👩", poc:"", ssn:"5466", stateId:"5362643", lastLogin:"06/22/2026", edit:"06/17/2026 10:23 AM", created:"06/02/2026", staff:true },
+  { code:"DONC2003", name:"Donnie Cooper", flag:"U.S. Flag Veteran", jvsg:"JVSG 0", wp:"TSM TSM / WP - Enrolled 06/10/2026", theme:"jvsg0", face:"👤", poc:"", ssn:"8179", stateId:"5362676", lastLogin:"", edit:"06/30/2026 9:18 AM", created:"06/02/2026" },
+  { code:"Fwilliams", name:"FRED WILLIAMS", flag:"U.S. Flag Veteran", jvsg:"JVSG 2", wp:"WP - Enrolled 02/26/2026", theme:"jvsg2", face:"👤", poc:"", ssn:"3501", stateId:"1264097", lastLogin:"06/15/2026", edit:"06/11/2026 10:35 AM", created:"02/25/2013" },
+  { code:"KARI.VINCENT007@YAHOO.COM", name:"Kari Vincent", flag:"U.S. Flag Veteran", jvsg:"JVSG 1", wp:"WP - Enrolled 02/25/2026", theme:"jvsg1", face:"👩", poc:"", ssn:"2563", stateId:"5323988", lastLogin:"02/25/2026", edit:"04/06/2026 12:43 PM", created:"02/25/2026", staff:true },
+  { code:"KOLAPSOLO@YAHOO.COM", name:"SOLOMON KOLAPO", flag:"U.S. Flag Veteran", jvsg:"", wp:"", theme:"", face:"👤", poc:"", ssn:"3280", stateId:"3668155", lastLogin:"12/05/2025", edit:"05/27/2026 10:51 AM", created:"07/26/2016", staff:true },
+  { code:"MWeber94818", name:"Mark Weber Jr", flag:"U.S. Flag Veteran", jvsg:"JVSG 1", wp:"", theme:"jvsg2", face:"👤", poc:"", ssn:"4818", stateId:"2923299", lastLogin:"12/31/2025", edit:"12/26/2025 10:38 AM", created:"10/04/2010" },
+  { code:"PRINCEKFULTON", name:"Prince-Kavaar Fulton", flag:"U.S. Flag Veteran", jvsg:"JVSG 3", wp:"WP - Enrolled 06/11/2026", theme:"jvsg3", face:"🙂", poc:"", ssn:"1020", stateId:"5312058", lastLogin:"06/29/2026", edit:"06/29/2026 8:33 PM", created:"12/31/2025" },
+  { code:"TULSHIDAHAL", name:"Tulshi Dahal", flag:"U.S. Flag Veteran", jvsg:"", wp:"WP - Enrolled 02/23/2026", theme:"", face:"🙂", poc:"", ssn:"2444", stateId:"5328009", lastLogin:"05/25/2026", edit:"06/11/2026 9:55 AM", created:"03/19/2026" }
+];
+
 // ────────────────────────────────────────────────
 // PERSISTENCE
 // ────────────────────────────────────────────────
@@ -710,10 +972,61 @@ function showView(name) {
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
   document.getElementById('view-' + name).classList.add('active');
-  const map = { clients:0, report:1, history:2, backup:3 };
+  const map = { clients:0, report:1, roster:2, history:3, backup:4 };
   document.querySelectorAll('.nav-tab')[map[name]].classList.add('active');
   if (name === 'report') fillClientDropdown();
   if (name === 'history') renderHistory();
+  if (name === 'roster') renderRoster();
+}
+
+function renderRoster() {
+  const grid = document.getElementById('roster-grid');
+  if (!grid) return;
+  grid.innerHTML = ROSTER_CLIENTS.map((c, idx) => `
+    <article class="roster-card ${c.theme}">
+      <div class="roster-num">${idx + 1}</div>
+      <div class="roster-person">
+        <div class="avatar-face">${c.face}</div>
+        <div>
+          <h2>${esc(c.code)}</h2>
+          <b>${esc(c.name)}</b>
+          <em>${esc(c.flag)}</em>
+          <div class="jvsg-line">${esc(c.jvsg)}${c.jvsg && c.wp ? '<br>' : ''}${esc(c.wp)}</div>
+        </div>
+      </div>
+      <div class="roster-fields">
+        <div class="mini-line"><strong>POC Phone / Email:</strong> ${esc(c.poc)}</div>
+        <div class="mini-line"><strong>SSN Last 4:</strong> ${esc(c.ssn)}</div>
+        <div class="mini-line"><strong>Last Contact Date:</strong></div>
+        <div class="mini-line"><strong>State ID:</strong> ${esc(c.stateId)}</div>
+        <div class="mini-line"><strong>Job Apps Last 30 Days:</strong></div>
+        <div class="mini-line"><strong>Last Login:</strong> ${esc(c.lastLogin)}</div>
+        <div class="client-type-row">
+          <strong>Client Type:</strong>
+          <label><input type="checkbox"> Individual</label>
+          <label><input type="checkbox" ${c.staff ? 'checked' : ''}> Staff</label>
+        </div>
+        <div class="mini-line"><strong>Last Exit Date:</strong></div>
+        <div class="mini-line"><strong>Created:</strong> ${esc(c.created)}</div>
+      </div>
+      <div class="task-box">
+        <div class="task-title">Current Tasks (20-30 min time block)</div>
+        <div class="task-grid">
+          ${["Case Note", "Email", "Job Lead", "Other", "Time (Min)"].map(label => `
+            <div class="task-cell"><strong>${label}</strong><br>${label === "Time (Min)" ? '<input type="text" aria-label="Time minutes">' : '<input type="checkbox">'}</div>
+          `).join("")}
+        </div>
+      </div>
+      <div class="roster-actions">
+        <div class="action-pad"><label>Last Action:<br><small>(What was done?)</small></label><textarea></textarea></div>
+        <div class="action-pad"><label>Next Action:<br><small>(What's next?)</small></label><textarea></textarea></div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function esc(value) {
+  return String(value || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[ch]));
 }
 
 // ────────────────────────────────────────────────
