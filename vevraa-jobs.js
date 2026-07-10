@@ -1,5 +1,27 @@
 window.VEVRAA_JOBS = [
 {
+  "title": "Driver Supervisor",
+  "requisition": "R-101251",
+  "company": "Waste Connections",
+  "category": "Transportation / CDL",
+  "location": "Clarksville, TN",
+  "date": "2026-07-10",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aN7zER-2BNPJYAqtBOTKn-2FALqOslNQXzhpUtBksvHsbqqx3gfmTHZ-2BhnDhmFBCeiSGc-3DEt1P_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVzdjiKJwnQi0x1eL8MZVILNLsNo8ewe5T-2B9HIPLkHAHRJ-2FkPo8sGf9bIqJpII8Z9kNv0-2FZgKG-2Fi6adEJr6Svl7HzmvzunMx-2BQkkrKtZAoVoNPldXY0yTa9GBrLSrW-2B-2BTwnG4aYmfL7Fy9v0kiQIWdDhGy1UTKaqPFwIXB0Z3YG9rkWC29ZGnwDf8erh9V0ip4__;!!PRtDf9A!pzoN0bcGD8cZT19OFIM6W8UmrT0pRU6EXlW4W6RgAKp3i_Vx23vZjz5SF0w8-RMCjZ3XkL40b3waERIcyK81Dv92$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_10_2026.eml"
+},
+{
+  "title": "Sales Assistant",
+  "requisition": "03930-0013467960",
+  "company": "Robert Half",
+  "category": "Retail / Customer Service",
+  "location": "Clarksville, TN",
+  "date": "2026-07-10",
+  "url": "https://urldefense.com/v3/__https://u18885937.ct.sendgrid.net/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YDVU2cMJAZFBNWKAYZZOxhto4LT7ngS6rWaDcOD3Ku-2Bk5N7HCA1hsrySCVuktwlPU-3DLVpy_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVzdjiKJwnQi0x1eL8MZVILNLsNo8ewe5T-2B9HIPLkHAHQvxwoPtr54nXN3RC9Qi4VZP7Pw-2FGkaofVSLJtuHzSXbc2S-2FXvB3ByBxIFBGcxCFFJMlf2MhTwQ6qLOb0wLYaAT4tW0O4QAqGfibntTLWdQXeyOOd5WSPHE-2FOVXTJtIsXDympZPzUCqjHnYvUe-2FVMq-2B__;!!PRtDf9A!pzoN0bcGD8cZT19OFIM6W8UmrT0pRU6EXlW4W6RgAKp3i_Vx23vZjz5SF0w8-RMCjZ3XkL40b3waERIcyLvCK7g1$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_10_2026.eml"
+},
+{
   "title": "Security Officer Overnight Patrol Driver",
   "requisition": "2026-1626554",
   "company": "Allied Universal",
