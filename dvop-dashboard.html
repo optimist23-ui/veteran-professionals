@@ -456,6 +456,28 @@
       box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
     }
 
+    .quarter-toolbar {
+      grid-template-columns: minmax(220px, 1fr) minmax(150px, 180px) minmax(150px, 180px) auto;
+    }
+
+    .quarter-rollup table {
+      min-width: 760px;
+    }
+
+    .quarter-sheet table {
+      min-width: 1880px;
+    }
+
+    .quarter-section-label {
+      margin: 0;
+      padding: 10px 12px;
+      color: #fff;
+      background: var(--teal);
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
     .small-text {
       color: var(--muted);
       font-size: 0.77rem;
@@ -783,6 +805,7 @@
         <button class="active" data-page="dashboard">Dashboard <span id="navDue">0</span></button>
         <button data-page="clients">Clients</button>
         <button data-page="activity">Activity</button>
+        <button data-page="quarterReview">Quarter Review</button>
         <button data-page="intake">Intake</button>
         <button data-page="notes">Case Notes</button>
         <button data-page="vaGenerator">VA 28-10289</button>
@@ -989,6 +1012,72 @@
               </div>
             </div>
             <div id="activityRows"></div>
+          </div>
+        </section>
+
+        <section class="page" id="page-quarterReview">
+          <div class="section-head">
+            <div>
+              <h2>Quarter Review Spreadsheet</h2>
+              <p class="muted">Workbook-style roster and Data Rollup for FY2026 quarterly review breakdowns.</p>
+            </div>
+            <button class="btn navy" id="exportQuarterCsv" type="button">Export Quarter CSV</button>
+          </div>
+
+          <div class="toolbar quarter-toolbar">
+            <input class="input" id="quarterSearch" type="search" placeholder="Search name, SID, case manager, notes, or code">
+            <select class="select" id="quarterSelect">
+              <option value="Q1">QTR 1: Oct-Dec 2025</option>
+              <option value="Q2">QTR 2: Jan-Mar 2026</option>
+              <option value="Q3">QTR 3: Apr-Jun 2026</option>
+              <option value="Q4">QTR 4: Jul-Sep 2026</option>
+            </select>
+            <select class="select" id="quarterSectionFilter">
+              <option value="">Existing and entered</option>
+              <option value="existing">Existing caseload only</option>
+              <option value="entered">Entered this quarter only</option>
+            </select>
+            <button class="btn" id="copyQuarterSummary" type="button">Copy Summary</button>
+          </div>
+
+          <div class="card pad quarter-rollup" style="margin-bottom:16px;">
+            <div class="section-head" style="margin-bottom:10px;">
+              <div>
+                <h2 style="font-size:1.15rem;">Data Rollup</h2>
+                <p class="muted" style="margin:4px 0 0;">Mirrors the workbook rollup codes for open cases, closure outcomes, and barrier markers.</p>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Metric</th>
+                    <th>QTR1</th>
+                    <th>QTR2</th>
+                    <th>QTR3</th>
+                    <th>QTR4</th>
+                  </tr>
+                </thead>
+                <tbody id="quarterRollupRows"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="card quarter-sheet">
+            <p class="quarter-section-label" id="quarterExistingLabel"></p>
+            <div class="table-wrap" style="border-radius:0;box-shadow:none;">
+              <table>
+                <thead id="quarterTableHead"></thead>
+                <tbody id="quarterExistingRows"></tbody>
+              </table>
+            </div>
+            <p class="quarter-section-label" id="quarterEnteredLabel"></p>
+            <div class="table-wrap" style="border-radius:0 0 8px 8px;box-shadow:none;">
+              <table>
+                <thead id="quarterEnteredHead"></thead>
+                <tbody id="quarterEnteredRows"></tbody>
+              </table>
+            </div>
           </div>
         </section>
 
@@ -1914,6 +2003,223 @@
         .sort((a, b) => String(b.date || "").localeCompare(String(a.date || "")));
     }
 
+    const quarterDefinitions = {
+      Q1: { label: "QTR 1", existingTitle: "EXISTING CASE LOAD AT THE END OF THE 4th QUARTER FY 26 (JUL 2025-SEPT 2025)", enteredTitle: "ENTERED CASE MANAGEMENT DURING 1st QUARTER FY 26 (OCT 2025-DEC 2025)", start: "2025-10-01", end: "2025-12-31" },
+      Q2: { label: "QTR 2", existingTitle: "EXISTING CASE LOAD AT THE END OF THE 1st QUARTER FY 26 (OCT 2025-DEC 2025)", enteredTitle: "ENTERED CASE MANAGEMENT DURING 2ND QUARTER FY 26 (JAN 2026-MAR 2026)", start: "2026-01-01", end: "2026-03-31" },
+      Q3: { label: "QTR 3", existingTitle: "EXISTING CASE LOAD AT THE END OF THE 2ND QUARTER FY 26 (JAN 2026-MAR 2026)", enteredTitle: "ENTERED CASE MANAGEMENT DURING 3RD QUARTER FY26 (APR 2026-JUNE 2026)", start: "2026-04-01", end: "2026-06-30" },
+      Q4: { label: "QTR 4", existingTitle: "EXISTING CASE LOAD AT THE END OF THE 3RD QUARTER FY 26 (APR-JUNE)", enteredTitle: "ENTERED CASE MANAGEMENT DURING 4TH QUARTER FY26 (JUL 2026-SEPT 2026)", start: "2026-07-01", end: "2026-09-30" }
+    };
+
+    const quarterColumns = ["Customer Name", "SID", "Case Manager", "Status", "Code", "Start Date", "Disabled", "VR&E", "HVRP", "Homeless", "JII", "Low Income", "DD214", "OAS", "IEP", "Resume to LVER", "Date Closed", "NOTES:"];
+    const quarterRollupMetrics = [
+      ["entered", "2: Entered Case Management"],
+      ["open", "3: Total Open Cases that QTR"],
+      ["closed", "4: Total Closed Cases"],
+      ["employed", "5: Employed Outcomes (Code = E)"],
+      ["medical", "6: Medical Closures (Code = M)"],
+      ["disability", "7: Disability Closures (Code = D)"],
+      ["nonCompliant", "8: Non-Successful / Non-Compliant N"],
+      ["returnSchool", "9: Return to School or Training (Code = R)"],
+      ["otherReasons", "10: Other Reasons (Code = V)"],
+      ["noLonger", "11: No Longer Desired Services (Code = F)"],
+      ["relocation", "12: Relocation (Code = A)"],
+      ["vreOnly", "13: VR&E Only / No Contact (Code = VRE)"],
+      ["disabled", "14: Disabled / SBE Marker"]
+    ];
+
+    function quarterDateValue(value) {
+      return value ? String(value).slice(0, 10) : "";
+    }
+
+    function dateInRange(value, start, end) {
+      const date = quarterDateValue(value);
+      return date && date >= start && date <= end;
+    }
+
+    function dateOnOrBefore(value, end) {
+      const date = quarterDateValue(value);
+      return !date || date <= end;
+    }
+
+    function yesNo(condition) {
+      return condition ? "Yes" : "No";
+    }
+
+    function textHas(client, words) {
+      const text = [client.notes, client.barriers, client.supportNeeds, client.educationCertification, client.careerGoal].join(" ").toLowerCase();
+      return words.some(word => text.includes(word));
+    }
+
+    function quarterStatusCode(client) {
+      const status = String(client.status || "").toLowerCase();
+      const text = [client.status, client.notes, client.barriers, client.supportNeeds].join(" ").toLowerCase();
+      if (status.includes("employed")) return "E";
+      if (text.includes("medical")) return "M";
+      if (text.includes("disability")) return "D";
+      if (text.includes("non-compliance") || text.includes("non compliant") || text.includes("noncompliance") || text.includes("no response")) return "N";
+      if (text.includes("school") || text.includes("training")) return "R";
+      if (text.includes("relocat")) return "A";
+      if (text.includes("no longer desired") || text.includes("declined services")) return "F";
+      if (text.includes("vr&e only") || text.includes("vre only")) return "VRE";
+      if (status.includes("closed")) return "C";
+      return "O";
+    }
+
+    function quarterStatusFromCode(code, client) {
+      if (code === "O") return client.status || "Open";
+      if (code === "E") return "Employed";
+      if (code === "M") return "Medical";
+      if (code === "D") return "Disability";
+      if (code === "N") return "Non-Successful / Non Compliant";
+      if (code === "R") return "Return to School or Training";
+      if (code === "A") return "Relocation";
+      if (code === "F") return "No Longer Desired Services";
+      if (code === "VRE") return "VR&E Only (No contact)";
+      if (code === "C") return "Closed";
+      return "Other Reasons";
+    }
+
+    function quarterClientRow(client, section, index) {
+      const code = quarterStatusCode(client);
+      const hasContact = (client.contacts || []).length > 0 || client.lastContactDate;
+      const hasIep = (client.goals || []).length > 0;
+      const hasResume = textHas(client, ["resume"]);
+      const notes = [client.notes, client.barriers ? `Barriers: ${client.barriers}` : "", client.supportNeeds ? `Support: ${client.supportNeeds}` : ""].filter(Boolean).join(" | ");
+      return {
+        section,
+        name: client.name || "",
+        sid: client.stateId || "",
+        caseManager: client.assignedStaff || "DVOP McMichael",
+        status: quarterStatusFromCode(code, client),
+        code,
+        startDate: quarterDateValue(client.enrolledDate),
+        disabled: yesNo(textHas(client, ["disability", "disabled", "sbe", "service-connected"])),
+        vre: yesNo(client.clientType === "VR&E" || textHas(client, ["vr&e", "vre"])),
+        hvrp: yesNo(textHas(client, ["hvrp"])),
+        homeless: yesNo(textHas(client, ["homeless"])),
+        jii: yesNo(textHas(client, ["justice", "reentry", "jii"])),
+        lowIncome: yesNo(textHas(client, ["low income", "low-income"])),
+        dd214: yesNo(client.isVeteran),
+        oas: yesNo(hasContact),
+        iep: yesNo(hasIep),
+        resumeToLver: yesNo(hasResume),
+        dateClosed: code === "O" ? "" : quarterDateValue(client.closedDate || client.lastContactDate || client.nextFollowUpDate),
+        notes
+      };
+    }
+
+    function quarterRows(quarterKey) {
+      const quarter = quarterDefinitions[quarterKey] || quarterDefinitions.Q4;
+      const existing = [];
+      const entered = [];
+      state.clients.forEach((client, index) => {
+        if (dateInRange(client.enrolledDate, quarter.start, quarter.end)) {
+          entered.push(quarterClientRow(client, "entered", index));
+        } else if (dateOnOrBefore(client.enrolledDate, quarter.end)) {
+          existing.push(quarterClientRow(client, "existing", index));
+        }
+      });
+      return { existing, entered };
+    }
+
+    function quarterRollupFor(quarterKey) {
+      const rows = quarterRows(quarterKey);
+      const all = [...rows.existing, ...rows.entered];
+      const closedCodes = new Set(["E", "M", "D", "N", "R", "V", "F", "A", "VRE", "C"]);
+      const countCode = code => all.filter(row => row.code === code).length;
+      return {
+        entered: rows.entered.length,
+        open: all.filter(row => row.code === "O").length,
+        closed: all.filter(row => closedCodes.has(row.code)).length,
+        employed: countCode("E"),
+        medical: countCode("M"),
+        disability: countCode("D"),
+        nonCompliant: countCode("N"),
+        returnSchool: countCode("R"),
+        otherReasons: countCode("V"),
+        noLonger: countCode("F"),
+        relocation: countCode("A"),
+        vreOnly: countCode("VRE"),
+        disabled: all.filter(row => row.disabled === "Yes").length
+      };
+    }
+
+    function quarterCellValues(row) {
+      return [row.name, row.sid, row.caseManager, row.status, row.code, row.startDate, row.disabled, row.vre, row.hvrp, row.homeless, row.jii, row.lowIncome, row.dd214, row.oas, row.iep, row.resumeToLver, row.dateClosed, row.notes];
+    }
+
+    function renderQuarterTableHead() {
+      return `<tr>${quarterColumns.map(column => `<th>${esc(column)}</th>`).join("")}</tr>`;
+    }
+
+    function renderQuarterRows(rows) {
+      return rows.map(row => `
+        <tr>
+          ${quarterCellValues(row).map((value, index) => index === 4 ? `<td><span class="badge ${value === "O" ? "status-active" : value === "E" ? "status-employed" : "status-closed"}">${esc(value)}</span></td>` : `<td>${esc(value)}</td>`).join("")}
+        </tr>
+      `).join("") || `<tr><td colspan="${quarterColumns.length}" class="empty">No records match this quarter view.</td></tr>`;
+    }
+
+    function filteredQuarterRows(quarterKey) {
+      const section = document.getElementById("quarterSectionFilter")?.value || "";
+      const query = (document.getElementById("quarterSearch")?.value || "").toLowerCase();
+      const rows = quarterRows(quarterKey);
+      const filterRows = items => items.filter(row => !query || quarterCellValues(row).join(" ").toLowerCase().includes(query));
+      return {
+        existing: section === "entered" ? [] : filterRows(rows.existing),
+        entered: section === "existing" ? [] : filterRows(rows.entered)
+      };
+    }
+
+    function renderQuarterReview() {
+      const select = document.getElementById("quarterSelect");
+      if (!select) return;
+      const quarterKey = select.value || "Q4";
+      const quarter = quarterDefinitions[quarterKey];
+      const rows = filteredQuarterRows(quarterKey);
+      const head = renderQuarterTableHead();
+      document.getElementById("quarterTableHead").innerHTML = head;
+      document.getElementById("quarterEnteredHead").innerHTML = head;
+      document.getElementById("quarterExistingLabel").textContent = quarter.existingTitle;
+      document.getElementById("quarterEnteredLabel").textContent = quarter.enteredTitle;
+      document.getElementById("quarterExistingRows").innerHTML = renderQuarterRows(rows.existing);
+      document.getElementById("quarterEnteredRows").innerHTML = renderQuarterRows(rows.entered);
+      document.getElementById("quarterRollupRows").innerHTML = quarterRollupMetrics.map(([key, label]) => {
+        const cells = Object.keys(quarterDefinitions).map(q => {
+          const value = quarterRollupFor(q)[key] || 0;
+          return `<td>${q === quarterKey ? `<strong>${value}</strong>` : value}</td>`;
+        }).join("");
+        return `<tr><td>${esc(label)}</td>${cells}</tr>`;
+      }).join("");
+    }
+
+    function quarterSummaryText() {
+      const quarterKey = document.getElementById("quarterSelect")?.value || "Q4";
+      const rollup = quarterRollupFor(quarterKey);
+      const quarter = quarterDefinitions[quarterKey];
+      return `${quarter.label} FY2026 Quarter Review\n${quarter.start} to ${quarter.end}\nEntered Case Management: ${rollup.entered}\nTotal Open Cases: ${rollup.open}\nTotal Closed Cases: ${rollup.closed}\nEmployed Outcomes: ${rollup.employed}\nMedical Closures: ${rollup.medical}\nDisability Closures: ${rollup.disability}\nNon-Successful / Non-Compliant: ${rollup.nonCompliant}`;
+    }
+
+    function exportQuarterCsv() {
+      const quarterKey = document.getElementById("quarterSelect")?.value || "Q4";
+      const rows = filteredQuarterRows(quarterKey);
+      const csvRows = [
+        ["Section", ...quarterColumns],
+        ...rows.existing.map(row => ["Existing Caseload", ...quarterCellValues(row)]),
+        ...rows.entered.map(row => ["Entered Case Management", ...quarterCellValues(row)])
+      ];
+      const csv = csvRows.map(row => row.map(value => `"${String(value ?? "").replace(/"/g, '""')}"`).join(",")).join("\n");
+      const blob = new Blob([csv], { type: "text/csv" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `dvop-quarter-review-${quarterKey.toLowerCase()}-fy2026-${TODAY}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
     function dashboardExportRows() {
       return state.clients.map((client, index) => {
         const days = daysBetween(client.lastContactDate);
@@ -1973,6 +2279,7 @@
       renderDetail();
       renderClientRecord();
       renderActivity();
+      renderQuarterReview();
       renderResources();
       document.getElementById("navDue").textContent = state.clients.filter(c => {
         const days = daysBetween(c.lastContactDate);
@@ -2980,6 +3287,7 @@
         dashboard: ["Dashboard", "Caseload status, contact urgency, and daily actions"],
         clients: ["Clients", "Client detail records and activity history"],
         activity: ["Activity", "Daily interaction tracking by client, date, and action type"],
+        quarterReview: ["Quarter Review", "FY2026 workbook-style caseload rollup and roster"],
         intake: ["Intake", "Guided intake and first service plan"],
         notes: ["Case Notes", "Contact documentation generator"],
         vaGenerator: ["VA 28-10289", "Formal VA progress report generator"],
@@ -2991,6 +3299,7 @@
       document.getElementById("pageSubtitle").textContent = labels[pageName][1];
       if (pageName === "clients") renderClientRecord();
       if (pageName === "activity") renderActivity();
+      if (pageName === "quarterReview") renderQuarterReview();
     }
 
     document.querySelectorAll(".nav button[data-page], [data-page-shortcut]").forEach(btn => {
@@ -3004,6 +3313,7 @@
     document.querySelectorAll("#resourceSearch,#resourceType").forEach(el => el.addEventListener("input", renderResources));
     document.querySelectorAll("#activitySearch,#activityFilterType,#activityFilterClientType,#activitySort").forEach(el => el.addEventListener("input", renderActivity));
     document.querySelectorAll("#activityMetricType,#activityMetricRange,#activityMetricDate,#activityMetricWeek,#activityMetricMonth").forEach(el => el.addEventListener("input", renderActivityNumbers));
+    document.querySelectorAll("#quarterSearch,#quarterSelect,#quarterSectionFilter").forEach(el => el.addEventListener("input", renderQuarterReview));
     document.getElementById("activityForm").addEventListener("submit", saveActivityFromForm);
 
     document.getElementById("clientPicker").addEventListener("change", event => {
@@ -3089,6 +3399,8 @@
 
     document.getElementById("renderJobLeads").addEventListener("click", addJobLeadsToResources);
     document.getElementById("exportDashboardCsv").addEventListener("click", exportDashboardCsv);
+    document.getElementById("exportQuarterCsv").addEventListener("click", exportQuarterCsv);
+    document.getElementById("copyQuarterSummary").addEventListener("click", () => navigator.clipboard.writeText(quarterSummaryText()));
     document.getElementById("exportTop").addEventListener("click", () => {
       showPage("json");
       document.getElementById("jsonEditor").value = JSON.stringify(state, null, 2);
