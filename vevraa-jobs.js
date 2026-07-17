@@ -1,5 +1,225 @@
 window.VEVRAA_JOBS = [
   {
+    "title": "Entry Level Cost Auditor",
+    "requisition": "R1051493",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Auditor-I--CGS_R1051493__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2trdpW8E$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Clerk, Records I",
+    "requisition": "R1051526-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Retail / Customer Service",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Clerk--Records-I_R1051526-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2-7nwC-4$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Customer Service Advocate I",
+    "requisition": "R1051559-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Retail / Customer Service",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Customer-Service-Advocate-I_R1051559-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2MIWr3cQ$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Technician, Accounting II-CGS",
+    "requisition": "R1050836-2",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Skilled Trades",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Technician--Accounting-II-CGS_R1050836-2__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2V8ZfHzg$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Appeals Specialist (CGS Admin)",
+    "requisition": "R1050717-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Appeals-Specialist--CGS-Admin-_R1050717-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2aaYesU0$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "RN Appeals Analyst Medicare Part B \u2013 CGS",
+    "requisition": "R1051174-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Healthcare",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/RN-Appeals-Analyst-Medicare-Part-B---CGS_R1051174-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2TXcTFdU$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Auditor III",
+    "requisition": "R1051257",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Auditor-III_R1051257__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2IEnYXBs$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Medicare Cost Report Auditor III",
+    "requisition": "R1049924-2",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Auditor-III_R1049924-2__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2vcp1JDQ$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Medical Director (Medicare Policy)",
+    "requisition": "R1051065-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Healthcare",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Chief-Medical-Officer--Medicare-Policy-_R1051065-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2bMdv-j4$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Assistant, Qualified Independent Contractor",
+    "requisition": "R1050986-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Assistant--Qualified-Independent-Contractor_R1050986-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2Kcjl3x8$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Auditor I",
+    "requisition": "R1050256",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Auditor-I_R1050256__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2twN5NeQ$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Entry Level Cost Accountant",
+    "requisition": "R1050171-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Auditor-I_R1050171-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2zJDocOs$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Manager, Medical Review (Medicare - Appeals; Utilization Review; Part A; HHH)",
+    "requisition": "R1051208-2",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Healthcare",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/Manager--Medical-Review--Medicare---Appeals--Utilization-Review--Part-A--HHH-_R1051208-2__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2mGLEWOI$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "IT Senior Project Manager- CGS Administrators, LLC",
+    "requisition": "R1050849-1",
+    "company": "CGS Administrators / BlueCross BlueShield of South Carolina",
+    "category": "Corporate / Professional",
+    "location": "Tennessee",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__https://ourhrconnect.wd501.myworkdayjobs.com/en-US/CGSAdmin/details/IT-Senior-Project-Manger--CGS-Administrators--LLC_R1050849-1__;!!PRtDf9A!u9kmwkQd1dtnCpgE8eFTbCRRDiuq2MeBC6Nmz4CBjSxRF8pOvaBaMfDVeZVCqa0K6dT6a_aNVCfg9WNmWxH2-hKU-Zc$",
+    "source": "CGS TN postings email",
+    "sourceFile": "FW_ [EXTERNAL]CGS - TN Postings - 7.17.2026.eml"
+  },
+  {
+    "title": "Armed Security Officer Flex Driver",
+    "requisition": "2026-1633943",
+    "company": "Allied Universal",
+    "category": "Transportation / CDL",
+    "location": "Cumberland City, TN",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Zb8ASdzmohL1a60cGOzZ1qNe6AhuthbCOPav96E6aobtex2-2F5f81Jz25nX75WTdqc-3DwXrZ_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVd84Uu80d9JtXy3DHnQElwAlssqRwAWJqk8o3uyc4wrFXeJfJpqwU3LW61E2VmbdpAQNQ8ZLX-2BtlvjseA16Kp1A2A8jcYJDRg6O7aWxpVfAijp3O4tg63ZIX-2BqPGOmMn9mL7Hl6rFCV-2F5cZqCZ0pWAfqwkvNPVeAwF2MQYV88Id9Te22VVgiD0B5B-2Bcz68qi7__;!!PRtDf9A!plWVL14ABwSgC7BOJc_gr9zdOPAj6S8NomQYiImgrPFsd16_XLL5L8riJbVLRive3zJCCKKz4eIAZfSVqmqkhV3C$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_17_2026.eml"
+  },
+  {
+    "title": "Manager Trainee",
+    "requisition": "41239",
+    "company": "The Hertz Corporation",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YU6-2Frc5VUDFIIogcxvlyw9gUiENr0R4sn4-2B3XK79-2FK-2B36IQ-2BGLBhAZs63e6vXIszI-3DuV-b_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVd84Uu80d9JtXy3DHnQElwAlssqRwAWJqk8o3uyc4wrHCJkDvSMPSehDMa-2FQKHbcAGJ3ZdrKeHYnWuxOvBj2Vvw0-2B6137dUgy0-2BKLfvGWc6ogfWmbuVlFmzBxupEee-2FAseSrB9t8E2Tk5t0VTgvPQ1z5IIxZcO4YBuHAt3k90qnDOj5LqhX-2F0n39OwFrb6ZvH__;!!PRtDf9A!plWVL14ABwSgC7BOJc_gr9zdOPAj6S8NomQYiImgrPFsd16_XLL5L8riJbVLRive3zJCCKKz4eIAZfSVqghD34xw$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_17_2026.eml"
+  },
+  {
+    "title": "Pharmacy Customer Service Associate",
+    "requisition": "1848630BR",
+    "company": "Walgreens",
+    "category": "Retail / Customer Service",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aDnRfoAy9Rf8uExho-2BWwCMxqAW0J9HZ0VhFZvszwRCSDG0Xf98MdEsQX4O6J5DHZs-3DUf8__uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVd84Uu80d9JtXy3DHnQElwAlssqRwAWJqk8o3uyc4wrEkh2gByDtAin0jvzpSCyg9x-2Bb0exKnWJwABx26VtZBskJFDjNxA85hiHfC62A9ZLTwPFCtVA-2FOOxEvE-2Fxo2R4sGnwsKXieirnPy4ST7gAJ907-2Bb7t3AeiPkW80-2Fd9Zk4Mtguoi4od8oo5W7R5t2Lev__;!!PRtDf9A!plWVL14ABwSgC7BOJc_gr9zdOPAj6S8NomQYiImgrPFsd16_XLL5L8riJbVLRive3zJCCKKz4eIAZfSVqrJ1mJc0$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_17_2026.eml"
+  },
+  {
+    "title": "Delivery Truck Driver - Non CDL",
+    "requisition": "R-138600",
+    "company": "Ferguson Enterprises, LLC.",
+    "category": "Transportation / CDL",
+    "location": "Clarksville, TN",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bkx4H60CoXEAiTQJwvR-2FHUdFutHL45kdffAoLiy7ats6mPAmBJZdPnWcFsualMpS8-3DTUMK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVd84Uu80d9JtXy3DHnQElwAlssqRwAWJqk8o3uyc4wrE1YLCqOxUK5qd6oRrfqOnr3RVdqYJWSPrDJahoxLRVWCpQ71TNLwTzBayYWxN4jEGSnywzgBRxC4N06A1mVlm4unCFcWlOX-2BSJU6vJw-2FNFJuEzosOMR-2BHVSmlLMSBg8ojvAAYxnjV8rNIwIH-2BptXbZ__;!!PRtDf9A!plWVL14ABwSgC7BOJc_gr9zdOPAj6S8NomQYiImgrPFsd16_XLL5L8riJbVLRive3zJCCKKz4eIAZfSVqlhobNR9$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_17_2026.eml"
+  },
+  {
+    "title": "Merchandising Sales Associate",
+    "requisition": "1409875200",
+    "company": "Tractor Supply Company",
+    "category": "Retail / Customer Service",
+    "location": "Dover, TN",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YkFJe1H-2BhySnoniSxx2eFisx7fBIx-2BLRzsQaAydR4ErBMijOI2cta7uPsNC4-2F2oy0-3DDnUx_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVd84Uu80d9JtXy3DHnQElwAlssqRwAWJqk8o3uyc4wrFHEpqj7q7hJUEI-2BAKqHyTI3gIgyszLwoRThaeXKO7rtg7CV9ZE02aiuRaVAEuJrxhMCW4scD8NDfebP535DPj8SqS-2FUvWdCoPt2cE3favFPFmxyKdsyKpx8rjCEZhztub2w1AbH5WrCbqsNnP7uUrl__;!!PRtDf9A!plWVL14ABwSgC7BOJc_gr9zdOPAj6S8NomQYiImgrPFsd16_XLL5L8riJbVLRive3zJCCKKz4eIAZfSVqovfiLPU$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_17_2026.eml"
+  },
+  {
+    "title": "Team Member",
+    "requisition": "1409679700",
+    "company": "Tractor Supply Company",
+    "category": "Corporate / Professional",
+    "location": "Dover, TN",
+    "date": "2026-07-17",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bJSP1aTdlIOzm1SkMTM8tmCtXbEFWlJ9joWRHRFrO9iMCPofl4CjkDGeoruQ5Eqp4-3DXZye_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVd84Uu80d9JtXy3DHnQElwAlssqRwAWJqk8o3uyc4wrHm93haUpYsb45CJYZEo4ZWLK-2FpEl93ar2bAZ5vv4-2BNEkwjY-2Bi4eJxTvJjp1rykizsMbVVKq2ZOhhGHfZ5A6XsCM1H30aOr5ySk5jibDbNBAeXzmFmigSpKYuazCWT1GERYIasd3lT0I8j0YUpeYogS__;!!PRtDf9A!plWVL14ABwSgC7BOJc_gr9zdOPAj6S8NomQYiImgrPFsd16_XLL5L8riJbVLRive3zJCCKKz4eIAZfSVqt6DOG7K$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_17_2026.eml"
+  },
+  {
     "title": "Maintenance Specialist",
     "requisition": "9121",
     "company": "Graphic Packaging International, LLC",
@@ -77,7 +297,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_16_2026.eml"
   },
   {
-    "title": "Retail Sales Associate – Part Time",
+    "title": "Retail Sales Associate \u2013 Part Time",
     "requisition": "127816",
     "company": "AutoZone, Inc.",
     "category": "Retail / Customer Service",
@@ -121,7 +341,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_16_2026.eml"
   },
   {
-    "title": "Part Sales Manager – Full Time",
+    "title": "Part Sales Manager \u2013 Full Time",
     "requisition": "127821",
     "company": "AutoZone, Inc.",
     "category": "Retail / Customer Service",
@@ -1617,7 +1837,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_02_2026.eml"
   },
   {
-    "title": "LTSS Service Coordinator – Clinician (LSW, LCSW, LPN)",
+    "title": "LTSS Service Coordinator \u2013 Clinician (LSW, LCSW, LPN)",
     "requisition": "JR196724",
     "company": "Elevance Health",
     "category": "Healthcare",
@@ -1683,7 +1903,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_02_2026.eml"
   },
   {
-    "title": "Commercial Driver – Full Time",
+    "title": "Commercial Driver \u2013 Full Time",
     "requisition": "122751",
     "company": "AutoZone, Inc.",
     "category": "Transportation / CDL",
@@ -2101,7 +2321,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_13_2026.eml"
   },
   {
-    "title": "PT (Physical Therapist) – Acute Care",
+    "title": "PT (Physical Therapist) \u2013 Acute Care",
     "requisition": "R-66085",
     "company": "Vanderbilt University Medical Center",
     "category": "Healthcare",
@@ -2178,7 +2398,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_13_2026.eml"
   },
   {
-    "title": "Part Sales Manager – Full Time",
+    "title": "Part Sales Manager \u2013 Full Time",
     "requisition": "116062",
     "company": "AutoZone, Inc.",
     "category": "Retail / Customer Service",
