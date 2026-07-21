@@ -1,4 +1,125 @@
 window.VEVRAA_JOBS = [
+{
+  "title": "Truck Driver on-the-job CDL Training",
+  "requisition": "4232",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Cumberland City, TN",
+  "date": "2026-07-20",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35a7UgO3ufXn2cm4Q-2BaINJehNjJ4ROPwdN-2F7iHOSAq2qc9aJpzEMFUOPxhWV-2BZxQh88-3D23ln_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrV-2Fmf49n2rPMz7pVfF6L82qphAFHk4kq8sgo0pfphnssvqa-2F5GvEg4c3uJG8CK2z0SOFllu-2BsbAgBa8E0wmBTYhXtgRGMG-2Bl40A8WA-2FxOUuvRyLFjNCakbljk7c9HnD3ObenzjCYkbfCnVSDns3VSDAZ65e0f2dqqxXNRzumBSB8EM-2BfAf4ePSe3mWWfGtrySf__;!!PRtDf9A!oWQxr1tIjPkpDjeKHSKzM_xeqNtW7CK21ONTMI6Lj-QixHlMYRATafu3XW1FtSXpS6ndpZpXgnkpjltREshipLLY$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_20_2026.eml"
+},
+{
+  "title": "Truck Driver on-the-job CDL Training",
+  "requisition": "4232",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Chapmansboro, TN",
+  "date": "2026-07-20",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZECBm5P6RXdxAWTLIBCcePH3WmyENh4tnyXOSnn8aNRKQRI7L4O7S5JszKjvEmrBQ-3DI2Ki_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrV-2Fmf49n2rPMz7pVfF6L82qphAFHk4kq8sgo0pfphnsstzrQqWAqAJeEQnCIb2NgXi5V4GkT0LedYinMKmEcVda4GJJST7c3l2nmzqd-2BHqYqej3aunaEuaGi2oizjw-2Frdva-2FN2GWgsfNT5-2B8oi00puE0e5bBJ2JWJf0ACq9FIpcj3XO-2FofXLrt9MK8TOyUf9BX__;!!PRtDf9A!oWQxr1tIjPkpDjeKHSKzM_xeqNtW7CK21ONTMI6Lj-QixHlMYRATafu3XW1FtSXpS6ndpZpXgnkpjltREj8Tu4k_$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_20_2026.eml"
+},
+{
+  "title": "Truck Driver on-the-job CDL Training",
+  "requisition": "4232",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Adams, TN",
+  "date": "2026-07-20",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aYZ2u9l0-2F-2BNq2wmIbvHRh-2FQ5hzBeI19hpPRAVydyMWHK6HkrDmxvv9MmTzinpCOlg-3Dn8WA_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrV-2Fmf49n2rPMz7pVfF6L82qphAFHk4kq8sgo0pfphnssvdOHPvmW3CKPD-2BXqlrsaiJ1fofXIdwawuyBnJNOVBdOvIRg6MX-2FHHFL8zBrN5rfXx9cm4NjEc5NJyQ-2FQ-2B3vEbfqLKXYQZCVPffjInhWORx-2B3ex86zkosYokvSXVYlpr8hGCoTrp050tzC-2FabCKeq3e__;!!PRtDf9A!oWQxr1tIjPkpDjeKHSKzM_xeqNtW7CK21ONTMI6Lj-QixHlMYRATafu3XW1FtSXpS6ndpZpXgnkpjltREm1F8V_S$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_20_2026.eml"
+},
+{
+  "title": "Truck Driver on-the-job CDL Training",
+  "requisition": "4232",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Dover, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZbzcCpS54mOAN4YYyptxSK6enuQqnPU1Pi3Z3IBZQNXVHmKtSQIwcyuvwsf6vSY3Q-3DaO5S_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrx-2FOjz9dkJwHFUw7DTJ7F1HZk0Egu4MhMKxaBpM7Nx0nCioUiLJkMX3wOPxiei4G5fpRfygaINUeGMzxd961MUgiZ4B4rcWdER-2FtT8-2FiHJiIgglPhFutvWK2gv0AjEay9FoGfeKHQ-2Bxv7iRPHMElFfW__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjtHzTqLH$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Truck Driver on-the-job CDL Training",
+  "requisition": "4232",
+  "company": "Roehl Transport",
+  "category": "Transportation / CDL",
+  "location": "Big Sandy, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aBVGGZpyOjCLU534VNWD5xhRG7Cyya0lhABZwFlOMqjK-2B2rf2jUdZ4IKuemzVCo4g-3DkfmB_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrwzEQxo5aVwwu3tr1t-2FlCbVAdMqZk0RR9opV7-2BVnFSIikSLJv26pGY-2BG7FWhyAVpV8R9QzY0UfnSKNxOm5t6s3O7qo8E6lcLCrE6Eemt4wflKip2zcRjHdCbIu6GHY4BffhggHW-2FSnaJj9qNtrQwHWJ__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjm7uhh61$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Shift Lead",
+  "requisition": "1850944BR",
+  "company": "Walgreens",
+  "category": "Retail / Customer Service",
+  "location": "CLARKSVILLE, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aSF3R7OVSU7AFhdM-2BYByCkbfAJ0DjingrE-2Fq3R5-2Fss-2FqJEnVoforXZMuCSQfb2cGw-3DqqWK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrxgHib836vuui-2Bf5a8E-2BupxORctKciK5hSzvklRWER8KI6SsgP94UeQxyHxHf5vbK0xFqWmAngwLUNTTHEBt2JUTM8dKbNToDoK8RWnHJ9PgssKGHFi1KH7z-2B40gG98y7-2FJM-2BsmhpF-2BGTlYI2s9fCqY__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjsT_ePwK$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Industrial Maintenance Mechanic",
+  "requisition": "6548",
+  "company": "Jostens",
+  "category": "Skilled Trades",
+  "location": "Clarksville, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bvNiOTiEa7sdLT19MSB1Db4H8xfwpHXLl3T-2FZdl-2BLkr7do9QdjEBW-2FJd3IPqNYBvQ-3DsbQi_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrxEokeKRRfB0m3ahJnZB6G6XepLKTM-2BYsWwgVLhhlFCnpJfJj-2BeKjiGGX5zZR1CAWi5QJkA6nRW2Izv8GbFxVbBxI-2B4-2FgJgknlL1JtzepG9LH3zIlj1WCZowFPtxk9G20r1WkaTE9VDJIT1lPl2swou__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjkZD3Pjl$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Laborer Telecom Underground",
+  "requisition": "12577",
+  "company": "Ervin Cable",
+  "category": "Skilled Trades",
+  "location": "Clarksville, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bx1tu1G33E0-2F2USw96Om-2B97GGhnFM-2BVYkbXTcQTvtLUlLD-2BBt2vwvXneKF0MLLhZk-3D5zsB_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrwPAN5FrM2X80sew1aTq9-2FbMdbgSwu7-2BrxW-2BAPlQy9Hj9jOg8trjr55VbXV14txpsfIpyqgLlNzVRf6OA2jArWEEU0482XsoSZsIw6lbphA6yVYp4RVQ1KmyEi7yuOgrcxCJKgN6wxvCkdbSQcuqnWP__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjioNRNXO$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Clinic RN Specialty Clinic",
+  "requisition": "457852",
+  "company": "Ascension Health",
+  "category": "Healthcare",
+  "location": "Clarksville, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35agfurLn0zpVZzlvK5pyNTJn2y0rDbKrVBsya9AgJ4FOW50EMI6wTnidWSRvKh96YE-3DV5_E_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrx2i8R2fmnO2h98UcRoCX9w2Z3L88IvpHeP99-2F0MeS1l7Ubtr6d9IVXavFcF63QPf1faPI9uANF5BvCIiThYsfacMRt1nnykIFnifEPb1nh5EbrJFWcIl7Fp-2F0JU8hm4MypktCEh-2F5sCEcdJF2kUxFI__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjn5WzONo$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Maintenance Technician",
+  "requisition": "JP-006168286",
+  "company": "Aerotek",
+  "category": "Skilled Trades",
+  "location": "Clarksville, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YlpEczANvrM2-2FYbZDrOPtxfYV6M-2BQ2ssZztyUtdQxlhHDvBQ-2Fv1GTtVgCcp5VrVx0-3D05_a_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrwqAbVH5fEW6HPj4Y-2BqNuoTt71hs0M34ibO6-2FO9FrzHPUPXK-2BUPPb1SA0L83uLJfhhCY4B97BV8G7sgWdawycDaXzMrIsAZWVhU7l2nbOwaM7me5mNbYiJ05ukhExealHIAWYfczZ5q5ak-2FP6PcTIda__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjl6j-2Hk$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
+{
+  "title": "Automotive Technician",
+  "requisition": "2026_17085",
+  "company": "Bridgestone Americas",
+  "category": "Transportation / CDL",
+  "location": "Clarksville, TN",
+  "date": "2026-07-21",
+  "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aW9-2BWVaFA9Qu-2FaqJCTLbOaXDjNA8LzHgfGch-2BGEX6N6jeaMfDojmzELJFntV-2FAI7M-3Dyy8z_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVvXaMfyE19VN-2F3k-2Bzgqp-2F2W54-2FHJFuekVgcH-2BHOFdbrzf2AOH3xQkRQhsLFcsPGnJPO1UKCe3tDS-2BZzms7uy7Zl36hZBDA3Ke25IF2OEkUaOX4jThUkqAoxwRsaivntMNSuVyXT3LGunwPjGkchgGoyZ8XTUzgTHXicNTmKI0cx8Rr9uwm5PLv8OaK-2BzM8Id-2B__;!!PRtDf9A!qqmOrizYUQuJDPIm0P-dy7ZlVttCh3pywx_E3IhZJwCjzj66-EXcrFFjhSqOXx7uFiZJ8TdDx2ETh-dMjsBoY1o1$",
+  "source": "VEVRAA email",
+  "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_21_2026.eml"
+},
   {
     "title": "Entry Level Cost Auditor",
     "requisition": "R1051493",
