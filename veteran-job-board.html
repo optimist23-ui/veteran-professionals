@@ -25,10 +25,6 @@
       box-sizing: border-box;
     }
 
-    [hidden] {
-      display: none !important;
-    }
-
     html {
       scroll-behavior: smooth;
     }
@@ -1121,78 +1117,6 @@
       margin: 0 0 30px;
     }
 
-    .featured-events-section {
-      margin: 18px 0 30px;
-    }
-
-    .archive-section {
-      margin: 18px 0 30px;
-    }
-
-    .featured-events-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: start;
-      gap: 18px;
-    }
-
-    .featured-event-card {
-      display: flex;
-      flex-direction: column;
-      align-self: start;
-      overflow: hidden;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .featured-event-card img {
-      display: block;
-      width: 100%;
-      height: auto;
-      min-height: 0;
-      object-fit: initial;
-      background: #fff;
-    }
-
-    .featured-event-body {
-      padding: 18px;
-      border-top: 1px solid var(--line);
-      background: #fff;
-    }
-
-    .featured-event-body h3 {
-      margin: 8px 0;
-    }
-
-    .archive-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-    }
-
-    .archive-card {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 14px;
-      align-items: start;
-      padding: 14px;
-    }
-
-    .archive-card img {
-      display: block;
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      background: #fff;
-    }
-
-    .archive-card h3 {
-      margin: 6px 0;
-      font-size: 1rem;
-    }
-
     .calendar-feature {
       display: grid;
       grid-template-columns: minmax(260px, 0.95fr) minmax(260px, 1fr);
@@ -1348,8 +1272,6 @@
       .filter-steps,
       .resume-help-card,
       .calendar-feature,
-      .featured-events-grid,
-      .archive-card,
       .upload-shell,
       .form-grid {
         grid-template-columns: 1fr;
@@ -1451,127 +1373,6 @@
         </div>
       </div>
 
-      <section class="featured-events-section" aria-label="Upcoming hiring events and career workshops">
-        <div class="section-head">
-          <div>
-            <h2>Upcoming Hiring Events and Career Workshops</h2>
-            <p class="muted">Meet local employers and attend targeted job-search workshops in the Clarksville and Fort Campbell area.</p>
-          </div>
-        </div>
-        <div class="featured-events-grid">
-          <article class="featured-event-card" data-expiration-date="2026-07-21">
-            <img src="federal-resume-workshop-july-2026.pdf.png" alt="Fort Campbell federal resume workshop flyer for July 7 and July 21, 2026">
-            <div class="featured-event-body">
-              <span class="pill">Resume Writing Class</span>
-              <h3>Fort Campbell Federal Resume Workshop</h3>
-              <p>Ten Steps to Federal Resume workshop covering federal resumes, USAJOBS, and the federal application process.</p>
-              <ul class="resume-help-details">
-                <li><strong>Next date:</strong> July 21, 2026</li>
-                <li><strong>Time:</strong> 1:00 PM-3:00 PM</li>
-                <li><strong>Location:</strong> Spouse Employment Center Classroom, 5662 Screaming Eagle Blvd, Fort Campbell, KY</li>
-                <li><strong>Reserve:</strong> Call 270-798-4412</li>
-              </ul>
-              <a class="link-button" href="document-viewer.html?file=federal-resume-workshop-july-2026.pdf&title=Federal%20Resume%20Workshop%20July%202026" target="_blank" rel="noopener">View Class Flyer</a>
-            </div>
-          </article>
-          <article class="featured-event-card" data-expiration-date="2026-07-16">
-            <img src="campbell-crossing-pop-up-hiring-event-july-16-2026.png" alt="Campbell Crossing pop up hiring event flyer for July 16, 2026">
-            <div class="featured-event-body">
-              <span class="pill">Pop Up Hiring Event</span>
-              <h3>Campbell Crossing</h3>
-              <p>Hiring maintenance, grounds, painting, flooring, and project technician roles at Fort Campbell.</p>
-              <ul class="resume-help-details">
-                <li><strong>Date:</strong> Thursday, July 16, 2026</li>
-                <li><strong>Time:</strong> 10:00 AM-3:00 PM</li>
-                <li><strong>Location:</strong> Hammond Community Office, 3065 Anaconda Road, Fort Campbell, KY 42223</li>
-              </ul>
-              <a class="link-button" href="campbell-crossing-pop-up-hiring-event-july-16-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
-            </div>
-          </article>
-          <article class="featured-event-card" data-expiration-date="2026-07-29">
-            <img src="office-post-conviction-defender-july-2026.pdf.png" alt="Office of the Post-Conviction Defender administrative assistant hiring flyer">
-            <div class="featured-event-body">
-              <span class="pill">Now Hiring</span>
-              <h3>Office of the Post-Conviction Defender</h3>
-              <p>Administrative Assistant opening listed on Jobs4TN with a salary range of $53K-$97K annually.</p>
-              <ul class="resume-help-details">
-                <li><strong>Job number:</strong> 1648031</li>
-                <li><strong>Apply:</strong> www.jobs4tn.gov</li>
-                <li><strong>Closing date:</strong> July 29, 2026</li>
-              </ul>
-              <a class="link-button" href="document-viewer.html?file=office-post-conviction-defender-july-2026.pdf&title=Office%20of%20the%20Post-Conviction%20Defender%20July%202026" target="_blank" rel="noopener">View Hiring Notice</a>
-            </div>
-          </article>
-          <article class="featured-event-card" data-expiration-date="2026-07-30">
-            <img src="furniture-connection-job-fair-july-2026.png" alt="Furniture Connection hiring event flyer for July 8, 14, 22, and 30, 2026">
-            <div class="featured-event-body">
-              <span class="pill">Official Hiring Event</span>
-              <h3>Furniture Connection</h3>
-              <p>Hiring Sales Associates and Delivery Drivers across four July hiring dates.</p>
-              <ul class="resume-help-details">
-                <li><strong>Dates:</strong> July 8, July 14, July 22, and July 30, 2026</li>
-                <li><strong>Time:</strong> 9:00 AM-12:00 PM</li>
-                <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
-              </ul>
-              <a class="link-button" href="furniture-connection-job-fair-july-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
-            </div>
-          </article>
-          <article class="featured-event-card" data-expiration-date="2026-07-16">
-            <img src="bridgestone-metalpha-job-fair-july-14-16-2026.png" alt="Bridgestone Metalpha USA job fair flyer for July 14, 15, and 16, 2026">
-            <div class="featured-event-body">
-              <span class="pill">Official Job Fair</span>
-              <h3>Bridgestone Metalpha USA</h3>
-              <p>Hiring Production Workers at the American Job Center.</p>
-              <ul class="resume-help-details">
-                <li><strong>Dates:</strong> July 14, July 15, and July 16, 2026</li>
-                <li><strong>Time:</strong> 9:00 AM-11:00 AM</li>
-                <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
-              </ul>
-              <a class="link-button" href="bridgestone-metalpha-job-fair-july-14-16-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
-            </div>
-          </article>
-          <article class="featured-event-card" data-expiration-date="2026-07-29">
-            <img src="hankook-company-battery-job-fair-july-2026.png" alt="Hankook and Company Battery job fair flyer for July 15, 22, and 29, 2026">
-            <div class="featured-event-body">
-              <span class="pill">Official Job Fair</span>
-              <h3>Hankook and Company Battery</h3>
-              <p>Hiring Machine Operators, Multi-Craft Maintenance Technicians, Quality Inspectors, Facility Maintenance Inventory Clerks, and Forklift Drivers.</p>
-              <ul class="resume-help-details">
-                <li><strong>Dates:</strong> July 15, July 22, and July 29, 2026</li>
-                <li><strong>Time:</strong> 9:00 AM-12:00 PM</li>
-                <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
-                <li><strong>Screening:</strong> Pre-employment drug screen, physical, and background check required.</li>
-              </ul>
-              <a class="link-button" href="hankook-company-battery-job-fair-july-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
-            </div>
-          </article>
-          <article class="featured-event-card" data-expiration-date="2026-07-23">
-            <img src="csc-event-staff-job-fair-july-23-2026.png" alt="Contemporary Services Corporation hiring event flyer for July 23, 2026">
-            <div class="featured-event-body">
-              <span class="pill">Official Hiring Event</span>
-              <h3>Contemporary Services Corporation</h3>
-              <p>Recruiting part-time event staff for Austin Peay State University, Nashville, and Bowling Green events.</p>
-              <ul class="resume-help-details">
-                <li><strong>Date:</strong> July 23, 2026</li>
-                <li><strong>Time:</strong> 9:00 AM-12:00 PM</li>
-                <li><strong>Location:</strong> American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040</li>
-              </ul>
-              <a class="link-button" href="csc-event-staff-job-fair-july-23-2026.png" target="_blank" rel="noopener">View Official Flyer</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="archive-section" id="pastEventArchive" aria-label="Past job fair archive" hidden>
-        <div class="section-head">
-          <div>
-            <h2>Past Job Fair Archive</h2>
-            <p class="muted">Expired flyers kept for reference only. Use the active job board and upcoming events first when sharing with clients.</p>
-          </div>
-        </div>
-        <div class="archive-grid" id="pastEventArchiveList"></div>
-      </section>
-
       <section class="support-agency-section" aria-label="Additional resume and job support agencies">
         <div class="section-head">
           <div>
@@ -1611,21 +1412,20 @@
         <div class="section-head">
           <div>
             <h2>Workshop Calendar</h2>
-            <p class="muted">American Job Center Tennessee workshop schedule for July 2026.</p>
+            <p class="muted">American Job Center Tennessee workshop schedule for June 2026.</p>
           </div>
         </div>
         <article class="card calendar-feature">
-          <img src="july-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar July 2026">
+          <img src="june-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar June 2026">
           <div class="calendar-details">
             <h3>American Job Center Workshop Calendar</h3>
             <ul class="calendar-detail-list">
-              <li><strong>Month:</strong> July 2026</li>
+              <li><strong>Month:</strong> June 2026</li>
               <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
               <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
-              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, essential soft skills, LinkedIn, online job search safety, AI for the job seeker, Zoom basics, and Microsoft basics.</li>
-              <li><strong>Locations shown:</strong> Sumner AJC, Williamson Co. Office, Robertson Co. Office, Rutherford AJC, Davidson AJC, Montgomery AJC, Martha O'Bryan Center, Dickson Co. Office, and Cheatham Co. Office.</li>
+              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
+              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Westmoreland Public Library, Martha O'Bryan Center, Cheatham AJC, Dickson AJC.</li>
             </ul>
-            <a class="secondary-button" href="july-2026-workshop-schedule.html" target="_blank" rel="noopener">Open July Calendar</a>
           </div>
         </article>
       </div>
@@ -1680,6 +1480,31 @@
           <button class="filter-reset-button" id="resetJobFilters" type="button">Reset to full list</button>
         </div>
       </section>
+
+      <article class="resume-help-card job-fair-feature" aria-label="Fatherhood Festival 2026 event">
+        <img src="fatherhood-festival-2026.jpeg" alt="Fatherhood Festival 2026 flyer preview">
+        <div class="resume-help-content">
+          <span class="pill">Community Resource Event</span>
+          <h3>Fatherhood Festival 2026: NFL Alumni Training Camp for Dads</h3>
+          <p>New Life Center and NFL Alumni are hosting a family-friendly event for veteran dads, rookie dads, and families with music, food, games, giveaways, and parenting resources.</p>
+          <div class="countdown-grid" id="fatherhoodCountdown" data-event-start="2026-06-20T12:00:00-05:00">
+            <div class="countdown-box"><strong data-countdown-days>--</strong><span>Days</span></div>
+            <div class="countdown-box"><strong data-countdown-hours>--</strong><span>Hours</span></div>
+            <div class="countdown-box"><strong data-countdown-minutes>--</strong><span>Minutes</span></div>
+            <div class="countdown-box"><strong data-countdown-seconds>--</strong><span>Seconds</span></div>
+          </div>
+          <ul class="resume-help-details">
+            <li><strong>Date:</strong> Saturday, June 20, 2026</li>
+            <li><strong>Time:</strong> 12:00 PM-5:00 PM</li>
+            <li><strong>Location:</strong> Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208</li>
+            <li><strong>Audience:</strong> Veteran dads, rookie dads, and families</li>
+          </ul>
+          <div class="resume-help-actions">
+            <a class="link-button" href="fatherhood-festival-2026.jpeg" target="_blank" rel="noopener">View Event Flyer</a>
+            <a class="secondary-button" href="https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026" target="_blank" rel="noopener">Register</a>
+          </div>
+        </div>
+      </article>
 
       <div class="grid">
         <div class="stack" id="jobList" aria-live="polite"></div>
@@ -2041,14 +1866,14 @@
     <span>Mario McMichael | <a href="mailto:mario.mcmichael@tn.gov">mario.mcmichael@tn.gov</a> | <a href="tel:19319053566">931-905-3566</a></span>
   </footer>
 
-  <script src="vevraa-jobs.js?v=20260721"></script>
+  <script src="vevraa-jobs.js?v=20260722"></script>
   <script>
     const PASSCODE = "vetcentral2026";
     const FLYER_DELETE_CODE = "1124";
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 45;
+    const dataVersion = 31;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -2131,115 +1956,86 @@
       ],
       flyers: [
         {
-          title: "Campbell Crossing Pop Up Hiring Event - July 16",
+          title: "Bridgestone Metalpha USA Production Worker Hiring Event",
           category: "Job Fair",
-          date: "2026-07-16",
-          time: "10:00 AM-3:00 PM",
-          location: "Hammond Community Office, 3065 Anaconda Road, Fort Campbell, KY 42223",
-          employers: ["Campbell Crossing", "WinnResidential Military Housing Services"],
-          thingsToBring: ["Resume", "Photo ID", "Questions about open roles"],
-          workshops: "Current openings include GMA, Painter, GMT, Laborer, Groundskeeper, RSC Woodlands, Special Projects Technician, and GMT Flooring Specialist.",
-          fileName: "campbell-crossing-pop-up-hiring-event-july-16-2026.png",
-          fileType: "image/png",
-          dataUrl: "campbell-crossing-pop-up-hiring-event-july-16-2026.png"
-        },
-        {
-          title: "Office of the Post-Conviction Defender Administrative Assistant",
-          category: "Hiring Flyer",
-          date: "2026-07-29",
-          time: "Closing date: July 29, 2026",
-          location: "Apply at www.jobs4tn.gov",
-          employers: ["Office of the Post-Conviction Defender"],
-          thingsToBring: ["Resume", "Jobs4TN account access", "Job #1648031"],
-          workshops: "Now hiring an Administrative Assistant. Salary range is $53K-$97K annually with benefits offered.",
-          fileName: "office-post-conviction-defender-july-2026.pdf",
-          fileType: "application/pdf",
-          dataUrl: "office-post-conviction-defender-july-2026.pdf"
-        },
-        {
-          title: "CMCSS Transportation Job Fair - July 14 and 16",
-          category: "Job Fair",
-          date: "2026-07-16",
-          time: "9:00 AM-12:00 PM",
-          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
-          employers: ["CMCSS Transportation Department"],
-          thingsToBring: ["Resume", "Professional dress", "Questions about bus driver, bus aide, and bus monitor roles"],
-          workshops: "CMCSS Transportation Department will be at the American Job Center on July 14 and 16, 2026, hiring Bus Drivers, Bus Aides, and Bus Monitors.",
-          fileName: "cmcss-transportation-job-fair-july-14-16-2026.png",
-          fileType: "image/png",
-          dataUrl: "cmcss-transportation-job-fair-july-14-16-2026.png"
-        },
-        {
-          title: "Bridgestone Metalpha USA Job Fair - July 14-16",
-          category: "Job Fair",
-          date: "2026-07-16",
+          date: "2026-07-23",
           time: "9:00 AM-11:00 AM",
           location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
           employers: ["Bridgestone Metalpha USA Inc"],
-          thingsToBring: ["Resume", "Professional dress", "Questions for hiring representatives"],
-          workshops: "Bridgestone Metalpha USA Inc will be hiring for Production Workers on July 14, 15, and 16.",
-          fileName: "bridgestone-metalpha-job-fair-july-14-16-2026.png",
+          thingsToBring: ["Resume", "Professional dress", "Questions for the hiring team"],
+          workshops: "Bridgestone Metalpha USA Inc will meet candidates for Production Worker opportunities.",
+          fileName: "bridgestone-metalpha-job-fair-2026.png",
           fileType: "image/png",
-          dataUrl: "bridgestone-metalpha-job-fair-july-14-16-2026.png"
+          dataUrl: "bridgestone-metalpha-job-fair-2026.png"
         },
         {
-          title: "Hankook and Company Battery Job Fair - July 2026",
+          title: "CMCSS Transportation Job Fair - June 23",
           category: "Job Fair",
-          date: "2026-07-29",
+          date: "2026-06-23",
           time: "9:00 AM-12:00 PM",
           location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
-          employers: ["Hankook and Company Battery"],
-          thingsToBring: ["Resume", "Professional dress", "Questions about screening and open roles"],
-          workshops: "Hiring Machine Operators, Multi-Craft Maintenance Technicians, Quality Inspectors, Facility Maintenance Inventory Clerks, and Forklift Drivers on July 15, 22, and 29. Pre-employment drug screen, physical, and background check required.",
-          fileName: "hankook-company-battery-job-fair-july-2026.png",
+          employers: ["CMCSS Transportation Department"],
+          thingsToBring: ["Resume", "Professional dress", "Questions for hiring representatives"],
+          workshops: "Recruiting for Bus Drivers, Bus Aides, and Bus Monitors. Meet directly with CMCSS representatives.",
+          fileName: "cmcss-transportation-june-23-25-2026.png",
           fileType: "image/png",
-          dataUrl: "hankook-company-battery-job-fair-july-2026.png"
+          dataUrl: "cmcss-transportation-june-23-25-2026.png"
         },
         {
-          title: "Contemporary Services Corporation Hiring Event - July 23",
+          title: "CMCSS Transportation Job Fair - June 25",
           category: "Job Fair",
-          date: "2026-07-23",
+          date: "2026-06-25",
+          time: "9:00 AM-12:00 PM",
+          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
+          employers: ["CMCSS Transportation Department"],
+          thingsToBring: ["Resume", "Professional dress", "Questions for hiring representatives"],
+          workshops: "Recruiting for Bus Drivers, Bus Aides, and Bus Monitors. Meet directly with CMCSS representatives.",
+          fileName: "cmcss-transportation-june-23-25-2026.png",
+          fileType: "image/png",
+          dataUrl: "cmcss-transportation-june-23-25-2026.png"
+        },
+        {
+          title: "Contemporary Services Corporation Hiring Event",
+          category: "Job Fair",
+          date: "2026-06-24",
           time: "9:00 AM-12:00 PM",
           location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
           employers: ["Contemporary Services Corporation"],
           thingsToBring: ["Resume", "Professional dress", "Questions about event staffing"],
-          workshops: "Recruiting part-time event staff for Austin Peay State University events, with opportunities in Nashville and Bowling Green, Kentucky.",
-          fileName: "csc-event-staff-job-fair-july-23-2026.png",
+          workshops: "Recruiting part-time event staff for Austin Peay events, with opportunities in Nashville and Bowling Green, Kentucky.",
+          fileName: "csc-event-staff-job-fair-june-24-2026.png",
           fileType: "image/png",
-          dataUrl: "csc-event-staff-job-fair-july-23-2026.png"
+          dataUrl: "csc-event-staff-job-fair-june-24-2026.png"
         },
         {
-          title: "Furniture Connection Hiring Event - July 2026",
+          title: "AAFES Job Fair",
           category: "Job Fair",
-          date: "2026-07-30",
+          date: "2026-06-17",
           time: "9:00 AM-12:00 PM",
           location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
-          employers: ["Furniture Connection"],
-          thingsToBring: ["Resume", "Professional dress", "Questions about sales associate and delivery driver roles"],
-          workshops: "Furniture Connection will be hiring for Sales Associates and Delivery Drivers on July 8, 14, 22, and 30.",
-          fileName: "furniture-connection-job-fair-july-2026.png",
+          employers: ["AAFES / Exchange"],
+          thingsToBring: ["Resume", "Professional dress", "Questions for recruiters"],
+          workshops: "AAFES will be on-site to discuss various open positions and meet directly with job seekers.",
+          fileName: "aafes-job-fair-2026.png",
           fileType: "image/png",
-          dataUrl: "furniture-connection-job-fair-july-2026.png"
+          dataUrl: "aafes-job-fair-2026.png"
+        },
+        {
+          title: "Fatherhood Festival 2026",
+          category: "Community Notice",
+          date: "2026-06-20",
+          time: "12:00 PM-5:00 PM",
+          location: "Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208",
+          employers: ["New Life Center", "NFL Alumni"],
+          thingsToBring: ["Family members", "Questions about fatherhood and wellness resources"],
+          workshops: "NFL Alumni Training Camp for Dads with music, food, games, giveaways, photos, autographs, parenting resources, co-parenting and communication tools, and health and wellbeing resources.",
+          fileName: "fatherhood-festival-2026.jpeg",
+          fileType: "image/jpeg",
+          dataUrl: "fatherhood-festival-2026.jpeg",
+          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
-      pastEvents: [],
       references: [
-        {
-          title: "Federal Resume Workshop - Fort Campbell",
-          type: "Federal Resume Flyer",
-          image: "federal-resume-workshop-july-2026.pdf.png",
-          caption: "Ten Steps to Federal Resume Workshops for federal employment and USAJOBS application preparation.",
-          details: "Workshop dates are July 7 and July 21, 2026 at the Spouse Employment Center classroom, 5662 Screaming Eagle Blvd, Fort Campbell, Kentucky. Reserve a seat by calling 270-798-4412.",
-          url: "document-viewer.html?file=federal-resume-workshop-july-2026.pdf&title=Federal%20Resume%20Workshop%20July%202026"
-        },
-        {
-          title: "July 2026 Workshop Schedule",
-          type: "Workshop Calendar",
-          image: "july-2026-workshop-schedule.docx.png",
-          caption: "American Job Center July workshop calendar with resume, interview, LinkedIn, AI, online safety, Zoom, and Microsoft basics sessions.",
-          details: "Register by scanning the QR code, emailing jvetter@workforceessentials.com, texting 615-670-3771, or visiting https://rb.gy/s141d9.",
-          url: "july-2026-workshop-schedule.html"
-        },
         {
           title: "Employer Engagement Guide 2026",
           type: "Employer Resource Guide",
@@ -2263,6 +2059,14 @@
           caption: "Career resource flyer for training, coaching, budgeting help, and public-sector job referrals.",
           details: "Catholic Charities resource for job seekers looking for meaningful career support.",
           url: ""
+        },
+        {
+          title: "Fatherhood Festival 2026",
+          type: "Community Event Reference",
+          image: "fatherhood-festival-2026.jpeg",
+          caption: "Family-friendly fatherhood event for veteran dads, rookie dads, and families with NFL Alumni and community partners.",
+          details: "Saturday, June 20, 2026 from 12:00 PM-5:00 PM at Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208.",
+          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
       trainings: [
@@ -2274,21 +2078,26 @@
           details: "Catholic Charities Diocese of Nashville resource offering basic needs assistance, financial education, one-on-one case management, and referrals to certified public sector training programs and job opportunities. Hours: Monday-Friday, 8:00 AM-4:30 PM."
         },
         {
-          title: "July 2026 Workshop Schedule",
-          date: "2026-07-31",
+          title: "June 2026 Workshop Schedule",
+          date: "2026-06-01",
           where: "American Job Center / https://rb.gy/s141d9",
           type: "Workshop Calendar",
-          details: "July 2026 workshops include resume building, resume assistance, cover letters, interview preparation, LinkedIn for your career, essential soft skills, online job search safety, AI for the job seeker, Zoom basics, Microsoft basics, job fair resume review events, and virtual or in-person options."
-        },
-        {
-          title: "Federal Resume Workshop - Fort Campbell",
-          date: "2026-07-21",
-          where: "Spouse Employment Center, 5662 Screaming Eagle Blvd, Fort Campbell, KY",
-          type: "Federal Resume Workshop",
-          details: "Ten Steps to Federal Resume Workshops offered July 7 and July 21, 2026. Covers federal resumes, federal employment application process, and USAJOBS. Reserve a seat by calling 270-798-4412."
+          details: "June 2026 workshops include resume building, resume assistance, cover letters, interview preparation, LinkedIn for your career, essential soft skills, online job search safety, AI for the job seeker, job fair resume review events, and virtual options."
         }
       ],
-      resources: [],
+      resources: [
+        {
+          title: "Fatherhood Festival 2026",
+          type: "Community Event",
+          image: "fatherhood-festival-2026.jpeg",
+          caption: "New Life Center and NFL Alumni host an NFL Alumni Training Camp for Dads with family activities and fatherhood resources.",
+          date: "2026-06-20",
+          time: "12:00 PM-5:00 PM",
+          location: "Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208",
+          details: "Open to veteran dads, rookie dads, and families. Includes music, food, games, NFL alumni giveaways, photos, autographs, parenting tools, co-parenting and communication resources, and wellness supports.",
+          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
+        }
+      ],
       videos: [
         {
           title: "How to Search and Apply on USAJobs",
@@ -2332,7 +2141,6 @@
             references: mergeByKey(starterData.references || [], parsed.references || [], "title", "url"),
             trainings: mergeByKey(starterData.trainings || [], parsed.trainings || [], "title", "date"),
             resources: mergeByKey(starterData.resources || [], parsed.resources || [], "title", "url"),
-            pastEvents: mergeByKey(starterData.pastEvents || [], parsed.pastEvents || [], "title", "date"),
             videos: mergeByKey(starterData.videos || [], parsed.videos || [], "title", "url")
           });
         }
@@ -2364,8 +2172,6 @@
       const staleTitles = new Set([
         "April 28-29 Job Lead Flyer",
         "Bridgestone Metalpha 3 Day Job Fair",
-        "CMCSS Transportation Job Fair - June 23",
-        "CMCSS Transportation Job Fair - June 25",
         "VA Clarksville Expo 2026",
         "Federal Resume Writing Assistance",
         "Resume Refresh and Follow-Up Workshop",
@@ -2382,8 +2188,7 @@
         flyers: normalizeFlyers(currentData.flyers || []).filter((item) => !staleTitles.has(item.title) && keepFreshDate(item)),
         references: migrateLinks(currentData.references || []).filter((item) => !staleTitles.has(item.title)),
         trainings: (currentData.trainings || []).filter((item) => !staleTitles.has(item.title) && keepFreshDate(item)),
-        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website" && !staleTitles.has(item.title) && keepFreshDate(item))),
-        pastEvents: []
+        resources: migrateLinks((currentData.resources || []).filter((item) => item.title !== "Dream Job Website" && !staleTitles.has(item.title) && keepFreshDate(item)))
       };
     }
 
@@ -2793,8 +2598,6 @@
     }
 
     function renderAll() {
-      hideExpiredFeaturedEvents();
-      renderPastEventArchive();
       renderJobs();
       renderJusticeResources();
       renderFlyers();
@@ -2803,36 +2606,6 @@
       renderResources();
       renderVideos();
       updateCountdowns();
-    }
-
-    function hideExpiredFeaturedEvents() {
-      document.querySelectorAll("[data-expiration-date]").forEach((eventCard) => {
-        eventCard.hidden = isPastDate(eventCard.dataset.expirationDate);
-      });
-    }
-
-    function renderPastEventArchive() {
-      const archiveSection = document.querySelector("#pastEventArchive");
-      const archiveList = document.querySelector("#pastEventArchiveList");
-      if (!archiveSection || !archiveList) return;
-      const expiredEvents = sortByDate(data.pastEvents || []).filter((eventItem) => isPastDate(eventItem.date));
-      archiveSection.hidden = !expiredEvents.length;
-      archiveList.innerHTML = expiredEvents.map((eventItem) => `
-        <article class="card archive-card">
-          ${eventItem.image ? `<img src="${escapeAttribute(eventItem.image)}" alt="${escapeAttribute(eventItem.title)} flyer preview">` : ""}
-          <div>
-            <span class="pill">${escapeHtml(eventItem.category || "Past Event")}</span>
-            <h3>${escapeHtml(eventItem.title)}</h3>
-            <p class="muted">${escapeHtml(eventItem.summary || "Expired event retained for reference.")}</p>
-            <div class="flyer-details">
-              <span><strong>Date:</strong> ${escapeHtml(eventItem.dateLabel || formatDate(eventItem.date))}</span>
-              ${eventItem.time ? `<span><strong>Time:</strong> ${escapeHtml(eventItem.time)}</span>` : ""}
-              ${eventItem.location ? `<span><strong>Location:</strong> ${escapeHtml(eventItem.location)}</span>` : ""}
-            </div>
-            ${eventItem.url ? `<a class="secondary-button" href="${escapeAttribute(eventItem.url)}" target="_blank" rel="noopener">View Archived Flyer</a>` : ""}
-          </div>
-        </article>
-      `).join("");
     }
 
     function updateCountdowns() {
