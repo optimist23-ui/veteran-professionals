@@ -1,5 +1,269 @@
 window.VEVRAA_JOBS = [
   {
+    "title": "Recruiter - Contract",
+    "requisition": "R262839",
+    "company": "Graybar",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Z-2F59F9dj-2Bq5Y9ee94mUNKmMa7ZOONAhLxvvALozxN0QL3BHmznQlyDcMT3P-2Fp82SI-3DpjXg_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZMGbEHdS2AbGaGEdz-2Bsf2miNyZfXeVukSBw1dIsJyHBh1Ufh3wWMaAh5CQjXe2Z6LGAjKQ3SaO0IBJb1o26ttOMdF5CMjabXy4y8Rq4igPxP-2F-2BRcFGrad8TwSXrVIxfYXL9y-2FEBkRW9zvHubaT09pbT__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE72wlipjv$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Retail Sales Support-GOVERNORS SQUARE MALL",
+    "requisition": "055P8",
+    "company": "Bath & Body Works",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZI-2FX-2FjoBWKEmS1fbd9JnCugsAU77MdDTP7-2FlpMrhubMNBz79voi1b0jISqUVKOGnY-3DFTaX_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZOFLiebhhjjzgt17W3PMVKkh5FCsRqCJA1j8L0qzSrUwuIANEMKGuyIFgd9dEAuXmGUL2EZkrVDoD1IMp3O0AQZWXPqXASFupvjoGjuul85V-2B15xDgSUywF-2BWXVl74qbz3HDg92mpXtL26vBFiuFLwY__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE7-Pz0tKr$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "(USA) Senior Meat Cutter",
+    "requisition": "8261_R-2584980",
+    "company": "Walmart",
+    "category": "Retail / Customer Service",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aoaPthheZjjLslvAAW1SdSOzeLYe4WKJ6pkb5iX2k1YlFyDlAnMIddvNuiXufDjXw-3DBZew_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZPsFzkGNYMpn8l6RUgGSpBcSCn2UZbAzLT6eY-2FWSpMWX5V7Vrm2Z0gLTorbXgHXMhPuAfK-2BsrnFW97TzUk9XNgA782ySKb-2BrYAV6My5hXj21UeLqUzHLuK4DTfMgS7quA80xiWXDzzSdzTL-2Bv1eHjUr__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE74Dv8JW9$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Branch Manager - New Providence",
+    "requisition": "R104528",
+    "company": "Regions Bank",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bGApE0UY29m9bDehcBa79x6JcAfDXleePvTbvhpuGOkHOWGps8pJierJYWHddDVaQ-3DD-nd_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZMse9r0RUBb1A6ALzHYWN3ZtEbmfhP5fvlgvn-2Fhffr9Sun4Tf2SKq0bpB8Lr08PP1xXV8cpu3WXYxC2NEeelvq5gM0bMtJCFiPkaRRjRL0pDkZPp4x5N8MFmQEtxgN9HHTj4S0d3AYp0S3ut-2BuhKVvC__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE710P92tT$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Service Technician - Nashville TN",
+    "requisition": "R110845",
+    "company": "Patterson Companies, Inc.",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YafYVN1Oa0XeGjhBJ8mHqagBIthHanJvQwBxAA5RoS5n69jE56CKe2tupLDgVHIqM-3D1eNu_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZOirTTPkNt2PSvEGD5QXnLQ2rbfrPJ9zz7OQqE1XX3zo0TRcIXMyUDZVMxRiQ6vaLoUlkUuHBD1Uhs-2FrG0SBPi5HPRySNjIgA-2Bvfk1CY5xuGgY7FNmxmHKu4eq0ExwXhjW3Mj-2B-2FfViTMFNo8DbNdsgc__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE71fF4cdL$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Registered Nurse - Patient Care Manager - Hospice",
+    "requisition": "2377835",
+    "company": "UnitedHealth Group",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Z7vkELTxvIHXWm1IAiaYO33sU9zo3YP3izoCXpzZTLqka0FqZQQ1aj-2BvVs8sTatZE-3Dn9R3_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZMP1VNOQqyxJDpaznt58p-2FMIRoP4-2FgKTnDxKR9Wn1H0XmVzcjhh3q3C3VfhKyoHpSfefix5SRlnbRM8GwlOW-2FDVBOrLl2gnRqA9F0p5MVB-2BWZbWxIxBsrp1b7yPkXq6q-2BKiQJz4L9GdfDyVZ0-2BCnbbi__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE73rCybsY$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Roll Off Truck Driver",
+    "requisition": "R-101728",
+    "company": "Waste Connections",
+    "category": "Transportation / CDL",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bIvSY785WCU0dMZeKgeoBwnbIDjxkyOdGYTMls-2FUFUzFVJOdCfHGWcsyJULkFO7wg-3DaqGg_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZMbi9UEXG-2BSok7e4gxee-2BcBTCzjF7Kjn9uaTjOGa4JkqC6APNuVD71tLQZ78PL6-2Bgz90e6WUE5iWk-2FGU52ti3ozV2vn8zpjWvM2UkqMdlh7yuvQeNVNrC7bbKiJ0gQOHc-2FCAMXIvu95U2U7d0sU2QOd__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE7_17oXOU$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Data Center Facilities Technician I",
+    "requisition": "86016275385328326",
+    "company": "Google",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35aVdHXEngxWXCJ2Uy-2B3hSrg9cWSH77TQcOvCwmH3vylwkY52o39wPgR2kCh1nnKqiA-3DLKwu_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZN5g0t4HWwzAKHTbGu3yr4EuSOo7WvW7Z-2BF3Jhm-2Brjy2qgitvX1oc94eFd-2FJsX1zcO97j7PBLs-2B5RMiCy0Y2lgfn-2F3iiJDBOiwlVTeRZZaNsmkLOok50M-2Fa0gQ4LAqq3Azd3LNU7tSmJKtkVH3uq2aN__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE72opGUba$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Student Worker",
+    "requisition": "P27-438630-2",
+    "company": "Sodexo",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YevRZUO8MhYXUeVjgaB8EOOIeLb2LopPlrDQem-2BN4lC5BBc2mko5JbV59oTK-2Fv88g-3DOXd0_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZMxiyYDAr4Zft6zb4UMVj5qFv51JrFv6G5Hj6Zf-2FvsEW9ffaRc6sVDNDIvINhm-2FcLvJkijQ8vH07H3ZY0heYdoF7OYZ8M3QVQEg6cyk-2FxjA1xF-2FjbQRokZ15AAmQLhBVXdn46B88SP7FoEqN7HGE6sq__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE74CMidKB$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Automotive Technician",
+    "requisition": "2026_17793",
+    "company": "Bridgestone Americas",
+    "category": "Skilled Trades",
+    "location": "Clarksville, TN",
+    "date": "2026-07-24",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZJhbO1-2FooSrJlIBiy7taQepVnhJt99qO-2FO1pCfQRaWvVfFDo5YCxYsGPNjh0O-2BmnA-3DRIu6_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVjNlZ-2F5tOtxtYKluhWd9Yasdv31zK246vpANWCLbszZPAmQl72nh0zSNL1deBtIXC3QJ3ynhFHZPeC2x33YACtFN5XqnFPpC8IQ6P3E0SNao301awRLbnSlFD9gkVwdW4hQnUduGLJjLvBzmiiqvTTo2jWwEXW8SZpxb2ladFlKlSFBijREFDrT63EjJNCjhm__;!!PRtDf9A!s_aNuQmHHJfZDA3SRpf3WL0NfABUJLktChZRojIdHNqQvaTMr2oHDaDmf7I_WCCCyhH3ZjMc9RmCQpOE725rGLdF$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_24_2026.eml"
+  },
+  {
+    "title": "Counter Sales Associate",
+    "requisition": "WCJR-034508",
+    "company": "White Cap",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Z0HQQqBdz3hG5U3SuaHwNO35K0UXcsC0NAZMR2Z35Jxi88Lrsl-2FejhiAlmu53wgW8-3DTw8U_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEUpcM6mf4TQj4Q-2F4aoiQXxgH516O8O1-2FL-2BtfLbRQFRWWfQu9ncxx9-2FWHhDjmHNPx2t24kyyj2YuV8UjdYLArgJtPzkbDSM32IVnS2w6o4bYI3MXiCgwkGdayn0SR8dPs2v1CX1Z7GNxZq6E2RccEygd__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkUdqMejS$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Manager, Project Accounting",
+    "requisition": "3760",
+    "company": "CDM Smith",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bcooM6DJHx001ORgYS2Q-2B1u-2BxNGap5FkRI9rCERIp-2Boe4fShWo1F-2BCjrjrXzZTAN8-3DI57__uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEWO4YE5y6hEruQXvBt4S5KgIF-2FVn3V5Gr8iwP4JJUp8zfUnWA5N8JOc9GxdNcPxWA1RAhdQIv1wpCNz7m-2BeVH-2FXBtP0-2BH2tfp5biAY-2BXF4FryJxB5AabXzu3t2Mn3JmWDiQsS2SkswGvaIKsJSbgYFZ__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkeT49d_L$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Unit Controls Technical Lead",
+    "requisition": "JR-223",
+    "company": "Trane Technologies",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35acpvMN1tKLACeDdvNJjOAhyvadyaCWgWG-2FErBW4g-2Fa0x9fpWyFLYKlPGx3JRCLVTY-3DHqkK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEV1LzpjDqh4Kx5FK2icWm2VwQsJs591WIcKhUjUU0ZBTLxlpWOjI8ycC8f6ZdwX-2Fkbq7XyWcl4NDx9JqUFeobfvl7whoGPm6Gn0amctUz7MrJgkkDp5vWMx4xRr3aMV7caid7yqzyFKrRcUqEjZCiEO__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkUDtS_Ds$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Clarksville Security Officers",
+    "requisition": "172981",
+    "company": "Securitas Security Services USA, Inc.",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZgTnbFbQ-2B-2BpV2OzJvzu-2F3QfsuFoRX0Jw1N-2FBjsdGEaQ6Ar-2BaKfM6BYq63fnVw5FXE-3DM_LM_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEXjaQGwBwOTD-2F1-2BuLCmK4yBNwt-2FhgdRUTXAzdA5s7NCTBUFU4j-2FZcgfcUn9bZ67L3tRa0NTC8M-2BDta4uvPX4o6pmAXMrnUBat5zPopnl9pAZxQpNHnI5WrPZb6b87jupZVvR7EzQVegSfUexQ1wv0ss__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkdBOQvQv$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Clarksville Security Supervisor",
+    "requisition": "172982",
+    "company": "Securitas Security Services USA, Inc.",
+    "category": "Corporate / Professional",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZZqkLmhiX3ydGoHEBiJQC8V2tf7l9GsHHiazzRQGPmcPcKmoBwPWRhttRTeI4uAZQ-3D-kJK_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEWilTvCeBs7TrFmZ5a4xMaDV2j4a1VfZUvcnhe12ZAxK3AvgnDkpI2zZJ7-2BkC6eNNUdlpAeNDIOBMKyBcjn4QpXbnk-2FShxrTUuVg4z8LwbBDXHesJyTORrSsL9Q3itU3-2Bvf6edra1lSvzVnAHjEOXJZ__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkZb_-OGY$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "STORE MANAGER IN CLARKSVILLE, TN",
+    "requisition": "365248",
+    "company": "Dollar General",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YQvSVwanfiAzBIvX-2Bf9VelQhzdT4Uc-2BfbTEWqYh3rdRGNvH1gRdPlFJegInFOhbxM-3D5n2Z_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEWPwnW1-2BLU366iTpFgjltUIPkX2OoOYZD8LV8vFrfufXF3aaa-2FhsxSQcSPT5EuTu7IQFiD-2BWHLA7wX8Ynty9ufZ0IgD4tgbFhEazuxtWJFHeeUtgAWIqgOL01MmMzS1fRBCudaQyxrxeVxin-2F03Hg8p__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkfesM6r5$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Field Sales Representative",
+    "requisition": "R-117114",
+    "company": "AT&T",
+    "category": "Retail / Customer Service",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35YksGUjvCnB4-2BbUUA0xMY-2BRmIuflyUmG6QFKbQuSnwn7S-2FvPhctBP445ERO7gJ2CZs-3DA8aL_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEXg6TO9PcHBhmiAgW5MQhZEsQFYYKLdkEXcwvUUJwS7yoPvsVjTshed8-2BgfOmcHI48uX30QdrqSGbrsnTjVeXAzU9fMlSgRYbMnTrems2JcG5d9lCFVJzgaS-2B-2Bg6xqyDn0fq7D1qPPipUj-2F0V-2BhGUN9__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkQ1TbdUa$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Senior Culinary Supervisor",
+    "requisition": "P27-907209-3",
+    "company": "Sodexo",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bAeDq1qk6oXNlKxhpVK09KxH7Ky-2BB-2F326mGJzTzi3kqLHvleQzIgNnWgqOfPlt7rU-3DZAHy_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEW8gtcoNSJAWI6HwA7UaTU-2F9MTeZJ8jaENaNx-2Bcpw0EPF27QGAmtMf9XiC9uEuRxZLtsz7XQK4-2BLfM7v3XLZNRq38ShpTLeadbZeSt530Jb6rq7vHHRZ8NFf5TWu0QvYtaPmIs1cm15SbBeO-2FOza0E4__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkYTqzsKc$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Senior Food Supervisor",
+    "requisition": "P27-892473-1",
+    "company": "Sodexo",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bCikxBfB-2BQzXom7-2F-2BDfzNXjyX2-2FIdqqHDSWuRVQ0rtGyPF5ShB4bNwmwJkw4VrD8g-3D-DcG_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEVF9ryjPn31IKwWvHOU9pmS5old9qUc6lcxtaeeaKu6g61ROkvanfpxmq-2FJvhSNzgozatLywfZr1IEaURFnvNCxE5H2QOLC-2B5aaEvoKOiWSMOTEXPdAkqpNpEAbS7Kg-2BZ-2FQ4GOfp-2F245j1Fs4zhOkPx__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkR6h7YCl$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Food Supervisor",
+    "requisition": "P27-973201-1",
+    "company": "Sodexo",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35ZcY3-2B4xYJL1nD5ak5gOBKNLC285Q5CleEFNpry7MsQpXNn7OCoU21zC1Mtbh-2Bj0dI-3DMk56_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEUB6Qqg4ua0lAiZ8-2FJf577u4IvYpDb91oWMOtdazl14lhxSjZp1XlvVEPwrcjkHZPfRIBHRsdqIHAKGiYsyG78fC8F579Mp-2BnYOJJAwZk-2FTrakrSXu9nRL1014H1lq8j50fxAHoDrjDy7f8y-2BfO64pH__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkRpvwpCE$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Inventory Coordinator",
+    "requisition": "P27-1516835-2",
+    "company": "Sodexo",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35Z9DG6Q5vshkgNedjQ6hURer8JPUsHPq3mzJhbiFD-2BxMy8F-2F75dWNWyv6wq7zvGINY-3DNlZy_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEWO4YE5y6hEruQXvBt4S5KgMnq7-2FlkLMrw7CJruLOAGB2lANnzLkR3yxeDYBkdWVQjJ3OmrIGCim-2BwksybCMDpLChMrLntnXWesZL-2FiNBDOJW0FlltMWUMMDLX9pdEKRs0iV7DCZAEaSZ3IN9iUqOXI__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkWSJycC_$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "STORE MANAGER IN CLARKSVILLE, TN",
+    "requisition": "365247",
+    "company": "Dollar General",
+    "category": "Corporate / Professional",
+    "location": "CLARKSVILLE, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bQOC-2BS962jigswDQcKHcssOvBLX-2BgxGkVsJDicOxGaGnX5vgRtoDOpm04hJ9A7-2FBw-3DL9Rb_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEWO4YE5y6hEruQXvBt4S5KgtH51K-2F39fnQpVHWbOytn5AgDFH1TR-2BPsgso-2BlboXYMRWmbskI5PeNxAgSTjlo-2FDbKZ5LmE0ARqg1QXIsoUZYOTCJZEL293oHjbOkNPtcYroYumS7EIWwwPAuaT4JhBdR__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkYKFx2hm$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "LPN Homecare",
+    "requisition": "584955",
+    "company": "Maxim Healthcare",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-07-25",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bdX5T-2BLoop1Rbj8fyK2SuIobRQRdZKYTwbKSyiOOUTxOf-2FY9GAPGFf7KHQaG7ekDc-3DDk_E_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVPlomHQf6CgCW2fToSJkaZEU2gHa6hfffLamJfomXPEWO4YE5y6hEruQXvBt4S5KgnzMikZWI-2B7yxqbEPePx21APh-2BkvCyH2A5hq8QlhZAyDY-2FSHJZVxxnNKf27EBvcn6EQGEssk8qhSRUITUlzKjBdWX51O4g-2FupS2YXw92zkxsrllSCaCZtyHf3jmISA6Om__;!!PRtDf9A!skvkrbfdqGtKBxlvJgrV8qdNHEWzfvI_iH6WYpAjRuht6t7owIbW4i7v7Hq3Nfzqlb3eWbKmdqGNXbRrkceYZnFz$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_25_2026.eml"
+  },
+  {
+    "title": "Private Duty LPN - Indian Mound / Dover",
+    "requisition": "2379059",
+    "company": "UnitedHealth Group",
+    "category": "Healthcare",
+    "location": "Dover, TN",
+    "date": "2026-07-26",
+    "url": "https://urldefense.com/v3/__http://url5913.vet-central.com/ls/click?upn=u001.CIf3-2BEmXTSUale9Mg6dDDV4rg0vMjS7ajD5svlBm35bpimBRtdmKZ1cnRpLWrxrn-2BNwxtzlkS5DarHgPMo-2FmdhI1lEUI63h3dZkz5PIkyZ8-3D7t4T_uaTfcF5IeZq-2Bcu-2FVWdhMtnaPRveP9RhHOeGvF3N2Y0w3J4Qc7O7UfmBH15xHvnrVl8moH8Rmcw2dMGnobdmBNr3O8gjO-2BdmgdiJxslZjUJ-2Bn63OpXW7jWYrTksafzb2i9mLevrYhE4jyeObYu-2FrECOdAYCSHNKj4yPRxK6K5GcEZdYCuOLO2QULF8cP2lSJdLMzdJ2-2F3MTMpszNf-2FJAeIXgCVT66JdtwNZLlQyv75rGPDmwNhlBJqBLKTCb5O3xs__;!!PRtDf9A!toNSolGR0_Mbcmhg6uEXamKh5kowQPIis1Ptmd93Phtyt1hYgEsYn8VTVBeX8QpZeuao85q5WIkorGBmBvJnK3tF$",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_26_2026.eml"
+  },
+  {
     "title": "Truck Driver CDL A Home Daily No Touch",
     "requisition": "2026-206406",
     "company": "Ryder System",
@@ -341,7 +605,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_13_2026.eml"
   },
   {
-    "title": "PT (Physical Therapist) \u2013 Acute Care",
+    "title": "PT (Physical Therapist) – Acute Care",
     "requisition": "R-66085",
     "company": "Vanderbilt University Medical Center",
     "category": "Healthcare",
@@ -418,7 +682,7 @@ window.VEVRAA_JOBS = [
     "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 06_13_2026.eml"
   },
   {
-    "title": "Part Sales Manager \u2013 Full Time",
+    "title": "Part Sales Manager – Full Time",
     "requisition": "116062",
     "company": "AutoZone, Inc.",
     "category": "Retail / Customer Service",

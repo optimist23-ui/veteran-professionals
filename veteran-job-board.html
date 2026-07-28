@@ -1866,14 +1866,14 @@
     <span>Mario McMichael | <a href="mailto:mario.mcmichael@tn.gov">mario.mcmichael@tn.gov</a> | <a href="tel:19319053566">931-905-3566</a></span>
   </footer>
 
-  <script src="vevraa-jobs.js?v=20260722"></script>
+  <script src="vevraa-jobs.js?v=20260726"></script>
   <script>
     const PASSCODE = "vetcentral2026";
     const FLYER_DELETE_CODE = "1124";
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 31;
+    const dataVersion = 32;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -3539,7 +3539,7 @@
 
     function deriveJobCategory(title) {
       const value = title.toLowerCase();
-      if (/\brn\b/.test(value) || ["nurse", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu", "patient care", "lifeline", "home health", "care partner", "unit secretary", "icu", "nicu", "mother/baby", "labor & delivery", "clinic", "emergency department", "acute care", "rehab"].some((word) => value.includes(word))) return "Healthcare";
+      if (/\b(rn|lpn)\b/.test(value) || ["nurse", "respiratory", "radiology", "therapist", "sonographer", "echo", "pacu", "patient care", "lifeline", "home health", "care partner", "unit secretary", "icu", "nicu", "mother/baby", "labor & delivery", "clinic", "emergency department", "acute care", "rehab"].some((word) => value.includes(word))) return "Healthcare";
       if (["driver", "cdl", "transport"].some((word) => value.includes(word))) return "Transportation / CDL";
       if (["mechanic", "technician", "maintenance", "warehouse", "production"].some((word) => value.includes(word))) return "Skilled Trades";
       if (["retail", "cashier", "sales", "customer", "carwash", "gas attendant", "walmart", "walgreens"].some((word) => value.includes(word))) return "Retail / Customer Service";
