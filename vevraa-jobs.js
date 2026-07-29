@@ -1,5 +1,82 @@
 window.VEVRAA_JOBS = [
   {
+    "title": "Restaurant Manager",
+    "requisition": "JR19942",
+    "company": "Cracker Barrel",
+    "category": "Hospitality / Food Service",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
+    "title": "Barista - Store #47904, Tiny Town",
+    "requisition": "260055977",
+    "company": "Starbucks",
+    "category": "Hospitality / Food Service",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
+    "title": "ECF Choices Support Coordinator (Montgomery County)",
+    "requisition": "R-50715",
+    "company": "BlueCross BlueShield of Tennessee",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
+    "title": "Branch Manager",
+    "requisition": "2026-18461",
+    "company": "Suburban Propane",
+    "category": "Management",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
+    "title": "RN Hospice",
+    "requisition": "1180474",
+    "company": "Amergis",
+    "category": "Healthcare",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
+    "title": "Designer III",
+    "requisition": "JR-11003",
+    "company": "Trane Technologies",
+    "category": "Engineering / Design",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
+    "title": "Data Center Facilities Technician II, Electrical",
+    "requisition": "113278417087931078",
+    "company": "Google",
+    "category": "Information Technology",
+    "location": "Clarksville, TN",
+    "date": "2026-07-29",
+    "url": "https://www.jobs4tn.gov/",
+    "source": "VEVRAA email",
+    "sourceFile": "[EXTERNAL] VEVRAA_ Job Openings in Your Area on 07_29_2026.eml"
+  },
+  {
     "title": "Recruiter - Contract",
     "requisition": "R262839",
     "company": "Graybar",
