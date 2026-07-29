@@ -1348,6 +1348,7 @@
 
     <nav class="tabs" aria-label="Main sections">
       <button class="tab-button active" type="button" data-tab="vetJobs">Veteran Job Board</button>
+      <button class="tab-button" type="button" data-tab="veteranProfessionals">Veteran Professionals</button>
       <button class="tab-button" type="button" data-tab="vetNewsletter">Veteran Professionals Newsletter</button>
       <button class="tab-button" type="button" data-tab="training">Training</button>
       <button class="tab-button" type="button" data-tab="uploads">Admin Section</button>
@@ -1373,62 +1374,15 @@
         </div>
       </div>
 
-      <section class="support-agency-section" aria-label="Additional resume and job support agencies">
+      <section class="resource-section" aria-labelledby="upcomingJobFairsTitle">
         <div class="section-head">
           <div>
-            <h2>Additional Resume and Job Support Agencies</h2>
-            <p class="muted">Free veteran, military spouse, and transitioning service member support for resumes, training, job prep, and career growth.</p>
+            <h2 id="upcomingJobFairsTitle">Upcoming Job Fairs</h2>
+            <p class="muted">Current hiring-event flyers with dates, times, locations, participating employers, and preparation details.</p>
           </div>
         </div>
-        <div class="support-agency-grid">
-          <article class="support-agency-card">
-            <img src="vetjobs-grow-your-career-support-2026.png" alt="VetJobs and Military Spouse Jobs career support flyer">
-            <div class="support-agency-body">
-              <span class="pill">Career Support</span>
-              <h3>VetJobs and Military Spouse Jobs</h3>
-              <p class="muted">Job prep and exploration services for veterans, transitioning military, and military spouses.</p>
-              <div class="resume-help-actions">
-                <a class="secondary-button" href="https://www.vetjobs.org/" target="_blank" rel="noopener">VetJobs</a>
-                <a class="secondary-button" href="https://www.militaryspousejobs.org/" target="_blank" rel="noopener">Military Spouse Jobs</a>
-              </div>
-            </div>
-          </article>
-          <article class="support-agency-card">
-            <img src="vetjobs-training-support-2026.png" alt="VetJobs and Military Spouse Jobs training flyer">
-            <div class="support-agency-body">
-              <span class="pill">Training and Resume Support</span>
-              <h3>Training, Resume Readiness, and Career Coaching</h3>
-              <p class="muted">Industry upskilling, resume targeting, interview preparation, and job-search strategy support.</p>
-              <div class="resume-help-actions">
-                <a class="secondary-button" href="https://www.vetjobs.org/training" target="_blank" rel="noopener">VetJobs Training</a>
-                <a class="secondary-button" href="https://www.militaryspousejobs.org/training" target="_blank" rel="noopener">Spouse Jobs Training</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <div class="flyer-section-grid" id="upcomingJobFairList" aria-live="polite"></div>
       </section>
-
-      <div class="workshop-calendar-section">
-        <div class="section-head">
-          <div>
-            <h2>Workshop Calendar</h2>
-            <p class="muted">American Job Center Tennessee workshop schedule for June 2026.</p>
-          </div>
-        </div>
-        <article class="card calendar-feature">
-          <img src="june-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar June 2026">
-          <div class="calendar-details">
-            <h3>American Job Center Workshop Calendar</h3>
-            <ul class="calendar-detail-list">
-              <li><strong>Month:</strong> June 2026</li>
-              <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
-              <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
-              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
-              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Westmoreland Public Library, Martha O'Bryan Center, Cheatham AJC, Dickson AJC.</li>
-            </ul>
-          </div>
-        </article>
-      </div>
 
       <section class="filter-panel" aria-label="Job board search and filter tools">
         <div class="filter-guide" id="filterGuide">
@@ -1513,6 +1467,72 @@
         <p class="muted">Vetted reentry, second-chance, and referral resources are now grouped in the newsletter area.</p>
         <button class="secondary-button" type="button" data-tab-shortcut="vetNewsletter" data-scroll-target="justiceResources">Open Justice Resources</button>
       </article>
+    </section>
+
+    <section class="tab-panel" id="veteranProfessionals">
+      <div class="section-head">
+        <div>
+          <h2>Veteran Professionals</h2>
+          <p class="muted">Resume assistance, career coaching, training, workshops, and employment-support partners for veterans and military families.</p>
+        </div>
+      </div>
+
+      <section class="support-agency-section" aria-label="Additional resume and job support agencies">
+        <div class="section-head">
+          <div>
+            <h2>Additional Resume and Job Support Agencies</h2>
+            <p class="muted">Free veteran, military spouse, and transitioning service member support for resumes, training, job prep, and career growth.</p>
+          </div>
+        </div>
+        <div class="support-agency-grid">
+          <article class="support-agency-card">
+            <img src="vetjobs-grow-your-career-support-2026.png" alt="VetJobs and Military Spouse Jobs career support flyer">
+            <div class="support-agency-body">
+              <span class="pill">Career Support</span>
+              <h3>VetJobs and Military Spouse Jobs</h3>
+              <p class="muted">Job prep and exploration services for veterans, transitioning military, and military spouses.</p>
+              <div class="resume-help-actions">
+                <a class="secondary-button" href="https://www.vetjobs.org/" target="_blank" rel="noopener">VetJobs</a>
+                <a class="secondary-button" href="https://www.militaryspousejobs.org/" target="_blank" rel="noopener">Military Spouse Jobs</a>
+              </div>
+            </div>
+          </article>
+          <article class="support-agency-card">
+            <img src="vetjobs-training-support-2026.png" alt="VetJobs and Military Spouse Jobs training flyer">
+            <div class="support-agency-body">
+              <span class="pill">Training and Resume Support</span>
+              <h3>Training, Resume Readiness, and Career Coaching</h3>
+              <p class="muted">Industry upskilling, resume targeting, interview preparation, and job-search strategy support.</p>
+              <div class="resume-help-actions">
+                <a class="secondary-button" href="https://www.vetjobs.org/training" target="_blank" rel="noopener">VetJobs Training</a>
+                <a class="secondary-button" href="https://www.militaryspousejobs.org/training" target="_blank" rel="noopener">Spouse Jobs Training</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <div class="workshop-calendar-section">
+        <div class="section-head">
+          <div>
+            <h2>Workshop Calendar</h2>
+            <p class="muted">American Job Center Tennessee workshop schedule for June 2026.</p>
+          </div>
+        </div>
+        <article class="card calendar-feature">
+          <img src="june-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar June 2026">
+          <div class="calendar-details">
+            <h3>American Job Center Workshop Calendar</h3>
+            <ul class="calendar-detail-list">
+              <li><strong>Month:</strong> June 2026</li>
+              <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
+              <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
+              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
+              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Westmoreland Public Library, Martha O'Bryan Center, Cheatham AJC, Dickson AJC.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="tab-panel" id="vetNewsletter">
@@ -1848,7 +1868,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 34;
+    const dataVersion = 35;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1930,6 +1950,20 @@
         }
       ],
       flyers: [
+        {
+          title: "Marquette Transportation Hiring Event",
+          category: "Job Fair",
+          industry: "Maritime Transportation / Hospitality",
+          date: "2026-08-04",
+          time: "9:00 AM-2:30 PM",
+          location: "American Job Center, 523 Madison St. Suite B, Clarksville, TN 37040",
+          employers: ["Marquette Transportation Company"],
+          thingsToBring: ["Resume", "Photo identification", "Professional dress", "Questions for the hiring team"],
+          workshops: "Hiring Deckhands and Cooks with on-the-spot interviews.",
+          fileName: "marquette-transportation-hiring-event-august-4-2026.png",
+          fileType: "image/png",
+          dataUrl: "marquette-transportation-hiring-event-august-4-2026.png"
+        },
         {
           title: "Bridgestone Metalpha USA Production Worker Hiring Event",
           category: "Job Fair",
@@ -2341,6 +2375,19 @@
         renderFlyerGroup("Newsletter Flyers", otherFlyers)
       ].filter(Boolean).join("");
       document.querySelector("#flyerList").innerHTML = `${tools}${groups || `<div class="card empty">No newsletter flyers match this view.</div>`}`;
+      renderUpcomingJobFairs();
+    }
+
+    function renderUpcomingJobFairs() {
+      const target = document.querySelector("#upcomingJobFairList");
+      if (!target) return;
+      const upcoming = sortByDate(
+        (data.flyers || []).filter((flyer) => isJobFairFlyer(flyer) && !isPastDate(flyer.date)),
+        "ascending"
+      );
+      target.innerHTML = upcoming.length
+        ? upcoming.map(renderFlyerCard).join("")
+        : `<div class="card empty">No upcoming job-fair flyers are posted yet. New approved events will appear here automatically.</div>`;
     }
 
     function renderFlyerGroup(title, flyers) {
@@ -2471,6 +2518,7 @@
       const bring = Array.isArray(flyer.thingsToBring) ? flyer.thingsToBring.join(", ") : flyer.thingsToBring;
       const rows = [
         flyer.category ? `<span><strong>Section:</strong> ${escapeHtml(flyer.category)}</span>` : "",
+        flyer.industry ? `<span><strong>Industry:</strong> ${escapeHtml(flyer.industry)}</span>` : "",
         flyer.time ? `<span><strong>Time:</strong> ${escapeHtml(flyer.time)}</span>` : "",
         flyer.location ? `<span><strong>Location:</strong> ${escapeHtml(flyer.location)}</span>` : "",
         employers ? `<span><strong>Employers:</strong> ${escapeHtml(employers)}</span>` : "",
