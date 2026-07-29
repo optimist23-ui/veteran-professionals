@@ -1481,31 +1481,6 @@
         </div>
       </section>
 
-      <article class="resume-help-card job-fair-feature" aria-label="Fatherhood Festival 2026 event">
-        <img src="fatherhood-festival-2026.jpeg" alt="Fatherhood Festival 2026 flyer preview">
-        <div class="resume-help-content">
-          <span class="pill">Community Resource Event</span>
-          <h3>Fatherhood Festival 2026: NFL Alumni Training Camp for Dads</h3>
-          <p>New Life Center and NFL Alumni are hosting a family-friendly event for veteran dads, rookie dads, and families with music, food, games, giveaways, and parenting resources.</p>
-          <div class="countdown-grid" id="fatherhoodCountdown" data-event-start="2026-06-20T12:00:00-05:00">
-            <div class="countdown-box"><strong data-countdown-days>--</strong><span>Days</span></div>
-            <div class="countdown-box"><strong data-countdown-hours>--</strong><span>Hours</span></div>
-            <div class="countdown-box"><strong data-countdown-minutes>--</strong><span>Minutes</span></div>
-            <div class="countdown-box"><strong data-countdown-seconds>--</strong><span>Seconds</span></div>
-          </div>
-          <ul class="resume-help-details">
-            <li><strong>Date:</strong> Saturday, June 20, 2026</li>
-            <li><strong>Time:</strong> 12:00 PM-5:00 PM</li>
-            <li><strong>Location:</strong> Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208</li>
-            <li><strong>Audience:</strong> Veteran dads, rookie dads, and families</li>
-          </ul>
-          <div class="resume-help-actions">
-            <a class="link-button" href="fatherhood-festival-2026.jpeg" target="_blank" rel="noopener">View Event Flyer</a>
-            <a class="secondary-button" href="https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026" target="_blank" rel="noopener">Register</a>
-          </div>
-        </div>
-      </article>
-
       <div class="grid">
         <div class="stack" id="jobList" aria-live="polite"></div>
         <aside>
@@ -1873,7 +1848,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 33;
+    const dataVersion = 34;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -2019,20 +1994,6 @@
           fileName: "aafes-job-fair-2026.png",
           fileType: "image/png",
           dataUrl: "aafes-job-fair-2026.png"
-        },
-        {
-          title: "Fatherhood Festival 2026",
-          category: "Community Notice",
-          date: "2026-06-20",
-          time: "12:00 PM-5:00 PM",
-          location: "Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208",
-          employers: ["New Life Center", "NFL Alumni"],
-          thingsToBring: ["Family members", "Questions about fatherhood and wellness resources"],
-          workshops: "NFL Alumni Training Camp for Dads with music, food, games, giveaways, photos, autographs, parenting resources, co-parenting and communication tools, and health and wellbeing resources.",
-          fileName: "fatherhood-festival-2026.jpeg",
-          fileType: "image/jpeg",
-          dataUrl: "fatherhood-festival-2026.jpeg",
-          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
       references: [
@@ -2059,14 +2020,6 @@
           caption: "Career resource flyer for training, coaching, budgeting help, and public-sector job referrals.",
           details: "Catholic Charities resource for job seekers looking for meaningful career support.",
           url: ""
-        },
-        {
-          title: "Fatherhood Festival 2026",
-          type: "Community Event Reference",
-          image: "fatherhood-festival-2026.jpeg",
-          caption: "Family-friendly fatherhood event for veteran dads, rookie dads, and families with NFL Alumni and community partners.",
-          details: "Saturday, June 20, 2026 from 12:00 PM-5:00 PM at Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208.",
-          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
         }
       ],
       trainings: [
@@ -2085,19 +2038,7 @@
           details: "June 2026 workshops include resume building, resume assistance, cover letters, interview preparation, LinkedIn for your career, essential soft skills, online job search safety, AI for the job seeker, job fair resume review events, and virtual options."
         }
       ],
-      resources: [
-        {
-          title: "Fatherhood Festival 2026",
-          type: "Community Event",
-          image: "fatherhood-festival-2026.jpeg",
-          caption: "New Life Center and NFL Alumni host an NFL Alumni Training Camp for Dads with family activities and fatherhood resources.",
-          date: "2026-06-20",
-          time: "12:00 PM-5:00 PM",
-          location: "Tennessee State University Indoor Practice Facility, 1251 Schrader Lane, Nashville, TN 37208",
-          details: "Open to veteran dads, rookie dads, and families. Includes music, food, games, NFL alumni giveaways, photos, autographs, parenting tools, co-parenting and communication resources, and wellness supports.",
-          url: "https://www.zeffy.com/en-US/ticketing/fatherhood-festival--2026"
-        }
-      ],
+      resources: [],
       videos: [
         {
           title: "How to Search and Apply on USAJobs",
@@ -2176,7 +2117,8 @@
         "Federal Resume Writing Assistance",
         "Resume Refresh and Follow-Up Workshop",
         "American Job Center Workshop Calendar",
-        "One Tennessee Virtual Career Fair"
+        "One Tennessee Virtual Career Fair",
+        "Fatherhood Festival 2026"
       ]);
       const keepFreshDate = (item) => !item.date || !isPastDate(item.date);
       return {
