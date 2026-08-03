@@ -1516,22 +1516,11 @@
         <div class="section-head">
           <div>
             <h2>Workshop Calendar</h2>
-            <p class="muted">American Job Center Tennessee workshop schedule for June 2026.</p>
+            <p class="muted">Current American Job Center workshop schedules. Outdated calendars can be removed from the Admin Section.</p>
           </div>
+          <button class="quiet-button" id="editCalendars" type="button">Manage Calendars</button>
         </div>
-        <article class="card calendar-feature">
-          <img src="june-2026-workshop-schedule.docx.png" alt="American Job Center Tennessee Workshop Calendar June 2026">
-          <div class="calendar-details">
-            <h3>American Job Center Workshop Calendar</h3>
-            <ul class="calendar-detail-list">
-              <li><strong>Month:</strong> June 2026</li>
-              <li><strong>Registration:</strong> scan the QR code, email <a href="mailto:jvetter@workforceessentials.com">jvetter@workforceessentials.com</a>, text <a href="sms:6156703771">(615) 670-3771</a>, or visit <a href="https://rb.gy/s141d9" target="_blank" rel="noopener">https://rb.gy/s141d9</a>.</li>
-              <li><strong>Include:</strong> name, phone, email, and date of birth.</li>
-              <li><strong>Workshop topics:</strong> resume building, resume assistance, cover letters, interview preparation, AI for the job seeker, and virtual options.</li>
-              <li><strong>Locations shown:</strong> Williamson AJC, Robertson AJC, Sumner AJC, Davidson AJC, Montgomery AJC, Rutherford AJC, Westmoreland Public Library, Martha O'Bryan Center, Cheatham AJC, Dickson AJC.</li>
-            </ul>
-          </div>
-        </article>
+        <div class="stack" id="calendarList" aria-live="polite"></div>
       </div>
     </section>
 
@@ -1675,6 +1664,39 @@
             </label>
             <button class="primary-button wide" type="submit">Add Job to Vet Board</button>
           </form>
+
+          <hr>
+
+          <form class="form-grid" id="calendarForm">
+            <h3 class="wide">Upload Workshop Calendar</h3>
+            <label>
+              Calendar title
+              <input class="input" name="title" required placeholder="American Job Center Workshop Calendar">
+            </label>
+            <label>
+              Month
+              <input class="input" name="month" type="month" required>
+            </label>
+            <label>
+              Display through
+              <input class="input" name="validThrough" type="date" required>
+            </label>
+            <label class="wide">
+              Calendar details
+              <textarea name="details" placeholder="Registration instructions, workshop topics, locations, and contact information"></textarea>
+            </label>
+            <label class="wide">
+              Upload calendar image or PDF
+              <input class="input" name="file" type="file" accept="image/*,.pdf" required>
+            </label>
+            <button class="primary-button wide" type="submit">Upload New Calendar</button>
+          </form>
+
+          <div class="form-grid">
+            <h3 class="wide">Remove Outdated Calendars</h3>
+            <p class="muted wide">Deletes every calendar whose display-through date has passed. You can also remove one calendar at a time from the Veteran Professionals tab.</p>
+            <button class="quiet-button wide" id="deletePastCalendars" type="button">Delete Outdated Calendars</button>
+          </div>
 
           <hr>
 
@@ -1868,7 +1890,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 35;
+    const dataVersion = 36;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1876,9 +1898,21 @@
     let flyersEditMode = false;
     let trainingsEditMode = false;
     let resourcesEditMode = false;
+    let calendarsEditMode = false;
 
     const starterData = {
       version: dataVersion,
+      calendars: [
+        {
+          title: "American Job Center Workshop Calendar",
+          month: "2026-07",
+          validThrough: "2026-07-31",
+          details: "Registration is available through the QR code shown on the calendar. Workshops include resume assistance, cover letters, interview preparation, LinkedIn, essential skills, and virtual options.",
+          fileName: "july-2026-workshop-schedule.docx.png",
+          fileType: "image/png",
+          dataUrl: "july-2026-workshop-schedule.docx.png"
+        }
+      ],
       jobs: [
         ...(window.VEVRAA_JOBS || [])
       ],
@@ -2110,6 +2144,7 @@
             ...starterData,
             ...parsed,
             version: dataVersion,
+            calendars: mergeByKey(starterData.calendars || [], parsed.calendars || [], "title", "month"),
             jobs: mergeJobs(starterData.jobs, parsed.jobs || []),
             justiceResources: mergeByKey(starterData.justiceResources || [], parsed.justiceResources || [], "title", "url"),
             flyers: mergeByKey(starterData.flyers || [], parsed.flyers || [], "title", "date"),
@@ -2157,6 +2192,7 @@
       const keepFreshDate = (item) => !item.date || !isPastDate(item.date);
       return {
         ...currentData,
+        calendars: currentData.calendars || [],
         jobs: pruneCurrentJobs(currentData.jobs || []),
         justiceResources: migrateLinks(currentData.justiceResources || [])
           .filter((item) => item.title !== "Justice-Impacted Resource Uploads")
@@ -2357,6 +2393,41 @@
 
     function renderResources() {
       renderSnapshotCards(data.resources || [], "#resourceList", "No career resources have been added yet.", { editMode: resourcesEditMode, kind: "resources" });
+    }
+
+    function formatCalendarMonth(value) {
+      if (!value) return "Month not listed";
+      const [year, month] = value.split("-").map(Number);
+      return new Intl.DateTimeFormat("en", { month: "long", year: "numeric" }).format(new Date(year, month - 1, 1));
+    }
+
+    function renderCalendars() {
+      const target = document.querySelector("#calendarList");
+      if (!target) return;
+      const calendars = [...(data.calendars || [])]
+        .filter((calendar) => calendarsEditMode || !calendar.validThrough || !isPastDate(calendar.validThrough))
+        .sort((a, b) => String(b.month || "").localeCompare(String(a.month || "")));
+      target.innerHTML = calendars.length ? calendars.map((calendar) => {
+        const index = data.calendars.indexOf(calendar);
+        const isPdf = calendar.fileType === "application/pdf";
+        const preview = isPdf
+          ? `<object data="${escapeAttribute(calendar.dataUrl)}" type="application/pdf"><a class="secondary-button" href="${escapeAttribute(calendar.dataUrl)}" target="_blank" rel="noopener">Open Calendar PDF</a></object>`
+          : `<img src="${escapeAttribute(calendar.dataUrl)}" alt="${escapeAttribute(calendar.title)} ${escapeAttribute(formatCalendarMonth(calendar.month))}">`;
+        return `<article class="card calendar-feature">
+          ${preview}
+          <div class="calendar-details">
+            <span class="pill">${isPastDate(calendar.validThrough) ? "Outdated" : "Current"}</span>
+            <h3>${escapeHtml(calendar.title)}</h3>
+            <ul class="calendar-detail-list">
+              <li><strong>Month:</strong> ${escapeHtml(formatCalendarMonth(calendar.month))}</li>
+              <li><strong>Display through:</strong> ${escapeHtml(formatDate(calendar.validThrough))}</li>
+              ${calendar.details ? `<li><strong>Details:</strong> ${escapeHtml(calendar.details)}</li>` : ""}
+            </ul>
+            <a class="secondary-button" href="${escapeAttribute(calendar.dataUrl)}" target="_blank" rel="noopener">Open Calendar</a>
+            ${calendarsEditMode ? `<button class="quiet-button" type="button" data-delete-calendar="${index}">Delete Calendar</button>` : ""}
+          </div>
+        </article>`;
+      }).join("") : `<div class="card empty">No current workshop calendar is posted. Use the Admin Section to upload the newest calendar.</div>`;
     }
 
     function renderFlyers() {
@@ -2590,6 +2661,7 @@
     function renderAll() {
       renderJobs();
       renderJusticeResources();
+      renderCalendars();
       renderFlyers();
       renderReferences();
       renderTraining();
@@ -2678,6 +2750,12 @@
       showNotice(flyersEditMode ? "Flyer edit mode is active." : "Flyer edit mode was not unlocked.");
     });
 
+    document.querySelector("#editCalendars").addEventListener("click", () => {
+      calendarsEditMode = unlockEditMode("workshop calendars");
+      renderCalendars();
+      showNotice(calendarsEditMode ? "Calendar management is active. Outdated calendars are visible and can be deleted." : "Calendar management was not unlocked.");
+    });
+
     document.querySelector("#editJusticeResources").addEventListener("click", () => {
       justiceEditMode = unlockEditMode("2nd Chance resources");
       renderJusticeResources();
@@ -2740,6 +2818,7 @@
       document.querySelector("#lockCard").classList.toggle("hidden", unlocked);
       document.querySelector("#uploadForms").classList.toggle("hidden", !unlocked);
       renderFlyers();
+      renderCalendars();
       renderReferences();
       renderVideos();
     });
@@ -2750,6 +2829,8 @@
       document.querySelector("#lockCard").classList.remove("hidden");
       document.querySelector("#uploadForms").classList.add("hidden");
       renderFlyers();
+      calendarsEditMode = false;
+      renderCalendars();
       renderReferences();
       renderVideos();
     });
@@ -2980,6 +3061,63 @@
         dataUrl
       };
     }
+
+    document.querySelector("#calendarForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!uploadsUnlocked) return;
+      setLoading("Uploading workshop calendar...");
+      await waitForPaint();
+      try {
+        const form = new FormData(event.currentTarget);
+        const file = form.get("file");
+        const dataUrl = await readFile(file);
+        data.calendars = (data.calendars || []).filter((calendar) => calendar.month !== form.get("month"));
+        data.calendars.push({
+          title: form.get("title"),
+          month: form.get("month"),
+          validThrough: form.get("validThrough"),
+          details: form.get("details"),
+          fileName: file.name,
+          fileType: file.type || "uploaded-file",
+          dataUrl
+        });
+        saveData();
+        event.currentTarget.reset();
+        showNotice("The new workshop calendar is posted. Any calendar for the same month was replaced.");
+        renderCalendars();
+      } catch (error) {
+        console.error(error);
+        showNotice("That calendar could not be uploaded. Try a smaller image or PDF.");
+      } finally {
+        clearLoading();
+      }
+    });
+
+    document.querySelector("#calendarList").addEventListener("click", (event) => {
+      const button = event.target.closest("[data-delete-calendar]");
+      if (!button || !calendarsEditMode) return;
+      const index = Number(button.dataset.deleteCalendar);
+      const calendar = data.calendars[index];
+      if (!calendar) return;
+      if (!window.confirm(`Delete ${calendar.title} for ${formatCalendarMonth(calendar.month)}?`)) return;
+      data.calendars.splice(index, 1);
+      saveData();
+      showNotice(`Deleted the ${formatCalendarMonth(calendar.month)} workshop calendar.`);
+      renderCalendars();
+    });
+
+    document.querySelector("#deletePastCalendars").addEventListener("click", async () => {
+      if (!uploadsUnlocked) return;
+      setLoading("Removing outdated calendars...");
+      await waitForPaint();
+      const before = (data.calendars || []).length;
+      data.calendars = (data.calendars || []).filter((calendar) => !calendar.validThrough || !isPastDate(calendar.validThrough));
+      const deleted = before - data.calendars.length;
+      saveData();
+      showNotice(`${deleted} outdated calendar${deleted === 1 ? "" : "s"} removed.`);
+      renderCalendars();
+      clearLoading();
+    });
 
     document.querySelector("#flyerForm").addEventListener("submit", async (event) => {
       event.preventDefault();
