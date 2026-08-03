@@ -1908,7 +1908,7 @@
     const VIDEO_DELETE_CODE = "1124";
     const REFERENCE_DELETE_CODE = "1124";
     const storageKey = "vetcentral-portal-content";
-    const dataVersion = 36;
+    const dataVersion = 37;
     let uploadsUnlocked = false;
     let referencesEditMode = false;
     let videosEditMode = false;
@@ -1921,6 +1921,16 @@
     const starterData = {
       version: dataVersion,
       calendars: [
+        {
+          title: "American Job Center Workshop Calendar",
+          month: "2026-08",
+          validThrough: "2026-08-31",
+          details: "August workshops include resume assistance and building, cover letters, interview preparation, essential soft skills, LinkedIn, AI for the job seeker, online job searching and scam awareness, plus job-fair resume workshops. Registration: scan the QR code, visit https://rb.gy/s141d9, email jvetter@workforceessentials.com, or text (615) 670-3771.",
+          fileName: "august-2026-workshop-schedule-final.pdf",
+          fileType: "application/pdf",
+          dataUrl: "august-2026-workshop-schedule-final.pdf",
+          sourceUrl: "august-2026-workshop-schedule-final.docx"
+        },
         {
           title: "American Job Center Workshop Calendar",
           month: "2026-07",
@@ -2446,6 +2456,7 @@
               ${calendar.details ? `<li><strong>Details:</strong> ${escapeHtml(calendar.details)}</li>` : ""}
             </ul>
             <a class="secondary-button" href="${escapeAttribute(calendar.dataUrl)}" ${isWord ? `download="${escapeAttribute(calendar.fileName || "workshop-calendar.docx")}"` : `target="_blank" rel="noopener"`}>${isWord ? "Download Word Calendar" : "Open Calendar"}</a>
+            ${calendar.sourceUrl ? `<a class="secondary-button" href="${escapeAttribute(calendar.sourceUrl)}" download>Download Word Version</a>` : ""}
             ${calendarsEditMode ? `<button class="quiet-button" type="button" data-delete-calendar="${index}">Delete Calendar</button>` : ""}
           </div>
         </article>`;
