@@ -2407,7 +2407,8 @@
       const calendars = [...(data.calendars || [])]
         .filter((calendar) => calendarsEditMode || !calendar.validThrough || !isPastDate(calendar.validThrough))
         .sort((a, b) => String(b.month || "").localeCompare(String(a.month || "")));
-      target.innerHTML = calendars.length ? calendars.map((calendar) => {
+      const uploadTools = calendarsEditMode ? renderInlineCalendarForm() : "";
+      const calendarCards = calendars.length ? calendars.map((calendar) => {
         const index = data.calendars.indexOf(calendar);
         const isPdf = calendar.fileType === "application/pdf";
         const preview = isPdf
@@ -2427,7 +2428,38 @@
             ${calendarsEditMode ? `<button class="quiet-button" type="button" data-delete-calendar="${index}">Delete Calendar</button>` : ""}
           </div>
         </article>`;
-      }).join("") : `<div class="card empty">No current workshop calendar is posted. Use the Admin Section to upload the newest calendar.</div>`;
+      }).join("") : `<div class="card empty">No current workshop calendar is posted. Select Manage Calendars to upload the newest calendar.</div>`;
+      target.innerHTML = `${uploadTools}${calendarCards}`;
+    }
+
+    function renderInlineCalendarForm() {
+      return `<article class="card flyer-tools-card">
+        <form class="form-grid" data-inline-calendar-form>
+          <h3 class="wide">Upload New Workshop Calendar</h3>
+          <p class="muted wide">Upload an image or PDF here. A new calendar for the same month automatically replaces the older one.</p>
+          <label>
+            Calendar title
+            <input class="input" name="title" required placeholder="American Job Center Workshop Calendar">
+          </label>
+          <label>
+            Month
+            <input class="input" name="month" type="month" required>
+          </label>
+          <label>
+            Display through
+            <input class="input" name="validThrough" type="date" required>
+          </label>
+          <label class="wide">
+            Calendar details
+            <textarea name="details" placeholder="Registration instructions, workshop topics, locations, and contact information"></textarea>
+          </label>
+          <label class="wide">
+            Calendar image or PDF
+            <input class="input" name="file" type="file" accept="image/*,.pdf" required>
+          </label>
+          <button class="primary-button wide" type="submit">Upload and Post Calendar</button>
+        </form>
+      </article>`;
     }
 
     function renderFlyers() {
@@ -3062,13 +3094,11 @@
       };
     }
 
-    document.querySelector("#calendarForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
-      if (!uploadsUnlocked) return;
+    async function uploadCalendarFromForm(formElement) {
       setLoading("Uploading workshop calendar...");
       await waitForPaint();
       try {
-        const form = new FormData(event.currentTarget);
+        const form = new FormData(formElement);
         const file = form.get("file");
         const dataUrl = await readFile(file);
         data.calendars = (data.calendars || []).filter((calendar) => calendar.month !== form.get("month"));
@@ -3082,7 +3112,7 @@
           dataUrl
         });
         saveData();
-        event.currentTarget.reset();
+        formElement.reset();
         showNotice("The new workshop calendar is posted. Any calendar for the same month was replaced.");
         renderCalendars();
       } catch (error) {
@@ -3091,6 +3121,19 @@
       } finally {
         clearLoading();
       }
+    }
+
+    document.querySelector("#calendarForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!uploadsUnlocked) return;
+      await uploadCalendarFromForm(event.currentTarget);
+    });
+
+    document.querySelector("#calendarList").addEventListener("submit", async (event) => {
+      const form = event.target.closest("[data-inline-calendar-form]");
+      if (!form || !calendarsEditMode) return;
+      event.preventDefault();
+      await uploadCalendarFromForm(form);
     });
 
     document.querySelector("#calendarList").addEventListener("click", (event) => {
