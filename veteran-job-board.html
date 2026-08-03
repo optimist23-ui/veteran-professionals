@@ -1133,6 +1133,24 @@
       background: #fff;
     }
 
+    .calendar-document-preview {
+      min-height: 260px;
+      display: grid;
+      place-content: center;
+      gap: 10px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: linear-gradient(145deg, #eef5ff, #ffffff);
+      color: #174ea6;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .calendar-document-preview span {
+      font-size: 3rem;
+    }
+
     .calendar-details {
       display: grid;
       gap: 12px;
@@ -1687,7 +1705,7 @@
             </label>
             <label class="wide">
               Upload calendar image or PDF
-              <input class="input" name="file" type="file" accept="image/*,.pdf" required>
+              <input class="input" name="file" type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
             </label>
             <button class="primary-button wide" type="submit">Upload New Calendar</button>
           </form>
@@ -2411,7 +2429,10 @@
       const calendarCards = calendars.length ? calendars.map((calendar) => {
         const index = data.calendars.indexOf(calendar);
         const isPdf = calendar.fileType === "application/pdf";
-        const preview = isPdf
+        const isWord = /\.(doc|docx)$/i.test(calendar.fileName || "") || /msword|wordprocessingml/.test(calendar.fileType || "");
+        const preview = isWord
+          ? `<div class="calendar-document-preview" aria-label="Word calendar document"><span aria-hidden="true">W</span>Word Calendar<small>${escapeHtml(calendar.fileName || "Document")}</small></div>`
+          : isPdf
           ? `<object data="${escapeAttribute(calendar.dataUrl)}" type="application/pdf"><a class="secondary-button" href="${escapeAttribute(calendar.dataUrl)}" target="_blank" rel="noopener">Open Calendar PDF</a></object>`
           : `<img src="${escapeAttribute(calendar.dataUrl)}" alt="${escapeAttribute(calendar.title)} ${escapeAttribute(formatCalendarMonth(calendar.month))}">`;
         return `<article class="card calendar-feature">
@@ -2424,7 +2445,7 @@
               <li><strong>Display through:</strong> ${escapeHtml(formatDate(calendar.validThrough))}</li>
               ${calendar.details ? `<li><strong>Details:</strong> ${escapeHtml(calendar.details)}</li>` : ""}
             </ul>
-            <a class="secondary-button" href="${escapeAttribute(calendar.dataUrl)}" target="_blank" rel="noopener">Open Calendar</a>
+            <a class="secondary-button" href="${escapeAttribute(calendar.dataUrl)}" ${isWord ? `download="${escapeAttribute(calendar.fileName || "workshop-calendar.docx")}"` : `target="_blank" rel="noopener"`}>${isWord ? "Download Word Calendar" : "Open Calendar"}</a>
             ${calendarsEditMode ? `<button class="quiet-button" type="button" data-delete-calendar="${index}">Delete Calendar</button>` : ""}
           </div>
         </article>`;
@@ -2455,7 +2476,7 @@
           </label>
           <label class="wide">
             Calendar image or PDF
-            <input class="input" name="file" type="file" accept="image/*,.pdf" required>
+            <input class="input" name="file" type="file" accept="image/*,.pdf,.doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
           </label>
           <button class="primary-button wide" type="submit">Upload and Post Calendar</button>
         </form>
